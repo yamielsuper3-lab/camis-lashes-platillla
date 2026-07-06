@@ -1100,9 +1100,10 @@
         }
 
         .diamond-logo {
-            font-size: clamp(3.5rem, 10vw, 7rem);
-            color: var(--primary-gold);
-            line-height: 1;
+            width: clamp(120px, 18vw, 160px);
+            height: clamp(120px, 18vw, 160px);
+            border-radius: 50%;
+            object-fit: cover;
             filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.7));
             display: inline-block;
             transform-origin: center;
@@ -1600,7 +1601,7 @@
         <div class="loader-content" id="loaderContent">
             <!-- Icono/Logo centrado exacto en pantalla -->
             <div class="diamond-center">
-                <div class="diamond-logo" id="diamondLogo">◆</div>
+                <img class="diamond-logo" id="diamondLogo" src="logo.jpg" alt="Logo Cami's Lashes">
             </div>
             <!-- Porcentaje y barra de progreso anclados en la parte inferior -->
             <div class="loader-bottom">
