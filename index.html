@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cami's Lashes | Boutique & Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-cream: #F8F5EF;
+            --primary-gold: #C5A059;
+            --gold-hover: #B08D46;
+            --dark-charcoal: #121212;
+            --text-muted: #666666;
+            --white: #FFFFFF;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-cream);
+            color: var(--dark-charcoal);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Premium Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: rgba(248, 245, 240, 0.85);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            transition: var(--transition-smooth);
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--dark-charcoal);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-gold);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-charcoal);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-left: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background-color: var(--primary-gold);
+            transition: var(--transition-smooth);
+        }
+
+        nav a:hover {
+            color: var(--primary-gold);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px 20px;
+            position: relative;
+            background: transparent;
+            overflow: hidden;
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(248, 245, 239, 0.4);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-tagline {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 16px 35px;
+            background-color: var(--dark-charcoal);
+            color: var(--primary-cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid var(--dark-charcoal);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--primary-gold);
+            transition: var(--transition-smooth);
+            z-index: -1;
+        }
+
+        .btn-gold:hover {
+            color: var(--white);
+            border-color: var(--primary-gold);
+        }
+
+        .btn-gold:hover::before {
+            width: 100%;
+        }
+
+        /* Decorative Gold Shapes */
+        .decor-circle {
+            position: absolute;
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .dc-1 {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            left: -100px;
+        }
+
+        /* Boutique Section Styling */
+        .boutique-section {
+            padding: 100px 50px;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--primary-cream);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            padding: 25px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(18, 18, 18, 0.04);
+            border-color: rgba(197, 160, 89, 0.3);
+        }
+
+        .service-img-placeholder {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Sage / Olive Green Luxury Placeholders */
+        .sip-1 { background: linear-gradient(135deg, #7D8C76, #9CB095); }
+        .sip-2 { background: linear-gradient(135deg, #4A5D4E, #6B806F); }
+        .sip-3 { background: linear-gradient(135deg, #8A9A86, #ADBCA9); }
+        .sip-4 { background: linear-gradient(135deg, #A4B29E, #C1CEC0); }
+
+        .service-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-charcoal);
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 300;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .service-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(197, 160, 89, 0.1);
+            padding-top: 15px;
+        }
+
+        .service-price {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+        }
+
+        .btn-book {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--dark-charcoal);
+            border-bottom: 1.5px solid var(--primary-gold);
+            padding-bottom: 2px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-book:hover {
+            color: var(--primary-gold);
+            border-color: var(--dark-charcoal);
+        }
+
+        /* Academy Section Styling */
+        .academy-section {
+            padding: 100px 50px;
+            background-color: var(--primary-cream);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--dark-charcoal);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .section-header p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background-color: var(--primary-cream);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            padding: 40px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-smooth);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(18, 18, 18, 0.05);
+            border-color: rgba(197, 160, 89, 0.4);
+        }
+
+        .course-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .course-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-gold);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .course-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-charcoal);
+        }
+
+        .course-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-weight: 300;
+            flex-grow: 1;
+        }
+
+        .course-details {
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
+            padding-top: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--dark-charcoal);
+        }
+
+        .course-details span {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .course-card .btn-card {
+            display: block;
+            text-align: center;
+            padding: 12px 25px;
+            border: 1px solid var(--dark-charcoal);
+            text-decoration: none;
+            color: var(--dark-charcoal);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition-smooth);
+        }
+
+        .course-card .btn-card:hover {
+            background-color: var(--dark-charcoal);
+            color: var(--primary-cream);
+        }
+
+        /* Testimonials Section Styling */
+        .testimonials-section {
+            padding: 100px 50px;
+            background-color: var(--primary-cream);
+            position: relative;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            padding: 40px;
+            transition: var(--transition-smooth);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(18, 18, 18, 0.03);
+            border-color: rgba(197, 160, 89, 0.25);
+        }
+
+        .quote-icon {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: rgba(197, 160, 89, 0.15);
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .student-info {
+            display: flex;
+            align-items: center;
+            border-top: 1px solid rgba(197, 160, 89, 0.1);
+            padding-top: 20px;
+        }
+
+        .student-details h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark-charcoal);
+            margin-bottom: 4px;
+        }
+
+        .student-details p {
+            font-size: 0.8rem;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .stars {
+            color: var(--primary-gold);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* Contact Section Styling */
+        .contact-section {
+            padding: 100px 50px;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info-col h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--dark-charcoal);
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .contact-info-col p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .contact-details-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .contact-details-list li {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            color: var(--dark-charcoal);
+        }
+
+        .contact-details-list li strong {
+            color: var(--primary-gold);
+            margin-right: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-whatsapp-pulse {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #25D366;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-whatsapp-pulse:hover {
+            background-color: #20BA5A;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp-pulse svg {
+            margin-right: 10px;
+            fill: currentColor;
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Sophisticated Form */
+        .contact-form {
+            background-color: var(--primary-cream);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            padding: 50px;
+            position: relative;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--dark-charcoal);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            background-color: var(--white);
+            color: var(--dark-charcoal);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.08);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--dark-charcoal);
+            color: var(--primary-cream);
+            border: 1px solid var(--dark-charcoal);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-gold);
+            border-color: var(--primary-gold);
+            color: var(--white);
+        }
+
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-form {
+                padding: 30px;
+            }
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--dark-charcoal);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 80px 50px 30px 50px;
+            border-top: 2px solid var(--primary-gold);
+            font-size: 0.9rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--white);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 1.5px;
+            background-color: var(--primary-gold);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .footer-col p {
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--primary-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-gold);
+            color: var(--dark-charcoal);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: 300;
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Modal Popup Styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 2000;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-box {
+            background-color: var(--primary-cream);
+            border: 1px solid var(--primary-gold);
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            color: var(--dark-charcoal);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .modal-close:hover {
+            color: var(--primary-gold);
+        }
+
+        .modal-box h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--dark-charcoal);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .modal-syllabus {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .modal-syllabus li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .modal-syllabus li::before {
+            content: '•';
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .modal-syllabus li strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--dark-charcoal);
+            margin-bottom: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .modal-syllabus li span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Music Control */
+        .music-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            background-color: transparent;
+            transition: var(--transition-smooth);
+        }
+
+        .music-toggle:hover {
+            background-color: var(--primary-gold);
+            border-color: var(--primary-gold);
+        }
+
+        .music-icon {
+            width: 14px;
+            height: 14px;
+            fill: var(--dark-charcoal);
+            transition: var(--transition-smooth);
+        }
+
+        .music-toggle:hover .music-icon {
+            fill: var(--primary-cream);
+        }
+
+        /* Animated waves when active */
+        .music-toggle.playing .wave-1 {
+            animation: pulseWave 1s infinite alternate;
+        }
+        .music-toggle.playing .wave-2 {
+            animation: pulseWave 1s infinite alternate 0.2s;
+        }
+
+        .music-toggle.muted .wave-1,
+        .music-toggle.muted .wave-2 {
+            opacity: 0.15;
+        }
+
+        @keyframes pulseWave {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Menu Toggle (Hamburger) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 25px;
+            height: 16px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 2px;
+            background-color: var(--dark-charcoal);
+            transition: var(--transition-smooth);
+        }
+
+        /* Mobile full-screen navigation overlay */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--primary-cream);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1050;
+            transition: var(--transition-smooth);
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav a {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            text-decoration: none;
+            color: var(--dark-charcoal);
+            margin: 20px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .mobile-nav a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Hamburger Animation */
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .testimonials-section {
+                padding: 60px 20px;
+            }
+            .contact-section {
+                padding: 60px 20px;
+            }
+            footer {
+                padding: 60px 20px 20px 20px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        /* ══════════════════════════════════════════════
+           SKILL: INTRO ROMBO (DIAMOND PORTAL TRANSITION)
+           ══════════════════════════════════════════════ */
+        .tu-pagina-web {
+            position: relative;
+            z-index: 1;
+        }
+
+        .loader-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .loader-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .loader-content {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .diamond-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .diamond-logo {
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            color: var(--primary-gold);
+            line-height: 1;
+            filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.7));
+            display: inline-block;
+            transform-origin: center;
+        }
+
+        .loader-bottom {
+            position: absolute;
+            bottom: 8vh;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .percentage {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--primary-cream);
+            letter-spacing: 0.15em;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .progress-bar-wrap {
+            width: clamp(160px, 25vw, 280px);
+            height: 1.5px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--primary-gold);
+            border-radius: 999px;
+        }
+
+        .loader-tagline {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.3);
+            font-weight: 400;
+        }
+    </style>
+    <!-- GSAP Libraries for Diamond Portal Transition -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap-attr-plugin.min.js"></script>
+</head>
+<body>
+    <!-- Background Audio Element -->
+    <audio id="bgMusic" loop src="bg-music.mp3"></audio>
+
+    <!-- CAPA INFERIOR: Tu página real -->
+    <div class="tu-pagina-web">
+        <div class="decor-circle dc-1"></div>
+        <div class="decor-circle dc-2"></div>
+
+        <header>
+            <a href="#" class="logo">CAMI'S <span>LASHES</span></a>
+            <nav class="desktop-nav">
+                <a href="#">Inicio</a>
+                <a href="#boutique">Boutique</a>
+                <a href="#academy">Academia</a>
+                <a href="#contact">Contacto</a>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div class="music-toggle playing" id="musicToggleBtn" title="Silenciar/Activar música">
+                    <svg class="music-icon" viewBox="0 0 24 24">
+                        <path d="M6 9H4.5v6H6l4.5 4v-14z"/>
+                        <path class="wave-1" d="M14 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                        <path class="wave-2" d="M12 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                    </svg>
+                </div>
+                <div class="menu-toggle" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#">Inicio</a>
+        <a href="#boutique">Boutique</a>
+        <a href="#academy">Academia</a>
+        <a href="#contact">Contacto</a>
+    </nav>
+
+    <section class="hero">
+        <video class="hero-video-bg" autoplay muted loop playsinline>
+            <source src="hero-bg.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-tagline">Boutique & Academy</p>
+            <h1>La elegancia de una mirada perfecta</h1>
+            <p>Diseños exclusivos de pestañas y capacitación profesional de alto nivel con técnicas avanzadas de neuromarketing y estética premium.</p>
+            <a href="#boutique" class="btn-gold">Ver Servicios</a>
+        </div>
+    </section>
+
+    <section id="boutique" class="boutique-section">
+        <div class="section-header">
+            <h2>Boutique de Pestañas</h2>
+            <p>Descubre nuestra gama de servicios exclusivos y diseños personalizados para realzar la belleza natural de tu mirada con acabados de alta costura.</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Servicio 1 -->
+            <div class="service-card">
+                <div>
+                    <div class="service-img-placeholder sip-1">Set Clásico</div>
+                    <h3>Efecto Rímel (1:1)</h3>
+                    <p>Aplicación de una extensión sobre cada pestaña natural. Ideal para un look elegante, natural y limpio para el día a día.</p>
+                </div>
+                <div class="service-footer">
+                    <div class="service-price">$750</div>
+                    <a href="#" class="btn-book">Reservar</a>
+                </div>
+            </div>
+
+            <!-- Servicio 2 -->
+            <div class="service-card">
+                <div>
+                    <div class="service-img-placeholder sip-2">Volumen Ruso</div>
+                    <h3>Volumen Ruso Premium</h3>
+                    <p>Diseño de abanicos artesanales ultraligeros aplicados minuciosamente para lograr densidad, textura y un efecto tupido espectacular.</p>
+                </div>
+                <div class="service-footer">
+                    <div class="service-price">$1,200</div>
+                    <a href="#" class="btn-book">Reservar</a>
+                </div>
+            </div>
+
+            <!-- Servicio 3 -->
+            <div class="service-card">
+                <div>
+                    <div class="service-img-placeholder sip-3">Set Híbrido</div>
+                    <h3>Efecto Híbrido Elite</h3>
+                    <p>La combinación perfecta entre la técnica clásica y volumen. Aporta volumen texturizado, suavidad y dimensión personalizada.</p>
+                </div>
+                <div class="service-footer">
+                    <div class="service-price">$950</div>
+                    <a href="#" class="btn-book">Reservar</a>
+                </div>
+            </div>
+
+            <!-- Servicio 4 -->
+            <div class="service-card">
+                <div>
+                    <div class="service-img-placeholder sip-4">Lifting & Tinte</div>
+                    <h3>Lash Lift & Tinte</h3>
+                    <p>Tratamiento de queratina para elevar y curvar tus pestañas naturales desde la raíz, complementado con tinte para mayor definición.</p>
+                </div>
+                <div class="service-footer">
+                    <div class="service-price">$600</div>
+                    <a href="#" class="btn-book">Reservar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="academy" class="academy-section">
+        <div class="section-header">
+            <h2>Academia Profesional</h2>
+            <p>Fórmate con las mejores técnicas internacionales. Nuestros cursos están diseñados para llevarte desde cero hasta convertirte en una Lash Artist de élite.</p>
+        </div>
+
+        <div class="courses-grid">
+            <!-- Curso 1 -->
+            <div class="course-card">
+                <div>
+                    <span class="course-tag">Principiante a Avanzado</span>
+                    <h3>Classic & Volume Masterclass</h3>
+                    <p>Aprende la colocación perfecta de extensiones de pestañas una a una y las técnicas fundamentales de volumen ruso clásico.</p>
+                </div>
+                <div>
+                    <div class="course-details">
+                        <div>Duración: <span>2 Días (Presencial)</span></div>
+                        <div>Nivel: <span>Iniciación</span></div>
+                    </div>
+                    <a href="#" class="btn-card">Ver Programa</a>
+                </div>
+            </div>
+
+            <!-- Curso 2 -->
+            <div class="course-card">
+                <div>
+                    <span class="course-tag">Especialización</span>
+                    <h3>Fibras Tecnológicas</h3>
+                    <p>Domina el uso de las últimas tendencias del mercado: pestañas en Y, W, 3D y 5D para crear efectos de gran densidad en tiempo récord.</p>
+                </div>
+                <div>
+                    <div class="course-details">
+                        <div>Duración: <span>1 Día (Intensivo)</span></div>
+                        <div>Nivel: <span>Intermedio</span></div>
+                    </div>
+                    <a href="#" class="btn-card">Ver Programa</a>
+                </div>
+            </div>
+
+            <!-- Curso 3 -->
+            <div class="course-card">
+                <div>
+                    <span class="course-tag">Business & Growth</span>
+                    <h3>Neuromarketing para Lash Artists</h3>
+                    <p>Aprende a estructurar tus precios, atraer clientes de alto valor de forma orgánica y automatizar tus reservas usando embudos AIMA.</p>
+                </div>
+                <div>
+                    <div class="course-details">
+                        <div>Duración: <span>Online</span></div>
+                        <div>Nivel: <span>Negocio</span></div>
+                    </div>
+                    <a href="#" class="btn-card">Ver Programa</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+        <div class="section-header">
+            <h2>Testimonios de Alumnas</h2>
+            <p>Descubre el impacto de nuestra formación a través de las experiencias y casos de éxito de quienes confiaron en la Academia Cami's Lashes.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <!-- Testimonio 1 -->
+            <div class="testimonial-card">
+                <span class="quote-icon">“</span>
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"El curso presencial me cambió la vida. La técnica de aislamiento que enseña Cami es súper detallada, y la paciencia que tiene para explicar es increíble. ¡Ya abrí mi propio estudio!"</p>
+                </div>
+                <div class="student-info">
+                    <div class="student-details">
+                        <h4>Valeria S.</h4>
+                        <p>Egresada de Classic & Volume Russian Masterclass</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonio 2 -->
+            <div class="testimonial-card">
+                <span class="quote-icon">“</span>
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Increíble la rapidez y el volumen que logro ahora con las fibras tecnológicas en Y y W. Mis clientas están fascinadas y mi tiempo de servicio bajó a la mitad. ¡Recomendadísimo!"</p>
+                </div>
+                <div class="student-info">
+                    <div class="student-details">
+                        <h4>Sofía M.</h4>
+                        <p>Egresada de Fibras Tecnológicas</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonio 3 -->
+            <div class="testimonial-card">
+                <span class="quote-icon">“</span>
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Gracias al módulo de negocio y embudos de automatización, logré duplicar el precio de mis servicios y llenar mi agenda en menos de un mes. El bot de reservas es una maravilla."</p>
+                </div>
+                <div class="student-info">
+                    <div class="student-details">
+                        <h4>Alejandra G.</h4>
+                        <p>Egresada de Neuromarketing para Lash Artists</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <!-- Columna de información -->
+            <div class="contact-info-col">
+                <h3>Agendar Cita o Pedir Informes</h3>
+                <p>Para brindarte una atención 100% personalizada, te invitamos a llenar el formulario o a contactarnos directamente por WhatsApp. Diseñaremos el set perfecto para tu mirada o te guiaremos en tu camino profesional.</p>
+                
+                <ul class="contact-details-list">
+                    <li><strong>Boutique Guanajuato:</strong> Calle de la Estética #45, Centro</li>
+                    <li><strong>Boutique Puerto Vallarta:</strong> Av. de las Palmas #880, Marina</li>
+                    <li><strong>Horario:</strong> Lunes a Sábado de 10:00 AM a 8:00 PM</li>
+                </ul>
+
+                <!-- Pulsing WhatsApp Button -->
+                <a href="https://wa.me/521234567890?text=Hola%20Cami's%20Lashes,%20quiero%20más%20información." target="_blank" class="btn-whatsapp-pulse">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.63-1.023-5.101-2.884-6.963C16.59 1.928 14.122.905 11.493.905 6.056.905 1.63 5.324 1.626 10.758c-.001 1.639.433 3.24 1.258 4.673l-.998 3.648 3.762-.985zM17.487 14.39c-.322-.162-1.905-.94-2.202-1.048-.297-.108-.514-.162-.73.162-.217.324-.838 1.048-1.027 1.265-.19.217-.378.243-.7.081-.321-.162-1.354-.5-2.58-1.593-.952-.85-1.595-1.9-1.782-2.217-.188-.324-.02-.5-.182-.662-.145-.145-.322-.378-.485-.567-.162-.19-.217-.324-.324-.54-.108-.217-.054-.405-.027-.567.027-.162.217-.514.324-.676.108-.162.145-.27.217-.405.072-.135.036-.27-.014-.405-.05-.135-.514-1.24-.704-1.699-.186-.447-.378-.387-.516-.393l-.441-.007c-.152 0-.399.057-.607.284-.208.227-.795.776-.795 1.892 0 1.116.811 2.193.924 2.346.113.153 1.595 2.436 3.865 3.416.54.233 1.008.387 1.353.498.543.173 1.037.149 1.428.09.435-.066 1.905-.777 2.176-1.493.27-.716.27-1.33.19-1.458-.08-.128-.297-.216-.62-.378z"/>
+                    </svg>
+                    Agendar por WhatsApp
+                </a>
+            </div>
+
+            <!-- Columna del formulario -->
+            <form id="bookingForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" required placeholder="Ej. Ana García">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono / WhatsApp</label>
+                    <input type="tel" id="phone" required placeholder="Ej. +52 1 234 567 890">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" required placeholder="Ej. ana@correo.com">
+                </div>
+                <div class="form-group">
+                    <label for="service">Servicio o Curso de Interés</label>
+                    <select id="service" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <optgroup label="Boutique (Pestañas)">
+                            <option value="Efecto Rímel (1:1)">Efecto Rímel (1:1) - $750</option>
+                            <option value="Volumen Ruso Premium">Volumen Ruso Premium - $1,200</option>
+                            <option value="Efecto Híbrido Elite">Efecto Híbrido Elite - $950</option>
+                            <option value="Lash Lift & Tinte">Lash Lift & Tinte - $600</option>
+                        </optgroup>
+                        <optgroup label="Academia (Cursos)">
+                            <option value="Classic & Volume Russian Masterclass">Classic & Volume Russian Masterclass</option>
+                            <option value="Fibras Tecnológicas">Fibras Tecnológicas</option>
+                            <option value="Neuromarketing para Lash Artists">Neuromarketing para Lash Artists</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje o Fecha de Preferencia</label>
+                    <textarea id="message" rows="4" placeholder="Cuéntanos qué fecha prefieres o déjanos tus dudas..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Modal container -->
+    <div class="modal-overlay" id="programModal">
+        <div class="modal-box">
+            <span class="modal-close" id="modalCloseBtn">&times;</span>
+            <h3 id="modalTitle">Programa del Curso</h3>
+            <ul class="modal-syllabus" id="modalSyllabus">
+                <!-- Se poblará con JS -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle interactive WhatsApp booking -->
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Build the WhatsApp message
+            const baseText = `¡Hola Cami's Lashes! Me gustaría agendar/pedir informes:\n\n*Nombre:* ${name}\n*Teléfono:* ${phone}\n*Email:* ${email}\n*Servicio/Curso:* ${service}\n*Mensaje:* ${message}`;
+            const encodedText = encodeURIComponent(baseText);
+            
+            // Redirect to Cami's business WhatsApp (placeholder number, can be customized)
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=521234567890&text=${encodedText}`;
+            
+            // Open in new tab
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Mobile Menu Interactivity
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close menu when clicking on any mobile nav link
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Modal Syllabus Data
+        const syllabusData = {
+            'Classic & Volume Masterclass': [
+                { module: 'Módulo 1: Anatomía y Ciclo de Pestañas', desc: 'Introducción a la salud ocular, contraindicaciones y análisis del ciclo de crecimiento natural.' },
+                { module: 'Módulo 2: Técnicas de Aislamiento y Dirección', desc: 'El secreto del aislamiento perfecto una a una y cómo lograr una dirección uniforme y simétrica.' },
+                { module: 'Módulo 3: Adhesivos y Retención Máxima', desc: 'Química del cianoacrilato, control de humedad/temperatura y preparación de la pestaña natural.' },
+                { module: 'Módulo 4: Volumen Ruso Inicial', desc: 'Diseño y armado de abanicos artesanales 2D y 3D en tiras y colocación correcta.' },
+                { module: 'Módulo 5: Práctica Real en Maniquí y Modelo', desc: 'Supervisión en vivo de set completo clásico aplicando reglas de seguridad e higiene.' }
+            ],
+            'Fibras Tecnológicas': [
+                { module: 'Módulo 1: Evolución de las Fibras Tecnológicas', desc: 'Comportamiento de las fibras en Y, W, 3D y 5D en la pestaña natural.' },
+                { module: 'Módulo 2: Retención y Acople', desc: 'Técnica de envoltura y acople plano para asegurar retención de hasta 6 semanas.' },
+                { module: 'Módulo 3: Mapeo y Efectos Especiales', desc: 'Efecto Rímel, Efecto Kim K y sombreados inteligentes con mezclas de longitudes.' },
+                { module: 'Módulo 4: Optimización de Tiempos', desc: 'Cómo realizar un set completo de volumen en 1 hora y 15 minutos usando fibras pre-armadas.' }
+            ],
+            'Neuromarketing para Lash Artists': [
+                { module: 'Módulo 1: Psicología del Consumidor de Belleza', desc: 'Los disparadores mentales que hacen que una clienta elija tu servicio frente a la competencia.' },
+                { module: 'Módulo 2: Ingeniería de Precios Premium', desc: 'Estrategia financiera para dejar de competir por precio y empezar a vender valor y exclusividad.' },
+                { module: 'Módulo 3: Embudos de Conversión AIMA', desc: 'Configuración paso a paso del embudo para captar clientas, retenerlas y automatizar reservas.' },
+                { module: 'Módulo 4: Automatización de WhatsApp', desc: 'Creación de flujos lógicos con palabras clave para atender y agendar citas 24/7 sin tu intervención.' }
+            ]
+        };
+
+        // Open Modal Script
+        const modal = document.getElementById('programModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalSyllabus = document.getElementById('modalSyllabus');
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+        document.querySelectorAll('.btn-card').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Find course title
+                const courseTitle = btn.closest('.course-card').querySelector('h3').innerText.trim();
+                
+                // Set Title
+                modalTitle.innerText = courseTitle;
+                
+                // Clear and populate Syllabus
+                modalSyllabus.innerHTML = '';
+                const modules = syllabusData[courseTitle] || [];
+                modules.forEach(m => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>${m.module}</strong><span>${m.desc}</span>`;
+                    modalSyllabus.appendChild(li);
+                });
+                
+                // Show modal
+                modal.classList.add('active');
+            });
+        });
+
+        // Close modal triggers
+        modalCloseBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
+    <footer>
+        <div class="footer-container">
+            <!-- Columna 1: Branding -->
+            <div class="footer-col">
+                <a href="#" class="footer-logo">CAMI'S <span>LASHES</span></a>
+                <p>Estética premium de pestañas y academia de alto rendimiento. Elevando miradas y empoderando profesionales de la belleza.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="Instagram">IG</a>
+                    <a href="#" class="social-link" title="Facebook">FB</a>
+                    <a href="#" class="social-link" title="WhatsApp">WA</a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Sucursales -->
+            <div class="footer-col">
+                <h4>Ubicaciones</h4>
+                <ul>
+                    <li><strong>Guanajuato:</strong> Calle de la Estética #45, Centro Histórico</li>
+                    <li><strong>Puerto Vallarta:</strong> Av. de las Palmas #880, Marina Vallarta</li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Horarios -->
+            <div class="footer-col">
+                <h4>Horarios de Atención</h4>
+                <ul>
+                    <li>Lunes a Viernes: 10:00 AM – 8:00 PM</li>
+                    <li>Sábados: 10:00 AM – 6:00 PM</li>
+                    <li>Domingos: Cerrado</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Cami's Lashes. Todos los derechos reservados.</p>
+            <p><a href="#">Aviso de Privacidad</a>  |  <a href="#">Términos de Servicio</a></p>
+        </div>
+    </footer>
+    </div> <!-- FIN CAPA INFERIOR: Tu página real -->
+
+    <!-- CAPA SUPERIOR: Loader (Loader con SVG mask) -->
+    <div class="loader-screen" id="loaderScreen">
+        <div class="loader-content" id="loaderContent">
+            <!-- Icono/Logo centrado exacto en pantalla -->
+            <div class="diamond-center">
+                <div class="diamond-logo" id="diamondLogo">◆</div>
+            </div>
+            <!-- Porcentaje y barra de progreso anclados en la parte inferior -->
+            <div class="loader-bottom">
+                <div class="percentage" id="percentage">0%</div>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" id="progressFill"></div>
+                </div>
+                <div class="loader-tagline">Cargando experiencia...</div>
+            </div>
+        </div>
+
+        <!-- SVG con máscara: rect blanco = visible, polygon negro = hoyo transparente -->
+        <svg class="loader-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+            <mask id="diamond-mask">
+                <rect width="100" height="100" fill="white"/>
+                <polygon id="mask-hole" points="50,50 50,50 50,50 50,50" fill="black"/>
+            </mask>
+            <!-- Rellena con el color del loader (Cami's Charcoal) -->
+            <rect width="100" height="100" fill="#121212" mask="url(#diamond-mask)"/>
+        </svg>
+    </div>
+
+    <!-- Script de Inicialización y Animación del Loader (GSAP) -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const loader        = document.getElementById('loaderScreen');
+            const loaderContent = document.getElementById('loaderContent');
+            const diamond       = document.getElementById('diamondLogo');
+            const pctEl         = document.getElementById('percentage');
+            const fillEl        = document.getElementById('progressFill');
+            const maskHole      = document.getElementById('mask-hole');
+
+            const counter = { val: 0 };
+            const tl = gsap.timeline();
+
+            // 1. Rotación del rombo central
+            gsap.to(diamond, {
+                rotation: 360,
+                duration: 2.5,
+                repeat: -1,
+                ease: 'none'
+            });
+
+            // 2. Efecto pulso de brillo en el logo (usando el oro primario #C5A059)
+            gsap.to(diamond, {
+                filter: 'drop-shadow(0 0 25px rgba(197,160,89,1)) drop-shadow(0 0 50px rgba(197,160,89,0.5))',
+                duration: 1.2,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+
+            // 3. Progreso del porcentaje 0% -> 100%
+            tl.to(counter, {
+                val: 100,
+                duration: 2.2,
+                ease: 'power1.inOut',
+                onUpdate() {
+                    const v = Math.round(counter.val);
+                    pctEl.textContent  = v + '%';
+                    fillEl.style.width = v + '%';
+                }
+            });
+
+            // 4. Pausa milimétrica al completarse
+            tl.to({}, { duration: 0.2 });
+
+            // 5. Encoger y desvanecer textos/logo del loader en el centro
+            tl.to(loaderContent, {
+                opacity: 0,
+                scale: 0.9,
+                duration: 0.4,
+                ease: 'power2.in'
+            });
+
+            // 6. ¡Transición del Portal!
+            // Expandimos los 4 vértices del polígono transparente hacia afuera del viewBox (0 0 100 100)
+            // Vértices finales: Arriba (50, -50), Derecha (150, 50), Abajo (50, 150), Izquierda (-50, 50)
+            tl.to(maskHole, {
+                attr: { points: '50,-50 150,50 50,150 -50,50' },
+                duration: 1.2,
+                ease: 'expo.inOut'
+            }, '-=0.1');
+
+            // 7. Ocultar el loader completo para permitir interacción con la web real
+            tl.set(loader, { display: 'none' });
+
+            // Background Music Logic
+            const bgMusic = document.getElementById('bgMusic');
+            const musicToggleBtn = document.getElementById('musicToggleBtn');
+
+            // Play music on first user interaction (browser restriction bypass)
+            const startMusicOnInteraction = () => {
+                bgMusic.play().then(() => {
+                    musicToggleBtn.classList.add('playing');
+                    musicToggleBtn.classList.remove('muted');
+                }).catch(err => {
+                    console.log("Auto-play blocked by browser. Awaiting user toggle.");
+                });
+                // Remove listener once triggered
+                document.removeEventListener('click', startMusicOnInteraction);
+                document.removeEventListener('touchstart', startMusicOnInteraction);
+            };
+
+            document.addEventListener('click', startMusicOnInteraction);
+            document.addEventListener('touchstart', startMusicOnInteraction);
+
+            // Toggle button action
+            musicToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Avoid triggering page interaction play
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                    musicToggleBtn.classList.add('playing');
+                    musicToggleBtn.classList.remove('muted');
+                } else {
+                    bgMusic.pause();
+                    musicToggleBtn.classList.remove('playing');
+                    musicToggleBtn.classList.add('muted');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
