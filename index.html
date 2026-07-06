@@ -1123,7 +1123,7 @@
             font-family: 'Cinzel', serif;
             font-size: clamp(1.2rem, 3vw, 2rem);
             font-weight: 700;
-            color: var(--primary-cream);
+            color: var(--dark-charcoal);
             letter-spacing: 0.15em;
             font-variant-numeric: tabular-nums;
         }
@@ -1131,7 +1131,7 @@
         .progress-bar-wrap {
             width: clamp(160px, 25vw, 280px);
             height: 1.5px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(18, 18, 18, 0.1);
             border-radius: 999px;
             overflow: hidden;
         }
@@ -1147,7 +1147,7 @@
             font-size: 0.65rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(18, 18, 18, 0.5);
             font-weight: 400;
         }
     </style>
@@ -1618,8 +1618,8 @@
                 <rect width="100" height="100" fill="white"/>
                 <polygon id="mask-hole" points="50,50 50,50 50,50 50,50" fill="black"/>
             </mask>
-            <!-- Rellena con el color del loader (Cami's Charcoal) -->
-            <rect width="100" height="100" fill="#121212" mask="url(#diamond-mask)"/>
+            <!-- Rellena con la imagen de fondo premium (crema/oro mármol) -->
+            <image href="loader-bg.png" width="100" height="100" preserveAspectRatio="xMidYMid slice" mask="url(#diamond-mask)"/>
         </svg>
     </div>
 
