@@ -1144,12 +1144,119 @@
             border-radius: 999px;
         }
 
-        .loader-tagline {
-            font-size: 0.65rem;
-            letter-spacing: 0.25em;
+        /* ══════════════════════════════════════════════
+           SPLIT SCREEN SECTION
+           ══════════════════════════════════════════════ */
+        .split-screen-section {
+            display: flex;
+            width: 100%;
+            height: 60vh;
+            overflow: hidden;
+            background-color: var(--dark-charcoal);
+            position: relative;
+        }
+
+        .split-panel {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .split-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1;
+        }
+
+        .split-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.3) 0%, rgba(18, 18, 18, 0.8) 100%);
+            z-index: 2;
+            transition: background 0.7s var(--transition-smooth);
+        }
+
+        .split-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 440px;
+            color: var(--primary-cream);
+            transform: translateY(15px);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .split-tag {
+            font-size: 0.75rem;
             text-transform: uppercase;
-            color: rgba(18, 18, 18, 0.5);
+            letter-spacing: 3px;
+            color: var(--primary-gold);
+            margin-bottom: 12px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .split-panel h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
             font-weight: 400;
+            color: var(--primary-cream);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .split-panel p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(248, 245, 239, 0.8);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* Hover Interaction Effects */
+        .split-panel:hover {
+            flex: 1.35;
+        }
+
+        .split-panel:hover .split-bg {
+            transform: scale(1.05);
+        }
+
+        .split-panel:hover .split-overlay {
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.1) 0%, rgba(18, 18, 18, 0.65) 100%);
+        }
+
+        .split-panel:hover .split-content {
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .split-screen-section {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .split-panel {
+                height: 40vh;
+                padding: 35px 20px;
+            }
+
+            .split-panel:hover {
+                flex: 1;
+            }
         }
     </style>
     <!-- GSAP Libraries for Diamond Portal Transition -->
@@ -1207,6 +1314,30 @@
             <p>Diseños exclusivos de pestañas y capacitación profesional de alto nivel con técnicas avanzadas de neuromarketing y estética premium.</p>
             <a href="#boutique" class="btn-gold">Ver Servicios</a>
         </div>
+    </section>
+
+    <!-- SECCIÓN SPLIT SCREEN (Boutique vs Academia) -->
+    <section class="split-screen-section">
+        <a href="#academy" class="split-panel academy-panel">
+            <div class="split-bg" style="background-image: url('images/academy_split.png');"></div>
+            <div class="split-overlay"></div>
+            <div class="split-content">
+                <span class="split-tag">Capacitación de Élite</span>
+                <h2>Academia</h2>
+                <p>Domina las técnicas más cotizadas de la industria y emprende tu propio negocio con nuestro programa Masterclass certificado.</p>
+                <span class="btn-gold" style="display: inline-block;">Ver Cursos</span>
+            </div>
+        </a>
+        <a href="#boutique" class="split-panel spa-panel">
+            <div class="split-bg" style="background-image: url('images/spa_split.png');"></div>
+            <div class="split-overlay"></div>
+            <div class="split-content">
+                <span class="split-tag">Servicios Exclusivos</span>
+                <h2>Boutique & Spa</h2>
+                <p>Consiente tu mirada con extensiones de pestañas de alta costura, diseños personalizados y servicios de spa relajantes.</p>
+                <span class="btn-gold" style="display: inline-block;">Ver Servicios</span>
+            </div>
+        </a>
     </section>
 
     <section id="boutique" class="boutique-section">
