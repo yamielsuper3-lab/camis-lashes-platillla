@@ -98,80 +98,229 @@
         }
 
         /* Hero Section */
-        .hero {
-            min-height: 100vh;
+        /* ══════════════════════════════════════════════
+           LUXURY SPLIT SCREEN HERO SECTION (100vh)
+           ══════════════════════════════════════════════ */
+        .split-hero-section {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: var(--dark-charcoal);
+            position: relative;
+            z-index: 10;
+        }
+
+        .split-panel {
+            flex: 1;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 120px 20px 80px 20px;
-            position: relative;
-            background: transparent;
+            padding: 40px;
+            text-decoration: none;
             overflow: hidden;
+            transition: flex 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, height 1s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
         }
 
-        .hero-video-bg {
+        /* Background media container */
+        .split-bg-container {
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .split-bg {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            object-fit: cover;
+        }
+
+        /* Custom video styling for Spa panel */
+        .split-video-bg {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: -2;
             pointer-events: none;
         }
 
-        .hero-overlay {
+        .split-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(248, 245, 239, 0.4);
-            z-index: -1;
-            pointer-events: none;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.35) 0%, rgba(18, 18, 18, 0.85) 100%);
+            z-index: 2;
+            transition: background 0.8s ease;
         }
 
-        .hero-content {
-            max-width: 800px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .split-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 440px;
+            color: var(--primary-cream);
+            transform: translateY(20px);
+            opacity: 0.9;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
         }
 
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-tagline {
-            font-size: 0.9rem;
+        .split-tag {
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 4px;
             color: var(--primary-gold);
-            margin-bottom: 20px;
-            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+            font-weight: 500;
         }
 
-        .hero h1 {
+        .split-panel h2 {
             font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 400;
-            line-height: 1.2;
-            margin-bottom: 30px;
+            color: var(--primary-cream);
+            margin-bottom: 18px;
             letter-spacing: 2px;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 40px;
+        .split-panel p {
+            font-size: 0.95rem;
             font-weight: 300;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: rgba(248, 245, 239, 0.8);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        /* Hover states (when neither is expanded/active) */
+        .split-hero-section:not(.active-academy):not(.active-spa) .split-panel:hover {
+            flex: 1.4;
+        }
+
+        .split-hero-section:not(.active-academy):not(.active-spa) .split-panel:hover .split-bg-container {
+            transform: scale(1.05);
+        }
+
+        .split-hero-section:not(.active-academy):not(.active-spa) .split-panel:hover .split-overlay {
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.15) 0%, rgba(18, 18, 18, 0.65) 100%);
+        }
+
+        .split-hero-section:not(.active-academy):not(.active-spa) .split-panel:hover .split-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ACTIVE TRANSITION STATES (When clicked and transforming page) */
+        .split-hero-section.active-academy .academy-panel {
+            flex: 100;
+            cursor: default;
+        }
+        .split-hero-section.active-academy .spa-panel {
+            flex: 0.0001;
+            opacity: 0;
+            pointer-events: none;
+            padding: 0;
+        }
+
+        .split-hero-section.active-spa .spa-panel {
+            flex: 100;
+            cursor: default;
+        }
+        .split-hero-section.active-spa .academy-panel {
+            flex: 0.0001;
+            opacity: 0;
+            pointer-events: none;
+            padding: 0;
+        }
+
+        /* Hide content when expanding */
+        .split-hero-section.active-academy .academy-panel .split-content,
+        .split-hero-section.active-spa .spa-panel .split-content {
+            opacity: 0;
+            transform: translateY(-50px);
+            pointer-events: none;
+        }
+
+        /* Scroll control class */
+        body.scroll-locked {
+            overflow: hidden;
+        }
+
+        /* Floating back button to return to Split selection */
+        .split-back-btn {
+            position: fixed;
+            top: 25px;
+            right: 120px; /* Near header buttons */
+            z-index: 1005;
+            background-color: rgba(18, 18, 18, 0.85);
+            border: 1px solid rgba(197, 160, 89, 0.5);
+            color: var(--primary-gold);
+            padding: 10px 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 999px;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-20px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .split-back-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .split-back-btn:hover {
+            background-color: var(--primary-gold);
+            color: var(--dark-charcoal);
+            border-color: var(--primary-gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .split-hero-section {
+                flex-direction: column;
+                height: 100vh;
+            }
+
+            .split-panel {
+                height: 50vh;
+                padding: 30px 20px;
+            }
+
+            .split-hero-section:not(.active-academy):not(.active-spa) .split-panel:hover {
+                flex: 1;
+            }
+
+            /* Active transition mobile */
+            .split-hero-section.active-academy .academy-panel {
+                height: 100vh;
+            }
+            .split-hero-section.active-academy .spa-panel {
+                height: 0vh;
+            }
+
+            .split-hero-section.active-spa .spa-panel {
+                height: 100vh;
+            }
+            .split-hero-section.active-spa .academy-panel {
+                height: 0vh;
+            }
+            
+            .split-back-btn {
+                right: 70px;
+                top: 20px;
+            }
         }
 
         .btn-gold {
@@ -1144,126 +1293,13 @@
             border-radius: 999px;
         }
 
-        /* ══════════════════════════════════════════════
-           SPLIT SCREEN SECTION
-           ══════════════════════════════════════════════ */
-        .split-screen-section {
-            display: flex;
-            width: 100%;
-            height: 60vh;
-            overflow: hidden;
-            background-color: var(--dark-charcoal);
-            position: relative;
-        }
-
-        .split-panel {
-            flex: 1;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-            text-decoration: none;
-            overflow: hidden;
-        }
-
-        .split-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 1;
-        }
-
-        .split-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(18, 18, 18, 0.3) 0%, rgba(18, 18, 18, 0.8) 100%);
-            z-index: 2;
-            transition: background 0.7s var(--transition-smooth);
-        }
-
-        .split-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            max-width: 440px;
-            color: var(--primary-cream);
-            transform: translateY(15px);
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .split-tag {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--primary-gold);
-            margin-bottom: 12px;
-            display: block;
-            font-weight: 500;
-        }
-
-        .split-panel h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            font-weight: 400;
-            color: var(--primary-cream);
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-
-        .split-panel p {
-            font-size: 0.9rem;
-            font-weight: 300;
-            color: rgba(248, 245, 239, 0.8);
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        /* Hover Interaction Effects */
-        .split-panel:hover {
-            flex: 1.35;
-        }
-
-        .split-panel:hover .split-bg {
-            transform: scale(1.05);
-        }
-
-        .split-panel:hover .split-overlay {
-            background: linear-gradient(180deg, rgba(18, 18, 18, 0.1) 0%, rgba(18, 18, 18, 0.65) 100%);
-        }
-
-        .split-panel:hover .split-content {
-            transform: translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .split-screen-section {
-                flex-direction: column;
-                height: auto;
-            }
-
-            .split-panel {
-                height: 40vh;
-                padding: 35px 20px;
-            }
-
-            .split-panel:hover {
-                flex: 1;
-            }
-        }
+        /* Eliminated old split CSS block - Unified in Split Hero Section */
     </style>
     <!-- GSAP Libraries for Diamond Portal Transition -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap-attr-plugin.min.js"></script>
 </head>
-<body>
+<body class="scroll-locked">
     <!-- Background Audio Element -->
     <audio id="bgMusic" loop src="bg-music.mp3"></audio>
 
@@ -1303,41 +1339,40 @@
         <a href="#contact">Contacto</a>
     </nav>
 
-    <section class="hero">
-        <video class="hero-video-bg" autoplay muted loop playsinline>
-            <source src="hero-bg.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <p class="hero-tagline">Boutique & Academy</p>
-            <h1>La elegancia de una mirada perfecta</h1>
-            <p>Diseños exclusivos de pestañas y capacitación profesional de alto nivel con técnicas avanzadas de neuromarketing y estética premium.</p>
-            <a href="#boutique" class="btn-gold">Ver Servicios</a>
-        </div>
-    </section>
+    <!-- Floating Back Button (for returning to Split Hero Selection) -->
+    <button class="split-back-btn" id="splitBackBtn">← Cambiar Sección</button>
 
-    <!-- SECCIÓN SPLIT SCREEN (Boutique vs Academia) -->
-    <section class="split-screen-section">
-        <a href="#academy" class="split-panel academy-panel">
-            <div class="split-bg" style="background-image: url('images/academy_split.png');"></div>
+    <!-- SECCIÓN HERO PANTALLA DIVIDIDA (Split Screen Hero) -->
+    <section class="split-hero-section" id="splitHero">
+        <!-- Panel Izquierdo: Academia -->
+        <div class="split-panel academy-panel" id="academyPanel">
+            <div class="split-bg-container">
+                <div class="split-bg" style="background-image: url('images/academy_split.png');"></div>
+            </div>
             <div class="split-overlay"></div>
             <div class="split-content">
                 <span class="split-tag">Capacitación de Élite</span>
                 <h2>Academia</h2>
-                <p>Domina las técnicas más cotizadas de la industria y emprende tu propio negocio con nuestro programa Masterclass certificado.</p>
-                <span class="btn-gold" style="display: inline-block;">Ver Cursos</span>
+                <p>Domina las técnicas más cotizadas de la industria de las pestañas y emprende con nuestro programa certificado Masterclass.</p>
+                <span class="btn-gold" style="display: inline-block;">Entrar a Academia</span>
             </div>
-        </a>
-        <a href="#boutique" class="split-panel spa-panel">
-            <div class="split-bg" style="background-image: url('images/spa_split.png');"></div>
+        </div>
+
+        <!-- Panel Derecho: Boutique & Spa -->
+        <div class="split-panel spa-panel" id="spaPanel">
+            <div class="split-bg-container">
+                <video class="split-video-bg" autoplay muted loop playsinline>
+                    <source src="hero-bg.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="split-overlay"></div>
             <div class="split-content">
                 <span class="split-tag">Servicios Exclusivos</span>
                 <h2>Boutique & Spa</h2>
-                <p>Consiente tu mirada con extensiones de pestañas de alta costura, diseños personalizados y servicios de spa relajantes.</p>
-                <span class="btn-gold" style="display: inline-block;">Ver Servicios</span>
+                <p>Consiente tu mirada con extensiones de pestañas de alta costura y relájate con nuestros tratamientos exclusivos de spa.</p>
+                <span class="btn-gold" style="display: inline-block;">Entrar a Boutique</span>
             </div>
-        </a>
+        </div>
     </section>
 
     <section id="boutique" class="boutique-section">
@@ -1852,6 +1887,102 @@
                     musicToggleBtn.classList.remove('playing');
                     musicToggleBtn.classList.add('muted');
                 }
+            });
+
+            // Fullscreen Split Hero Interactivity
+            const splitHero = document.getElementById('splitHero');
+            const academyPanel = document.getElementById('academyPanel');
+            const spaPanel = document.getElementById('spaPanel');
+            const splitBackBtn = document.getElementById('splitBackBtn');
+
+            // Function to handle Academy selection
+            const selectAcademy = () => {
+                if (splitHero.classList.contains('active-academy') || splitHero.classList.contains('active-spa')) return;
+                splitHero.classList.add('active-academy');
+                setTimeout(() => {
+                    document.body.classList.remove('scroll-locked');
+                    splitBackBtn.classList.add('visible');
+                    const targetSection = document.getElementById('academy');
+                    if (targetSection) targetSection.scrollIntoView({ behavior: 'smooth' });
+                }, 900);
+            };
+
+            // Function to handle Spa selection
+            const selectSpa = () => {
+                if (splitHero.classList.contains('active-academy') || splitHero.classList.contains('active-spa')) return;
+                splitHero.classList.add('active-spa');
+                setTimeout(() => {
+                    document.body.classList.remove('scroll-locked');
+                    splitBackBtn.classList.add('visible');
+                    const targetSection = document.getElementById('boutique');
+                    if (targetSection) targetSection.scrollIntoView({ behavior: 'smooth' });
+                }, 900);
+            };
+
+            // Click events on panels
+            academyPanel.addEventListener('click', selectAcademy);
+            spaPanel.addEventListener('click', selectSpa);
+
+            // Click Back Button to restore split screen
+            splitBackBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => {
+                    splitHero.classList.remove('active-academy', 'active-spa');
+                    splitBackBtn.classList.remove('visible');
+                    document.body.classList.add('scroll-locked');
+                }, 500);
+            });
+
+            // Nav links handler for Split Hero integration
+            document.querySelectorAll('header nav a, .mobile-nav a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href');
+                    
+                    if (targetId === '#') {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        setTimeout(() => {
+                            splitHero.classList.remove('active-academy', 'active-spa');
+                            splitBackBtn.classList.remove('visible');
+                            document.body.classList.add('scroll-locked');
+                        }, 500);
+                    } else if (targetId === '#academy') {
+                        e.preventDefault();
+                        if (!splitHero.classList.contains('active-academy')) {
+                            splitHero.classList.remove('active-spa');
+                            splitHero.classList.add('active-academy');
+                        }
+                        document.body.classList.remove('scroll-locked');
+                        splitBackBtn.classList.add('visible');
+                        setTimeout(() => {
+                            const section = document.getElementById('academy');
+                            if (section) section.scrollIntoView({ behavior: 'smooth' });
+                        }, 400);
+                    } else if (targetId === '#boutique') {
+                        e.preventDefault();
+                        if (!splitHero.classList.contains('active-spa')) {
+                            splitHero.classList.remove('active-academy');
+                            splitHero.classList.add('active-spa');
+                        }
+                        document.body.classList.remove('scroll-locked');
+                        splitBackBtn.classList.add('visible');
+                        setTimeout(() => {
+                            const section = document.getElementById('boutique');
+                            if (section) section.scrollIntoView({ behavior: 'smooth' });
+                        }, 400);
+                    } else if (targetId === '#contact') {
+                        e.preventDefault();
+                        if (!splitHero.classList.contains('active-spa') && !splitHero.classList.contains('active-academy')) {
+                            splitHero.classList.add('active-spa');
+                        }
+                        document.body.classList.remove('scroll-locked');
+                        splitBackBtn.classList.add('visible');
+                        setTimeout(() => {
+                            const section = document.getElementById('contact');
+                            if (section) section.scrollIntoView({ behavior: 'smooth' });
+                        }, 400);
+                    }
+                });
             });
         });
     </script>
