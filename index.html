@@ -323,6 +323,67 @@
             }
         }
 
+        /* ══════════════════════════════════════════════
+           LANDING PAGE HEADER STYLES (ACADEMY MODE)
+           ══════════════════════════════════════════════ */
+        body.active-academy header {
+            justify-content: center;
+        }
+
+        body.active-academy header .desktop-nav,
+        body.active-academy header .header-controls,
+        body.active-academy header .menu-toggle {
+            display: none !important;
+        }
+
+        /* Center logo custom alignment */
+        body.active-academy header .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Adjust back/menu button in Academy mode */
+        body.active-academy .split-back-btn {
+            position: fixed;
+            top: 25px;
+            right: 50px;
+            transform: none;
+            z-index: 1010;
+            background-color: transparent;
+            border: 1px solid rgba(18, 18, 18, 0.15);
+            color: var(--dark-charcoal);
+            padding: 8px 18px;
+            font-size: 0.8rem;
+        }
+
+        body.active-academy .split-back-btn:hover {
+            background-color: var(--dark-charcoal);
+            color: var(--primary-cream);
+            border-color: var(--dark-charcoal);
+        }
+
+        /* Hide Boutique/Spa completely in Academy mode */
+        body.active-academy #boutique {
+            display: none !important;
+        }
+
+        /* Hide Academy & FAQ completely in Spa mode */
+        body.active-spa #academy,
+        body.active-spa #curriculumTimeline,
+        body.active-spa #faq {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            body.active-academy .split-back-btn {
+                right: 20px;
+                top: 20px;
+                padding: 6px 12px;
+                font-size: 0.72rem;
+            }
+        }
+
         .btn-gold {
             display: inline-block;
             padding: 16px 35px;
@@ -1612,9 +1673,6 @@
 
     <!-- CAPA INFERIOR: Tu página real -->
     <div class="tu-pagina-web">
-        <div class="decor-circle dc-1"></div>
-        <div class="decor-circle dc-2"></div>
-
         <header>
             <a href="#" class="logo">CAMI'S <span>LASHES</span></a>
             <nav class="desktop-nav">
@@ -1623,7 +1681,7 @@
                 <a href="#academy">Academia</a>
                 <a href="#contact">Contacto</a>
             </nav>
-            <div style="display: flex; align-items: center; gap: 15px;">
+            <div class="header-controls" style="display: flex; align-items: center; gap: 15px;">
                 <div class="music-toggle playing" id="musicToggleBtn" title="Silenciar/Activar música">
                     <svg class="music-icon" viewBox="0 0 24 24">
                         <path d="M6 9H4.5v6H6l4.5 4v-14z"/>
@@ -1647,7 +1705,7 @@
     </nav>
 
     <!-- Floating Back Button (for returning to Split Hero Selection) -->
-    <button class="split-back-btn" id="splitBackBtn">← Cambiar Sección</button>
+    <button class="split-back-btn" id="splitBackBtn">☰ Menú</button>
 
     <!-- SECCIÓN HERO PANTALLA DIVIDIDA (Split Screen Hero) -->
     <section class="split-hero-section" id="splitHero">
@@ -2251,14 +2309,7 @@
                 ease: 'none'
             });
 
-            // 2. Efecto pulso de brillo en el logo (usando el oro primario #C5A059)
-            gsap.to(diamond, {
-                filter: 'drop-shadow(0 0 25px rgba(197,160,89,1)) drop-shadow(0 0 50px rgba(197,160,89,0.5))',
-                duration: 1.2,
-                repeat: -1,
-                yoyo: true,
-                ease: 'sine.inOut'
-            });
+            // 2. Logo rotation is now clean without glow effect (rayitos removed)
 
             // 3. Progreso del porcentaje 0% -> 100%
             tl.to(counter, {
@@ -2339,6 +2390,7 @@
             const selectAcademy = () => {
                 if (splitHero.classList.contains('active-academy') || splitHero.classList.contains('active-spa')) return;
                 splitHero.classList.add('active-academy');
+                document.body.classList.add('active-academy');
                 setTimeout(() => {
                     document.body.classList.remove('scroll-locked');
                     splitBackBtn.classList.add('visible');
@@ -2351,6 +2403,7 @@
             const selectSpa = () => {
                 if (splitHero.classList.contains('active-academy') || splitHero.classList.contains('active-spa')) return;
                 splitHero.classList.add('active-spa');
+                document.body.classList.add('active-spa');
                 setTimeout(() => {
                     document.body.classList.remove('scroll-locked');
                     splitBackBtn.classList.add('visible');
@@ -2368,6 +2421,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 setTimeout(() => {
                     splitHero.classList.remove('active-academy', 'active-spa');
+                    document.body.classList.remove('active-academy', 'active-spa');
                     splitBackBtn.classList.remove('visible');
                     document.body.classList.add('scroll-locked');
                 }, 500);
@@ -2383,6 +2437,7 @@
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                         setTimeout(() => {
                             splitHero.classList.remove('active-academy', 'active-spa');
+                            document.body.classList.remove('active-academy', 'active-spa');
                             splitBackBtn.classList.remove('visible');
                             document.body.classList.add('scroll-locked');
                         }, 500);
@@ -2390,7 +2445,9 @@
                         e.preventDefault();
                         if (!splitHero.classList.contains('active-academy')) {
                             splitHero.classList.remove('active-spa');
+                            document.body.classList.remove('active-spa');
                             splitHero.classList.add('active-academy');
+                            document.body.classList.add('active-academy');
                         }
                         document.body.classList.remove('scroll-locked');
                         splitBackBtn.classList.add('visible');
@@ -2402,7 +2459,9 @@
                         e.preventDefault();
                         if (!splitHero.classList.contains('active-spa')) {
                             splitHero.classList.remove('active-academy');
+                            document.body.classList.remove('active-academy');
                             splitHero.classList.add('active-spa');
+                            document.body.classList.add('active-spa');
                         }
                         document.body.classList.remove('scroll-locked');
                         splitBackBtn.classList.add('visible');
@@ -2414,6 +2473,7 @@
                         e.preventDefault();
                         if (!splitHero.classList.contains('active-spa') && !splitHero.classList.contains('active-academy')) {
                             splitHero.classList.add('active-spa');
+                            document.body.classList.add('active-spa');
                         }
                         document.body.classList.remove('scroll-locked');
                         splitBackBtn.classList.add('visible');
@@ -2446,7 +2506,9 @@
             window.selectAcademyAndScroll = (targetId) => {
                 if (!splitHero.classList.contains('active-academy')) {
                     splitHero.classList.remove('active-spa');
+                    document.body.classList.remove('active-spa');
                     splitHero.classList.add('active-academy');
+                    document.body.classList.add('active-academy');
                 }
                 document.body.classList.remove('scroll-locked');
                 splitBackBtn.classList.add('visible');
