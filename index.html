@@ -254,14 +254,15 @@
 
         /* Floating back button to return to Split selection */
         .split-back-btn {
-            position: fixed;
-            top: 25px;
-            right: 120px; /* Near header buttons */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) translateY(-20px);
+            right: 150px; /* Near header buttons */
             z-index: 1005;
             background-color: rgba(18, 18, 18, 0.85);
             border: 1px solid rgba(197, 160, 89, 0.5);
             color: var(--primary-gold);
-            padding: 10px 20px;
+            padding: 8px 18px;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -270,14 +271,13 @@
             backdrop-filter: blur(5px);
             opacity: 0;
             visibility: hidden;
-            transform: translateY(-20px);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .split-back-btn.visible {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
+            transform: translateY(-50%);
         }
 
         .split-back-btn:hover {
@@ -345,10 +345,10 @@
 
         /* Adjust back/menu button in Academy mode */
         body.active-academy .split-back-btn {
-            position: fixed;
-            top: 25px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
             right: 50px;
-            transform: none;
             z-index: 1010;
             background-color: transparent;
             border: 1px solid rgba(18, 18, 18, 0.15);
@@ -361,6 +361,11 @@
             background-color: var(--dark-charcoal);
             color: var(--primary-cream);
             border-color: var(--dark-charcoal);
+        }
+
+        /* Default visible position in Spa mode */
+        body.active-spa .split-back-btn.visible {
+            right: 150px;
         }
 
         /* Hide Boutique/Spa completely in Academy mode */
@@ -378,7 +383,6 @@
         @media (max-width: 768px) {
             body.active-academy .split-back-btn {
                 right: 20px;
-                top: 20px;
                 padding: 6px 12px;
                 font-size: 0.72rem;
             }
@@ -540,6 +544,183 @@
         }
 
         /* Academy Section Styling */
+        /* ══════════════════════════════════════════════
+           ACADEMY HERO INTRO BLOCK (LIMITLASHES STYLE)
+           ══════════════════════════════════════════════ */
+        .academy-hero-block {
+            background-color: var(--dark-charcoal);
+            color: var(--primary-cream);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            margin-bottom: 80px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .academy-hero-block .luxury-tag {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .academy-hero-block h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            line-height: 1.25;
+            margin-bottom: 25px;
+            color: var(--primary-cream);
+            text-transform: uppercase;
+        }
+
+        .academy-hero-block h1 span {
+            color: var(--primary-gold);
+        }
+
+        .academy-hero-block .quote-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            max-width: 850px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            border-left: 2px solid var(--primary-gold);
+            padding-left: 25px;
+            text-align: left;
+        }
+
+        .academy-hero-block .descr-text {
+            font-size: 0.95rem;
+            max-width: 800px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.85;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .academy-hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-academy-primary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+            color: var(--dark-charcoal) !important;
+            padding: 15px 35px;
+            border-radius: 999px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-academy-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.4);
+        }
+
+        .btn-academy-primary .sub-label {
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            color: rgba(18, 18, 18, 0.7);
+            margin-top: 3px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: none;
+            font-weight: 500;
+        }
+
+        .btn-academy-secondary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            color: var(--primary-cream) !important;
+            padding: 15px 35px;
+            border-radius: 999px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid var(--primary-gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-academy-secondary:hover {
+            background-color: rgba(197, 160, 89, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .academy-rating {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--primary-gold);
+            margin-bottom: 40px;
+        }
+
+        .academy-hero-badges {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .academy-badge-tag {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            color: var(--primary-cream);
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .academy-hero-block h1 {
+                font-size: 2.2rem;
+            }
+            .academy-hero-block .luxury-tag {
+                font-size: 1.4rem;
+            }
+            .academy-hero-block .quote-text {
+                font-size: 1.1rem;
+                padding-left: 15px;
+            }
+            .academy-hero-block {
+                padding: 50px 20px;
+                margin-bottom: 50px;
+            }
+        }
         .academy-section {
             padding: 120px 50px;
             background-color: var(--primary-cream);
@@ -1695,6 +1876,8 @@
                     <span></span>
                 </div>
             </div>
+            <!-- Floating Back Button (for returning to Split Hero Selection) -->
+            <button class="split-back-btn" id="splitBackBtn">☰ Menú</button>
         </header>
 
     <nav class="mobile-nav" id="mobileNav">
@@ -1703,9 +1886,6 @@
         <a href="#academy">Academia</a>
         <a href="#contact">Contacto</a>
     </nav>
-
-    <!-- Floating Back Button (for returning to Split Hero Selection) -->
-    <button class="split-back-btn" id="splitBackBtn">☰ Menú</button>
 
     <!-- SECCIÓN HERO PANTALLA DIVIDIDA (Split Screen Hero) -->
     <section class="split-hero-section" id="splitHero">
@@ -1801,9 +1981,37 @@
         </div>
     </section>
     <section id="academy" class="academy-section">
-        <div class="section-header">
-            <h2>Academia Profesional de Pestañas</h2>
-            <p>Eleva tu técnica y tu negocio al estándar internacional más cotizado. No te enseñamos a pegar pestañas; te certificamos como una Lash Artist de élite.</p>
+        <div class="academy-hero-block">
+            <div class="luxury-tag">Educación de Lujo</div>
+            <h1>TÉCNICA IMPECABLE.<br><span>RESULTADOS PREMIUM.</span></h1>
+            
+            <div class="quote-text">
+                “Transforma tu habilidad técnica en un posicionamiento de lujo, una retención insuperable y la seguridad absoluta que tus clientas sentirán al instante.”
+            </div>
+            
+            <p class="descr-text">
+                Esta certificación está diseñada para artistas de pestañas decididas a dejar de coleccionar técnicas del montón y listas para dominar aplicaciones perfectas, tarifas high-ticket y una marca personal que respire exclusividad.
+            </p>
+            
+            <div class="academy-hero-buttons">
+                <a href="#splitHero" class="btn-academy-primary" onclick="selectAcademyAndScroll('curriculumTimeline')">
+                    Asegura tu Lugar
+                    <span class="sub-label">Cupos Limitados - Aplica Hoy</span>
+                </a>
+                <a href="#splitHero" class="btn-academy-secondary" onclick="selectAcademyAndScroll('curriculumTimeline')">
+                    Ver Temario
+                </a>
+            </div>
+            
+            <div class="academy-rating">
+                ★★★★★ 5.0 VALORACIÓN DE NUESTRAS ALUMNAS
+            </div>
+            
+            <div class="academy-hero-badges">
+                <span class="academy-badge-tag">Cupos Limitados</span>
+                <span class="academy-badge-tag">Práctica Real</span>
+                <span class="academy-badge-tag">Estándar Internacional</span>
+            </div>
         </div>
 
         <!-- 3. Reducción de Riesgo: Trust Badges -->
