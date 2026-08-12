@@ -480,51 +480,126 @@
 
         /* Academy Section Styling */
         .academy-section {
-            padding: 100px 50px;
+            padding: 120px 50px;
             background-color: var(--primary-cream);
             position: relative;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
+        /* 3. Reducción de Riesgo: Trust Badges */
+        .academy-trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: -30px;
+            margin-bottom: 70px;
+            padding: 25px 40px;
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            background-color: rgba(248, 245, 239, 0.5);
         }
 
-        .section-header h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            font-weight: 400;
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85rem;
             color: var(--dark-charcoal);
-            margin-bottom: 15px;
-            letter-spacing: 2px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        .section-header p {
-            font-size: 1rem;
+        .badge-item svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary-gold);
+        }
+
+        /* 5. Narrativa de Transformación (Pain-to-Pleasure) */
+        .academy-narrative {
+            max-width: 900px;
+            margin: 0 auto 90px auto;
+            background-color: var(--white);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            padding: 50px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(18, 18, 18, 0.02);
+        }
+
+        .narrative-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .narrative-left h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: var(--dark-charcoal);
+        }
+
+        .narrative-left p {
+            font-size: 0.95rem;
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
+            margin-bottom: 15px;
             font-weight: 300;
         }
 
+        .narrative-right {
+            border-left: 2px solid var(--primary-gold);
+            padding-left: 30px;
+        }
+
+        .mechanism-box h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .mechanism-box h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: var(--dark-charcoal);
+        }
+
+        .mechanism-box p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Courses grid & cards */
         .courses-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 0 auto 100px auto;
         }
 
         .course-card {
-            background-color: var(--primary-cream);
+            background-color: var(--white);
             border: 1px solid rgba(197, 160, 89, 0.15);
-            padding: 40px;
+            padding: 45px 40px;
             transition: var(--transition-smooth);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 5px 25px rgba(18, 18, 18, 0.01);
         }
 
         .course-card::after {
@@ -541,8 +616,8 @@
         }
 
         .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(18, 18, 18, 0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(18, 18, 18, 0.06);
             border-color: rgba(197, 160, 89, 0.4);
         }
 
@@ -571,8 +646,9 @@
         .course-card p {
             font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-weight: 300;
+            line-height: 1.7;
             flex-grow: 1;
         }
 
@@ -592,23 +668,254 @@
             font-weight: 400;
         }
 
-        .course-card .btn-card {
+        /* Exclusive postulation buttons (Framing Inversion) */
+        .btn-postular {
             display: block;
             text-align: center;
-            padding: 12px 25px;
+            padding: 15px 25px;
+            background-color: var(--dark-charcoal);
             border: 1px solid var(--dark-charcoal);
+            color: var(--primary-cream);
             text-decoration: none;
-            color: var(--dark-charcoal);
             font-weight: 600;
             font-size: 0.85rem;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .btn-postular:hover {
+            background-color: transparent;
+            color: var(--dark-charcoal);
+            border-color: var(--dark-charcoal);
+        }
+
+        .btn-microcopy {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 12px;
+            display: block;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* 6. Transparencia Operativa: Timeline */
+        .curriculum-timeline-section {
+            max-width: 1000px;
+            margin: 0 auto 120px auto;
+            padding: 0 20px;
+        }
+
+        .timeline-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .timeline-title h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--dark-charcoal);
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .timeline-container {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 1.5px;
+            background: rgba(197, 160, 89, 0.3);
+            transform: translateX(-50%);
+        }
+
+        .timeline-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary-cream);
+            border: 3px solid var(--primary-gold);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
             transition: var(--transition-smooth);
         }
 
-        .course-card .btn-card:hover {
-            background-color: var(--dark-charcoal);
-            color: var(--primary-cream);
+        .timeline-block:hover .timeline-dot {
+            background-color: var(--primary-gold);
+            box-shadow: 0 0 10px var(--primary-gold);
+        }
+
+        .timeline-content {
+            width: 45%;
+            background-color: var(--white);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(18, 18, 18, 0.01);
+        }
+
+        .timeline-content h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--dark-charcoal);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-content .phase-num {
+            font-size: 0.8rem;
+            color: var(--primary-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .timeline-block:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* FAQ Accordion Styling (Manejo de Objeciones) */
+        .faq-section {
+            padding: 100px 50px;
+            background-color: var(--white);
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--dark-charcoal);
+            cursor: pointer;
+            padding: 10px 0;
+            transition: var(--transition-smooth);
+        }
+
+        .faq-question:hover {
+            color: var(--primary-gold);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            transition: var(--transition-smooth);
+            font-weight: 300;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .faq-answer p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            padding: 15px 0 10px 0;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 250px; /* height to slide down */
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        @media (max-width: 768px) {
+            .academy-section {
+                padding: 80px 20px;
+            }
+            .academy-trust-badges {
+                gap: 20px;
+                padding: 20px;
+            }
+            .narrative-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .narrative-right {
+                border-left: none;
+                border-top: 2px solid var(--primary-gold);
+                padding-left: 0;
+                padding-top: 20px;
+            }
+            .timeline-container::before {
+                left: 20px;
+            }
+            .timeline-block {
+                flex-direction: row !important;
+                justify-content: flex-start;
+                margin-bottom: 40px;
+            }
+            .timeline-dot {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+            .timeline-content {
+                width: calc(100% - 40px);
+                margin-left: 40px;
+            }
+            .faq-section {
+                padding: 80px 20px;
+            }
         }
 
         /* Testimonials Section Styling */
@@ -1435,27 +1742,62 @@
             </div>
         </div>
     </section>
-
     <section id="academy" class="academy-section">
         <div class="section-header">
-            <h2>Academia Profesional</h2>
-            <p>Fórmate con las mejores técnicas internacionales. Nuestros cursos están diseñados para llevarte desde cero hasta convertirte en una Lash Artist de élite.</p>
+            <h2>Academia Profesional de Pestañas</h2>
+            <p>Eleva tu técnica y tu negocio al estándar internacional más cotizado. No te enseñamos a pegar pestañas; te certificamos como una Lash Artist de élite.</p>
         </div>
 
+        <!-- 3. Reducción de Riesgo: Trust Badges -->
+        <div class="academy-trust-badges">
+            <div class="badge-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <span>Acreditación Oficial S.E.P.</span>
+            </div>
+            <div class="badge-item">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 15l-4-4 1.41-1.41L10 13.17l7.59-7.59L19 7l-9 9z"/></svg>
+                <span>Higiene y Bioseguridad Grado Médico</span>
+            </div>
+            <div class="badge-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span>Certificación Internacional de Maestría</span>
+            </div>
+        </div>
+
+        <!-- 5. Narrativa de Transformación (Pain-to-Pleasure) -->
+        <div class="academy-narrative">
+            <div class="narrative-grid">
+                <div class="narrative-left">
+                    <h3>¿Frustrada por competir por precios bajos o por cursos vacíos?</h3>
+                    <p>La mayoría de las academias te enseñan teoría básica y te dejan sola en la práctica. Terminas cobrando centavos, batallando con la retención y frustrada por no atraer clientes de alto valor.</p>
+                    <p>Para construir un negocio libre e independiente de pestañas de lujo, necesitas dominar la técnica quirúrgica impecable y la psicología de ventas.</p>
+                </div>
+                <div class="narrative-right">
+                    <div class="mechanism-box">
+                        <h4>Mecanismo Único de Maestría</h4>
+                        <h3>El Método Cami's Lashes</h3>
+                        <p>Fusionamos el aislamiento micrométrico de pestañas de alta costura con estrategias avanzadas de neuromarketing estético. No solo aprenderás a crear miradas perfectas, sino a posicionar tu marca para cobrar tarifas premium desde el primer día.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cursos con Framing Inversion -->
         <div class="courses-grid">
             <!-- Curso 1 -->
             <div class="course-card">
                 <div>
                     <span class="course-tag">Principiante a Avanzado</span>
                     <h3>Classic & Volume Masterclass</h3>
-                    <p>Aprende la colocación perfecta de extensiones de pestañas una a una y las técnicas fundamentales de volumen ruso clásico.</p>
+                    <p>La capacitación presencial intensiva definitiva. Aprenderás aislamiento micrométrico, abanicos perfectos sin nudos y el mapa completo de diseño para cada tipo de rostro.</p>
                 </div>
                 <div>
                     <div class="course-details">
                         <div>Duración: <span>2 Días (Presencial)</span></div>
-                        <div>Nivel: <span>Iniciación</span></div>
+                        <div>Cupos: <span>6 Alumnas Max</span></div>
                     </div>
-                    <a href="#" class="btn-card">Ver Programa</a>
+                    <a href="#splitHero" class="btn-postular" onclick="selectAcademyAndScroll('curriculumTimeline')">Solicitar Certificación</a>
+                    <span class="btn-microcopy">Sujeto a evaluación de perfil académico.</span>
                 </div>
             </div>
 
@@ -1463,15 +1805,16 @@
             <div class="course-card">
                 <div>
                     <span class="course-tag">Especialización</span>
-                    <h3>Fibras Tecnológicas</h3>
-                    <p>Domina el uso de las últimas tendencias del mercado: pestañas en Y, W, 3D y 5D para crear efectos de gran densidad en tiempo récord.</p>
+                    <h3>Fibras Tecnológicas Élite</h3>
+                    <p>El estándar del mercado actual. Domina efectos tendencia (Efecto Húmedo, Rímel, Híbrido Avanzado) y fibras tecnológicas en Y, W, 4D y 5D para duplicar tu velocidad.</p>
                 </div>
                 <div>
                     <div class="course-details">
                         <div>Duración: <span>1 Día (Intensivo)</span></div>
                         <div>Nivel: <span>Intermedio</span></div>
                     </div>
-                    <a href="#" class="btn-card">Ver Programa</a>
+                    <a href="https://wa.me/5214731002030?text=Hola%20Cami,%20quiero%20postularme%20para%20el%20curso%20de%20Fibras%20Tecnol%C3%B3gicas." target="_blank" class="btn-postular">Aplicar a Especialidad</a>
+                    <span class="btn-microcopy">Requiere certificación básica previa.</span>
                 </div>
             </div>
 
@@ -1479,15 +1822,112 @@
             <div class="course-card">
                 <div>
                     <span class="course-tag">Business & Growth</span>
-                    <h3>Neuromarketing para Lash Artists</h3>
-                    <p>Aprende a estructurar tus precios, atraer clientes de alto valor de forma orgánica y automatizar tus reservas usando embudos AIMA.</p>
+                    <h3>Neuromarketing Estético</h3>
+                    <p>La incubadora digital de negocios. Aprende a estructurar tus precios high-ticket, atraer clientes recurrentes en Instagram de forma orgánica y automatizar tus reservas con WhatsApp Bot.</p>
                 </div>
                 <div>
                     <div class="course-details">
-                        <div>Duración: <span>Online</span></div>
-                        <div>Nivel: <span>Negocio</span></div>
+                        <div>Modalidad: <span>Online Mentoría</span></div>
+                        <div>Duración: <span>4 Semanas</span></div>
                     </div>
-                    <a href="#" class="btn-card">Ver Programa</a>
+                    <a href="https://wa.me/5214731002030?text=Hola%20Cami,%20me%20interesa%20la%20mentor%C3%ADa%20de%20Neuromarketing%20para%20Lash%20Artists." target="_blank" class="btn-postular">Agendar Entrevista</a>
+                    <span class="btn-microcopy">Entrevistas de admisión abiertas esta semana.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Transparencia Operativa: Timeline de la Masterclass -->
+        <div class="curriculum-timeline-section" id="curriculumTimeline">
+            <div class="timeline-title">
+                <h3>Cronograma de la Masterclass (2 Días)</h3>
+                <p>Hacemos tangible tu aprendizaje de principio a fin. Sin sorpresas, con claridad total.</p>
+            </div>
+            
+            <div class="timeline-container">
+                <!-- Bloque 1 -->
+                <div class="timeline-block">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4><span class="phase-num">Día 1 (Mañana)</span> Teoría Quirúrgica</h4>
+                        <p>Introducción al aislamiento de pestañas, salud ocular, higiene clínica, bioseguridad, química del adhesivo estético y mapeo personalizado por simetría de mirada.</p>
+                    </div>
+                </div>
+
+                <!-- Bloque 2 -->
+                <div class="timeline-block">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4><span class="phase-num">Día 1 (Tarde)</span> Laboratorio y Práctica</h4>
+                        <p>Práctica intensiva en esponja y maniquí para dominar la presión del pegamento, la alíneación perfecta de la fibra y evitar pestañas pegadas (stickies).</p>
+                    </div>
+                </div>
+
+                <!-- Bloque 3 -->
+                <div class="timeline-block">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4><span class="phase-num">Día 2 (Mañana)</span> Clínica con Modelo</h4>
+                        <p>Tu primera aplicación real. Estarás asistida personalmente por Cami en cada pestaña de tu modelo física para asegurar cero errores técnicos.</p>
+                    </div>
+                </div>
+
+                <!-- Bloque 4 -->
+                <div class="timeline-block">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4><span class="phase-num">Día 2 (Tarde)</span> Neuromarketing y Cierre</h4>
+                        <p>Cómo calcular costos reales, fijar precios que dignifiquen tu tiempo, crear tus redes y recibir tu Certificado Profesional de la Academia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Manejo Proactivo de Objeciones (FAQ Accordion) -->
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <div class="timeline-title">
+                <h3>Respuestas Transparentes</h3>
+                <p>Resolvemos tus dudas sin rodeos para que tomes la mejor decisión para tu carrera.</p>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Necesito tener experiencia previa en belleza para tomar el curso?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>No. Nuestra Classic & Volume Russian Masterclass está diseñada desde cero absolutos. Te llevamos paso a paso con una metodología clara que garantiza que saldrás aplicando sets perfectos al finalizar la capacitación.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿En cuánto tiempo puedo recuperar la inversión de la certificación?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>La mayoría de nuestras alumnas recuperan el valor del curso en sus primeros 5 a 8 sets aplicados de forma independiente. Con el Starter Kit que te entregamos tienes insumos incluidos para tus primeros 20 a 30 sets completos.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Qué diferencia hay entre esta academia y cursos económicos locales?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>La diferencia está en la retención de tus clientas y el precio que puedes cobrar. La mayoría de los cursos de bajo costo enseñan técnicas obsoletas que dañan la pestaña natural. Cami te enseña el Método de Aislamiento Micrométrico (higiene y bioseguridad grado médico) y Neuromarketing para que no compitas por precios de centavos.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Qué pasa si tengo dudas después de que termine la Masterclass?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Tu inscripción incluye acceso de por vida a nuestro grupo exclusivo de WhatsApp de Alumnas de Cami's Lashes, donde recibes soporte semanal, revisión de tus sets mediante fotos y actualizaciones continuas de la industria.</p>
                 </div>
             </div>
         </div>
@@ -1984,6 +2424,40 @@
                     }
                 });
             });
+
+            // FAQ Accordion Interactivity
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const faqItem = button.parentElement;
+                    
+                    // Close other items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        if (item !== faqItem) {
+                            item.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle active state
+                    faqItem.classList.toggle('active');
+                });
+            });
+
+            // Custom timeline selector function
+            window.selectAcademyAndScroll = (targetId) => {
+                if (!splitHero.classList.contains('active-academy')) {
+                    splitHero.classList.remove('active-spa');
+                    splitHero.classList.add('active-academy');
+                }
+                document.body.classList.remove('scroll-locked');
+                splitBackBtn.classList.add('visible');
+                
+                setTimeout(() => {
+                    const section = document.getElementById(targetId);
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 900); // Wait for transition expansion
+            };
         });
     </script>
 </body>
