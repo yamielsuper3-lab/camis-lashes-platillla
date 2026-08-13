@@ -599,13 +599,17 @@
            ACADEMY HERO OVERLAY (LIMITLASHES ON MOSAIC)
            ══════════════════════════════════════════════ */
         .academy-hero-overlay-content {
-            position: relative;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) translateY(30px);
             z-index: 5;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
+            width: 90%;
             max-width: 950px;
             padding: 50px 60px;
             
@@ -621,7 +625,6 @@
             visibility: hidden;
             pointer-events: none;
             transition: opacity 0.8s ease 0.6s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
-            transform: translateY(30px);
         }
 
         /* Show when active-academy is active on the body */
@@ -629,7 +632,7 @@
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
-            transform: translateY(0);
+            transform: translate(-50%, -50%) translateY(0);
         }
 
         .academy-hero-overlay-content .luxury-tag {
@@ -1942,7 +1945,7 @@
                 <a href="#contact">Contacto</a>
             </nav>
             <div class="header-controls" style="display: flex; align-items: center; gap: 15px;">
-                <div class="music-toggle playing" id="musicToggleBtn" title="Silenciar/Activar música">
+                <div class="music-toggle muted" id="musicToggleBtn" title="Silenciar/Activar música">
                     <svg class="music-icon" viewBox="0 0 24 24">
                         <path d="M6 9H4.5v6H6l4.5 4v-14z"/>
                         <path class="wave-1" d="M14 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
@@ -2680,22 +2683,6 @@
             const bgMusic = document.getElementById('bgMusic');
             const musicToggleBtn = document.getElementById('musicToggleBtn');
 
-            // Play music on first user interaction (browser restriction bypass)
-            const startMusicOnInteraction = () => {
-                bgMusic.play().then(() => {
-                    musicToggleBtn.classList.add('playing');
-                    musicToggleBtn.classList.remove('muted');
-                }).catch(err => {
-                    console.log("Auto-play blocked by browser. Awaiting user toggle.");
-                });
-                // Remove listener once triggered
-                document.removeEventListener('click', startMusicOnInteraction);
-                document.removeEventListener('touchstart', startMusicOnInteraction);
-            };
-
-            document.addEventListener('click', startMusicOnInteraction);
-            document.addEventListener('touchstart', startMusicOnInteraction);
-
             // Toggle button action
             musicToggleBtn.addEventListener('click', (e) => {
                 e.stopPropagation(); // Avoid triggering page interaction play
@@ -2724,8 +2711,6 @@
                 setTimeout(() => {
                     document.body.classList.remove('scroll-locked');
                     splitBackBtn.classList.add('visible');
-                    const targetSection = document.getElementById('academy');
-                    if (targetSection) targetSection.scrollIntoView({ behavior: 'smooth' });
                 }, 900);
             };
 
@@ -2737,8 +2722,6 @@
                 setTimeout(() => {
                     document.body.classList.remove('scroll-locked');
                     splitBackBtn.classList.add('visible');
-                    const targetSection = document.getElementById('boutique');
-                    if (targetSection) targetSection.scrollIntoView({ behavior: 'smooth' });
                 }, 900);
             };
 
