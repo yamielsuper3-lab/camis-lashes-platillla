@@ -178,8 +178,8 @@
         .slide-cell {
             width: 100%;
             height: 33.333%; /* 1/3 height of container */
-            background-image: url('images/academy_split.png');
-            background-size: 500% 100%; /* 5 columns grid sizing */
+            background-image: url('images/academy_split.png?v=4');
+            background-size: 500% 300%; /* 5 columns grid sizing corrected aspect ratio */
             background-repeat: no-repeat;
         }
 
@@ -1990,7 +1990,48 @@
         <!-- Panel Izquierdo: Academia -->
         <div class="split-panel academy-panel" id="academyPanel">
             <div class="split-bg-container">
-                <div class="split-bg" style="background-image: url('images/academy_split.png?v=4');"></div>
+                <div class="sliding-columns-wrap">
+                    <!-- Column 1 (col-0) -->
+                    <div class="sliding-col col-0" id="slideCol0">
+                        <div class="sliding-col-inner">
+                            <div class="slide-cell cell-pos-a"></div>
+                            <div class="slide-cell cell-pos-b"></div>
+                            <div class="slide-cell cell-pos-c"></div>
+                        </div>
+                    </div>
+                    <!-- Column 2 (col-1) -->
+                    <div class="sliding-col col-1" id="slideCol1">
+                        <div class="sliding-col-inner">
+                            <div class="slide-cell cell-pos-b"></div>
+                            <div class="slide-cell cell-pos-c"></div>
+                            <div class="slide-cell cell-pos-a"></div>
+                        </div>
+                    </div>
+                    <!-- Column 3 (col-2) -->
+                    <div class="sliding-col col-2" id="slideCol2">
+                        <div class="sliding-col-inner">
+                            <div class="slide-cell cell-pos-c"></div>
+                            <div class="slide-cell cell-pos-a"></div>
+                            <div class="slide-cell cell-pos-b"></div>
+                        </div>
+                    </div>
+                    <!-- Column 4 (col-3) -->
+                    <div class="sliding-col col-3" id="slideCol3">
+                        <div class="sliding-col-inner">
+                            <div class="slide-cell cell-pos-a"></div>
+                            <div class="slide-cell cell-pos-b"></div>
+                            <div class="slide-cell cell-pos-c"></div>
+                        </div>
+                    </div>
+                    <!-- Column 5 (col-4) -->
+                    <div class="sliding-col col-4" id="slideCol4">
+                        <div class="sliding-col-inner">
+                            <div class="slide-cell cell-pos-b"></div>
+                            <div class="slide-cell cell-pos-c"></div>
+                            <div class="slide-cell cell-pos-a"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="split-overlay"></div>
             <div class="split-content">
@@ -2808,6 +2849,47 @@
                     }
                 }, 900); // Wait for transition expansion
             };
+
+            // ══════════════════════════════════════════════
+            // GSAP INFINITE SLIDING COLUMNS CAROUSEL EFFECT
+            // ══════════════════════════════════════════════
+            // We scroll the columns vertically using looping GSAP transitions.
+            // Odd columns (0, 2, 4) scroll down, Even columns (1, 3) scroll up.
+            const columns = document.querySelectorAll('.sliding-col-inner');
+            columns.forEach((col, index) => {
+                // Determine direction
+                const direction = index % 2 === 0 ? 1 : -1;
+                // Double cell structures to ensure seamless loop
+                const originalContent = col.innerHTML;
+                col.innerHTML = originalContent + originalContent; // Repeat cell elements
+
+                // Height of one full repeat is 50% of the total doubled inner container height
+                // Since there are 3 cells, one loop length is equal to the height of the column container.
+                // We use percentage transitions on y to ensure it scales perfectly on all viewport resolutions.
+                if (direction === 1) {
+                    // Scroll downwards: -50% to 0%
+                    gsap.fromTo(col, 
+                        { yPercent: -50 },
+                        { 
+                            yPercent: 0,
+                            ease: 'none',
+                            duration: 15 + (index * 2), // Staggered speed to avoid uniformity
+                            repeat: -1
+                        }
+                    );
+                } else {
+                    // Scroll upwards: 0% to -50%
+                    gsap.fromTo(col, 
+                        { yPercent: 0 },
+                        { 
+                            yPercent: -50,
+                            ease: 'none',
+                            duration: 16 + (index * 2.5), // Staggered speed
+                            repeat: -1
+                        }
+                    );
+                }
+            });
 
         });
     </script>
