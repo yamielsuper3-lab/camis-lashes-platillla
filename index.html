@@ -596,26 +596,34 @@
 
         /* Academy Section Styling */
         /* ══════════════════════════════════════════════
-           ACADEMY HERO INTRO BLOCK (LIMITLASHES STYLE)
+           ACADEMY HERO OVERLAY (LIMITLASHES ON MOSAIC)
            ══════════════════════════════════════════════ */
-        .academy-hero-block {
-            background-color: var(--dark-charcoal);
-            color: var(--primary-cream);
-            padding: 80px 40px;
-            text-align: center;
+        .academy-hero-overlay-content {
             position: relative;
-            overflow: hidden;
+            z-index: 5;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            margin-bottom: 80px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 900px;
+            padding: 40px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.8s ease 0.6s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+            transform: translateY(30px);
         }
 
-        .academy-hero-block .luxury-tag {
+        /* Show when active-academy is active on the body */
+        body.active-academy .academy-hero-overlay-content {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .academy-hero-overlay-content .luxury-tag {
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-size: 1.8rem;
@@ -624,9 +632,9 @@
             letter-spacing: 1px;
         }
 
-        .academy-hero-block h1 {
+        .academy-hero-overlay-content h1 {
             font-family: 'Cinzel', serif;
-            font-size: 3.2rem;
+            font-size: clamp(2rem, 5vw, 3.2rem);
             font-weight: 700;
             letter-spacing: 4px;
             line-height: 1.25;
@@ -635,14 +643,14 @@
             text-transform: uppercase;
         }
 
-        .academy-hero-block h1 span {
+        .academy-hero-overlay-content h1 span {
             color: var(--primary-gold);
         }
 
-        .academy-hero-block .quote-text {
+        .academy-hero-overlay-content .quote-text {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.25rem;
+            font-size: clamp(1rem, 2vw, 1.25rem);
             max-width: 850px;
             color: rgba(255, 255, 255, 0.85);
             line-height: 1.6;
@@ -652,7 +660,7 @@
             text-align: left;
         }
 
-        .academy-hero-block .descr-text {
+        .academy-hero-overlay-content .descr-text {
             font-size: 0.95rem;
             max-width: 800px;
             color: rgba(255, 255, 255, 0.65);
@@ -757,19 +765,28 @@
         }
 
         @media (max-width: 768px) {
-            .academy-hero-block h1 {
-                font-size: 2.2rem;
+            .academy-hero-overlay-content {
+                padding: 20px 10px;
             }
-            .academy-hero-block .luxury-tag {
-                font-size: 1.4rem;
+            .academy-hero-overlay-content h1 {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
             }
-            .academy-hero-block .quote-text {
-                font-size: 1.1rem;
+            .academy-hero-overlay-content .luxury-tag {
+                font-size: 1.3rem;
+            }
+            .academy-hero-overlay-content .quote-text {
+                font-size: 0.95rem;
                 padding-left: 15px;
+                border-left-width: 1px;
             }
-            .academy-hero-block {
-                padding: 50px 20px;
-                margin-bottom: 50px;
+            .academy-hero-buttons {
+                gap: 12px;
+            }
+            .btn-academy-primary,
+            .btn-academy-secondary {
+                padding: 12px 25px;
+                font-size: 0.75rem;
             }
         }
         .academy-section {
@@ -1993,6 +2010,40 @@
                 <p>Domina las técnicas más cotizadas de la industria de las pestañas y emprende con nuestro programa certificado Masterclass.</p>
                 <span class="btn-gold" style="display: inline-block;">Entrar a Academia</span>
             </div>
+
+            <!-- CONTENIDO EXPANDIDO (LANDING PAGE HERO OVERLAY) -->
+            <div class="academy-hero-overlay-content">
+                <div class="luxury-tag">Educación de Lujo</div>
+                <h1>TÉCNICA IMPECABLE.<br><span>RESULTADOS PREMIUM.</span></h1>
+                
+                <div class="quote-text">
+                    “Transforma tu habilidad técnica en un posicionamiento de lujo, una retención insuperable y la seguridad absoluta que tus clientas sentirán al instante.”
+                </div>
+                
+                <p class="descr-text">
+                    Esta certificación está diseñada para artistas de pestañas decididas a dejar de competir por técnicas del montón y listas para dominar aplicaciones perfectas, tarifas high-ticket y una marca personal que respire exclusividad.
+                </p>
+                
+                <div class="academy-hero-buttons">
+                    <a href="#curriculumTimeline" class="btn-academy-primary" onclick="document.getElementById('curriculumTimeline').scrollIntoView({ behavior: 'smooth' }); return false;">
+                        Asegura tu Lugar
+                        <span class="sub-label">Cupos Limitados - Aplica Hoy</span>
+                    </a>
+                    <a href="#curriculumTimeline" class="btn-academy-secondary" onclick="document.getElementById('curriculumTimeline').scrollIntoView({ behavior: 'smooth' }); return false;">
+                        Ver Temario
+                    </a>
+                </div>
+                
+                <div class="academy-rating">
+                    ★★★★★ 5.0 VALORACIÓN DE NUESTRAS ALUMNAS
+                </div>
+                
+                <div class="academy-hero-badges">
+                    <span class="academy-badge-tag">Cupos Limitados</span>
+                    <span class="academy-badge-tag">Práctica Real</span>
+                    <span class="academy-badge-tag">Estándar Internacional</span>
+                </div>
+            </div>
         </div>
 
         <!-- Panel Derecho: Boutique & Spa -->
@@ -2073,38 +2124,6 @@
         </div>
     </section>
     <section id="academy" class="academy-section">
-        <div class="academy-hero-block">
-            <div class="luxury-tag">Educación de Lujo</div>
-            <h1>TÉCNICA IMPECABLE.<br><span>RESULTADOS PREMIUM.</span></h1>
-            
-            <div class="quote-text">
-                “Transforma tu habilidad técnica en un posicionamiento de lujo, una retención insuperable y la seguridad absoluta que tus clientas sentirán al instante.”
-            </div>
-            
-            <p class="descr-text">
-                Esta certificación está diseñada para artistas de pestañas decididas a dejar de coleccionar técnicas del montón y listas para dominar aplicaciones perfectas, tarifas high-ticket y una marca personal que respire exclusividad.
-            </p>
-            
-            <div class="academy-hero-buttons">
-                <a href="#splitHero" class="btn-academy-primary" onclick="selectAcademyAndScroll('curriculumTimeline')">
-                    Asegura tu Lugar
-                    <span class="sub-label">Cupos Limitados - Aplica Hoy</span>
-                </a>
-                <a href="#splitHero" class="btn-academy-secondary" onclick="selectAcademyAndScroll('curriculumTimeline')">
-                    Ver Temario
-                </a>
-            </div>
-            
-            <div class="academy-rating">
-                ★★★★★ 5.0 VALORACIÓN DE NUESTRAS ALUMNAS
-            </div>
-            
-            <div class="academy-hero-badges">
-                <span class="academy-badge-tag">Cupos Limitados</span>
-                <span class="academy-badge-tag">Práctica Real</span>
-                <span class="academy-badge-tag">Estándar Internacional</span>
-            </div>
-        </div>
 
         <!-- 3. Reducción de Riesgo: Trust Badges -->
         <div class="academy-trust-badges">
