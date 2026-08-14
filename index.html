@@ -1960,7 +1960,294 @@
             border-radius: 999px;
         }
 
-        /* Eliminated old split CSS block - Unified in Split Hero Section */
+        /* ══════════════════════════════════════════════
+           PREMIUM CHAT WIDGET
+           ══════════════════════════════════════════════ */
+        .custom-chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Floating Toggle Button */
+        .chat-trigger-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, scale;
+        }
+
+        .chat-trigger-btn:hover {
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.6);
+        }
+
+        .chat-trigger-icon {
+            width: 28px;
+            height: 28px;
+            fill: var(--dark-charcoal);
+            transition: transform 0.4s ease;
+        }
+
+        .chat-trigger-btn.active .chat-trigger-icon {
+            transform: rotate(90deg);
+        }
+
+        /* Chat Window Container */
+        .chat-box {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 360px;
+            max-height: 540px;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .chat-box.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        /* Header Style */
+        .chat-header {
+            background-color: var(--dark-charcoal);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+        }
+
+        .chat-avatar-wrap {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        .chat-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--primary-cream);
+            color: var(--dark-charcoal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: 1px solid var(--primary-gold);
+        }
+
+        .chat-avatar-status {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #2ecc71;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border: 2px solid var(--dark-charcoal);
+        }
+
+        .chat-header-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-name {
+            color: var(--primary-cream);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .chat-status {
+            color: rgba(248, 245, 239, 0.5);
+            font-size: 0.75rem;
+            margin-top: 1px;
+        }
+
+        .chat-close-btn {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.8rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .chat-close-btn:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Body & Message bubbles */
+        .chat-body {
+            padding: 20px;
+            overflow-y: auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chat-message-bubble {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left: 2px solid var(--primary-gold);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 12px 16px;
+            border-radius: 4px 12px 12px 12px;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .chat-message-bubble p {
+            margin-bottom: 8px;
+        }
+
+        .chat-message-bubble p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Form Inputs */
+        .chat-lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .chat-form-group {
+            width: 100%;
+        }
+
+        .chat-form-group input,
+        .chat-form-group select {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 8px;
+            color: var(--primary-cream);
+            padding: 10px 14px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            outline: none;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .chat-form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .chat-form-group input:focus,
+        .chat-form-group select:focus {
+            border-color: var(--primary-gold);
+            background-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .chat-form-group select option {
+            background-color: #121212;
+            color: var(--primary-cream);
+        }
+
+        .btn-chat-submit {
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+            color: var(--dark-charcoal);
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-chat-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.25);
+        }
+
+        /* Success Message State */
+        .chat-success-msg {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            padding: 20px 0;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .success-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 5px;
+        }
+
+        .chat-success-msg p:nth-child(2) {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            color: var(--primary-gold);
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+
+        .chat-success-msg p:nth-child(3) {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Mobile adjustment */
+        @media (max-width: 480px) {
+            .custom-chat-widget {
+                bottom: 20px;
+                right: 20px;
+            }
+            .chat-box {
+                width: calc(100vw - 40px);
+                bottom: 75px;
+            }
+        }
     </style>
     <!-- GSAP Libraries for Diamond Portal Transition -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -2661,6 +2948,67 @@
         </svg>
     </div>
 
+    <!-- PREMIUM CHAT WIDGET -->
+    <div class="custom-chat-widget" id="customChatWidget">
+        <!-- Chat Box Container (initially hidden/collapsed) -->
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <div class="chat-avatar-wrap">
+                    <div class="chat-avatar">C</div>
+                    <div class="chat-avatar-status"></div>
+                </div>
+                <div class="chat-header-info">
+                    <span class="chat-name">Admisiones Cami's Lashes</span>
+                    <span class="chat-status">En línea ahora</span>
+                </div>
+                <button class="chat-close-btn" id="chatCloseBtn" aria-label="Cerrar chat">&times;</button>
+            </div>
+            <div class="chat-body">
+                <div class="chat-message-bubble">
+                    <p>¡Hola! Qué gusto saludarte. Veo que estás explorando nuestra sección de la Academia Cami's Lashes.</p>
+                    <p>Nuestra Masterclass está diseñada exclusivamente para artistas que buscan dominar técnicas de élite y establecer tarifas premium.</p>
+                    <p>¿Qué nivel de experiencia tienes actualmente en la aplicación de pestañas?</p>
+                </div>
+                
+                <!-- Chat Form -->
+                <form class="chat-lead-form" id="chatLeadForm" onsubmit="handleChatSubmit(event)">
+                    <div class="chat-form-group">
+                        <input type="text" id="chatName" required placeholder="Tu Nombre Completo">
+                    </div>
+                    <div class="chat-form-group">
+                        <input type="tel" id="chatPhone" required placeholder="Tu WhatsApp / Celular">
+                    </div>
+                    <div class="chat-form-group">
+                        <input type="email" id="chatEmail" required placeholder="Tu Correo Electrónico">
+                    </div>
+                    <div class="chat-form-group">
+                        <select id="chatExperience" required>
+                            <option value="" disabled selected hidden>Selecciona tu experiencia</option>
+                            <option value="principiante">Principiante (Desde cero)</option>
+                            <option value="intermedio">Intermedio (Ya aplico pestañas clásicas)</option>
+                            <option value="avanzado">Avanzado (Busco volumen y perfeccionamiento)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-chat-submit">Recibir Asesoría Personalizada</button>
+                </form>
+                <div class="chat-success-msg" id="chatSuccessMsg">
+                    <svg class="success-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 7l-9 9z" fill="#C5A059"/>
+                    </svg>
+                    <p>¡Muchas gracias por tu interés!</p>
+                    <p>Hemos registrado tus datos. Un asesor de admisiones te contactará vía WhatsApp en unos minutos para orientarte personalmente.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Toggle Button (Visible at the bottom corner) -->
+        <button class="chat-trigger-btn" id="chatTriggerBtn" title="Hablar con un asesor">
+            <svg class="chat-trigger-icon" viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+            </svg>
+        </button>
+    </div>
+
     <!-- Script de Inicialización y Animación del Loader (GSAP) -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
@@ -2914,6 +3262,55 @@
                     );
                 }
             });
+
+            // ══════════════════════════════════════════════
+            // CHAT WIDGET INTERACTIVITY & AUTO-POPUP TIMER
+            // ══════════════════════════════════════════════
+            const chatBox = document.getElementById('chatBox');
+            const chatTriggerBtn = document.getElementById('chatTriggerBtn');
+            const chatCloseBtn = document.getElementById('chatCloseBtn');
+            const chatLeadForm = document.getElementById('chatLeadForm');
+            const chatSuccessMsg = document.getElementById('chatSuccessMsg');
+
+            const toggleChat = () => {
+                chatBox.classList.toggle('open');
+                chatTriggerBtn.classList.toggle('active');
+            };
+
+            const closeChat = () => {
+                chatBox.classList.remove('open');
+                chatTriggerBtn.classList.remove('active');
+            };
+
+            chatTriggerBtn.addEventListener('click', toggleChat);
+            chatCloseBtn.addEventListener('click', closeChat);
+
+            // Auto open chat window after 5 seconds
+            setTimeout(() => {
+                if (!chatBox.classList.contains('open')) {
+                    chatBox.classList.add('open');
+                    chatTriggerBtn.classList.add('active');
+                }
+            }, 5000);
+
+            // Handle chat form lead submission
+            window.handleChatSubmit = (event) => {
+                event.preventDefault();
+                
+                const name = document.getElementById('chatName').value;
+                const phone = document.getElementById('chatPhone').value;
+                const email = document.getElementById('chatEmail').value;
+                const experience = document.getElementById('chatExperience').value;
+
+                console.log("Nuevo Prospecto de la Academia (Chat Widget):", { name, phone, email, experience });
+
+                // Hide form and show success screen
+                chatLeadForm.style.display = 'none';
+                chatSuccessMsg.style.display = 'flex';
+
+                // Auto close the chat widget after a brief delay
+                setTimeout(closeChat, 6000);
+            };
 
         });
     </script>
