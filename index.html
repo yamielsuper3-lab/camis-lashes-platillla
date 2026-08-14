@@ -142,6 +142,18 @@
             background-size: 100% 100% !important;
             background-position: center !important;
             background-repeat: no-repeat !important;
+            transition: opacity 0.8s ease;
+            opacity: 1;
+            visibility: visible;
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+        }
+
+        body.active-academy .split-bg {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
         }
 
         /* ══════════════════════════════════════════════
@@ -155,6 +167,14 @@
             height: 100%;
             z-index: 1;
             overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease 0.4s;
+        }
+
+        body.active-academy .sliding-columns-wrap {
+            opacity: 1;
+            visibility: visible;
         }
 
         .sliding-col {
@@ -1990,6 +2010,10 @@
         <!-- Panel Izquierdo: Academia -->
         <div class="split-panel academy-panel" id="academyPanel">
             <div class="split-bg-container">
+                <!-- STATIC BACKGROUND (Visible before clicking) -->
+                <div class="split-bg" style="background-image: url('images/academy_split.png?v=4');"></div>
+
+                <!-- SLIDING COLUMNS (Fades in after clicking) -->
                 <div class="sliding-columns-wrap">
                     <!-- Column 1 (col-0) -->
                     <div class="sliding-col col-0" id="slideCol0">
