@@ -4159,6 +4159,15 @@
                 }
             };
 
+            // Keyboard shortcut: Press 'N' to toggle Night / Day mode instantly
+            window.addEventListener('keydown', (e) => {
+                if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+                if (e.key === 'n' || e.key === 'N') {
+                    window.toggleNightMode();
+                    console.log('🌗 Modo Noche:', document.body.classList.contains('night-mode') ? 'ACTIVADO (Dark Luxury)' : 'DESACTIVADO (Soft Luxury)');
+                }
+            });
+
         });
     </script>
 </body>
