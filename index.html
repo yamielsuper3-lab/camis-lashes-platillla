@@ -2132,22 +2132,149 @@
             gap: 15px;
         }
 
+        .chat-messages-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
         .chat-message-bubble {
             background-color: rgba(255, 255, 255, 0.05);
-            border-left: 2px solid var(--primary-gold);
-            color: rgba(255, 255, 255, 0.85);
-            padding: 12px 16px;
+            border-left: 2.5px solid var(--primary-gold);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 10px 14px;
             border-radius: 4px 12px 12px 12px;
             font-size: 0.8rem;
-            line-height: 1.6;
+            line-height: 1.55;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            animation: bubbleIn 0.35s ease forwards;
         }
 
-        .chat-message-bubble p {
-            margin-bottom: 8px;
+        .chat-message-bubble.bubble-2 {
+            animation-delay: 0.12s;
         }
 
-        .chat-message-bubble p:last-child {
-            margin-bottom: 0;
+        .chat-message-bubble.bubble-3 {
+            animation-delay: 0.24s;
+        }
+
+        @keyframes bubbleIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating Preview Bubble & Notification Badge */
+        .chat-preview-bubble {
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            background: rgba(18, 18, 18, 0.96);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            border-radius: 14px;
+            padding: 12px 16px;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            width: 290px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(197, 160, 89, 0.25);
+            cursor: pointer;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            z-index: 1001;
+            animation: previewPop 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .chat-preview-bubble:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-gold);
+        }
+
+        .chat-preview-bubble.show {
+            display: flex;
+        }
+
+        .preview-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D4AF37, #C5A059);
+            color: #121212;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .preview-text {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .preview-sender {
+            font-family: 'Cinzel', serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .preview-msg {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            line-height: 1.35;
+        }
+
+        .preview-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.2rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0;
+            transition: color 0.2s ease;
+        }
+
+        .preview-close:hover {
+            color: var(--primary-gold);
+        }
+
+        .chat-badge {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            background: #e74c3c;
+            color: #ffffff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--dark-charcoal);
+            animation: pulseBadge 2s infinite;
+        }
+
+        .chat-badge.show {
+            display: flex;
+        }
+
+        @keyframes previewPop {
+            from { opacity: 0; transform: translateY(12px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes pulseBadge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
         }
 
         /* Form Inputs */
@@ -3742,10 +3869,16 @@
                 <button class="chat-close-btn" id="chatCloseBtn" aria-label="Cerrar chat">&times;</button>
             </div>
             <div class="chat-body">
-                <div class="chat-message-bubble">
-                    <p>¡Hola! Qué gusto saludarte. Veo que estás explorando nuestra sección de la Academia Cami's Lashes.</p>
-                    <p>Nuestra Masterclass está diseñada exclusivamente para artistas que buscan dominar técnicas de élite y establecer tarifas premium.</p>
-                    <p>¿Qué nivel de experiencia tienes actualmente en la aplicación de pestañas?</p>
+                <div class="chat-messages-container">
+                    <div class="chat-message-bubble bubble-1">
+                        ¡Hola! Qué gusto saludarte. Veo que estás explorando nuestra sección de la Academia Cami's Lashes.
+                    </div>
+                    <div class="chat-message-bubble bubble-2">
+                        Nuestra Masterclass está diseñada exclusivamente para artistas que buscan dominar técnicas de élite y establecer tarifas premium.
+                    </div>
+                    <div class="chat-message-bubble bubble-3">
+                        ¿Qué nivel de experiencia tienes actualmente en la aplicación de pestañas?
+                    </div>
                 </div>
                 
                 <!-- Chat Form -->
@@ -3779,8 +3912,19 @@
             </div>
         </div>
 
+        <!-- Chat Floating Preview Notification -->
+        <div class="chat-preview-bubble" id="chatPreviewBubble">
+            <div class="preview-avatar">C</div>
+            <div class="preview-text">
+                <span class="preview-sender">Admisiones Cami's Lashes</span>
+                <p class="preview-msg">¡Hola! ¿Tienes dudas sobre la Masterclass? Te asesoro...</p>
+            </div>
+            <button class="preview-close" id="previewCloseBtn" aria-label="Cerrar notificación">&times;</button>
+        </div>
+
         <!-- Chat Toggle Button (Visible at the bottom corner) -->
         <button class="chat-trigger-btn" id="chatTriggerBtn" title="Hablar con un asesor">
+            <span class="chat-badge" id="chatBadge">1</span>
             <svg class="chat-trigger-icon" viewBox="0 0 24 24">
                 <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
             </svg>
@@ -4042,18 +4186,23 @@
             });
 
             // ══════════════════════════════════════════════
-            // CHAT WIDGET INTERACTIVITY & AUTO-POPUP TIMER
+            // CHAT WIDGET INTERACTIVITY & NOTIFICATION PREVIEW
             // ══════════════════════════════════════════════
             const chatBox = document.getElementById('chatBox');
             const chatTriggerBtn = document.getElementById('chatTriggerBtn');
             const chatCloseBtn = document.getElementById('chatCloseBtn');
             const chatLeadForm = document.getElementById('chatLeadForm');
             const chatSuccessMsg = document.getElementById('chatSuccessMsg');
+            const chatPreviewBubble = document.getElementById('chatPreviewBubble');
+            const chatBadge = document.getElementById('chatBadge');
+            const previewCloseBtn = document.getElementById('previewCloseBtn');
             let chatAutoOpenTimer = null;
 
-            const toggleChat = () => {
-                chatBox.classList.toggle('open');
-                chatTriggerBtn.classList.toggle('active');
+            const openChat = () => {
+                chatBox.classList.add('open');
+                chatTriggerBtn.classList.add('active');
+                if (chatPreviewBubble) chatPreviewBubble.classList.remove('show');
+                if (chatBadge) chatBadge.classList.remove('show');
             };
 
             const closeChat = () => {
@@ -4061,18 +4210,33 @@
                 chatTriggerBtn.classList.remove('active');
             };
 
+            const toggleChat = () => {
+                if (chatBox.classList.contains('open')) {
+                    closeChat();
+                } else {
+                    openChat();
+                }
+            };
+
+            const dismissChatPreview = (e) => {
+                if (e) e.stopPropagation();
+                if (chatPreviewBubble) chatPreviewBubble.classList.remove('show');
+            };
+
             chatTriggerBtn.addEventListener('click', toggleChat);
+            if (chatPreviewBubble) chatPreviewBubble.addEventListener('click', openChat);
+            if (previewCloseBtn) previewCloseBtn.addEventListener('click', dismissChatPreview);
             chatCloseBtn.addEventListener('click', closeChat);
 
-            // Function to start the 6-second chat timer when entering Academy mode
+            // Function to start the 6-second message notification when staying in Academy mode
             window.startChatTimer = () => {
                 if (chatAutoOpenTimer) {
                     clearTimeout(chatAutoOpenTimer);
                 }
                 chatAutoOpenTimer = setTimeout(() => {
                     if (!chatBox.classList.contains('open') && document.body.classList.contains('active-academy')) {
-                        chatBox.classList.add('open');
-                        chatTriggerBtn.classList.add('active');
+                        if (chatPreviewBubble) chatPreviewBubble.classList.add('show');
+                        if (chatBadge) chatBadge.classList.add('show');
                     }
                 }, 6000);
             };
