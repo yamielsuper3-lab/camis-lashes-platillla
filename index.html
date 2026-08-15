@@ -3917,7 +3917,7 @@
             <div class="preview-avatar">C</div>
             <div class="preview-text">
                 <span class="preview-sender">Admisiones Cami's Lashes</span>
-                <p class="preview-msg">¡Hola! ¿Tienes dudas sobre la Masterclass? Te asesoro...</p>
+                <p class="preview-msg" id="previewMsg">¡Hola! Veo que estás explorando la sección de la Academia...</p>
             </div>
             <button class="preview-close" id="previewCloseBtn" aria-label="Cerrar notificación">&times;</button>
         </div>
@@ -4186,7 +4186,7 @@
             });
 
             // ══════════════════════════════════════════════
-            // CHAT WIDGET INTERACTIVITY & NOTIFICATION PREVIEW
+            // CHAT WIDGET INTERACTIVITY & SEQUENTIAL NOTIFICATIONS
             // ══════════════════════════════════════════════
             const chatBox = document.getElementById('chatBox');
             const chatTriggerBtn = document.getElementById('chatTriggerBtn');
@@ -4194,11 +4194,47 @@
             const chatLeadForm = document.getElementById('chatLeadForm');
             const chatSuccessMsg = document.getElementById('chatSuccessMsg');
             const chatPreviewBubble = document.getElementById('chatPreviewBubble');
+            const previewMsg = document.getElementById('previewMsg');
             const chatBadge = document.getElementById('chatBadge');
             const previewCloseBtn = document.getElementById('previewCloseBtn');
-            let chatAutoOpenTimer = null;
+            
+            let previewTimers = [];
+            let isPreviewDismissed = false;
+
+            const previewMessages = [
+                "¡Hola! Qué gusto saludarte. Veo que estás explorando la Academia...",
+                "Nuestra Masterclass está diseñada para dominar técnicas de élite...",
+                "¿Qué nivel de experiencia tienes actualmente en pestañas?"
+            ];
+
+            const updatePreviewMessage = (index) => {
+                if (isPreviewDismissed || chatBox.classList.contains('open') || !document.body.classList.contains('active-academy')) return;
+
+                if (previewMsg) {
+                    previewMsg.style.opacity = '0';
+                    previewMsg.style.transform = 'translateY(4px)';
+                    setTimeout(() => {
+                        previewMsg.innerText = previewMessages[index];
+                        previewMsg.style.opacity = '1';
+                        previewMsg.style.transform = 'translateY(0)';
+                    }, 200);
+                }
+
+                if (chatBadge) {
+                    chatBadge.innerText = (index + 1).toString();
+                    chatBadge.classList.remove('bounce');
+                    void chatBadge.offsetWidth;
+                    chatBadge.classList.add('bounce');
+                    chatBadge.classList.add('show');
+                }
+
+                if (chatPreviewBubble) {
+                    chatPreviewBubble.classList.add('show');
+                }
+            };
 
             const openChat = () => {
+                clearAllChatTimers();
                 chatBox.classList.add('open');
                 chatTriggerBtn.classList.add('active');
                 if (chatPreviewBubble) chatPreviewBubble.classList.remove('show');
@@ -4220,7 +4256,15 @@
 
             const dismissChatPreview = (e) => {
                 if (e) e.stopPropagation();
+                isPreviewDismissed = true;
+                clearAllChatTimers();
                 if (chatPreviewBubble) chatPreviewBubble.classList.remove('show');
+                if (chatBadge) chatBadge.classList.remove('show');
+            };
+
+            const clearAllChatTimers = () => {
+                previewTimers.forEach(t => clearTimeout(t));
+                previewTimers = [];
             };
 
             chatTriggerBtn.addEventListener('click', toggleChat);
@@ -4228,26 +4272,33 @@
             if (previewCloseBtn) previewCloseBtn.addEventListener('click', dismissChatPreview);
             chatCloseBtn.addEventListener('click', closeChat);
 
-            // Function to start the 6-second message notification when staying in Academy mode
+            // Function to start the progressive sequential message timers (6s -> 12s -> 18s)
             window.startChatTimer = () => {
-                if (chatAutoOpenTimer) {
-                    clearTimeout(chatAutoOpenTimer);
-                }
-                chatAutoOpenTimer = setTimeout(() => {
-                    if (!chatBox.classList.contains('open') && document.body.classList.contains('active-academy')) {
-                        if (chatPreviewBubble) chatPreviewBubble.classList.add('show');
-                        if (chatBadge) chatBadge.classList.add('show');
-                    }
-                }, 6000);
+                clearAllChatTimers();
+                isPreviewDismissed = false;
+
+                // Message 1 at 6s
+                previewTimers.push(setTimeout(() => {
+                    updatePreviewMessage(0);
+                }, 6000));
+
+                // Message 2 at 12s
+                previewTimers.push(setTimeout(() => {
+                    updatePreviewMessage(1);
+                }, 12000));
+
+                // Message 3 at 18s
+                previewTimers.push(setTimeout(() => {
+                    updatePreviewMessage(2);
+                }, 18000));
             };
 
-            // Function to stop the timer and reset chat when leaving Academy mode
+            // Function to stop timers and reset chat when leaving Academy mode
             window.stopChatTimer = () => {
-                if (chatAutoOpenTimer) {
-                    clearTimeout(chatAutoOpenTimer);
-                    chatAutoOpenTimer = null;
-                }
+                clearAllChatTimers();
                 closeChat();
+                if (chatPreviewBubble) chatPreviewBubble.classList.remove('show');
+                if (chatBadge) chatBadge.classList.remove('show');
             };
 
             // Automatically watch for body class changes to start/stop the chat timer
