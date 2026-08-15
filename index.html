@@ -2257,6 +2257,127 @@
                 width: calc(100vw - 40px);
                 bottom: 75px;
             }
+        /* ══════════════════════════════════════════════
+           GOOGLE REVIEWS SECTION
+           ══════════════════════════════════════════════ */
+        .google-reviews-section {
+            background-color: var(--dark-charcoal);
+            padding: 80px 4% 100px;
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        .reviews-summary {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .summary-score {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .summary-stars {
+            color: var(--primary-gold);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .summary-meta {
+            color: rgba(248, 245, 239, 0.5);
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .google-reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .google-review-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        .google-review-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+        }
+
+        .review-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .review-user-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(197, 160, 89, 0.15);
+            color: var(--primary-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .review-user-info h4 {
+            color: var(--primary-cream);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .review-date {
+            color: rgba(248, 245, 239, 0.4);
+            font-size: 0.75rem;
+        }
+
+        .google-g-logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: rgba(197, 160, 89, 0.5);
+        }
+
+        .review-stars {
+            color: var(--primary-gold);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .review-content {
+            color: rgba(248, 245, 239, 0.75);
+            font-size: 0.8rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .google-reviews-section {
+                padding: 60px 4% 80px;
+            }
         }
     </style>
     <!-- GSAP Libraries for Diamond Portal Transition -->
@@ -2474,6 +2595,66 @@
             </div>
         </div>
     </section>
+
+    <!-- 4. Reseñas de Google Maps y Confianza Local -->
+    <section class="google-reviews-section">
+        <div class="section-header">
+            <span class="sub-title">Opiniones Reales en Google Maps</span>
+            <h2>Experiencias 5 Estrellas</h2>
+            <p>Nuestra prioridad es tu mirada y tu confort. Conoce lo que nuestras clientas de Guanajuato y Puerto Vallarta opinan sobre sus aplicaciones.</p>
+        </div>
+        
+        <div class="reviews-summary">
+            <div class="summary-score">4.9</div>
+            <div class="summary-stars">★★★★★</div>
+            <div class="summary-meta">Basado en más de 120 opiniones de Google Maps</div>
+        </div>
+
+        <div class="google-reviews-grid">
+            <!-- Reseña 1 -->
+            <div class="google-review-card">
+                <div class="review-card-header">
+                    <div class="review-user-avatar">M</div>
+                    <div class="review-user-info">
+                        <h4>Mariana Torres</h4>
+                        <span class="review-date">Hace 2 semanas - Guanajuato</span>
+                    </div>
+                    <div class="google-g-logo">G</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-content">"La mejor experiencia en pestañas. Cami tiene una mano super suave, no sentí absolutamente nada y las pestañas clásicas me duraron intactas casi un mes. El spa es precioso y super limpio."</p>
+            </div>
+
+            <!-- Reseña 2 -->
+            <div class="google-review-card">
+                <div class="review-card-header">
+                    <div class="review-user-avatar">K</div>
+                    <div class="review-user-info">
+                        <h4>Karla Ruiz</h4>
+                        <span class="review-date">Hace 1 mes - Puerto Vallarta</span>
+                    </div>
+                    <div class="google-g-logo">G</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-content">"Fui por primera vez a hacerme volumen ruso para mis vacaciones y quedé fascinada. Te asesoran según tu tipo de ojo y el trato es increíble. Volveré sin duda a mis retoques."</p>
+            </div>
+
+            <!-- Reseña 3 -->
+            <div class="google-review-card">
+                <div class="review-card-header">
+                    <div class="review-user-avatar">D</div>
+                    <div class="review-user-info">
+                        <h4>Daniela Pérez</h4>
+                        <span class="review-date">Hace 3 semanas - Guanajuato</span>
+                    </div>
+                    <div class="google-g-logo">G</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-content">"Me realicé un Lash Lift y el cambio es impresionante. Mis pestañas se ven súper curvadas y naturales. Las instalaciones transmiten mucha paz y relajación."</p>
+            </div>
+        </div>
+    </section>
+
     <section id="academy" class="academy-section">
 
         <!-- 3. Reducción de Riesgo: Trust Badges -->
