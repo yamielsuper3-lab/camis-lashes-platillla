@@ -2718,6 +2718,144 @@
                 text-align: center;
             }
         }
+
+        /* ══════════════════════════════════════════════
+           NIGHT MODE ADAPTATION (AUTO AT NIGHT / TOGGLE)
+           ══════════════════════════════════════════════ */
+        body.night-mode .google-reviews-section {
+            background: var(--dark-charcoal);
+            border-top-color: rgba(197, 160, 89, 0.15);
+            border-bottom-color: rgba(197, 160, 89, 0.15);
+        }
+
+        body.night-mode .google-reviews-section .section-header h2 {
+            color: var(--primary-cream);
+        }
+
+        body.night-mode .google-reviews-section .section-header p,
+        body.night-mode .reviews-summary .summary-meta {
+            color: rgba(248, 245, 239, 0.6);
+        }
+
+        body.night-mode .google-review-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(197, 160, 89, 0.15);
+            box-shadow: none;
+        }
+
+        body.night-mode .google-review-card:hover {
+            border-color: var(--primary-gold);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        body.night-mode .review-user-avatar {
+            background: rgba(197, 160, 89, 0.15);
+            border-color: rgba(197, 160, 89, 0.3);
+        }
+
+        body.night-mode .review-user-info h4 {
+            color: var(--primary-cream);
+        }
+
+        body.night-mode .review-date {
+            color: rgba(248, 245, 239, 0.4);
+        }
+
+        body.night-mode .review-content {
+            color: rgba(248, 245, 239, 0.75);
+        }
+
+        /* Night Mode Academy Calendar */
+        body.night-mode .academy-calendar-section {
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.95) 0%, rgba(24, 24, 24, 0.98) 100%);
+            border-top-color: rgba(197, 160, 89, 0.15);
+        }
+
+        body.night-mode .calendar-header h3 {
+            color: var(--primary-cream);
+        }
+
+        body.night-mode .calendar-header p {
+            color: rgba(248, 245, 239, 0.7);
+        }
+
+        body.night-mode .cal-tab-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(197, 160, 89, 0.2);
+            color: rgba(248, 245, 239, 0.75);
+            box-shadow: none;
+        }
+
+        body.night-mode .cal-tab-btn:hover {
+            border-color: var(--primary-gold);
+            color: var(--primary-cream);
+        }
+
+        body.night-mode .cal-tab-btn.active {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(197, 160, 89, 0.1) 100%);
+            border-color: var(--primary-gold);
+            color: var(--primary-gold);
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.25);
+        }
+
+        body.night-mode .cal-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(197, 160, 89, 0.18);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        body.night-mode .cal-card:hover {
+            border-color: rgba(197, 160, 89, 0.5);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 20px rgba(197, 160, 89, 0.15);
+        }
+
+        body.night-mode .cal-date-pill {
+            background: rgba(197, 160, 89, 0.08);
+            border-color: rgba(197, 160, 89, 0.35);
+        }
+
+        body.night-mode .cal-date-month {
+            color: var(--primary-cream);
+        }
+
+        body.night-mode .status-urgent {
+            background: rgba(231, 76, 60, 0.15);
+            border-color: rgba(231, 76, 60, 0.4);
+            color: #ff6b6b;
+        }
+
+        body.night-mode .status-available {
+            background: rgba(46, 204, 113, 0.12);
+            border-color: rgba(46, 204, 113, 0.35);
+            color: #2ecc71;
+        }
+
+        body.night-mode .status-open {
+            background: rgba(197, 160, 89, 0.15);
+            border-color: rgba(197, 160, 89, 0.4);
+            color: var(--primary-gold);
+        }
+
+        body.night-mode .cal-course-title {
+            color: var(--primary-cream);
+        }
+
+        body.night-mode .cal-details-list li {
+            color: rgba(248, 245, 239, 0.75);
+        }
+
+        body.night-mode .cal-details-list li strong {
+            color: var(--primary-cream);
+        }
+
+        body.night-mode .cal-custom-note {
+            background: rgba(255, 255, 255, 0.015);
+            border-color: rgba(197, 160, 89, 0.3);
+        }
+
+        body.night-mode .cal-custom-note p {
+            color: rgba(248, 245, 239, 0.8);
+        }
     </style>
     <!-- GSAP Libraries for Diamond Portal Transition -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -3998,6 +4136,27 @@
                         card.style.display = 'none';
                     }
                 });
+            };
+
+            // Auto Night Mode Detector (Active from 7:00 PM to 6:59 AM)
+            const checkNightMode = () => {
+                const hour = new Date().getHours();
+                const isNight = hour >= 19 || hour < 7;
+                if (isNight) {
+                    document.body.classList.add('night-mode');
+                } else {
+                    document.body.classList.remove('night-mode');
+                }
+            };
+            checkNightMode();
+
+            // Expose manual toggle if ever needed
+            window.toggleNightMode = (forceState) => {
+                if (typeof forceState === 'boolean') {
+                    document.body.classList.toggle('night-mode', forceState);
+                } else {
+                    document.body.classList.toggle('night-mode');
+                }
             };
 
         });
