@@ -2375,9 +2375,316 @@
             font-weight: 300;
         }
 
+        /* ══════════════════════════════════════════════
+           GLASSMORPHIC ACADEMY CALENDAR SECTION
+           ══════════════════════════════════════════════ */
+        .academy-calendar-section {
+            padding: 80px 4% 100px;
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.95) 0%, rgba(24, 24, 24, 0.98) 100%);
+            position: relative;
+            z-index: 5;
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
+        }
+
+        .calendar-header {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 40px;
+        }
+
+        .calendar-header .cal-tag {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            color: var(--primary-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            background: rgba(197, 160, 89, 0.08);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            padding: 6px 16px;
+            border-radius: 999px;
+        }
+
+        .calendar-header h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--primary-cream);
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .calendar-header p {
+            color: rgba(248, 245, 239, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Filter Tabs */
+        .calendar-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 45px;
+        }
+
+        .cal-tab-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            color: rgba(248, 245, 239, 0.75);
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.35s ease;
+        }
+
+        .cal-tab-btn:hover {
+            border-color: var(--primary-gold);
+            color: var(--primary-cream);
+            transform: translateY(-2px);
+        }
+
+        .cal-tab-btn.active {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(197, 160, 89, 0.1) 100%);
+            border-color: var(--primary-gold);
+            color: var(--primary-gold);
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.25);
+        }
+
+        /* Calendar Grid */
+        .calendar-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Glassmorphic Card */
+        .cal-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(197, 160, 89, 0.18);
+            border-radius: 16px;
+            padding: 28px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .cal-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(197, 160, 89, 0.5);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 20px rgba(197, 160, 89, 0.15);
+        }
+
+        .cal-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Card Top Bar */
+        .cal-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        /* Date Pill (Glass) */
+        .cal-date-pill {
+            background: rgba(197, 160, 89, 0.08);
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            border-radius: 12px;
+            padding: 8px 14px;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .cal-date-days {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            line-height: 1;
+        }
+
+        .cal-date-month {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--primary-cream);
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* Status Badge */
+        .cal-status-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+
+        .status-urgent {
+            background: rgba(231, 76, 60, 0.15);
+            border: 1px solid rgba(231, 76, 60, 0.4);
+            color: #ff6b6b;
+        }
+
+        .status-available {
+            background: rgba(46, 204, 113, 0.12);
+            border: 1px solid rgba(46, 204, 113, 0.35);
+            color: #2ecc71;
+        }
+
+        .status-open {
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            color: var(--primary-gold);
+        }
+
+        /* Course Info */
+        .cal-course-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            color: var(--primary-cream);
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            line-height: 1.35;
+        }
+
+        .cal-details-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cal-details-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: rgba(248, 245, 239, 0.75);
+            line-height: 1.45;
+            font-weight: 300;
+        }
+
+        .cal-details-list li strong {
+            color: var(--primary-cream);
+            font-weight: 500;
+        }
+
+        .cal-icon {
+            color: var(--primary-gold);
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        /* Button */
+        .btn-cal-apply {
+            display: block;
+            text-align: center;
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+            color: var(--dark-charcoal);
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 13px;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            transition: all 0.35s ease;
+        }
+
+        .btn-cal-apply:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(197, 160, 89, 0.3);
+            color: var(--dark-charcoal);
+        }
+
+        /* Bottom Note Card */
+        .cal-custom-note {
+            max-width: 900px;
+            margin: 45px auto 0;
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px dashed rgba(197, 160, 89, 0.3);
+            border-radius: 14px;
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .cal-custom-note p {
+            color: rgba(248, 245, 239, 0.8);
+            font-size: 0.85rem;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .cal-custom-note a {
+            color: var(--primary-gold);
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .cal-custom-note a:hover {
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
-            .google-reviews-section {
-                padding: 60px 4% 80px;
+            .academy-calendar-section {
+                padding: 60px 4% 70px;
+            }
+            .calendar-header h3 {
+                font-size: 1.7rem;
+            }
+            .cal-custom-note {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -2789,6 +3096,116 @@
                         <p>Cómo calcular costos reales, fijar precios que dignifiquen tu tiempo, crear tus redes y recibir tu Certificado Profesional de la Academia.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- 6.5 Calendario Glassmorphic de Próximas Fechas & Convocatorias -->
+        <div class="academy-calendar-section" id="academyCalendar">
+            <div class="calendar-header">
+                <span class="cal-tag">Convocatorias & Cupos 2026</span>
+                <h3>Próximas Fechas de Certificación</h3>
+                <p>Cupos estrictamente limitados a un máximo de 6 alumnas por sede para garantizar atención 100% personalizada, supervisión continua y práctica en modelos reales.</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="calendar-tabs">
+                <button class="cal-tab-btn active" onclick="filterCalendar('all', this)">Todas las Sedes</button>
+                <button class="cal-tab-btn" onclick="filterCalendar('guanajuato', this)">Guanajuato (Centro)</button>
+                <button class="cal-tab-btn" onclick="filterCalendar('vallarta', this)">Puerto Vallarta (Marina)</button>
+                <button class="cal-tab-btn" onclick="filterCalendar('online', this)">Online en Vivo</button>
+            </div>
+
+            <!-- Calendar Cards Grid -->
+            <div class="calendar-cards-grid">
+                <!-- Fecha 1: Guanajuato Masterclass -->
+                <div class="cal-card" data-location="guanajuato">
+                    <div>
+                        <div class="cal-card-top">
+                            <div class="cal-date-pill">
+                                <div class="cal-date-days">18 - 19</div>
+                                <div class="cal-date-month">SEP 2026</div>
+                            </div>
+                            <span class="cal-status-badge status-urgent">🔴 Últimos 2 Cupos</span>
+                        </div>
+                        <h4 class="cal-course-title">Classic & Volume Russian Masterclass</h4>
+                        <ul class="cal-details-list">
+                            <li><span class="cal-icon">📍</span> <div><strong>Sede:</strong> Guanajuato (Centro Histórico) • Presencial 2 Días</div></li>
+                            <li><span class="cal-icon">⏰</span> <div><strong>Horario:</strong> 10:00 AM – 6:00 PM (Práctica en Modelo Real)</div></li>
+                            <li><span class="cal-icon">📦</span> <div><strong>Kit:</strong> Starter Kit Titanium de $3,500 MXN incluido</div></li>
+                            <li><span class="cal-icon">🎓</span> <div><strong>Certificado:</strong> Certificación Oficial de Maestría S.E.P.</div></li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5214731002030?text=Hola%20Cami,%20quiero%20apartar%20mi%20lugar%20para%20la%20Masterclass%20del%2018-19%20de%20Septiembre%20en%20Guanajuato." target="_blank" class="btn-cal-apply">Postularme a esta Fecha</a>
+                </div>
+
+                <!-- Fecha 2: Vallarta Fibras Tecnológicas -->
+                <div class="cal-card" data-location="vallarta">
+                    <div>
+                        <div class="cal-card-top">
+                            <div class="cal-date-pill">
+                                <div class="cal-date-days">02 - 03</div>
+                                <div class="cal-date-month">OCT 2026</div>
+                            </div>
+                            <span class="cal-status-badge status-available">🟢 4 Cupos Disponibles</span>
+                        </div>
+                        <h4 class="cal-course-title">Especialización Fibras Tecnológicas (Y, W, 4D, 5D)</h4>
+                        <ul class="cal-details-list">
+                            <li><span class="cal-icon">📍</span> <div><strong>Sede:</strong> Puerto Vallarta (Marina Vallarta) • Presencial Intensivo</div></li>
+                            <li><span class="cal-icon">⏰</span> <div><strong>Horario:</strong> 10:00 AM – 7:00 PM (Clínica y Tendencias)</div></li>
+                            <li><span class="cal-icon">📦</span> <div><strong>Kit:</strong> Pack de Blisters Tecnológicos + Adhesivo Élite</div></li>
+                            <li><span class="cal-icon">🎓</span> <div><strong>Certificado:</strong> Diploma Internacional de Especialidad</div></li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5214731002030?text=Hola%20Cami,%20quiero%20apartar%20mi%20lugar%20para%20el%20curso%20de%20Fibras%20Tecnol%C3%B3gicas%20del%2002-03%20de%20Octubre%20en%20Vallarta." target="_blank" class="btn-cal-apply">Postularme a esta Fecha</a>
+                </div>
+
+                <!-- Fecha 3: Guanajuato Masterclass Octubre -->
+                <div class="cal-card" data-location="guanajuato">
+                    <div>
+                        <div class="cal-card-top">
+                            <div class="cal-date-pill">
+                                <div class="cal-date-days">16 - 17</div>
+                                <div class="cal-date-month">OCT 2026</div>
+                            </div>
+                            <span class="cal-status-badge status-available">🟢 3 Cupos Disponibles</span>
+                        </div>
+                        <h4 class="cal-course-title">Classic & Volume Russian Masterclass</h4>
+                        <ul class="cal-details-list">
+                            <li><span class="cal-icon">📍</span> <div><strong>Sede:</strong> Guanajuato (Centro Histórico) • Presencial 2 Días</div></li>
+                            <li><span class="cal-icon">⏰</span> <div><strong>Horario:</strong> 10:00 AM – 6:00 PM (Práctica en Modelo Real)</div></li>
+                            <li><span class="cal-icon">📦</span> <div><strong>Kit:</strong> Starter Kit Titanium de $3,500 MXN incluido</div></li>
+                            <li><span class="cal-icon">🎓</span> <div><strong>Certificado:</strong> Certificación Oficial de Maestría S.E.P.</div></li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5214731002030?text=Hola%20Cami,%20quiero%20apartar%20mi%20lugar%20para%20la%20Masterclass%20del%2016-17%20de%20Octubre%20en%20Guanajuato." target="_blank" class="btn-cal-apply">Postularme a esta Fecha</a>
+                </div>
+
+                <!-- Fecha 4: Online Neuromarketing -->
+                <div class="cal-card" data-location="online">
+                    <div>
+                        <div class="cal-card-top">
+                            <div class="cal-date-pill">
+                                <div class="cal-date-days">24</div>
+                                <div class="cal-date-month">OCT 2026</div>
+                            </div>
+                            <span class="cal-status-badge status-open">🟡 Convocatoria Abierta</span>
+                        </div>
+                        <h4 class="cal-course-title">Neuromarketing y Negocio para Lash Artists</h4>
+                        <ul class="cal-details-list">
+                            <li><span class="cal-icon">📍</span> <div><strong>Modalidad:</strong> Online en Vivo (Zoom Live + Mentoría 1 a 1)</div></li>
+                            <li><span class="cal-icon">⏰</span> <div><strong>Duración:</strong> 4 Semanas de Acompañamiento Semanal</div></li>
+                            <li><span class="cal-icon">📦</span> <div><strong>Recursos:</strong> Plantillas de Precios + Bot de WhatsApp Automatizado</div></li>
+                            <li><span class="cal-icon">🎓</span> <div><strong>Certificado:</strong> Certificado Digital de Negocio y Posicionamiento</div></li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5214731002030?text=Hola%20Cami,%20quiero%20inscribirme%20a%20la%20mentor%C3%ADa%20Online%20de%20Neuromarketing%20del%2024%20de%20Octubre." target="_blank" class="btn-cal-apply">Postularme a esta Fecha</a>
+                </div>
+            </div>
+
+            <!-- Custom Sede Note -->
+            <div class="cal-custom-note">
+                <p>💡 <strong>¿Requieres fechas personalizadas o capacitación privada en tu estudio?</strong></p>
+                <a href="https://wa.me/5214731002030?text=Hola%20Cami,%20me%20gustar%C3%ADa%20solicitar%20informes%20para%20una%20capacitaci%C3%B3n%20privada%20VIP." target="_blank">Consultar Fechas VIP &rarr;</a>
             </div>
         </div>
     </section>
@@ -3534,6 +3951,22 @@
 
                 // Auto close the chat widget after a brief delay
                 setTimeout(closeChat, 6000);
+            };
+
+            // Filter Calendar Cards by Sede
+            window.filterCalendar = (location, btn) => {
+                document.querySelectorAll('.cal-tab-btn').forEach(b => b.classList.remove('active'));
+                if (btn) btn.classList.add('active');
+
+                const cards = document.querySelectorAll('.cal-card');
+                cards.forEach(card => {
+                    if (location === 'all' || card.getAttribute('data-location') === location) {
+                        card.style.display = 'flex';
+                        gsap.fromTo(card, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.35 });
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             };
 
         });
