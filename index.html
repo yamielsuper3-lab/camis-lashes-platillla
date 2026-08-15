@@ -2259,97 +2259,119 @@
             }
         }
         /* ══════════════════════════════════════════════
-           GOOGLE REVIEWS SECTION
+           GOOGLE REVIEWS SECTION (SOFT LUXURY PALETTE)
            ══════════════════════════════════════════════ */
         .google-reviews-section {
-            background-color: var(--dark-charcoal);
-            padding: 80px 4% 100px;
+            background: linear-gradient(180deg, #F8F5EF 0%, #FAF7F2 100%);
+            padding: 90px 4% 100px;
             position: relative;
             z-index: 10;
-            border-top: 1px solid rgba(197, 160, 89, 0.1);
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+        }
+
+        .google-reviews-section .section-header h2 {
+            color: var(--dark-charcoal);
+            font-family: 'Cinzel', serif;
+            font-size: 2.3rem;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .google-reviews-section .section-header p {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+            font-weight: 300;
         }
 
         .reviews-summary {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .summary-score {
             font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 700;
             color: var(--primary-gold);
             line-height: 1;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .summary-stars {
             color: var(--primary-gold);
             font-size: 1.4rem;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
         }
 
         .summary-meta {
-            color: rgba(248, 245, 239, 0.5);
+            color: var(--text-muted);
             font-size: 0.85rem;
-            font-weight: 300;
+            font-weight: 400;
             letter-spacing: 0.5px;
         }
 
         .google-reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .google-review-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(197, 160, 89, 0.15);
-            border-radius: 12px;
-            padding: 24px;
-            transition: transform 0.4s ease, border-color 0.4s ease;
+            background: var(--white);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 14px;
+            padding: 30px 26px;
+            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.06), 0 2px 8px rgba(18, 18, 18, 0.02);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
         }
 
         .google-review-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
             border-color: var(--primary-gold);
+            box-shadow: 0 18px 40px rgba(197, 160, 89, 0.15);
         }
 
         .review-card-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
+            gap: 14px;
+            margin-bottom: 16px;
             position: relative;
         }
 
         .review-user-avatar {
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
-            background-color: rgba(197, 160, 89, 0.15);
+            background: linear-gradient(135deg, rgba(197, 160, 89, 0.15) 0%, rgba(244, 235, 230, 0.6) 100%);
             color: var(--primary-gold);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Cinzel', serif;
             font-weight: 700;
-            font-size: 1.1rem;
-            border: 1px solid rgba(197, 160, 89, 0.3);
+            font-size: 1.15rem;
+            border: 1px solid rgba(197, 160, 89, 0.35);
         }
 
         .review-user-info h4 {
-            color: var(--primary-cream);
-            font-size: 0.9rem;
+            color: var(--dark-charcoal);
+            font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 2px;
+            margin-bottom: 3px;
         }
 
         .review-date {
-            color: rgba(248, 245, 239, 0.4);
-            font-size: 0.75rem;
+            color: #888888;
+            font-size: 0.78rem;
+            font-weight: 400;
         }
 
         .google-g-logo {
@@ -2357,39 +2379,41 @@
             top: 0;
             right: 0;
             font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            color: rgba(197, 160, 89, 0.5);
+            color: var(--primary-gold);
+            opacity: 0.7;
         }
 
         .review-stars {
             color: var(--primary-gold);
             font-size: 0.95rem;
             margin-bottom: 12px;
+            letter-spacing: 2px;
         }
 
         .review-content {
-            color: rgba(248, 245, 239, 0.75);
-            font-size: 0.8rem;
+            color: #4A4A4A;
+            font-size: 0.86rem;
             line-height: 1.7;
             font-weight: 300;
         }
 
         /* ══════════════════════════════════════════════
-           GLASSMORPHIC ACADEMY CALENDAR SECTION
+           GLASSMORPHIC ACADEMY CALENDAR (SOFT LUXURY PALETTE)
            ══════════════════════════════════════════════ */
         .academy-calendar-section {
-            padding: 80px 4% 100px;
-            background: linear-gradient(180deg, rgba(18, 18, 18, 0.95) 0%, rgba(24, 24, 24, 0.98) 100%);
+            padding: 90px 4% 110px;
+            background: linear-gradient(180deg, #FBF9F5 0%, #F5EFEB 100%);
             position: relative;
             z-index: 5;
-            border-top: 1px solid rgba(197, 160, 89, 0.15);
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
         }
 
         .calendar-header {
             text-align: center;
             max-width: 780px;
-            margin: 0 auto 40px;
+            margin: 0 auto 45px;
         }
 
         .calendar-header .cal-tag {
@@ -2400,24 +2424,25 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 12px;
-            background: rgba(197, 160, 89, 0.08);
-            border: 1px solid rgba(197, 160, 89, 0.25);
-            padding: 6px 16px;
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 6px 18px;
             border-radius: 999px;
+            font-weight: 600;
         }
 
         .calendar-header h3 {
             font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            color: var(--primary-cream);
+            font-size: 2.3rem;
+            color: var(--dark-charcoal);
             letter-spacing: 1px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .calendar-header p {
-            color: rgba(248, 245, 239, 0.7);
-            font-size: 0.9rem;
-            line-height: 1.6;
+            color: #666666;
+            font-size: 0.92rem;
+            line-height: 1.65;
             font-weight: 300;
         }
 
@@ -2431,51 +2456,54 @@
         }
 
         .cal-tab-btn {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            color: rgba(248, 245, 239, 0.75);
-            padding: 10px 22px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            color: #4A4A4A;
+            padding: 10px 24px;
             border-radius: 30px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 500;
             cursor: pointer;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(18, 18, 18, 0.03);
             transition: all 0.35s ease;
         }
 
         .cal-tab-btn:hover {
             border-color: var(--primary-gold);
-            color: var(--primary-cream);
+            color: var(--dark-charcoal);
             transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(197, 160, 89, 0.15);
         }
 
         .cal-tab-btn.active {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(197, 160, 89, 0.1) 100%);
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
             border-color: var(--primary-gold);
-            color: var(--primary-gold);
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.25);
+            color: var(--white);
+            font-weight: 600;
+            box-shadow: 0 6px 18px rgba(197, 160, 89, 0.35);
         }
 
         /* Calendar Grid */
         .calendar-cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            gap: 28px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Glassmorphic Card */
+        /* Glassmorphic Light Card */
         .cal-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(197, 160, 89, 0.18);
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(197, 160, 89, 0.22);
             border-radius: 16px;
-            padding: 28px;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            padding: 32px 28px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 12px 35px rgba(197, 160, 89, 0.08), 0 4px 12px rgba(18, 18, 18, 0.02);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -2497,9 +2525,9 @@
         }
 
         .cal-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(197, 160, 89, 0.5);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 20px rgba(197, 160, 89, 0.15);
+            transform: translateY(-7px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 45px rgba(197, 160, 89, 0.2), 0 6px 18px rgba(18, 18, 18, 0.04);
         }
 
         .cal-card:hover::before {
@@ -2511,23 +2539,24 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             gap: 15px;
         }
 
-        /* Date Pill (Glass) */
+        /* Date Pill (Frosted Cream Glass) */
         .cal-date-pill {
-            background: rgba(197, 160, 89, 0.08);
+            background: rgba(248, 245, 239, 0.95);
             border: 1px solid rgba(197, 160, 89, 0.35);
             border-radius: 12px;
-            padding: 8px 14px;
+            padding: 8px 16px;
             text-align: center;
-            min-width: 80px;
+            min-width: 85px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
         }
 
         .cal-date-days {
             font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--primary-gold);
             line-height: 1;
@@ -2535,10 +2564,10 @@
 
         .cal-date-month {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.68rem;
+            font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 1px;
-            color: var(--primary-cream);
+            color: var(--dark-charcoal);
             text-transform: uppercase;
             margin-top: 4px;
         }
@@ -2548,66 +2577,65 @@
             font-size: 0.72rem;
             font-weight: 600;
             letter-spacing: 0.5px;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 999px;
             text-transform: uppercase;
         }
 
         .status-urgent {
-            background: rgba(231, 76, 60, 0.15);
-            border: 1px solid rgba(231, 76, 60, 0.4);
-            color: #ff6b6b;
+            background: rgba(231, 76, 60, 0.08);
+            border: 1px solid rgba(231, 76, 60, 0.35);
+            color: #d63031;
         }
 
         .status-available {
-            background: rgba(46, 204, 113, 0.12);
+            background: rgba(46, 204, 113, 0.08);
             border: 1px solid rgba(46, 204, 113, 0.35);
-            color: #2ecc71;
+            color: #27ae60;
         }
 
         .status-open {
-            background: rgba(197, 160, 89, 0.15);
+            background: rgba(197, 160, 89, 0.12);
             border: 1px solid rgba(197, 160, 89, 0.4);
-            color: var(--primary-gold);
+            color: #B08D46;
         }
 
         /* Course Info */
         .cal-course-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.15rem;
-            color: var(--primary-cream);
+            font-size: 1.18rem;
+            color: var(--dark-charcoal);
             letter-spacing: 0.5px;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
             line-height: 1.35;
         }
 
         .cal-details-list {
             list-style: none;
             padding: 0;
-            margin: 0 0 24px 0;
+            margin: 0 0 26px 0;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 11px;
         }
 
         .cal-details-list li {
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            font-size: 0.8rem;
-            color: rgba(248, 245, 239, 0.75);
-            line-height: 1.45;
+            font-size: 0.83rem;
+            color: #555555;
+            line-height: 1.5;
             font-weight: 300;
         }
 
         .cal-details-list li strong {
-            color: var(--primary-cream);
-            font-weight: 500;
+            color: var(--dark-charcoal);
+            font-weight: 600;
         }
 
         .cal-icon {
-            color: var(--primary-gold);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             flex-shrink: 0;
         }
 
@@ -2616,52 +2644,54 @@
             display: block;
             text-align: center;
             background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
-            color: var(--dark-charcoal);
+            color: var(--white);
             font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
             text-decoration: none;
-            padding: 13px;
+            padding: 14px;
             border-radius: 8px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 6px 18px rgba(197, 160, 89, 0.25);
             transition: all 0.35s ease;
         }
 
         .btn-cal-apply:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(197, 160, 89, 0.3);
-            color: var(--dark-charcoal);
+            background: linear-gradient(135deg, #B08D46 0%, #9E7D36 100%);
+            box-shadow: 0 10px 24px rgba(197, 160, 89, 0.4);
+            color: var(--white);
         }
 
         /* Bottom Note Card */
         .cal-custom-note {
             max-width: 900px;
-            margin: 45px auto 0;
-            background: rgba(255, 255, 255, 0.015);
-            border: 1px dashed rgba(197, 160, 89, 0.3);
+            margin: 50px auto 0;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px dashed rgba(197, 160, 89, 0.45);
             border-radius: 14px;
-            padding: 20px 28px;
+            padding: 22px 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 20px;
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.05);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
 
         .cal-custom-note p {
-            color: rgba(248, 245, 239, 0.8);
-            font-size: 0.85rem;
+            color: #444444;
+            font-size: 0.88rem;
             margin: 0;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .cal-custom-note a {
             color: var(--primary-gold);
-            font-weight: 600;
-            font-size: 0.82rem;
+            font-weight: 700;
+            font-size: 0.85rem;
             letter-spacing: 0.5px;
             text-decoration: none;
             white-space: nowrap;
@@ -2672,15 +2702,16 @@
         }
 
         .cal-custom-note a:hover {
+            color: #9E7D36;
             text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            .academy-calendar-section {
-                padding: 60px 4% 70px;
+            .academy-calendar-section, .google-reviews-section {
+                padding: 60px 4% 75px;
             }
-            .calendar-header h3 {
-                font-size: 1.7rem;
+            .calendar-header h3, .google-reviews-section .section-header h2 {
+                font-size: 1.75rem;
             }
             .cal-custom-note {
                 flex-direction: column;
