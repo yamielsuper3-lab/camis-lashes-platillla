@@ -3435,6 +3435,319 @@
             color: var(--primary-gold);
         }
 
+        /* ══════════════════════════════════════════════
+           CUSTOM LUXURY SELECT DROPDOWN (EXPERIENCIA)
+           ══════════════════════════════════════════════ */
+        .custom-select-group {
+            position: relative;
+            user-select: none;
+        }
+
+        .custom-select-trigger {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 12px;
+            padding: 14px 16px;
+            color: var(--primary-cream);
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .custom-select-trigger:hover, .custom-select-group.open .custom-select-trigger {
+            border-color: var(--primary-gold);
+            background: rgba(197, 160, 89, 0.08);
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.25);
+        }
+
+        .selected-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .select-chevron {
+            width: 18px;
+            height: 18px;
+            fill: var(--primary-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .custom-select-group.open .select-chevron {
+            transform: rotate(180deg);
+        }
+
+        .custom-select-options {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            width: 100%;
+            background: rgba(18, 16, 14, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1.5px solid rgba(212, 175, 55, 0.4);
+            border-radius: 14px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
+            z-index: 100;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .custom-select-group.open .custom-select-options {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .custom-option {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.12);
+            transition: all 0.2s ease;
+        }
+
+        .custom-option:last-child {
+            border-bottom: none;
+        }
+
+        .custom-option:hover {
+            background: rgba(197, 160, 89, 0.15);
+            padding-left: 20px;
+        }
+
+        .custom-option.active {
+            background: linear-gradient(90deg, rgba(197, 160, 89, 0.22) 0%, rgba(197, 160, 89, 0.05) 100%);
+            border-left: 3px solid var(--primary-gold);
+        }
+
+        .option-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .option-content strong {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--primary-cream);
+            margin-bottom: 2px;
+        }
+
+        .option-content small {
+            display: block;
+            font-size: 0.75rem;
+            color: rgba(248, 245, 239, 0.65);
+            line-height: 1.3;
+        }
+
+        .option-check {
+            color: #2ecc71;
+            font-weight: 700;
+            font-size: 1.1rem;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .custom-option.active .option-check {
+            opacity: 1;
+        }
+
+        /* ══════════════════════════════════════════════
+           SECCIÓN 7: PREGUNTAS FRECUENTES (FAQ) - DARK LUXURY
+           ══════════════════════════════════════════════ */
+        .faq-section {
+            max-width: 1200px;
+            margin: 0 auto 100px auto;
+            background: radial-gradient(circle at 50% 0%, rgba(32, 26, 18, 0.8) 0%, rgba(14, 12, 10, 0.95) 100%);
+            border: 1.5px solid rgba(197, 160, 89, 0.3);
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .faq-container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 14px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(197, 160, 89, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .faq-item.active {
+            border-color: var(--primary-gold);
+            background: rgba(197, 160, 89, 0.06);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 24px;
+            text-align: left;
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary-cream);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: color 0.25s ease;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-gold);
+        }
+
+        .faq-icon-wrap {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon-wrap {
+            transform: rotate(45deg);
+            background: var(--primary-gold);
+            color: #121212;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), padding 0.3s ease;
+            padding: 0 24px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 400px;
+            padding: 0 24px 22px 24px;
+        }
+
+        .faq-answer p {
+            color: rgba(248, 245, 239, 0.8);
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin: 0 0 12px;
+        }
+
+        .faq-ai-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            color: var(--primary-gold);
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .faq-ai-hint:hover {
+            color: #FFF0D0;
+        }
+
+        /* Callout IA para FAQ */
+        .faq-ai-assistant-card {
+            margin-top: 35px;
+            background: linear-gradient(135deg, rgba(35, 28, 20, 0.95) 0%, rgba(18, 16, 14, 0.98) 100%);
+            border: 1.5px solid rgba(212, 175, 55, 0.4);
+            border-radius: 16px;
+            padding: 26px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .ai-card-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .ai-avatar-badge {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #D4AF37 0%, #8C6D23 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            flex-shrink: 0;
+        }
+
+        .ai-card-content h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--primary-cream);
+            margin: 0 0 4px;
+        }
+
+        .ai-card-content p {
+            font-size: 0.85rem;
+            color: rgba(248, 245, 239, 0.7);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .btn-ask-ai-faq {
+            background: linear-gradient(135deg, #FFF0D0 0%, #D4AF37 100%);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 22px;
+            color: #121212;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            white-space: nowrap;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
+            transition: all 0.25s ease;
+        }
+
+        .btn-ask-ai-faq:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(212, 175, 55, 0.55);
+        }
+
         /* Responsive Media Queries */
         @media (max-width: 992px) {
             .pricing-split-layout, .congress-grid, .bonus-spec-card {
@@ -3442,6 +3755,16 @@
             }
             .benefits-cards-grid {
                 grid-template-columns: 1fr;
+            }
+            .faq-ai-assistant-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .ai-card-content {
+                flex-direction: column;
+            }
+            .btn-ask-ai-faq {
+                width: 100%;
             }
             .gala-graduation-box {
                 flex-direction: column;
@@ -5306,6 +5629,7 @@
                 <a href="#inversion">Inversión & Grupos</a>
                 <a href="#congreso">4to Congreso</a>
                 <a href="#portalAlumnas">Portal Alumnas</a>
+                <a href="#faq">Preguntas Frecuentes</a>
                 <a href="#inversion" style="background: linear-gradient(135deg, #FFF0D0 0%, #D4AF37 100%); color: #121212 !important; padding: 6px 16px; border-radius: 999px; font-weight: 700;">Inscribirme ($1,500)</a>
             </nav>
             <div class="header-controls" style="display: flex; align-items: center; gap: 15px;">
@@ -5333,6 +5657,7 @@
         <a href="#inversion">Inversión & Grupos</a>
         <a href="#congreso">4to Congreso</a>
         <a href="#portalAlumnas">Portal Alumnas</a>
+        <a href="#faq">Preguntas Frecuentes</a>
         <a href="#inversion" style="color: var(--primary-gold); font-weight: 700;">Inscribirme ($1,500)</a>
     </nav>
 
@@ -6355,13 +6680,45 @@
                             <input type="email" id="enrollEmail" required placeholder="Ej. mariana@correo.com">
                         </div>
 
-                        <div class="form-input-group">
-                            <label for="enrollExp">Experiencia en Pestañas</label>
-                            <select id="enrollExp">
-                                <option value="Principiante (Desde Cero)">Principiante (Desde Cero)</option>
-                                <option value="Básica (Aplico Clásicas)">Básica (Aplico Clásicas)</option>
-                                <option value="Intermedia (Busco Volumen Tecnológico)">Intermedia (Busco Volumen Tecnológico)</option>
-                            </select>
+                        <div class="form-input-group custom-select-group" id="customExpSelectGroup">
+                            <label>Experiencia en Pestañas</label>
+                            <input type="hidden" id="enrollExp" name="enrollExp" value="Principiante (Desde Cero)">
+                            <div class="custom-select-trigger" id="customExpTrigger" onclick="toggleCustomSelect(event)">
+                                <span class="selected-text" id="selectedExpText"><span class="exp-icon">🌱</span> Principiante (Desde Cero)</span>
+                                <svg class="select-chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                            </div>
+                            <div class="custom-select-options" id="customExpOptions">
+                                <div class="custom-option active" data-value="Principiante (Desde Cero)" onclick="selectCustomExpOption(this, '🌱 Principiante (Desde Cero)', 'Principiante (Desde Cero)')">
+                                    <div class="option-content">
+                                        <span class="exp-icon">🌱</span>
+                                        <div>
+                                            <strong>Principiante (Desde Cero)</strong>
+                                            <small>Nunca he aplicado pestañas, quiero aprender todo desde la base.</small>
+                                        </div>
+                                    </div>
+                                    <span class="option-check">✓</span>
+                                </div>
+                                <div class="custom-option" data-value="Básica (Aplico Clásicas)" onclick="selectCustomExpOption(this, '💎 Básica (Aplico Clásicas)', 'Básica (Aplico Clásicas)')">
+                                    <div class="option-content">
+                                        <span class="exp-icon">💎</span>
+                                        <div>
+                                            <strong>Básica (Aplico Clásicas 1:1)</strong>
+                                            <small>Tengo nociones básicas y busco perfeccionar técnica y retención.</small>
+                                        </div>
+                                    </div>
+                                    <span class="option-check">✓</span>
+                                </div>
+                                <div class="custom-option" data-value="Intermedia (Busco Volumen Tecnológico)" onclick="selectCustomExpOption(this, '🚀 Intermedia (Busco Volumen Tecnológico)', 'Intermedia (Busco Volumen Tecnológico)')">
+                                    <div class="option-content">
+                                        <span class="exp-icon">🚀</span>
+                                        <div>
+                                            <strong>Intermedia (Volumen Tecnológico VIP)</strong>
+                                            <small>Ya trabajo pero quiero dominar fibras Y, W, Mega Volumen y Redes.</small>
+                                        </div>
+                                    </div>
+                                    <span class="option-check">✓</span>
+                                </div>
+                            </div>
                         </div>
 
                         <button type="submit" class="btn-submit-academic" id="btnSubmitEnroll">
@@ -6413,7 +6770,7 @@
                         </div>
                     </div>
 
-                    <a href="https://wa.me/523223552046?text=Hola%20Cami,%20quiero%20informes%20y%20preventa%20de%20boletos%20para%20el%204to%20Congreso%20de%20Pestañas." target="_blank" class="btn-congress-apply">
+                    <a href="https://wa.me/5214731002030?text=Hola%20Cami,%20quiero%20informes%20y%20preventa%20de%20boletos%20para%20el%204to%20Congreso%20de%20Pestañas." target="_blank" class="btn-congress-apply">
                         Solicitar Acceso al Congreso &rarr;
                     </a>
                 </div>
@@ -6484,185 +6841,89 @@
             </div>
         </div>
 
-    </section>
-
-    <!-- ══════════════════════════════════════════════════════════════
-         SECCIÓN 7: PREGUNTAS FRECUENTES (FAQ)
-         ══════════════════════════════════════════════════════════════ -->
-    <section class="faq-section" id="faq">
-        <div class="faq-container">
-            <div class="timeline-title">
-                <span class="academic-pill">RESOLVEMOS TUS DUDAS</span>
-                <h3 style="font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--primary-cream); margin-top: 10px;">Preguntas Frecuentes</h3>
-                <p style="color: rgba(248, 245, 239, 0.7);">Todo lo que necesitas saber sobre la Maestría de 13 Semanas en Puerto Vallarta.</p>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" type="button">
-                    ¿Necesito tener experiencia previa para entrar a la Maestría?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>No. El programa está diseñado para llevarte desde cero absolutos. En las primeras semanas aprenderás la base quirúrgica y el aislamiento micrométrico, avanzando progresivamente hasta técnicas complejas de Volumen Tecnológico y Mega Volumen.</p>
+        <!-- ══════════════════════════════════════════════════════════════
+             SECCIÓN 7: PREGUNTAS FRECUENTES (FAQ) - DARK LUXURY + AI BOT
+             ══════════════════════════════════════════════════════════════ -->
+        <div class="faq-section" id="faq">
+            <div class="faq-container">
+                <div class="academic-header-block" style="text-align: center; margin-bottom: 35px;">
+                    <span class="academic-pill">RESOLVEMOS TODAS TUS DUDAS</span>
+                    <h2 style="font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--primary-cream); margin-top: 10px;">PREGUNTAS <span>FRECUENTES</span></h2>
+                    <p style="color: rgba(248, 245, 239, 0.7); max-width: 650px; margin: 10px auto 0;">Todo lo que necesitas saber sobre la Maestría de 13 Semanas en Puerto Vallarta.</p>
                 </div>
-            </div>
 
-            <div class="faq-item">
-                <button class="faq-question" type="button">
-                    ¿Cómo funciona el esquema de pagos semanales?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Apartas tu lugar con una inscripción de $1,500 MXN. Posteriormente realizas 13 pagos semanales de $850 MXN cada semana que asistas a tu clase de 4 horas, completando la inversión total de $12,550 MXN de forma cómoda y sin endeudarte.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" type="button">
-                    ¿Tengo que comprar material adicional para las clases?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>No. Todo el material para tus prácticas de clase está 100% incluido. Además, al inscribirte recibes de regalo tus pinzas profesionales de titanio y la playera oficial de Cami's Lashes Academy.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" type="button">
-                    ¿Cómo son las prácticas con modelos reales?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>En cada módulo técnico realizarás aplicaciones en personas reales con la supervisión paso a paso de Camila Marín para corregir dirección, adhesivo y aislamiento en tiempo real, garantizando que salgas con la seguridad de una artista profesional.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" type="button">
-                    ¿En qué consiste la Gran Graduación de Gala?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Al concluir tus 13 semanas realizamos un evento formal de graduación con entrega solemne de reconocimientos, toga, birrete, sesión fotográfica profesional para tus redes y una Cena de Gala para celebrar tu transformación profesional.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="testimonials" class="testimonials-section">
-        <div class="section-header">
-            <h2>Testimonios de Alumnas</h2>
-            <p>Descubre el impacto de nuestra formación a través de las experiencias y casos de éxito de quienes confiaron en la Academia Cami's Lashes.</p>
-        </div>
-
-        <div class="testimonials-grid">
-            <!-- Testimonio 1 -->
-            <div class="testimonial-card">
-                <span class="quote-icon">“</span>
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"El curso presencial me cambió la vida. La técnica de aislamiento que enseña Cami es súper detallada, y la paciencia que tiene para explicar es increíble. ¡Ya abrí mi propio estudio!"</p>
-                </div>
-                <div class="student-info">
-                    <div class="student-details">
-                        <h4>Valeria S.</h4>
-                        <p>Egresada de Classic & Volume Russian Masterclass</p>
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>¿Necesito tener experiencia previa para entrar a la Maestría?</span>
+                        <div class="faq-icon-wrap">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. El programa está diseñado para llevarte desde cero absoluto. En las primeras semanas aprenderás la base quirúrgica y el aislamiento micrométrico, avanzando progresivamente hasta técnicas complejas de Volumen Tecnológico y Mega Volumen.</p>
+                        <span class="faq-ai-hint" onclick="openChatWithAiTopic('experiencia previa en la maestría')">💬 ¿Tienes dudas sobre tu nivel actual? Preguntar a la IA &rarr;</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- Testimonio 2 -->
-            <div class="testimonial-card">
-                <span class="quote-icon">“</span>
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Increíble la rapidez y el volumen que logro ahora con las fibras tecnológicas en Y y W. Mis clientas están fascinadas y mi tiempo de servicio bajó a la mitad. ¡Recomendadísimo!"</p>
-                </div>
-                <div class="student-info">
-                    <div class="student-details">
-                        <h4>Sofía M.</h4>
-                        <p>Egresada de Fibras Tecnológicas</p>
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>¿Cómo funciona el esquema de pagos semanales?</span>
+                        <div class="faq-icon-wrap">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Apartas tu lugar con una inscripción de $1,500 MXN. Posteriormente realizas 13 pagos semanales de $850 MXN cada semana que asistas a tu clase presencial de 4 horas, completando la inversión total de $12,550 MXN de forma cómoda y sin endeudarte.</p>
+                        <span class="faq-ai-hint" onclick="openChatWithAiTopic('esquema de pagos semanales y transferencias')">💬 Consultar facilidades de pago con la IA &rarr;</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- Testimonio 3 -->
-            <div class="testimonial-card">
-                <span class="quote-icon">“</span>
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Gracias al módulo de negocio y embudos de automatización, logré duplicar el precio de mis servicios y llenar mi agenda en menos de un mes. El bot de reservas es una maravilla."</p>
-                </div>
-                <div class="student-info">
-                    <div class="student-details">
-                        <h4>Alejandra G.</h4>
-                        <p>Egresada de Neuromarketing para Lash Artists</p>
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>¿Tengo que comprar material o kit adicional para las clases?</span>
+                        <div class="faq-icon-wrap">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. Todo el material para tus prácticas de clase está 100% incluido. Además, al inscribirte recibes de regalo de bienvenida tus pinzas profesionales de titanio calibradas y la playera oficial de Cami's Lashes Academy.</p>
+                        <span class="faq-ai-hint" onclick="openChatWithAiTopic('materiales y regalos incluidos')">💬 Preguntar qué incluye el kit de regalo &rarr;</span>
                     </div>
                 </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>¿Cómo son las prácticas con modelos reales?</span>
+                        <div class="faq-icon-wrap">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>En cada módulo técnico realizarás aplicaciones en personas reales con la supervisión paso a paso de Camila Marín para corregir dirección, adhesivo y aislamiento en tiempo real, garantizando que salgas con la seguridad de una artista profesional.</p>
+                        <span class="faq-ai-hint" onclick="openChatWithAiTopic('prácticas con modelos reales')">💬 Preguntar sobre las modelos y supervisión &rarr;</span>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>¿En qué consiste la Gran Graduación de Gala y el aval SEP?</span>
+                        <div class="faq-icon-wrap">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Al concluir tus 13 semanas realizamos un evento formal de graduación con entrega solemne de reconocimientos, toga, birrete, sesión fotográfica profesional para tus redes y una Cena de Gala. Adicionalmente, tendrás la opción de tramitar tu certificación oficial con validez SEP.</p>
+                        <span class="faq-ai-hint" onclick="openChatWithAiTopic('certificación SEP y graduación de gala')">💬 Consultar detalles de la certificación SEP &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Callout con Botón Inteligente para Chatbot IA -->
+                <div class="faq-ai-assistant-card">
+                    <div class="ai-card-content">
+                        <div class="ai-avatar-badge">🤖</div>
+                        <div>
+                            <h4>¿Tienes otra pregunta sobre la Maestría o el 4to Congreso?</h4>
+                            <p>Nuestra Asistente IA de Admisiones está activa para responder dudas específicas al instante.</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-ask-ai-faq" onclick="openChatWithAiAssistant()">
+                        💬 Preguntarle a la Asistente IA ✨
+                    </button>
+                </div>
+
             </div>
         </div>
-    </section>
 
-    <section id="contact" class="contact-section">
-        <div class="contact-container">
-            <!-- Columna de información -->
-            <div class="contact-info-col">
-                <h3>Agendar Cita o Pedir Informes</h3>
-                <p>Para brindarte una atención 100% personalizada, te invitamos a llenar el formulario o a contactarnos directamente por WhatsApp. Diseñaremos el set perfecto para tu mirada o te guiaremos en tu camino profesional.</p>
-                
-                <ul class="contact-details-list">
-                    <li><strong>Boutique Guanajuato:</strong> Calle de la Estética #45, Centro</li>
-                    <li><strong>Boutique Puerto Vallarta:</strong> Av. de las Palmas #880, Marina</li>
-                    <li><strong>Horario:</strong> Lunes a Sábado de 10:00 AM a 8:00 PM</li>
-                </ul>
-
-                <!-- Pulsing WhatsApp Button -->
-                <a href="https://wa.me/523223552046?text=Hola%20Cami's%20Lashes,%20quiero%20más%20información." target="_blank" class="btn-whatsapp-pulse">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.63-1.023-5.101-2.884-6.963C16.59 1.928 14.122.905 11.493.905 6.056.905 1.63 5.324 1.626 10.758c-.001 1.639.433 3.24 1.258 4.673l-.998 3.648 3.762-.985zM17.487 14.39c-.322-.162-1.905-.94-2.202-1.048-.297-.108-.514-.162-.73.162-.217.324-.838 1.048-1.027 1.265-.19.217-.378.243-.7.081-.321-.162-1.354-.5-2.58-1.593-.952-.85-1.595-1.9-1.782-2.217-.188-.324-.02-.5-.182-.662-.145-.145-.322-.378-.485-.567-.162-.19-.217-.324-.324-.54-.108-.217-.054-.405-.027-.567.027-.162.217-.514.324-.676.108-.162.145-.27.217-.405.072-.135.036-.27-.014-.405-.05-.135-.514-1.24-.704-1.699-.186-.447-.378-.387-.516-.393l-.441-.007c-.152 0-.399.057-.607.284-.208.227-.795.776-.795 1.892 0 1.116.811 2.193.924 2.346.113.153 1.595 2.436 3.865 3.416.54.233 1.008.387 1.353.498.543.173 1.037.149 1.428.09.435-.066 1.905-.777 2.176-1.493.27-.716.27-1.33.19-1.458-.08-.128-.297-.216-.62-.378z"/>
-                    </svg>
-                    Agendar por WhatsApp
-                </a>
-            </div>
-
-            <!-- Columna del formulario -->
-            <form id="bookingForm" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Nombre Completo</label>
-                    <input type="text" id="name" required placeholder="Ej. Ana García">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Teléfono / WhatsApp</label>
-                    <input type="tel" id="phone" required placeholder="Ej. +52 322 355 2046">
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" required placeholder="Ej. ana@correo.com">
-                </div>
-                <div class="form-group">
-                    <label for="service">Servicio o Curso de Interés</label>
-                    <select id="service" required>
-                        <option value="" disabled selected>Selecciona una opción</option>
-                        <optgroup label="Boutique (Pestañas)">
-                            <option value="Efecto Rímel (1:1)">Efecto Rímel (1:1) - $750</option>
-                            <option value="Volumen Ruso Premium">Volumen Ruso Premium - $1,200</option>
-                            <option value="Efecto Híbrido Elite">Efecto Híbrido Elite - $950</option>
-                            <option value="Lash Lift & Tinte">Lash Lift & Tinte - $600</option>
-                        </optgroup>
-                        <optgroup label="Academia (Cursos)">
-                            <option value="Maestría para Lash Artist (13 Semanas)">Maestría para Lash Artist (13 Semanas)</option>
-                            <option value="Volumen Tecnológico VIP">Volumen Tecnológico VIP</option>
-                            <option value="Lifting Coreano & Laminado de Cejas">Lifting Coreano & Laminado de Cejas</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensaje o Fecha de Preferencia</label>
-                    <textarea id="message" rows="4" placeholder="Cuéntanos qué fecha prefieres o déjanos tus dudas..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Enviar Solicitud</button>
-            </form>
-        </div>
     </section>
 
     <!-- Modal container -->
@@ -6693,7 +6954,7 @@
                     <blockquote class="student-modal-quote" id="studentModalQuote">“En solo 3 meses de graduarme abrí mi propio estudio de pestañas y recuperé mi inversión quintuplicada. La técnica de retención de Cami es insuperable.”</blockquote>
                     <p class="student-modal-story" id="studentModalStory">Sofía comenzó sin experiencia previa en volumen ruso. Tras cursar el Masterclass intensivo con Cami, perfeccionó la técnica de abanicos perfectos y aprendió el sistema de fijación de 6 semanas. Actualmente agenda a más de 45 clientas al mes con tarifas high-ticket.</p>
                     <div class="student-modal-actions">
-                        <a href="https://wa.me/523223552046?text=Hola%20Cami,%20quiero%20informes%20de%20la%20Academia%20para%20lograr%20los%20mismos%20resultados%20que%20sus%20alumnas" target="_blank" class="btn-student-action" id="studentModalCta">
+                        <a href="https://wa.me/5219999999999?text=Hola%20Cami,%20quiero%20informes%20de%20la%20Academia%20para%20lograr%20los%20mismos%20resultados%20que%20sus%20alumnas" target="_blank" class="btn-student-action" id="studentModalCta">
                             Quiero Este Resultado ✨
                         </a>
                     </div>
@@ -6717,8 +6978,8 @@
             const baseText = `¡Hola Cami's Lashes! Me gustaría agendar/pedir informes:\n\n*Nombre:* ${name}\n*Teléfono:* ${phone}\n*Email:* ${email}\n*Servicio/Curso:* ${service}\n*Mensaje:* ${message}`;
             const encodedText = encodeURIComponent(baseText);
             
-            // Redirect to Cami's business WhatsApp
-            const whatsappUrl = `https://wa.me/523223552046?text=${encodedText}`;
+            // Redirect to Cami's business WhatsApp (placeholder number, can be customized)
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=521234567890&text=${encodedText}`;
             
             // Open in new tab
             window.open(whatsappUrl, '_blank');
@@ -6892,7 +7153,7 @@
                     <p class="student-modal-story" id="studentModalStory">
                         Sofía comenzó sin experiencia previa en volumen ruso. Tras cursar el Masterclass intensivo con Cami, perfeccionó la técnica de abanicos perfectos y aprendió el sistema de fijación de 6 semanas. Actualmente agenda a más de 45 clientas al mes con tarifas high-ticket.
                     </p>
-                    <a href="https://wa.me/523223552046" target="_blank" class="btn-student-action" id="studentModalCta">
+                    <a href="https://wa.me/5219999999999" target="_blank" class="btn-student-action" id="studentModalCta">
                         Quiero Este Resultado ✨
                     </a>
                 </div>
@@ -7730,7 +7991,7 @@
                 
                 if (studentModalCta) {
                     const encodedMsg = encodeURIComponent(`¡Hola Cami's Lashes! Me inspiró el caso de éxito de ${name} (${badge}). Quisiera informes para capacitarme en la Academia y lograr resultados similares.`);
-                    studentModalCta.href = `https://wa.me/523223552046?text=${encodedMsg}`;
+                    studentModalCta.href = `https://wa.me/5219999999999?text=${encodedMsg}`;
                 }
 
                 if (studentStoryModal) {
@@ -7949,7 +8210,7 @@
                                    `¿Me podrías proporcionar los datos para realizar mi transferencia de apartado ($1,500 MXN)?`;
 
                     const encodedWa = encodeURIComponent(waText);
-                    const finalWaUrl = `https://wa.me/523223552046?text=${encodedWa}`;
+                    const finalWaUrl = `https://wa.me/5214731002030?text=${encodedWa}`;
 
                     setTimeout(() => {
                         if (submitBtn) {
@@ -8042,7 +8303,8 @@
             // 6. Manejo Interactivo de Preguntas Frecuentes (FAQ Accordion)
             document.querySelectorAll('.faq-question').forEach(button => {
                 button.addEventListener('click', () => {
-                    const faqItem = button.parentElement;
+                    const faqItem = button.closest('.faq-item');
+                    if (!faqItem) return;
                     const isActive = faqItem.classList.contains('active');
 
                     // Cerrar otros items abiertos
@@ -8053,6 +8315,62 @@
                     }
                 });
             });
+
+            // 7. Custom Luxury Dropdown Interactivity (Experiencia)
+            window.toggleCustomSelect = (e) => {
+                if (e) e.stopPropagation();
+                const group = document.getElementById('customExpSelectGroup');
+                if (group) {
+                    group.classList.toggle('open');
+                }
+            };
+
+            window.selectCustomExpOption = (element, displayText, value) => {
+                const hiddenInput = document.getElementById('enrollExp');
+                const selectedTextSpan = document.getElementById('selectedExpText');
+                const group = document.getElementById('customExpSelectGroup');
+
+                if (hiddenInput) hiddenInput.value = value;
+                if (selectedTextSpan) selectedTextSpan.innerHTML = displayText;
+
+                document.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('active'));
+                if (element) element.classList.add('active');
+
+                if (group) group.classList.remove('open');
+            };
+
+            // Cerrar dropdown al hacer clic fuera
+            document.addEventListener('click', (e) => {
+                const group = document.getElementById('customExpSelectGroup');
+                if (group && group.classList.contains('open')) {
+                    if (!group.contains(e.target)) {
+                        group.classList.remove('open');
+                    }
+                }
+            });
+
+            // 8. Conexión Directa de FAQ y Dudas con Chatbot IA (Gemini 3.7 + n8n)
+            window.openChatWithAiAssistant = () => {
+                if (typeof openChat === 'function') {
+                    openChat();
+                } else {
+                    const chatBox = document.getElementById('chatBox');
+                    if (chatBox) chatBox.classList.add('open');
+                }
+                const inputBar = document.getElementById('chatUserMsgInput');
+                if (inputBar) {
+                    inputBar.focus();
+                }
+            };
+
+            window.openChatWithAiTopic = (topic) => {
+                window.openChatWithAiAssistant();
+                const inputBar = document.getElementById('chatUserMsgInput');
+                if (inputBar) {
+                    inputBar.value = `¡Hola! Quisiera más información detallada sobre: ${topic}.`;
+                    inputBar.focus();
+                }
+            };
 
         });
     </script>
