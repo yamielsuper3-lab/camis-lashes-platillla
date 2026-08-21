@@ -3563,6 +3563,51 @@
             opacity: 1;
         }
 
+        /* Custom Select inside Chat Lead Form */
+        .chat-select-trigger {
+            background-color: rgba(255, 255, 255, 0.04) !important;
+            border: 1px solid rgba(197, 160, 89, 0.25) !important;
+            border-radius: 8px !important;
+            padding: 10px 14px !important;
+            font-size: 0.8rem !important;
+        }
+
+        .chat-select-trigger:hover, #customChatExpGroup.open .chat-select-trigger {
+            border-color: var(--primary-gold) !important;
+            background-color: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .chat-select-options {
+            bottom: calc(100% + 6px) !important;
+            top: auto !important;
+            border-radius: 12px !important;
+            background: rgba(18, 16, 14, 0.98) !important;
+            border: 1px solid rgba(212, 175, 55, 0.45) !important;
+            box-shadow: 0 -12px 35px rgba(0, 0, 0, 0.85) !important;
+            transform: translateY(8px) !important;
+        }
+
+        #customChatExpGroup.open .chat-select-options {
+            transform: translateY(0) !important;
+        }
+
+        .chat-select-options .custom-option {
+            padding: 10px 12px !important;
+        }
+
+        .chat-select-options .option-content strong {
+            font-size: 0.82rem !important;
+        }
+
+        .chat-select-options .option-content small {
+            font-size: 0.7rem !important;
+        }
+
+        .chat-msg-bot strong {
+            color: var(--primary-gold);
+            font-weight: 700;
+        }
+
         /* ══════════════════════════════════════════════
            SECCIÓN 7: PREGUNTAS FRECUENTES (FAQ) - DARK LUXURY
            ══════════════════════════════════════════════ */
@@ -3646,14 +3691,16 @@
 
         .faq-answer {
             max-height: 0;
+            opacity: 0;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), padding 0.3s ease;
+            transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease, padding 0.3s ease;
             padding: 0 24px;
         }
 
         .faq-item.active .faq-answer {
-            max-height: 400px;
-            padding: 0 24px 22px 24px;
+            max-height: 600px !important;
+            opacity: 1 !important;
+            padding: 0 24px 24px 24px !important;
         }
 
         .faq-answer p {
@@ -6853,7 +6900,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" type="button">
+                    <button class="faq-question" type="button" onclick="toggleFaqItem(this)">
                         <span>¿Necesito tener experiencia previa para entrar a la Maestría?</span>
                         <div class="faq-icon-wrap">+</div>
                     </button>
@@ -6864,7 +6911,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" type="button">
+                    <button class="faq-question" type="button" onclick="toggleFaqItem(this)">
                         <span>¿Cómo funciona el esquema de pagos semanales?</span>
                         <div class="faq-icon-wrap">+</div>
                     </button>
@@ -6875,7 +6922,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" type="button">
+                    <button class="faq-question" type="button" onclick="toggleFaqItem(this)">
                         <span>¿Tengo que comprar material o kit adicional para las clases?</span>
                         <div class="faq-icon-wrap">+</div>
                     </button>
@@ -6886,7 +6933,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" type="button">
+                    <button class="faq-question" type="button" onclick="toggleFaqItem(this)">
                         <span>¿Cómo son las prácticas con modelos reales?</span>
                         <div class="faq-icon-wrap">+</div>
                     </button>
@@ -6897,7 +6944,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" type="button">
+                    <button class="faq-question" type="button" onclick="toggleFaqItem(this)">
                         <span>¿En qué consiste la Gran Graduación de Gala y el aval SEP?</span>
                         <div class="faq-icon-wrap">+</div>
                     </button>
@@ -7200,13 +7247,44 @@
                     <div class="chat-form-group">
                         <input type="email" id="chatEmail" required placeholder="Tu Correo Electrónico">
                     </div>
-                    <div class="chat-form-group">
-                        <select id="chatExperience" required>
-                            <option value="" disabled selected hidden>Selecciona tu experiencia</option>
-                            <option value="Principiante (Desde cero)">Principiante (Desde cero)</option>
-                            <option value="Intermedio (Ya aplico pestañas clásicas)">Intermedio (Ya aplico pestañas clásicas)</option>
-                            <option value="Avanzado (Busco volumen y perfeccionamiento)">Avanzado (Busco volumen y perfeccionamiento)</option>
-                        </select>
+                    <div class="chat-form-group custom-select-group" id="customChatExpGroup">
+                        <input type="hidden" id="chatExperience" name="chatExperience" value="" required>
+                        <div class="custom-select-trigger chat-select-trigger" id="customChatExpTrigger" onclick="toggleChatCustomSelect(event)">
+                            <span class="selected-text" id="selectedChatExpText">Selecciona tu experiencia</span>
+                            <svg class="select-chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                        </div>
+                        <div class="custom-select-options chat-select-options" id="customChatExpOptions">
+                            <div class="custom-option" data-value="Principiante (Desde cero)" onclick="selectChatExpOption(this, '🌱 Principiante (Desde cero)', 'Principiante (Desde cero)')">
+                                <div class="option-content">
+                                    <span class="exp-icon">🌱</span>
+                                    <div>
+                                        <strong>Principiante (Desde cero)</strong>
+                                        <small>Quiero aprender desde cero la base.</small>
+                                    </div>
+                                </div>
+                                <span class="option-check">✓</span>
+                            </div>
+                            <div class="custom-option" data-value="Intermedio (Ya aplico pestañas clásicas)" onclick="selectChatExpOption(this, '💎 Intermedio (Ya aplico clásicas)', 'Intermedio (Ya aplico pestañas clásicas)')">
+                                <div class="option-content">
+                                    <span class="exp-icon">💎</span>
+                                    <div>
+                                        <strong>Intermedio (Aplico Clásicas)</strong>
+                                        <small>Aplico clásicas, busco retención y volumen.</small>
+                                    </div>
+                                </div>
+                                <span class="option-check">✓</span>
+                            </div>
+                            <div class="custom-option" data-value="Avanzado (Busco volumen y perfeccionamiento)" onclick="selectChatExpOption(this, '🚀 Avanzado (Volumen Tecnológico)', 'Avanzado (Busco volumen y perfeccionamiento)')">
+                                <div class="option-content">
+                                    <span class="exp-icon">🚀</span>
+                                    <div>
+                                        <strong>Avanzado (Volumen Tecnológico)</strong>
+                                        <small>Busco dominar fibras Y, W y Mega Volumen.</small>
+                                    </div>
+                                </div>
+                                <span class="option-check">✓</span>
+                            </div>
+                        </div>
                     </div>
                     <button type="submit" class="btn-chat-submit" id="btnChatSubmit">Iniciar Asesoría Personalizada ✨</button>
                 </form>
@@ -7485,22 +7563,7 @@
                 });
             });
 
-            // FAQ Accordion Interactivity
-            document.querySelectorAll('.faq-question').forEach(button => {
-                button.addEventListener('click', () => {
-                    const faqItem = button.parentElement;
-                    
-                    // Close other items
-                    document.querySelectorAll('.faq-item').forEach(item => {
-                        if (item !== faqItem) {
-                            item.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle active state
-                    faqItem.classList.toggle('active');
-                });
-            });
+
 
             // Custom timeline selector function
             window.selectAcademyAndScroll = (targetId) => {
@@ -7736,6 +7799,61 @@
             // Expose globally if ever called outside
             window.enviarMensajeAlChatbot = enviarMensajeAlChatbot;
 
+            // Helper: Format Markdown (bold, italic, list items) & sanitize
+            const formatChatMarkdown = (text) => {
+                if (!text) return '';
+                let formatted = text
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;");
+
+                // Bold **text**
+                formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                // Italic *text*
+                formatted = formatted.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                // Bullet points
+                formatted = formatted.replace(/^•\s*(.*)$/gm, '✦ $1');
+                
+                return formatted;
+            };
+
+            // Helper: Split long bot replies into short WhatsApp-style micro-bubbles
+            const splitIntoMicroMessages = (fullText) => {
+                if (!fullText) return [];
+                
+                // Split by double line break or paragraphs first
+                let rawParagraphs = fullText.split(/\n+/).map(p => p.trim()).filter(p => p.length > 0);
+                let microMessages = [];
+
+                rawParagraphs.forEach(para => {
+                    // If paragraph is short and concise (under 140 chars), keep intact
+                    if (para.length <= 140) {
+                        microMessages.push(para);
+                    } else {
+                        // Split longer text into natural sentence-based chunks
+                        const sentences = para.match(/[^.!?]+[.!?]+(\s+|$)|[^.!?]+$/g);
+                        if (sentences && sentences.length > 1) {
+                            let currentChunk = '';
+                            sentences.forEach(s => {
+                                s = s.trim();
+                                if (!s) return;
+                                if ((currentChunk + ' ' + s).length < 130) {
+                                    currentChunk = currentChunk ? (currentChunk + ' ' + s) : s;
+                                } else {
+                                    if (currentChunk) microMessages.push(currentChunk);
+                                    currentChunk = s;
+                                }
+                            });
+                            if (currentChunk) microMessages.push(currentChunk);
+                        } else {
+                            microMessages.push(para);
+                        }
+                    }
+                });
+
+                return microMessages.filter(m => m.trim().length > 0);
+            };
+
             // Chat UI Helper: Append message bubble
             const appendChatMessage = (type, text) => {
                 const container = document.getElementById('chatMessagesContainer');
@@ -7744,7 +7862,7 @@
 
                 const bubble = document.createElement('div');
                 bubble.className = type === 'user' ? 'chat-msg-user' : 'chat-msg-bot';
-                bubble.innerText = text;
+                bubble.innerHTML = formatChatMarkdown(text);
                 container.appendChild(bubble);
 
                 if (chatBody) {
@@ -7760,6 +7878,29 @@
                     indicator.classList.toggle('active', isTyping);
                     if (isTyping && chatBody) {
                         chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+                    }
+                }
+            };
+
+            // Sequentially render bot bubbles with typing simulation (WhatsApp style)
+            const renderBotResponsesSequentially = async (rawReply) => {
+                if (!rawReply) return;
+                const chunks = splitIntoMicroMessages(rawReply);
+                
+                for (let i = 0; i < chunks.length; i++) {
+                    const chunk = chunks[i];
+                    setTypingIndicator(true);
+                    
+                    // Natural typing delay based on chunk length
+                    const delay = Math.min(1000, Math.max(500, chunk.length * 14));
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    
+                    setTypingIndicator(false);
+                    appendChatMessage('bot', chunk);
+                    
+                    // Small breathing pause before typing next bubble
+                    if (i < chunks.length - 1) {
+                        await new Promise(resolve => setTimeout(resolve, 260));
                     }
                 }
             };
@@ -7810,7 +7951,7 @@
                 }
 
                 // Initial structured message for n8n/Gemini & Airtable
-                const initialUserMessage = `¡Hola! Soy ${name}. Mi correo es ${email} y mi nivel de experiencia es: ${experience}. Quisiera recibir asesoría e información sobre la Masterclass de Cami's Lashes.`;
+                const initialUserMessage = `¡Hola! Soy ${name}. Mi correo es ${email} y mi nivel de experiencia es: ${experience || 'Principiante'}. Quisiera recibir asesoría sobre la Maestría para Lash Artist.`;
                 
                 // Show user's intent in chat
                 appendChatMessage('user', initialUserMessage);
@@ -7824,9 +7965,9 @@
                 // Hide typing indicator
                 setTypingIndicator(false);
 
-                // Show Gemini 3.7 AI Reply
+                // Show Gemini 3.7 AI Reply in sequential micro-bubbles
                 if (response && response.reply) {
-                    appendChatMessage('bot', response.reply);
+                    await renderBotResponsesSequentially(response.reply);
                 }
 
                 if (chatUserMsgInputElem) {
@@ -7857,9 +7998,9 @@
                 // Hide typing indicator
                 setTypingIndicator(false);
 
-                // Display Bot Reply
+                // Display Bot Reply in sequential micro-bubbles
                 if (response && response.reply) {
-                    appendChatMessage('bot', response.reply);
+                    await renderBotResponsesSequentially(response.reply);
                 }
             };
 
@@ -8301,22 +8442,24 @@
             updateCongressCountdown();
 
             // 6. Manejo Interactivo de Preguntas Frecuentes (FAQ Accordion)
-            document.querySelectorAll('.faq-question').forEach(button => {
-                button.addEventListener('click', () => {
-                    const faqItem = button.closest('.faq-item');
-                    if (!faqItem) return;
-                    const isActive = faqItem.classList.contains('active');
+            window.toggleFaqItem = (button) => {
+                if (!button) return;
+                const faqItem = button.closest('.faq-item');
+                if (!faqItem) return;
+                const isCurrentlyActive = faqItem.classList.contains('active');
 
-                    // Cerrar otros items abiertos
-                    document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
-
-                    if (!isActive) {
-                        faqItem.classList.add('active');
-                    }
+                // Cerrar todos los demás items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
                 });
-            });
 
-            // 7. Custom Luxury Dropdown Interactivity (Experiencia)
+                // Si no estaba activo, activarlo
+                if (!isCurrentlyActive) {
+                    faqItem.classList.add('active');
+                }
+            };
+
+            // 7. Custom Luxury Dropdown Interactivity (Formulario de Admisión)
             window.toggleCustomSelect = (e) => {
                 if (e) e.stopPropagation();
                 const group = document.getElementById('customExpSelectGroup');
@@ -8333,23 +8476,52 @@
                 if (hiddenInput) hiddenInput.value = value;
                 if (selectedTextSpan) selectedTextSpan.innerHTML = displayText;
 
-                document.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('active'));
+                document.querySelectorAll('#customExpSelectGroup .custom-option').forEach(opt => opt.classList.remove('active'));
                 if (element) element.classList.add('active');
 
                 if (group) group.classList.remove('open');
             };
 
-            // Cerrar dropdown al hacer clic fuera
+            // 8. Custom Luxury Dropdown Interactivity (Chat Lead Form)
+            window.toggleChatCustomSelect = (e) => {
+                if (e) e.stopPropagation();
+                const group = document.getElementById('customChatExpGroup');
+                if (group) {
+                    group.classList.toggle('open');
+                }
+            };
+
+            window.selectChatExpOption = (element, displayText, value) => {
+                const hiddenInput = document.getElementById('chatExperience');
+                const selectedTextSpan = document.getElementById('selectedChatExpText');
+                const group = document.getElementById('customChatExpGroup');
+
+                if (hiddenInput) hiddenInput.value = value;
+                if (selectedTextSpan) selectedTextSpan.innerHTML = displayText;
+
+                document.querySelectorAll('#customChatExpOptions .custom-option').forEach(opt => opt.classList.remove('active'));
+                if (element) element.classList.add('active');
+
+                if (group) group.classList.remove('open');
+            };
+
+            // Cerrar cualquier dropdown al hacer clic fuera
             document.addEventListener('click', (e) => {
-                const group = document.getElementById('customExpSelectGroup');
-                if (group && group.classList.contains('open')) {
-                    if (!group.contains(e.target)) {
-                        group.classList.remove('open');
+                const enrollGroup = document.getElementById('customExpSelectGroup');
+                if (enrollGroup && enrollGroup.classList.contains('open')) {
+                    if (!enrollGroup.contains(e.target)) {
+                        enrollGroup.classList.remove('open');
+                    }
+                }
+                const chatGroup = document.getElementById('customChatExpGroup');
+                if (chatGroup && chatGroup.classList.contains('open')) {
+                    if (!chatGroup.contains(e.target)) {
+                        chatGroup.classList.remove('open');
                     }
                 }
             });
 
-            // 8. Conexión Directa de FAQ y Dudas con Chatbot IA (Gemini 3.7 + n8n)
+            // 9. Conexión Directa de FAQ y Dudas con Chatbot IA (Gemini 3.7 + n8n)
             window.openChatWithAiAssistant = () => {
                 if (typeof openChat === 'function') {
                     openChat();
