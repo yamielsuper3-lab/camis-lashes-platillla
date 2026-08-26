@@ -1411,51 +1411,34 @@
                 letter-spacing: 2px;
             }
             .academy-hero-overlay-content .luxury-tag {
-                font-size: 1.3rem;
-            }
-            .academy-hero-overlay-content .quote-text {
-                font-size: 0.95rem;
-                padding-left: 15px;
-                border-left-width: 1px;
-            }
-            .academy-hero-buttons {
-                gap: 12px;
-            }
-            .btn-academy-primary,
-            .btn-academy-secondary {
-                padding: 12px 25px;
-                font-size: 0.75rem;
+                font-size: 0.72rem;
             }
         }
-        /* ════════════════════════════════════════════════════════════
-           FOUNDER SHOWCASE SECTION (CONOCE A LA FUNDADORA - 3 COLUMNAS)
-           ════════════════════════════════════════════════════════════ */
+
         .founder-showcase-section {
-            padding: 35px 2.5vw 60px;
-            background: radial-gradient(circle at 50% 20%, rgba(28, 24, 20, 0.95) 0%, rgba(12, 12, 12, 0.98) 100%);
-            border-top: 1px solid rgba(197, 160, 89, 0.2);
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 90px 4vw 100px;
+            background: radial-gradient(circle at 50% 10%, rgba(26, 22, 17, 0.98) 0%, rgba(12, 11, 10, 1) 100%);
             position: relative;
             overflow: hidden;
-            width: 100%;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
         }
 
         .founder-showcase-section::before {
             content: '';
             position: absolute;
-            top: -20%;
+            top: 20%;
             left: 50%;
             transform: translateX(-50%);
-            width: 80vw;
-            height: 350px;
+            width: 700px;
+            height: 450px;
             background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-            filter: blur(60px);
+            filter: blur(80px);
             pointer-events: none;
             z-index: 0;
         }
 
         .founder-showcase-container {
-            max-width: 100%;
+            max-width: 1240px;
             width: 100%;
             margin: 0 auto;
             position: relative;
@@ -1465,30 +1448,32 @@
         /* Section Header */
         .founder-section-header {
             text-align: center;
-            margin-bottom: 22px;
+            margin-bottom: 34px;
         }
 
         .founder-luxury-pill {
-            display: inline-block;
-            background: rgba(197, 160, 89, 0.12);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(197, 160, 89, 0.1);
             border: 1px solid rgba(197, 160, 89, 0.35);
             color: var(--primary-gold);
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
-            padding: 5px 18px;
+            padding: 6px 20px;
             border-radius: 999px;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .founder-section-header h2 {
             font-family: 'Cinzel', serif;
-            font-size: 2.3rem;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
             font-weight: 700;
-            letter-spacing: 3.5px;
+            letter-spacing: 3px;
             color: var(--primary-cream);
-            margin: 0 0 8px;
+            margin: 0 0 10px;
         }
 
         .founder-section-header h2 span {
@@ -1498,479 +1483,352 @@
         }
 
         .founder-section-header p {
-            max-width: 760px;
+            max-width: 720px;
             margin: 0 auto;
-            color: rgba(247, 243, 238, 0.72);
-            font-size: 0.98rem;
-            line-height: 1.5;
+            color: rgba(247, 243, 238, 0.75);
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 300;
         }
 
-        /* 3-Column Grid: Col 1 (420px Protagonista), Col 2 (340px Botones), Col 3 (1fr Display) */
-        .founder-grid-layout {
-            display: grid;
-            grid-template-columns: 420px 340px 1fr;
-            gap: 24px;
-            align-items: stretch;
-            min-height: 590px;
-            width: 100%;
-        }
-
-        /* COL 1: Portrait */
-        .founder-col-portrait {
+        /* ════════════════════════════════════════════════════════════
+           TABS HORIZONTALES SUPERIORES (TOP PILL TABS)
+           ════════════════════════════════════════════════════════════ */
+        .founder-tabs-wrapper {
             display: flex;
-        }
-
-        .founder-portrait-card {
-            width: 100%;
-            height: 100%;
-            background: rgba(18, 18, 18, 0.85);
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            border-radius: 18px;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-            position: relative;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-
-        .portrait-img-wrap {
-            position: relative;
-            border-radius: 14px;
-            overflow: hidden;
-            flex: 1;
-            min-height: 480px;
-            display: flex;
-            background: #141210;
-        }
-
-        .founder-main-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 8%;
-            transform: scale(1.05);
-            transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-        }
-
-        .founder-portrait-card:hover .founder-main-photo {
-            transform: scale(1.08);
-        }
-
-        .portrait-gradient-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 50%, rgba(10,10,10,0.92) 100%);
-            pointer-events: none;
-        }
-
-        .portrait-gold-frame {
-            position: absolute;
-            inset: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            border-radius: 10px;
-            pointer-events: none;
-        }
-
-        .portrait-badge-top {
-            position: absolute;
-            top: 18px;
-            left: 18px;
-            background: rgba(12, 12, 12, 0.85);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            backdrop-filter: blur(10px);
-            padding: 6px 12px;
-            border-radius: 999px;
-            color: var(--primary-gold);
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-            z-index: 2;
-        }
-
-        .badge-dot-live {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #2ECC71;
-            box-shadow: 0 0 8px #2ECC71;
-        }
-
-        .portrait-info-overlay {
-            position: absolute;
-            bottom: 18px;
-            left: 18px;
-            right: 18px;
-            z-index: 2;
-        }
-
-        .portrait-info-overlay h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            color: #FFFFFF;
-            margin: 0 0 4px;
-            letter-spacing: 1.5px;
-        }
-
-        .founder-role-title {
-            color: var(--primary-gold);
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            margin: 0 0 8px;
-        }
-
-        .signature-font {
-            font-family: 'Playfair Display', cursive, serif;
-            font-style: italic;
-            font-size: 1.25rem;
-            color: rgba(212, 175, 55, 0.85);
-            letter-spacing: 2px;
-        }
-
-        .portrait-stats-bar {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background: rgba(25, 22, 18, 0.7);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            border-radius: 10px;
-            padding: 12px 8px;
-            margin-top: 14px;
-        }
-
-        .stat-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .stat-num {
-            font-family: 'Cinzel', serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--primary-gold);
-            line-height: 1.1;
-        }
-
-        .stat-label {
-            font-size: 0.68rem;
-            color: rgba(255, 255, 255, 0.65);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 2px;
-        }
-
-        .stat-divider {
-            width: 1px;
-            height: 24px;
-            background: rgba(197, 160, 89, 0.25);
-        }
-
-        /* COL 2: 4 Buttons (Expanding vertically with full readability) */
-        .founder-col-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .founder-nav-card {
-            background: rgba(18, 18, 18, 0.75);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            border-radius: 16px;
-            padding: 18px 20px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            cursor: pointer;
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.2, 1, 0.3, 1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            width: 100%;
-            flex: 1;
-        }
-
-        .founder-nav-card:hover {
-            background: rgba(30, 26, 20, 0.98);
-            border-color: rgba(212, 175, 55, 0.55);
-            transform: translateX(6px);
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.2);
-        }
-
-        .founder-nav-card.active {
-            background: linear-gradient(135deg, rgba(42, 35, 24, 0.98) 0%, rgba(22, 20, 15, 0.98) 100%);
-            border-color: var(--primary-gold);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65), 0 0 25px rgba(212, 175, 55, 0.3);
-            transform: translateX(8px);
-        }
-
-        .nav-card-indicator {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4.5px;
-            background: transparent;
-            transition: background 0.3s ease;
-        }
-
-        .founder-nav-card.active .nav-card-indicator {
-            background: linear-gradient(180deg, #D4AF37 0%, #AA8030 100%);
-            box-shadow: 0 0 12px #D4AF37;
-        }
-
-        .nav-card-icon {
-            font-size: 1.4rem;
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: rgba(197, 160, 89, 0.1);
-            border: 1px solid rgba(197, 160, 89, 0.25);
-            display: flex;
-            align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-            transition: all 0.3s ease;
+            margin-bottom: 36px;
         }
 
-        .founder-nav-card.active .nav-card-icon,
-        .founder-nav-card:hover .nav-card-icon {
-            background: rgba(212, 175, 55, 0.22);
-            border-color: var(--primary-gold);
-            transform: scale(1.1);
-        }
-
-        .nav-card-text {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .nav-card-tag {
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--primary-gold);
-            font-weight: 600;
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .nav-card-text h4 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.05rem;
-            color: #FFFFFF;
-            margin: 0 0 3px;
-            letter-spacing: 1px;
-        }
-
-        .nav-card-text p {
-            font-size: 0.82rem;
-            color: rgba(255, 255, 255, 0.72);
-            margin: 0;
-            line-height: 1.4;
-            white-space: normal;
-        }
-
-        .nav-card-arrow {
-            color: rgba(197, 160, 89, 0.4);
-            font-size: 1.2rem;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .founder-nav-card.active .nav-card-arrow,
-        .founder-nav-card:hover .nav-card-arrow {
-            color: var(--primary-gold);
-            transform: translateX(4px);
-        }
-
-        /* COL 3: Dynamic Display Panel (Takes maximum space) */
-        .founder-col-display {
-            display: flex;
-            min-width: 0;
-        }
-
-        .founder-display-stage {
-            width: 100%;
-            height: 100%;
-            background: rgba(18, 18, 18, 0.88);
-            border: 1px solid rgba(197, 160, 89, 0.35);
-            border-radius: 18px;
-            padding: 30px 32px;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        .founder-tabs-bar {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(20, 18, 15, 0.9);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 999px;
+            padding: 6px;
+            gap: 6px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .founder-tab-pill {
+            background: transparent;
+            border: 1px solid transparent;
+            color: rgba(248, 245, 239, 0.75);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.84rem;
+            font-weight: 500;
+            padding: 10px 22px;
+            border-radius: 999px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .founder-tab-pill:hover {
+            color: #FFFFFF;
+            background: rgba(197, 160, 89, 0.12);
+            border-color: rgba(197, 160, 89, 0.3);
+        }
+
+        .founder-tab-pill.active {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(197, 160, 89, 0.15) 100%);
+            border-color: var(--primary-gold);
+            color: #FFFFFF;
+            font-weight: 600;
+            box-shadow: 0 4px 18px rgba(212, 175, 55, 0.3);
+        }
+
+        .founder-tab-pill .tab-icon {
+            font-size: 1.1rem;
+        }
+
+        /* ════════════════════════════════════════════════════════════
+           MAIN STAGE & PANES (ESPACIOSO Y AIREADO)
+           ════════════════════════════════════════════════════════════ */
+        .founder-main-stage {
+            width: 100%;
+            background: rgba(18, 16, 14, 0.88);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 28px;
+            padding: 48px 45px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             position: relative;
-            overflow: hidden;
         }
 
         .founder-pane {
             display: none;
             opacity: 0;
-            flex-direction: column;
-            height: 100%;
+            animation: paneFadeIn 0.4s ease forwards;
         }
 
         .founder-pane.active {
-            display: flex;
+            display: block;
             opacity: 1;
         }
 
-        .pane-header {
-            margin-bottom: 18px;
+        @keyframes paneFadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .pane-step-badge {
-            font-size: 0.72rem;
+        /* ════════════════════════════════════════════════════════════
+           TAB 1: SU HISTORIA (SPACIOUS 2-COLUMN SPLIT)
+           ════════════════════════════════════════════════════════════ */
+        .story-split-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .story-editorial-col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .story-meta-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.76rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--primary-gold);
             font-weight: 700;
-            display: inline-block;
-            margin-bottom: 6px;
         }
 
-        .pane-header h3 {
+        .story-editorial-col h3 {
             font-family: 'Cinzel', serif;
-            font-size: 1.35rem;
+            font-size: clamp(1.4rem, 2.2vw, 1.85rem);
             color: #FFFFFF;
             margin: 0;
             line-height: 1.4;
             letter-spacing: 1px;
         }
 
-        /* Tab 1: Video Mockup & Story */
-        .founder-video-mockup {
-            position: relative;
-            border-radius: 14px;
-            overflow: hidden;
-            max-width: 480px;
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            margin: 0 auto 18px;
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            cursor: pointer;
+        .story-italic-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: #FFF0D0;
+            line-height: 1.6;
+            margin: 0;
+            border-left: 3px solid var(--primary-gold);
+            padding-left: 18px;
         }
 
-        .video-poster-img {
+        .story-paragraphs {
+            font-size: 0.95rem;
+            color: rgba(248, 245, 239, 0.78);
+            line-height: 1.75;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        /* Minimal Stats Row (Inspiración Cosmina Esanu) */
+        .story-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .story-stat-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 12px;
+            padding: 12px 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .story-stat-card:hover {
+            border-color: var(--primary-gold);
+            background: rgba(197, 160, 89, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .story-stat-val {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .story-stat-desc {
+            font-size: 0.68rem;
+            color: rgba(248, 245, 239, 0.65);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 500;
+        }
+
+        /* Marco de Lujo Cuadrado para Retrato / Video (Inspiración Cosmina Esanu & Wink and Wave) */
+        .founder-media-frame {
+            position: relative;
+            border-radius: 28px;
+            padding: 12px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.35) 0%, rgba(35, 30, 24, 0.8) 50%, rgba(212, 175, 55, 0.2) 100%);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        .founder-media-inner {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            background: #141210;
+        }
+
+        .founder-media-inner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            object-position: center 10%;
+            transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
-        .founder-video-mockup:hover .video-poster-img {
+        .founder-media-frame:hover .founder-media-inner img {
             transform: scale(1.04);
         }
 
-        .video-dark-overlay {
+        /* YouTube Video Player Embed */
+        .founder-youtube-player {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+            z-index: 5;
+            background: #000;
         }
 
-        .video-play-btn {
+        .founder-media-frame.playing-video .founder-youtube-player {
+            display: block;
+        }
+
+        .media-video-trigger {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 58px;
-            height: 58px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
             background: linear-gradient(135deg, #FFF0D0 0%, #D4AF37 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.85);
+            cursor: pointer;
+            transition: all 0.35s ease;
+            z-index: 4;
         }
 
-        .founder-video-mockup:hover .video-play-btn {
+        .media-video-trigger:hover {
             transform: translate(-50%, -50%) scale(1.12);
-            box-shadow: 0 0 35px rgba(212, 175, 55, 1);
+            box-shadow: 0 0 45px rgba(212, 175, 55, 1);
         }
 
-        .video-meta-tag {
+        /* Floating Authority Badges inside Frame (Cosmina Esanu Reference) */
+        .frame-floating-badges {
             position: absolute;
-            bottom: 12px;
-            left: 14px;
-            background: rgba(0,0,0,0.75);
-            border: 1px solid rgba(197, 160, 89, 0.4);
-            backdrop-filter: blur(8px);
-            padding: 5px 12px;
-            border-radius: 6px;
-            font-size: 0.72rem;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .frame-badge-pill {
+            flex: 1;
+            background: rgba(14, 12, 10, 0.88);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 10px 12px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .frame-badge-icon {
+            font-size: 1.2rem;
+            color: var(--primary-gold);
+        }
+
+        .frame-badge-info strong {
+            display: block;
+            font-size: 0.78rem;
             color: #FFFFFF;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .frame-badge-info span {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--primary-gold);
             font-weight: 500;
         }
 
-        .pane-story-content p {
-            font-size: 0.92rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-            margin: 0 0 14px;
-        }
-
-        .story-highlight-quote {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 0.96rem;
-            color: var(--primary-gold);
-            border-left: 2px solid var(--primary-gold);
-            padding-left: 14px;
-            line-height: 1.5;
-            background: rgba(197, 160, 89, 0.05);
-            padding: 10px 14px;
-            border-radius: 0 8px 8px 0;
-        }
-
         /* ════════════════════════════════════════════════════════════
-           TAB 2: INSTAGRAM MURAL DE LOGROS & FEED DE CAMI
+           TAB 2: INSTAGRAM FEED EN VIVO (FRESCO & DESAHOGADO)
            ════════════════════════════════════════════════════════════ */
-        .ig-profile-header-card {
-            background: linear-gradient(135deg, rgba(28, 24, 18, 0.9) 0%, rgba(18, 16, 12, 0.95) 100%);
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            border-radius: 14px;
-            padding: 12px 16px;
+        .ig-showcase-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .ig-profile-luxury-header {
+            background: linear-gradient(135deg, rgba(30, 25, 18, 0.95) 0%, rgba(18, 16, 12, 0.98) 100%);
+            border: 1.5px solid rgba(212, 175, 55, 0.35);
+            border-radius: 20px;
+            padding: 20px 28px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 14px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            gap: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            flex-wrap: wrap;
         }
 
-        .ig-profile-left {
+        .ig-profile-left-block {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 18px;
         }
 
-        .ig-avatar-ring {
-            width: 44px;
-            height: 44px;
+        .ig-avatar-stories-ring {
+            width: 58px;
+            height: 58px;
             border-radius: 50%;
-            padding: 2px;
+            padding: 2.5px;
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            box-shadow: 0 0 12px rgba(220, 39, 67, 0.35);
+            box-shadow: 0 0 16px rgba(220, 39, 67, 0.4);
             flex-shrink: 0;
         }
 
-        .ig-avatar-ring img {
+        .ig-avatar-stories-ring img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
@@ -1978,402 +1836,386 @@
             border: 2px solid #121212;
         }
 
-        .ig-profile-meta {
+        .ig-profile-details {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 4px;
         }
 
-        .ig-username-row {
+        .ig-title-row {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
-        .ig-handle {
+        .ig-title-handle {
             font-family: 'Inter', sans-serif;
-            font-size: 0.96rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: #FFFFFF;
-            letter-spacing: -0.2px;
-            text-transform: none;
         }
 
-        .ig-verified-badge {
+        .ig-verified-circle {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 15px;
-            height: 15px;
+            width: 17px;
+            height: 17px;
             border-radius: 50%;
             background: #0095F6;
             color: #FFFFFF;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             font-weight: 900;
         }
 
-        .ig-category-pill {
-            font-size: 0.65rem;
+        .ig-category-tag {
+            font-size: 0.72rem;
             color: var(--primary-gold);
-            background: rgba(197, 160, 89, 0.12);
-            padding: 2px 8px;
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 3px 10px;
             border-radius: 999px;
+            font-weight: 600;
             letter-spacing: 0.5px;
         }
 
-        .ig-stats-row {
-            font-size: 0.72rem;
-            color: rgba(255, 255, 255, 0.65);
+        .ig-metrics-row {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
             display: flex;
-            gap: 12px;
+            gap: 18px;
         }
 
-        .ig-stats-row strong {
+        .ig-metrics-row strong {
             color: var(--primary-gold);
             font-weight: 600;
         }
 
-        .btn-ig-visit {
+        .btn-ig-official-follow {
             display: inline-flex;
             align-items: center;
-            gap: 7px;
-            background: linear-gradient(135deg, #D4AF37 0%, #AA8030 100%);
+            gap: 9px;
+            background: linear-gradient(135deg, #FFF0D0 0%, #D4AF37 50%, #AA8030 100%);
             color: #121212 !important;
-            padding: 8px 16px;
+            padding: 12px 24px;
             border-radius: 999px;
-            font-size: 0.72rem;
+            font-size: 0.82rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
             flex-shrink: 0;
         }
 
-        .btn-ig-visit:hover {
+        .btn-ig-official-follow:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
-            filter: brightness(1.1);
+            box-shadow: 0 10px 28px rgba(212, 175, 55, 0.65);
+            filter: brightness(1.08);
         }
 
-        /* Instagram Photo Mural Grid (6 Square Tiles) */
-        .ig-mural-grid {
+        /* 3x2 Spacious Instagram Grid */
+        .ig-spacious-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 14px;
+            gap: 20px;
         }
 
-        .ig-mural-tile {
+        .ig-fresh-card {
             position: relative;
-            border-radius: 12px;
+            border-radius: 18px;
             overflow: hidden;
             aspect-ratio: 1 / 1;
             border: 1px solid rgba(197, 160, 89, 0.25);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+            background: #141210;
             cursor: pointer;
-            background: #141414;
+            transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
-        .ig-tile-img {
+        .ig-fresh-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
+        }
+
+        .ig-fresh-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
-        .ig-mural-tile:hover .ig-tile-img {
+        .ig-fresh-card:hover .ig-fresh-img {
             transform: scale(1.08);
         }
 
-        .ig-tile-badge {
+        .ig-badge-top-label {
             position: absolute;
-            top: 8px;
-            left: 8px;
-            background: rgba(10, 10, 10, 0.78);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(6px);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.62rem;
+            top: 12px;
+            left: 12px;
+            background: rgba(12, 10, 8, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            backdrop-filter: blur(8px);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.68rem;
             font-weight: 700;
             color: #FFFFFF;
             letter-spacing: 0.5px;
             z-index: 2;
             pointer-events: none;
-            transition: opacity 0.3s ease;
         }
 
-        .ig-tile-overlay {
+        .ig-fresh-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(12, 12, 12, 0.88);
-            backdrop-filter: blur(4px);
+            background: rgba(10, 8, 6, 0.88);
+            backdrop-filter: blur(5px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            padding: 12px;
+            gap: 10px;
+            padding: 20px;
             text-align: center;
             opacity: 0;
             transition: opacity 0.35s ease;
             z-index: 3;
         }
 
-        .ig-mural-tile:hover .ig-tile-overlay {
+        .ig-fresh-card:hover .ig-fresh-overlay {
             opacity: 1;
         }
 
-        .ig-overlay-metrics {
+        .ig-overlay-stats {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 0.78rem;
+            gap: 16px;
+            font-size: 0.9rem;
             font-weight: 700;
             color: #FFFFFF;
         }
 
-        .ig-metric-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .ig-overlay-caption {
-            font-size: 0.7rem;
+        .ig-overlay-text {
+            font-size: 0.78rem;
             color: rgba(255, 255, 255, 0.85);
-            line-height: 1.35;
+            line-height: 1.45;
             margin: 0;
             font-weight: 400;
         }
 
-        .ig-bottom-badges {
+        .ig-authority-footer-bar {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
+            gap: 14px;
+            margin-top: 8px;
         }
 
-        .ig-badge-pill {
+        .ig-auth-pill {
             background: rgba(25, 22, 18, 0.85);
             border: 1px solid rgba(197, 160, 89, 0.25);
-            border-radius: 8px;
-            padding: 8px 6px;
+            border-radius: 12px;
+            padding: 12px 14px;
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.78rem;
             font-weight: 600;
             color: var(--primary-gold);
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 4px;
+            gap: 6px;
         }
 
-        /* Tab 3: Razones List */
-        .reasons-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        /* ════════════════════════════════════════════════════════════
+           TAB 3: ¿POR QUÉ ELEGIRLA? (2-COLUMN CARDS)
+           ════════════════════════════════════════════════════════════ */
+        .reasons-spacious-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
         }
 
-        .reason-item {
-            background: rgba(25, 22, 18, 0.75);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            border-radius: 12px;
-            padding: 14px 16px;
+        .reason-card-luxury {
+            background: rgba(25, 22, 18, 0.85);
+            border: 1.5px solid rgba(197, 160, 89, 0.25);
+            border-radius: 18px;
+            padding: 26px 28px;
             display: flex;
             align-items: flex-start;
-            gap: 14px;
-            transition: all 0.3s ease;
+            gap: 18px;
+            transition: all 0.35s ease;
         }
 
-        .reason-item:hover {
-            border-color: rgba(212, 175, 55, 0.45);
-            background: rgba(32, 28, 22, 0.85);
-            transform: translateX(4px);
+        .reason-card-luxury:hover {
+            border-color: var(--primary-gold);
+            background: rgba(32, 28, 22, 0.95);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.15);
         }
 
-        .reason-check {
-            width: 26px;
-            height: 26px;
+        .reason-icon-check {
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: linear-gradient(135deg, #D4AF37 0%, #AA8030 100%);
             color: #121212;
-            font-weight: 800;
-            font-size: 0.85rem;
+            font-weight: 900;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            margin-top: 2px;
         }
 
-        .reason-body h4 {
+        .reason-text-body h4 {
             font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
+            font-size: 1.08rem;
             color: #FFFFFF;
-            margin: 0 0 4px;
+            margin: 0 0 8px;
             letter-spacing: 0.5px;
         }
 
-        .reason-body p {
-            font-size: 0.82rem;
-            color: rgba(255, 255, 255, 0.7);
+        .reason-text-body p {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.75);
             margin: 0;
-            line-height: 1.45;
+            line-height: 1.6;
+            font-weight: 300;
         }
 
-        /* Tab 4: Visión & Formato Entrevista */
-        .interview-dialogue-wrap {
+        /* ════════════════════════════════════════════════════════════
+           TAB 4: SU PROPÓSITO FINAL (FORMATO ENTREVISTA EDITORIAL)
+           ════════════════════════════════════════════════════════════ */
+        .interview-spacious-wrap {
+            max-width: 960px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 22px;
+            gap: 28px;
         }
 
-        .interview-bubble {
+        .interview-bubble-row {
             display: flex;
-            gap: 14px;
+            gap: 20px;
             align-items: flex-start;
         }
 
-        .interview-avatar {
-            width: 44px;
-            height: 44px;
+        .interview-speaker-avatar {
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
             background: rgba(197, 160, 89, 0.15);
-            border: 1px solid rgba(197, 160, 89, 0.35);
+            border: 1.5px solid rgba(197, 160, 89, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             flex-shrink: 0;
-            margin-top: 2px;
         }
 
-        .founder-avatar-mini {
+        .interview-founder-avatar {
             overflow: hidden;
-            border: 1.5px solid var(--primary-gold);
-            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+            border: 2px solid var(--primary-gold);
+            box-shadow: 0 0 16px rgba(212, 175, 55, 0.5);
         }
 
-        .founder-avatar-mini img {
+        .interview-founder-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .interview-text-box {
-            background: rgba(25, 22, 18, 0.75);
-            border: 1px solid rgba(197, 160, 89, 0.22);
-            border-radius: 14px;
-            padding: 16px 18px;
+        .interview-card-box {
+            background: rgba(24, 21, 17, 0.9);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            border-radius: 18px;
+            padding: 24px 28px;
             flex: 1;
-            position: relative;
         }
 
-        .interviewer-bubble .interview-text-box {
-            background: rgba(20, 20, 20, 0.6);
-            border-left: 3px solid rgba(197, 160, 89, 0.4);
+        .interviewer-card {
+            border-left: 4px solid rgba(197, 160, 89, 0.5);
         }
 
-        .founder-bubble .interview-text-box {
-            background: linear-gradient(135deg, rgba(35, 30, 22, 0.9) 0%, rgba(22, 19, 15, 0.95) 100%);
-            border: 1px solid rgba(212, 175, 55, 0.45);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.15);
-            border-left: 3px solid var(--primary-gold);
+        .founder-card-featured {
+            background: linear-gradient(135deg, rgba(38, 32, 24, 0.95) 0%, rgba(22, 19, 15, 0.98) 100%);
+            border: 1.5px solid rgba(212, 175, 55, 0.5);
+            border-left: 4px solid var(--primary-gold);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.15);
         }
 
-        .speaker-tag {
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 600;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .speaker-tag.gold {
-            color: var(--primary-gold);
-        }
-
-        .founder-quote-badge {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
-        }
-
-        .speaker-heart {
-            font-size: 0.9rem;
-        }
-
-        .interview-question {
-            font-family: 'Cinzel', serif;
-            font-size: 1.02rem;
-            color: #FFFFFF;
-            font-weight: 600;
-            margin: 0;
-            line-height: 1.45;
-            letter-spacing: 0.5px;
-        }
-
-        .interview-answer {
+        .interview-answer-quote {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             color: #FFF2D6;
-            line-height: 1.65;
-            margin: 0 0 14px;
+            line-height: 1.7;
+            margin: 12px 0 18px;
         }
 
-        .founder-interview-signature {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(197, 160, 89, 0.25);
-            padding-top: 10px;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .signature-sub {
-            font-size: 0.72rem;
-            color: rgba(255, 255, 255, 0.6);
-            letter-spacing: 0.5px;
-        }
-
-        .vision-cta-wrap {
-            margin-top: auto;
-        }
-
-        .btn-vision-apply {
-            display: flex;
+        .btn-editorial-apply {
+            display: inline-flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 100%;
             background: linear-gradient(135deg, #FFF0D0 0%, #D4AF37 50%, #C5A059 100%);
             color: #121212 !important;
-            padding: 14px 24px;
-            border-radius: 12px;
+            padding: 16px 36px;
+            border-radius: 999px;
             font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-decoration: none;
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.45);
             transition: all 0.35s ease;
+            margin: 10px auto 0;
         }
 
-        .btn-vision-apply:hover {
+        .btn-editorial-apply:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.7);
+            filter: brightness(1.08);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .story-split-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            .reasons-spacious-grid {
+                grid-template-columns: 1fr;
+            }
+            .ig-spacious-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .story-stats-grid, .ig-authority-footer-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .founder-main-stage {
+                padding: 28px 18px;
+                border-radius: 20px;
+            }
+            .founder-tab-pill {
+                padding: 8px 14px;
+                font-size: 0.75rem;
+            }
+            .ig-spacious-grid {
+                grid-template-columns: 1fr;
+            }
+            .story-stats-grid, .ig-authority-footer-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+        }, 0.6);
             filter: brightness(1.08);
         }
 
@@ -5986,8 +5828,8 @@
     </section>
 
     <!-- ════════════════════════════════════════════════════════════
-         4. SECCIÓN INTERACTIVA: CONOCE A LA FUNDADORA (CAMI)
-         Arquitectura de 3 Columnas: Retrato • Botones Psicológicos • Panel Dinámico
+         4. SECCIÓN INTERACTIVA: CONOCE A LA FUNDADORA (CAMILA MARÍN)
+         Diseño Editorial Espacioso & Fresco (Inspiración Limit Lashes & Wink & Wave)
          ════════════════════════════════════════════════════════════ -->
     <section class="founder-showcase-section" id="founderShowcase">
         <div class="founder-showcase-container">
@@ -5998,342 +5840,295 @@
                 <p>La artista que transformó la técnica de pestañas en un estándar de lujo, retención médica y un modelo de negocio de alta rentabilidad.</p>
             </div>
 
-            <!-- Grid de 3 Columnas (Edge-to-Edge) -->
-            <div class="founder-grid-layout">
+            <!-- Top Horizontal Luxury Tabs -->
+            <div class="founder-tabs-wrapper">
+                <div class="founder-tabs-bar">
+                    <button type="button" class="founder-tab-pill active" data-tab="historia" id="tabHistoria" onclick="switchFounderTab('historia')">
+                        <span class="tab-icon">📖</span>
+                        <span>Paso 01 • Su Historia</span>
+                    </button>
+                    <button type="button" class="founder-tab-pill" data-tab="logros" id="tabLogros" onclick="switchFounderTab('logros')">
+                        <span class="tab-icon">📸</span>
+                        <span>Paso 02 • Instagram & Logros</span>
+                    </button>
+                    <button type="button" class="founder-tab-pill" data-tab="porque" id="tabPorque" onclick="switchFounderTab('porque')">
+                        <span class="tab-icon">✨</span>
+                        <span>Paso 03 • ¿Por Qué Elegirla?</span>
+                    </button>
+                    <button type="button" class="founder-tab-pill" data-tab="objetivo" id="tabObjetivo" onclick="switchFounderTab('objetivo')">
+                        <span class="tab-icon">🎙️</span>
+                        <span>Paso 04 • Su Propósito</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Stage (Generous & Breathable) -->
+            <div class="founder-main-stage">
                 
-                <!-- COLUMNA 1: RETRATO EDITORIAL DE LA FUNDADORA -->
-                <div class="founder-col-portrait">
-                    <div class="founder-portrait-card">
-                        <div class="portrait-img-wrap">
-                            <img src="images/camila_marin.jpg" alt="Camila Marin Ruiz - Fundadora & Master Lash Artist" class="founder-main-photo">
-                            <div class="portrait-gradient-overlay"></div>
-                            <div class="portrait-gold-frame"></div>
+                <!-- TAB PANE 1: HISTORIA (Spacious 2-Column Split: Editorial + Luxury Frame/Video) -->
+                <div class="founder-pane active" id="paneHistoria">
+                    <div class="story-split-grid">
+                        
+                        <!-- Columna Izquierda: Biografía & Métricas -->
+                        <div class="story-editorial-col">
+                            <span class="story-meta-label">✨ Trayectoria & Filosofía</span>
+                            <h3>“No solo aplico pestañas, construyo miradas de alta costura y empresarias seguras.”</h3>
                             
-                            <!-- Badges flotantes en la foto -->
-                            <div class="portrait-badge-top">
-                                <span class="badge-dot-live"></span>
-                                <span>Master Certificada Internacional</span>
-                            </div>
-                            
-                            <div class="portrait-info-overlay">
-                                <h3>Camila Marín</h3>
-                                <p class="founder-role-title">Fundadora & Directora de Educación</p>
-                                <div class="founder-signature-wrap">
-                                    <span class="signature-font">Camila Marín</span>
+                            <blockquote class="story-italic-quote">
+                                “La técnica impecable no se negocia. Cuando trabajas con estándar médico y amor por el detalle, las clientas pagan con gusto lo que realmente vales.”
+                            </blockquote>
+
+                            <p class="story-paragraphs">
+                                Camila comenzó con una camilla plegable y el sueño de hacer las cosas de forma diferente en un mercado saturado de cursos express. Estudió con maestras internacionales en Rusia, Ucrania y Europa para dominar la verdadera química médica de retención y la armonía visual de alta gama.
+                            </p>
+
+                            <!-- Minimal Stats Row (Cosmina Esanu Style) -->
+                            <div class="story-stats-grid">
+                                <div class="story-stat-card">
+                                    <div class="story-stat-val">+6</div>
+                                    <div class="story-stat-desc">Años Exp.</div>
+                                </div>
+                                <div class="story-stat-card">
+                                    <div class="story-stat-val">+500</div>
+                                    <div class="story-stat-desc">Alumnas</div>
+                                </div>
+                                <div class="story-stat-card">
+                                    <div class="story-stat-val">5.0★</div>
+                                    <div class="story-stat-desc">Excelencia</div>
+                                </div>
+                                <div class="story-stat-card">
+                                    <div class="story-stat-val">S.E.P.</div>
+                                    <div class="story-stat-desc">Aval Oficial</div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Micro-estadísticas de la Fundadora -->
-                        <div class="portrait-stats-bar">
-                            <div class="stat-box">
-                                <span class="stat-num">+6</span>
-                                <span class="stat-label">Años Exp.</span>
+                        <!-- Columna Derecha: Marco de Lujo Cuadrado / Video YouTube -->
+                        <div class="founder-media-frame" id="founderMediaFrame">
+                            <div class="founder-media-inner">
+                                <img src="images/camila_marin.jpg" alt="Camila Marín - Fundadora & Master Lash Trainer" id="founderPortraitImg">
+                                
+                                <!-- Video Overlay Trigger -->
+                                <div class="media-video-trigger" id="founderVideoTrigger" onclick="playFounderVideo()" title="Reproducir Video de Presentación">
+                                    <svg viewBox="0 0 24 24" width="28" height="28" fill="#121212"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                </div>
+
+                                <!-- YouTube Embed Iframe (Activates on Play Click) -->
+                                <iframe class="founder-youtube-player" id="founderYoutubeIframe" src="" title="Presentación Oficial Camila Marín" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                <!-- Floating Authority Badges inside Frame (Cosmina Esanu Style) -->
+                                <div class="frame-floating-badges">
+                                    <div class="frame-badge-pill">
+                                        <span class="frame-badge-icon">🏆</span>
+                                        <div class="frame-badge-info">
+                                            <strong>Master Trainer</strong>
+                                            <span>Certificación Internacional</span>
+                                        </div>
+                                    </div>
+                                    <div class="frame-badge-pill">
+                                        <span class="frame-badge-icon">🎓</span>
+                                        <div class="frame-badge-info">
+                                            <strong>Registro S.E.P.</strong>
+                                            <span>Validez Oficial</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="stat-divider"></div>
-                            <div class="stat-box">
-                                <span class="stat-num">+500</span>
-                                <span class="stat-label">Alumnas</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TAB PANE 2: LOGROS (Instagram Mural Fresco & Aireado) -->
+                <div class="founder-pane" id="paneLogros">
+                    <div class="ig-showcase-wrap">
+                        
+                        <!-- Header de Perfil de Instagram -->
+                        <div class="ig-profile-luxury-header">
+                            <div class="ig-profile-left-block">
+                                <div class="ig-avatar-stories-ring">
+                                    <img src="images/camila_marin.jpg" alt="Camila Marín Ruiz">
+                                </div>
+                                <div class="ig-profile-details">
+                                    <div class="ig-title-row">
+                                        <span class="ig-title-handle">@camis_lashes</span>
+                                        <span class="ig-verified-circle">✓</span>
+                                        <span class="ig-category-tag">Master Studio & Academy</span>
+                                    </div>
+                                    <div class="ig-metrics-row">
+                                        <span><strong>1,420</strong> publicaciones</span>
+                                        <span><strong>48.5k</strong> seguidoras</span>
+                                        <span><strong>+500</strong> alumnas</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="stat-divider"></div>
-                            <div class="stat-box">
-                                <span class="stat-num">5.0★</span>
-                                <span class="stat-label">Excelencia</span>
+                            <a href="https://www.instagram.com/camis_lashes/" target="_blank" class="btn-ig-official-follow">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                <span>Ver Instagram</span> ↗
+                            </a>
+                        </div>
+
+                        <!-- 3x2 Grid de Publicaciones -->
+                        <div class="ig-spacious-grid">
+                            <div class="ig-fresh-card">
+                                <img src="images/alumnas/alumna-8.jpg" alt="Wispy Fox Eye Effect" class="ig-fresh-img">
+                                <span class="ig-badge-top-label">▶ REEL • 18.2K</span>
+                                <div class="ig-fresh-overlay">
+                                    <div class="ig-overlay-stats">
+                                        <span>❤️ 1,840</span>
+                                        <span>💬 122</span>
+                                    </div>
+                                    <p class="ig-overlay-text">Wispy Fox Eye Set • Visagismo y arquitectura de la mirada</p>
+                                </div>
+                            </div>
+
+                            <div class="ig-fresh-card">
+                                <img src="images/alumnas/alumna-1.jpg" alt="Aislamiento Médico 1:1" class="ig-fresh-img">
+                                <span class="ig-badge-top-label">📸 MACRO</span>
+                                <div class="ig-fresh-overlay">
+                                    <div class="ig-overlay-stats">
+                                        <span>❤️ 2,150</span>
+                                        <span>💬 94</span>
+                                    </div>
+                                    <p class="ig-overlay-text">Aislamiento milimétrico sin adherencias ni grumos</p>
+                                </div>
+                            </div>
+
+                            <div class="ig-fresh-card">
+                                <img src="images/alumnas/alumna-4.jpg" alt="Graduación Masterclass" class="ig-fresh-img">
+                                <span class="ig-badge-top-label">🎓 GRADUACIÓN</span>
+                                <div class="ig-fresh-overlay">
+                                    <div class="ig-overlay-stats">
+                                        <span>❤️ 3,240</span>
+                                        <span>💬 287</span>
+                                    </div>
+                                    <p class="ig-overlay-text">Generación Masterclass • Nuevas artistas certificadas</p>
+                                </div>
+                            </div>
+
+                            <div class="ig-fresh-card">
+                                <img src="images/alumnas/alumna-3.jpg" alt="Studio Boutique" class="ig-fresh-img">
+                                <span class="ig-badge-top-label">💎 CABINA VIP</span>
+                                <div class="ig-fresh-overlay">
+                                    <div class="ig-overlay-stats">
+                                        <span>❤️ 1,480</span>
+                                        <span>💬 73</span>
+                                    </div>
+                                    <p class="ig-overlay-text">Espacio Boutique • Agenda VIP llena con semanas de anticipación</p>
+                                </div>
+                            </div>
+
+                            <div class="ig-fresh-card">
+                                <img src="images/alumnas/alumna-6.jpg" alt="Retención 6 Semanas" class="ig-fresh-img">
+                                <span class="ig-badge-top-label">▶ REEL • 24.5K</span>
+                                <div class="ig-fresh-overlay">
+                                    <div class="ig-overlay-stats">
+                                        <span>❤️ 4,120</span>
+                                        <span>💬 315</span>
+                                    </div>
+                                    <p class="ig-overlay-text">Técnica de polimerización sin vapores y retención de 6 semanas</p>
+                                </div>
+                            </div>
+
+                            <div class="ig-fresh-card">
+                                <img src="images/alumnas/alumna-7.jpg" alt="Certificación Oficial" class="ig-fresh-img">
+                                <span class="ig-badge-top-label">✨ AVAL S.E.P.</span>
+                                <div class="ig-fresh-overlay">
+                                    <div class="ig-overlay-stats">
+                                        <span>❤️ 1,930</span>
+                                        <span>💬 88</span>
+                                    </div>
+                                    <p class="ig-overlay-text">Certificación Oficial con Validez Curricular y Registro S.E.P.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Barra de Acreditaciones Inferior -->
+                        <div class="ig-authority-footer-bar">
+                            <div class="ig-auth-pill">🏆 +500 Egresadas Activas</div>
+                            <div class="ig-auth-pill">🎓 Registro Oficial S.E.P.</div>
+                            <div class="ig-auth-pill">🔬 Retención Médica 6 Semanas</div>
+                            <div class="ig-auth-pill">📍 Puerto Vallarta & Guanajuato</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TAB PANE 3: POR QUÉ ELEGIRLA (Cards Espaciosas) -->
+                <div class="founder-pane" id="panePorque">
+                    <div class="reasons-spacious-grid">
+                        <div class="reason-card-luxury">
+                            <div class="reason-icon-check">✓</div>
+                            <div class="reason-text-body">
+                                <h4>Mentoría Personalizada 1 a 1 en Modelo Real</h4>
+                                <p>Camila corrige tu postura, agarre de pinzas y dirección de abanicos en tiempo real para que jamás cometas errores con tus clientas.</p>
+                            </div>
+                        </div>
+                        <div class="reason-card-luxury">
+                            <div class="reason-icon-check">✓</div>
+                            <div class="reason-text-body">
+                                <h4>Química Médica de Adhesivos & Retención de 6 Semanas</h4>
+                                <p>Aprende el control milimétrico de humedad, temperatura y polimerización sin vapores que irriten los ojos.</p>
+                            </div>
+                        </div>
+                        <div class="reason-card-luxury">
+                            <div class="reason-icon-check">✓</div>
+                            <div class="reason-text-body">
+                                <h4>Psicología de Precios y Marca Personal High-Ticket</h4>
+                                <p>No sales a competir por centavos. Sales lista para cobrar tarifas de lujo y posicionarte como la referente de tu ciudad.</p>
+                            </div>
+                        </div>
+                        <div class="reason-card-luxury">
+                            <div class="reason-icon-check">✓</div>
+                            <div class="reason-text-body">
+                                <h4>Acompañamiento y Auditoría Post-Curso de por Vida</h4>
+                                <p>Acceso directo a Camila para evaluar fotos de tus trabajos, solucionar dudas y apoyarte en el crecimiento de tu negocio.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- COLUMNA 2: 4 BOTONES PSICOLÓGICOS INTERACTIVOS -->
-                <div class="founder-col-buttons">
-                    
-                    <!-- Botón 1: Su Historia -->
-                    <button type="button" class="founder-nav-card active" data-tab="historia" id="btnTabHistoria">
-                        <div class="nav-card-indicator"></div>
-                        <div class="nav-card-icon">📖</div>
-                        <div class="nav-card-text">
-                            <span class="nav-card-tag">Paso 01 • Origen</span>
-                            <h4>Su Historia</h4>
-                            <p>De empezar desde cero a liderar la academia más exclusiva.</p>
-                        </div>
-                        <div class="nav-card-arrow">→</div>
-                    </button>
-
-                    <!-- Botón 2: Sus Logros -->
-                    <button type="button" class="founder-nav-card" data-tab="logros" id="btnTabLogros">
-                        <div class="nav-card-indicator"></div>
-                        <div class="nav-card-icon">🏆</div>
-                        <div class="nav-card-text">
-                            <span class="nav-card-tag">Paso 02 • Autoridad</span>
-                            <h4>Sus Logros</h4>
-                            <p>Certificaciones, reconocimientos y +500 vidas transformadas.</p>
-                        </div>
-                        <div class="nav-card-arrow">→</div>
-                    </button>
-
-                    <!-- Botón 3: Por Qué Conviene Estar con Ella -->
-                    <button type="button" class="founder-nav-card" data-tab="porque" id="btnTabPorque">
-                        <div class="nav-card-indicator"></div>
-                        <div class="nav-card-icon">✨</div>
-                        <div class="nav-card-text">
-                            <span class="nav-card-tag">Paso 03 • Diferenciación</span>
-                            <h4>¿Por Qué Elegirla?</h4>
-                            <p>Técnica médica, mentoría 1 a 1 y posicionamiento High-Ticket.</p>
-                        </div>
-                        <div class="nav-card-arrow">→</div>
-                    </button>
-
-                    <!-- Botón 4: Su Objetivo Final -->
-                    <button type="button" class="founder-nav-card" data-tab="objetivo" id="btnTabObjetivo">
-                        <div class="nav-card-indicator"></div>
-                        <div class="nav-card-icon">🎯</div>
-                        <div class="nav-card-text">
-                            <span class="nav-card-tag">Paso 04 • Propósito</span>
-                            <h4>Su Objetivo Final</h4>
-                            <p>Elevar la profesión y crear una nueva élite de lash artists.</p>
-                        </div>
-                        <div class="nav-card-arrow">→</div>
-                    </button>
-                </div>
-
-                <!-- COLUMNA 3: PANEL DINÁMICO REACTIVO -->
-                <div class="founder-col-display">
-                    <div class="founder-display-stage">
+                <!-- TAB PANE 4: SU PROPÓSITO FINAL (Formato Entrevista Revista) -->
+                <div class="founder-pane" id="paneObjetivo">
+                    <div class="interview-spacious-wrap">
                         
-                        <!-- TAB PANE 1: HISTORIA (Video Player + Bio) -->
-                        <div class="founder-pane active" id="paneHistoria">
-                            <div class="pane-header">
-                                <span class="pane-step-badge">Trayectoria & Filosofía</span>
-                                <h3>“No solo aplico pestañas, construyo miradas de alta costura y empresarias seguras.”</h3>
+                        <!-- Pregunta del Entrevistador -->
+                        <div class="interview-bubble-row">
+                            <div class="interview-speaker-avatar">🎙️</div>
+                            <div class="interview-card-box interviewer-card">
+                                <span class="story-meta-label">Pregunta • Entrevista Real</span>
+                                <p style="font-family: 'Cinzel', serif; font-size: 1.15rem; color: #FFFFFF; margin: 6px 0 0; line-height: 1.5;">
+                                    “Camila, quiero que me seas sincera. ¿Por qué estás buscando lograr todo esto?”
+                                </p>
                             </div>
+                        </div>
 
-                            <!-- Mockup de Video Player Cinematográfico -->
-                            <div class="founder-video-mockup">
-                                <img src="images/academy_split.png" alt="Video de Camila explicando su trayectoria" class="video-poster-img">
-                                <div class="video-dark-overlay"></div>
-                                <div class="video-play-btn" id="founderVideoPlayBtn">
-                                    <svg viewBox="0 0 24 24" width="28" height="28" fill="#121212"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                                </div>
-                                <div class="video-meta-tag">
-                                    <span>▶ Presentación de Camila (Trayectoria & Metodología)</span>
-                                </div>
+                        <!-- Respuesta Emotiva de Camila -->
+                        <div class="interview-bubble-row">
+                            <div class="interview-speaker-avatar interview-founder-avatar">
+                                <img src="images/camila_marin.jpg" alt="Camila Marín">
                             </div>
-
-                            <div class="pane-story-content">
-                                <p>Camila comenzó con una camilla plegable y el sueño de hacer las cosas de forma diferente en un mercado saturado de cursos express. Estudió con maestras internacionales en Rusia, Ucrania y Europa para dominar la verdadera química médica de retención y la armonía visual de alta gama.</p>
-                                <div class="story-highlight-quote">
-                                    “La técnica impecable no se negocia. Cuando trabajas con estándar médico y amor por el detalle, las clientas pagan con gusto lo que realmente vales.”
+                            <div class="interview-card-box founder-card-featured">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span class="story-meta-label" style="color: var(--primary-gold);">Camila Marín Ruiz • Fundadora</span>
+                                    <span style="font-size: 1.1rem;">❤️</span>
+                                </div>
+                                <blockquote class="interview-answer-quote">
+                                    “Porque me gustaría hacer que las mujeres no tengan que salir para poder trabajar y puedan evitar los peligros de la calle, asegurarme de que estén en un trabajo que les haga felices y que estén seguras.”
+                                </blockquote>
+                                <div style="border-top: 1px solid rgba(197, 160, 89, 0.25); padding-top: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                                    <span class="signature-font" style="font-size: 1.4rem;">Camila Marín</span>
+                                    <span style="font-size: 0.76rem; color: rgba(255,255,255,0.65);">Directora & Mentora de Cami's Lashes Academy</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- TAB PANE 2: LOGROS (Mural de Instagram Conectado + Credenciales) -->
-                        <div class="founder-pane" id="paneLogros">
-                            <div class="pane-header">
-                                <span class="pane-step-badge">📸 En Vivo • Instagram Oficial</span>
-                                <h3>Mural de Casos Reales, Visagismo & Graduaciones</h3>
-                            </div>
-
-                            <!-- Instagram Profile Card Header -->
-                            <div class="ig-profile-header-card">
-                                <div class="ig-profile-left">
-                                    <div class="ig-avatar-ring">
-                                        <img src="images/camila_marin.jpg" alt="Camila Marin Ruiz">
-                                    </div>
-                                    <div class="ig-profile-meta">
-                                        <div class="ig-username-row">
-                                            <span class="ig-handle">@camis_lashes</span>
-                                            <span class="ig-verified-badge">✓</span>
-                                            <span class="ig-category-pill">Master Studio & Academy</span>
-                                        </div>
-                                        <div class="ig-stats-row">
-                                            <span><strong>1,420</strong> publicaciones</span>
-                                            <span><strong>48.5k</strong> seguidoras</span>
-                                            <span><strong>+500</strong> alumnas</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="https://www.instagram.com/camis_lashes/" target="_blank" class="btn-ig-visit">
-                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                                    <span>Ver Instagram</span> ↗
-                                </a>
-                            </div>
-
-                            <!-- Instagram Photo Mural Grid (6 Square Tiles) -->
-                            <div class="ig-mural-grid">
-                                <!-- Tile 1: Wispy & Russian Volume -->
-                                <div class="ig-mural-tile">
-                                    <img src="images/alumnas/alumna-8.jpg" alt="Wispy Fox Eye Effect" class="ig-tile-img">
-                                    <span class="ig-tile-badge">▶ REEL • 18.2K</span>
-                                    <div class="ig-tile-overlay">
-                                        <div class="ig-overlay-metrics">
-                                            <span class="ig-metric-item">❤️ 1,840</span>
-                                            <span class="ig-metric-item">💬 122</span>
-                                        </div>
-                                        <p class="ig-overlay-caption">Wispy Fox Eye Set • Visagismo y arquitectura de la mirada</p>
-                                    </div>
-                                </div>
-
-                                <!-- Tile 2: Aislamiento Médico -->
-                                <div class="ig-mural-tile">
-                                    <img src="images/alumnas/alumna-1.jpg" alt="Aislamiento Médico 1:1" class="ig-tile-img">
-                                    <span class="ig-tile-badge">📸 MACRO</span>
-                                    <div class="ig-tile-overlay">
-                                        <div class="ig-overlay-metrics">
-                                            <span class="ig-metric-item">❤️ 2,150</span>
-                                            <span class="ig-metric-item">💬 94</span>
-                                        </div>
-                                        <p class="ig-overlay-caption">Aislamiento milimétrico sin adherencias ni grumos</p>
-                                    </div>
-                                </div>
-
-                                <!-- Tile 3: Graduación Alumnas -->
-                                <div class="ig-mural-tile">
-                                    <img src="images/alumnas/alumna-4.jpg" alt="Graduación Masterclass" class="ig-tile-img">
-                                    <span class="ig-tile-badge">🎓 GRADUACIÓN</span>
-                                    <div class="ig-tile-overlay">
-                                        <div class="ig-overlay-metrics">
-                                            <span class="ig-metric-item">❤️ 3,240</span>
-                                            <span class="ig-metric-item">💬 287</span>
-                                        </div>
-                                        <p class="ig-overlay-caption">Generación Masterclass • Nuevas artistas certificadas</p>
-                                    </div>
-                                </div>
-
-                                <!-- Tile 4: Studio de Lujo -->
-                                <div class="ig-mural-tile">
-                                    <img src="images/alumnas/alumna-3.jpg" alt="Studio Boutique" class="ig-tile-img">
-                                    <span class="ig-tile-badge">💎 CABINA VIP</span>
-                                    <div class="ig-tile-overlay">
-                                        <div class="ig-overlay-metrics">
-                                            <span class="ig-metric-item">❤️ 1,480</span>
-                                            <span class="ig-metric-item">💬 73</span>
-                                        </div>
-                                        <p class="ig-overlay-caption">Espacio Boutique • Agenda VIP llena con semanas de anticipación</p>
-                                    </div>
-                                </div>
-
-                                <!-- Tile 5: Retención 6 Semanas -->
-                                <div class="ig-mural-tile">
-                                    <img src="images/alumnas/alumna-6.jpg" alt="Retención 6 Semanas" class="ig-tile-img">
-                                    <span class="ig-tile-badge">▶ REEL • 24.5K</span>
-                                    <div class="ig-tile-overlay">
-                                        <div class="ig-overlay-metrics">
-                                            <span class="ig-metric-item">❤️ 4,120</span>
-                                            <span class="ig-metric-item">💬 315</span>
-                                        </div>
-                                        <p class="ig-overlay-caption">Técnica de polimerización sin vapores y retención de 6 semanas</p>
-                                    </div>
-                                </div>
-
-                                <!-- Tile 6: Certificación y Aval -->
-                                <div class="ig-mural-tile">
-                                    <img src="images/alumnas/alumna-7.jpg" alt="Certificación Oficial" class="ig-tile-img">
-                                    <span class="ig-tile-badge">✨ AVAL S.E.P.</span>
-                                    <div class="ig-tile-overlay">
-                                        <div class="ig-overlay-metrics">
-                                            <span class="ig-metric-item">❤️ 1,930</span>
-                                            <span class="ig-metric-item">💬 88</span>
-                                        </div>
-                                        <p class="ig-overlay-caption">Certificación Oficial con Validez Curricular y Registro S.E.P.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Bottom Achievements Highlights Bar -->
-                            <div class="ig-bottom-badges">
-                                <div class="ig-badge-pill">🏆 +500 Egresadas</div>
-                                <div class="ig-badge-pill">🎓 Registro S.E.P.</div>
-                                <div class="ig-badge-pill">🔬 Retención 6 Semanas</div>
-                                <div class="ig-badge-pill">📍 Guanajuato & Vallarta</div>
-                            </div>
-                        </div>
-
-                        <!-- TAB PANE 3: POR QUÉ CONVIENE ESTAR CON ELLA -->
-                        <div class="founder-pane" id="panePorque">
-                            <div class="pane-header">
-                                <span class="pane-step-badge">Propuesta de Valor de Élite</span>
-                                <h3>¿Qué hace que aprender con Camila sea tu inversión más inteligente?</h3>
-                            </div>
-
-                            <div class="reasons-list">
-                                <div class="reason-item">
-                                    <div class="reason-check">✓</div>
-                                    <div class="reason-body">
-                                        <h4>Mentoría Personalizada 1 a 1 en Modelo Real</h4>
-                                        <p>Camila corrige tu postura, agarre de pinzas y dirección de abanicos en tiempo real para que jamás cometas errores con tus clientas.</p>
-                                    </div>
-                                </div>
-                                <div class="reason-item">
-                                    <div class="reason-check">✓</div>
-                                    <div class="reason-body">
-                                        <h4>Química Médica de Adhesivos & Retención de 6 Semanas</h4>
-                                        <p>Aprende el control milimétrico de humedad, temperatura y polimerización sin vapores que irriten los ojos.</p>
-                                    </div>
-                                </div>
-                                <div class="reason-item">
-                                    <div class="reason-check">✓</div>
-                                    <div class="reason-body">
-                                        <h4>Psicología de Precios y Marca Personal High-Ticket</h4>
-                                        <p>No sales a competir por centavos. Sales lista para cobrar tarifas de lujo y posicionarte como la referente de tu ciudad.</p>
-                                    </div>
-                                </div>
-                                <div class="reason-item">
-                                    <div class="reason-check">✓</div>
-                                    <div class="reason-body">
-                                        <h4>Acompañamiento y Auditoría Post-Curso de por Vida</h4>
-                                        <p>Acceso directo a Camila para evaluar fotos de tus trabajos, solucionar dudas y apoyarte en el crecimiento de tu negocio.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- TAB PANE 4: SU OBJETIVO FINAL (FORMATO ENTREVISTA REAL) -->
-                        <div class="founder-pane" id="paneObjetivo">
-                            <div class="pane-header">
-                                <span class="pane-step-badge">🎙️ Entrevista Exclusiva • El Propósito Detrás de la Marca</span>
-                                <h3>La Verdadera Razón por la que Camila Creó Esta Academia</h3>
-                            </div>
-
-                            <div class="interview-dialogue-wrap">
-                                <!-- Pregunta del Entrevistador -->
-                                <div class="interview-bubble interviewer-bubble">
-                                    <div class="interview-avatar">
-                                        <span>🎙️</span>
-                                    </div>
-                                    <div class="interview-text-box">
-                                        <span class="speaker-tag">Pregunta • Entrevista Real</span>
-                                        <p class="interview-question">“Camila, quiero que me seas sincera. ¿Por qué estás buscando lograr todo esto?”</p>
-                                    </div>
-                                </div>
-
-                                <!-- Respuesta Sincera de Camila -->
-                                <div class="interview-bubble founder-bubble">
-                                    <div class="interview-avatar founder-avatar-mini">
-                                        <img src="images/camila_marin.jpg" alt="Camila Marin Ruiz">
-                                    </div>
-                                    <div class="interview-text-box">
-                                        <div class="founder-quote-badge">
-                                            <span class="speaker-tag gold">Camila Marin Ruiz • Fundadora</span>
-                                            <span class="speaker-heart">❤️</span>
-                                        </div>
-                                        <p class="interview-answer">
-                                            “Porque me gustaría hacer que las mujeres no tengan que salir para poder trabajar y puedan evitar los peligros de la calle, asegurarme de que estén en un trabajo que les haga felices y que estén seguras.”
-                                        </p>
-                                        <div class="founder-interview-signature">
-                                            <span class="signature-font">Camila Marín</span>
-                                            <span class="signature-sub">Directora & Mentora de Cami's Lashes Academy</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="vision-cta-wrap">
-                                <a href="#curriculumTimeline" class="btn-vision-apply" onclick="document.getElementById('curriculumTimeline').scrollIntoView({ behavior: 'smooth' }); return false;">
-                                    Aplica para Entrenar con Camila
-                                    <span class="btn-vision-sub">Cupos Limitados por Generación</span>
-                                </a>
-                            </div>
+                        <!-- CTA para aplicar -->
+                        <div style="text-align: center; margin-top: 10px;">
+                            <a href="#curriculumTimeline" class="btn-editorial-apply" onclick="document.getElementById('curriculumTimeline').scrollIntoView({ behavior: 'smooth' }); return false;">
+                                Aplica para Entrenar con Camila
+                                <span style="font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 1px; color: #332608; margin-top: 4px; text-transform: none; font-weight: 600;">Cupos Limitados por Generación</span>
+                            </a>
                         </div>
 
                     </div>
@@ -7012,25 +6807,28 @@
 
     <!-- JavaScript to handle interactive WhatsApp booking -->
     <script>
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-            
-            // Build the WhatsApp message
-            const baseText = `¡Hola Cami's Lashes! Me gustaría agendar/pedir informes:\n\n*Nombre:* ${name}\n*Teléfono:* ${phone}\n*Email:* ${email}\n*Servicio/Curso:* ${service}\n*Mensaje:* ${message}`;
-            const encodedText = encodeURIComponent(baseText);
-            
-            // Redirect to Cami's business WhatsApp (placeholder number, can be customized)
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=521234567890&text=${encodedText}`;
-            
-            // Open in new tab
-            window.open(whatsappUrl, '_blank');
-        });
+        const bookingFormEl = document.getElementById('bookingForm');
+        if (bookingFormEl) {
+            bookingFormEl.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name')?.value || '';
+                const phone = document.getElementById('phone')?.value || '';
+                const email = document.getElementById('email')?.value || '';
+                const service = document.getElementById('service')?.value || '';
+                const message = document.getElementById('message')?.value || '';
+                
+                // Build the WhatsApp message
+                const baseText = `¡Hola Cami's Lashes! Me gustaría agendar/pedir informes:\n\n*Nombre:* ${name}\n*Teléfono:* ${phone}\n*Email:* ${email}\n*Servicio/Curso:* ${service}\n*Mensaje:* ${message}`;
+                const encodedText = encodeURIComponent(baseText);
+                
+                // Redirect to Cami's business WhatsApp
+                const whatsappUrl = `https://api.whatsapp.com/send?phone=5214731002030&text=${encodedText}`;
+                
+                // Open in new tab
+                window.open(whatsappUrl, '_blank');
+            });
+        }
 
         // Mobile Menu Interactivity
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -8535,13 +8333,43 @@
                 }
             };
 
-            window.openChatWithAiTopic = (topic) => {
-                window.openChatWithAiAssistant();
-                const inputBar = document.getElementById('chatUserMsgInput');
-                if (inputBar) {
-                    inputBar.value = `¡Hola! Quisiera más información detallada sobre: ${topic}.`;
-                    inputBar.focus();
+            // 10. Control de Pestañas y Video de la Fundadora (Camila Marín)
+            window.switchFounderTab = (tabKey) => {
+                const pills = document.querySelectorAll('.founder-tab-pill');
+                const panes = document.querySelectorAll('.founder-main-stage .founder-pane');
+
+                pills.forEach(p => {
+                    if (p.getAttribute('data-tab') === tabKey) {
+                        p.classList.add('active');
+                    } else {
+                        p.classList.remove('active');
+                    }
+                });
+
+                panes.forEach(pane => pane.classList.remove('active'));
+
+                const targetPane = document.getElementById(tabKey === 'historia' ? 'paneHistoria' : 
+                                                           tabKey === 'logros' ? 'paneLogros' : 
+                                                           tabKey === 'porque' ? 'panePorque' : 'paneObjetivo');
+                if (targetPane) {
+                    targetPane.classList.add('active');
+                    if (typeof gsap !== 'undefined') {
+                        gsap.fromTo(targetPane, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
+                    }
                 }
+            };
+
+            // Función para Reproducir Video de YouTube Cuadrado
+            window.playFounderVideo = () => {
+                const mediaFrame = document.getElementById('founderMediaFrame');
+                const iframe = document.getElementById('founderYoutubeIframe');
+                if (!mediaFrame || !iframe) return;
+
+                // Asignar video de presentación en autoplay
+                if (!iframe.src || iframe.src === window.location.href || iframe.src.indexOf('youtube') === -1) {
+                    iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0&modestbranding=1";
+                }
+                mediaFrame.classList.add('playing');
             };
 
         });
