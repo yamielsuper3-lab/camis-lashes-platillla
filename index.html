@@ -1816,8 +1816,32 @@
             background: #000;
         }
 
+        .founder-youtube-player {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+            z-index: 10;
+            background: #000;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        .founder-media-frame.playing .founder-youtube-player,
         .founder-media-frame.playing-video .founder-youtube-player {
             display: block;
+        }
+
+        .founder-media-frame.playing #founderPortraitImg,
+        .founder-media-frame.playing .media-video-trigger,
+        .founder-media-frame.playing .frame-floating-badges,
+        .founder-media-frame.playing-video #founderPortraitImg,
+        .founder-media-frame.playing-video .media-video-trigger,
+        .founder-media-frame.playing-video .frame-floating-badges {
+            opacity: 0;
+            pointer-events: none;
         }
 
         .media-video-trigger {
@@ -6006,7 +6030,9 @@
                                 </div>
 
                                 <!-- YouTube Embed Iframe (Activates on Play Click) -->
-                                <iframe class="founder-youtube-player" id="founderYoutubeIframe" src="" title="Presentación Oficial Camila Marín" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <video class="founder-youtube-player" id="founderVideoPlayer" controls playsinline preload="metadata">
+                                    <source src="videos/camila_story_video.mp4" type="video/mp4">
+                                </video>
 
                                 <!-- Floating Authority Badges inside Frame (Cosmina Esanu Style) -->
                                 <div class="frame-floating-badges">
@@ -8515,17 +8541,14 @@
                 }
             };
 
-            // Función para Reproducir Video de YouTube Cuadrado
+            // Función para Reproducir Video de Camila Marín
             window.playFounderVideo = () => {
                 const mediaFrame = document.getElementById('founderMediaFrame');
-                const iframe = document.getElementById('founderYoutubeIframe');
-                if (!mediaFrame || !iframe) return;
+                const video = document.getElementById('founderVideoPlayer');
+                if (!mediaFrame || !video) return;
 
-                // Asignar video de presentación en autoplay
-                if (!iframe.src || iframe.src === window.location.href || iframe.src.indexOf('youtube') === -1) {
-                    iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0&modestbranding=1";
-                }
-                mediaFrame.classList.add('playing');
+                mediaFrame.classList.add('playing', 'playing-video');
+                video.play().catch(() => {});
             };
 
             // 11. Carga Dinámica del Feed de Instagram (Compatible con n8n / Webhook / JSON)
