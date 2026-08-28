@@ -5917,66 +5917,7 @@
         </div>
     </section>
 
-    <section id="boutique" class="boutique-section">
-        <div class="section-header">
-            <h2>Boutique de Pestañas</h2>
-            <p>Descubre nuestra gama de servicios exclusivos y diseños personalizados para realzar la belleza natural de tu mirada con acabados de alta costura.</p>
-        </div>
 
-        <div class="services-grid">
-            <!-- Servicio 1 -->
-            <div class="service-card">
-                <div>
-                    <div class="service-img-placeholder sip-1">Set Clásico</div>
-                    <h3>Efecto Rímel (1:1)</h3>
-                    <p>Aplicación de una extensión sobre cada pestaña natural. Ideal para un look elegante, natural y limpio para el día a día.</p>
-                </div>
-                <div class="service-footer">
-                    <div class="service-price">$750</div>
-                    <a href="#" class="btn-book">Reservar</a>
-                </div>
-            </div>
-
-            <!-- Servicio 2 -->
-            <div class="service-card">
-                <div>
-                    <div class="service-img-placeholder sip-2">Volumen Ruso</div>
-                    <h3>Volumen Ruso Premium</h3>
-                    <p>Diseño de abanicos artesanales ultraligeros aplicados minuciosamente para lograr densidad, textura y un efecto tupido espectacular.</p>
-                </div>
-                <div class="service-footer">
-                    <div class="service-price">$1,200</div>
-                    <a href="#" class="btn-book">Reservar</a>
-                </div>
-            </div>
-
-            <!-- Servicio 3 -->
-            <div class="service-card">
-                <div>
-                    <div class="service-img-placeholder sip-3">Set Híbrido</div>
-                    <h3>Efecto Híbrido Elite</h3>
-                    <p>La combinación perfecta entre la técnica clásica y volumen. Aporta volumen texturizado, suavidad y dimensión personalizada.</p>
-                </div>
-                <div class="service-footer">
-                    <div class="service-price">$950</div>
-                    <a href="#" class="btn-book">Reservar</a>
-                </div>
-            </div>
-
-            <!-- Servicio 4 -->
-            <div class="service-card">
-                <div>
-                    <div class="service-img-placeholder sip-4">Lifting & Tinte</div>
-                    <h3>Lash Lift & Tinte</h3>
-                    <p>Tratamiento de queratina para elevar y curvar tus pestañas naturales desde la raíz, complementado con tinte para mayor definición.</p>
-                </div>
-                <div class="service-footer">
-                    <div class="service-price">$600</div>
-                    <a href="#" class="btn-book">Reservar</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ════════════════════════════════════════════════════════════
          4. SECCIÓN INTERACTIVA: CONOCE A LA FUNDADORA (CAMILA MARÍN)
@@ -7297,6 +7238,11 @@
 
     <!-- Script de Inicialización y Animación del Loader (GSAP) -->
     <script>
+        // Disable browser automatic scroll restoration so refresh starts cleanly
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             const loader        = document.getElementById('loaderScreen');
             const loaderContent = document.getElementById('loaderContent');
@@ -7379,25 +7325,28 @@
             let mosaicTimer = null;
 
             // Function to handle Academy selection
-            const selectAcademy = () => {
-                if (splitHero.classList.contains('active-academy') || splitHero.classList.contains('active-spa')) return;
+            const selectAcademy = (isInitial = false) => {
+                if (!isInitial && (splitHero.classList.contains('active-academy') || splitHero.classList.contains('active-spa'))) return;
 
-                // Always clear previous timer & ensure clean initial state
+                try { sessionStorage.setItem('cami_active_branch', 'academy'); } catch(e){}
+
                 if (mosaicTimer) {
                     clearTimeout(mosaicTimer);
                     mosaicTimer = null;
                 }
                 document.body.classList.remove('mosaic-bg-active');
 
+                splitHero.classList.remove('active-spa');
+                document.body.classList.remove('active-spa');
                 splitHero.classList.add('active-academy');
                 document.body.classList.add('active-academy');
 
-                // 2 seconds after expansion begins, smoothly crossfade to the 10-column mosaic
+                // 2 seconds after expansion begins, crossfade to 10-column mosaic
                 mosaicTimer = setTimeout(() => {
                     if (document.body.classList.contains('active-academy')) {
                         document.body.classList.add('mosaic-bg-active');
                     }
-                }, 2000);
+                }, isInitial ? 400 : 2000);
 
                 if (typeof window.startChatTimer === 'function') {
                     window.startChatTimer();
@@ -7405,14 +7354,20 @@
                 setTimeout(() => {
                     document.body.classList.remove('scroll-locked');
                     splitBackBtn.classList.add('visible');
-                }, 900);
+                }, isInitial ? 100 : 900);
             };
 
             // Function to handle Spa selection
-            const selectSpa = () => {
-                if (splitHero.classList.contains('active-academy') || splitHero.classList.contains('active-spa')) return;
+            const selectSpa = (isInitial = false) => {
+                if (!isInitial && (splitHero.classList.contains('active-academy') || splitHero.classList.contains('active-spa'))) return;
+
+                try { sessionStorage.setItem('cami_active_branch', 'spa'); } catch(e){}
+
                 if (mosaicTimer) clearTimeout(mosaicTimer);
                 document.body.classList.remove('mosaic-bg-active');
+                
+                splitHero.classList.remove('active-academy');
+                document.body.classList.remove('active-academy');
                 splitHero.classList.add('active-spa');
                 document.body.classList.add('active-spa');
                 if (typeof window.stopChatTimer === 'function') {
@@ -7421,7 +7376,7 @@
                 setTimeout(() => {
                     document.body.classList.remove('scroll-locked');
                     splitBackBtn.classList.add('visible');
-                }, 900);
+                }, isInitial ? 100 : 900);
             };
 
             // Header scroll effect
@@ -7442,6 +7397,7 @@
 
             // Click Back Button to restore split screen
             splitBackBtn.addEventListener('click', () => {
+                try { sessionStorage.removeItem('cami_active_branch'); } catch(e){}
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 if (mosaicTimer) clearTimeout(mosaicTimer);
                 document.body.classList.remove('mosaic-bg-active');
@@ -7458,6 +7414,27 @@
                     document.body.classList.add('scroll-locked');
                 }, 500);
             });
+
+            // Initial State Restoration on Page Load (Always starts clean and in the right branch)
+            const initBranchOnLoad = () => {
+                const hash = window.location.hash;
+                let savedBranch = null;
+                try { savedBranch = sessionStorage.getItem('cami_active_branch'); } catch(e){}
+
+                if (hash && (hash.includes('maestria') || hash.includes('temario') || hash.includes('inversion') || hash.includes('congreso') || hash.includes('faq') || hash.includes('portal') || hash.includes('founder') || hash.includes('curriculum'))) {
+                    selectAcademy(true);
+                } else if (savedBranch === 'academy') {
+                    selectAcademy(true);
+                } else if (savedBranch === 'spa' || hash.includes('spa') || hash.includes('boutique')) {
+                    selectSpa(true);
+                } else {
+                    // Fresh start: locked at top on Split Hero
+                    window.scrollTo(0, 0);
+                    document.body.classList.add('scroll-locked');
+                    document.body.classList.remove('active-academy', 'active-spa');
+                }
+            };
+            initBranchOnLoad();
 
             // Nav links handler for Split Hero integration
             document.querySelectorAll('header nav a, .mobile-nav a').forEach(link => {
