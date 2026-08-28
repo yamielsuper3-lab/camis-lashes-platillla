@@ -36,61 +36,98 @@
             line-height: 1.6;
         }
 
-        /* Premium Header / Navbar */
+        /* ══════════════════════════════════════════════
+           PREMIUM LUXURY HEADER & ADAPTIVE NAVBAR
+           ══════════════════════════════════════════════ */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 25px 50px;
+            padding: 22px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            background-color: rgba(248, 245, 240, 0.85);
-            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
-            transition: var(--transition-smooth);
+            background: transparent;
+            backdrop-filter: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Active Navigation Bar (Frosted Luxury Dark Glass on Enter & Scroll) */
+        body.active-academy header,
+        body.active-spa header,
+        header.scrolled {
+            background: rgba(14, 14, 14, 0.92) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.22) !important;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+            padding: 14px 40px;
         }
 
         .logo {
             font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--dark-charcoal);
+            letter-spacing: 2.5px;
+            color: #FFFFFF;
             text-decoration: none;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .logo span {
-            color: var(--primary-gold);
+            background: linear-gradient(135deg, #FFF0D0 0%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Desktop Nav: Clean & Hidden on Split Screen, Smoothly Revealed in Academy Mode */
+        .desktop-nav {
+            display: none;
+            align-items: center;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        body.active-academy .desktop-nav {
+            display: flex !important;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         nav a {
             text-decoration: none;
-            color: var(--dark-charcoal);
-            font-weight: 500;
-            font-size: 0.9rem;
-            margin-left: 30px;
-            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.82);
+            font-weight: 600;
+            font-size: 0.78rem;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
             transition: var(--transition-smooth);
             position: relative;
+            padding: 4px 0;
         }
 
         nav a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 1.5px;
-            background-color: var(--primary-gold);
+            background: linear-gradient(90deg, #D4AF37, #FFF0D0);
             transition: var(--transition-smooth);
         }
 
         nav a:hover {
-            color: var(--primary-gold);
+            color: #D4AF37;
         }
 
         nav a:hover::after {
@@ -515,48 +552,42 @@
         }
 
         /* ══════════════════════════════════════════════
-           LANDING PAGE HEADER STYLES (ACADEMY MODE)
+           LANDING PAGE HEADER STYLES (ACADEMY & SPA MODES)
            ══════════════════════════════════════════════ */
         body.active-academy header {
-            justify-content: center;
+            justify-content: space-between;
         }
 
-        body.active-academy header .desktop-nav,
-        body.active-academy header .header-controls,
-        body.active-academy header .menu-toggle {
-            display: none !important;
+        /* Split Back Button in Header */
+        .split-back-btn {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            background: rgba(197, 160, 89, 0.14);
+            border: 1px solid rgba(197, 160, 89, 0.45);
+            color: #D4AF37;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.74rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Center logo custom alignment */
-        body.active-academy header .logo {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+        body.active-academy .split-back-btn,
+        body.active-spa .split-back-btn {
+            display: inline-flex !important;
         }
 
-        /* Adjust back/menu button in Academy mode */
-        body.active-academy .split-back-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 50px;
-            z-index: 1010;
-            background-color: transparent;
-            border: 1px solid rgba(18, 18, 18, 0.15);
-            color: var(--dark-charcoal);
-            padding: 8px 18px;
-            font-size: 0.8rem;
-        }
-
-        body.active-academy .split-back-btn:hover {
-            background-color: var(--dark-charcoal);
-            color: var(--primary-cream);
-            border-color: var(--dark-charcoal);
-        }
-
-        /* Default visible position in Spa mode */
-        body.active-spa .split-back-btn.visible {
-            right: 150px;
+        .split-back-btn:hover {
+            background: linear-gradient(135deg, #FFF0D0 0%, #D4AF37 100%);
+            color: #121212;
+            border-color: #D4AF37;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transform: translateY(-1px);
         }
 
         /* Hide Boutique/Spa completely in Academy mode */
@@ -4254,7 +4285,7 @@
         .menu-toggle span {
             width: 100%;
             height: 2px;
-            background-color: var(--dark-charcoal);
+            background-color: #FFFFFF;
             transition: var(--transition-smooth);
         }
 
@@ -4265,13 +4296,16 @@
             left: 100%;
             width: 100%;
             height: 100vh;
-            background-color: var(--primary-cream);
+            background-color: rgba(14, 14, 14, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             z-index: 1050;
             transition: var(--transition-smooth);
+            border-left: 1px solid rgba(197, 160, 89, 0.2);
         }
 
         .mobile-nav.active {
@@ -4280,10 +4314,10 @@
 
         .mobile-nav a {
             font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             text-decoration: none;
-            color: var(--dark-charcoal);
-            margin: 20px 0;
+            color: #FFFFFF;
+            margin: 15px 0;
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 500;
@@ -4297,14 +4331,14 @@
         /* Hamburger Animation */
         .menu-toggle.active span:nth-child(1) {
             transform: translateY(7px) rotate(45deg);
+            background-color: var(--primary-gold);
         }
-
         .menu-toggle.active span:nth-child(2) {
             opacity: 0;
         }
-
         .menu-toggle.active span:nth-child(3) {
             transform: translateY(-7px) rotate(-45deg);
+            background-color: var(--primary-gold);
         }
 
         @media (max-width: 768px) {
@@ -7324,6 +7358,18 @@
                     splitBackBtn.classList.add('visible');
                 }, 900);
             };
+
+            // Header scroll effect
+            const siteHeader = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (siteHeader) {
+                    if (window.scrollY > 30) {
+                        siteHeader.classList.add('scrolled');
+                    } else {
+                        siteHeader.classList.remove('scrolled');
+                    }
+                }
+            }, { passive: true });
 
             // Click events on panels
             academyPanel.addEventListener('click', selectAcademy);
