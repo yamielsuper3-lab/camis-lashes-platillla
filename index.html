@@ -5969,7 +5969,7 @@
                         </div>
 
                         <!-- 3x2 Grid de Publicaciones -->
-                        <div class="ig-spacious-grid">
+                        <div class="ig-spacious-grid" id="igSpaciousGrid">
                             <div class="ig-fresh-card">
                                 <img src="images/alumnas/alumna-8.jpg" alt="Wispy Fox Eye Effect" class="ig-fresh-img">
                                 <span class="ig-badge-top-label">▶ REEL • 18.2K</span>
@@ -8371,6 +8371,49 @@
                 }
                 mediaFrame.classList.add('playing');
             };
+
+            // 11. Carga Dinámica del Feed de Instagram (Compatible con n8n / Webhook / JSON)
+            window.loadDynamicInstagramFeed = async () => {
+                try {
+                    const res = await fetch('instagram_posts.json');
+                    if (!res.ok) return;
+                    const data = await res.json();
+
+                    if (data.profile) {
+                        const handleEl = document.querySelector('.ig-title-handle');
+                        if (handleEl && data.profile.handle) handleEl.textContent = data.profile.handle;
+
+                        const metricsEl = document.querySelector('.ig-metrics-row');
+                        if (metricsEl) {
+                            metricsEl.innerHTML = `
+                                <span><strong>${data.profile.postsCount || '1,420'}</strong> publicaciones</span>
+                                <span><strong>${data.profile.followers || '48.5k'}</strong> seguidoras</span>
+                                <span><strong>${data.profile.following || '+500'}</strong> alumnas</span>
+                            `;
+                        }
+                    }
+
+                    const grid = document.getElementById('igSpaciousGrid');
+                    if (grid && Array.isArray(data.posts) && data.posts.length > 0) {
+                        grid.innerHTML = data.posts.slice(0, 6).map(post => `
+                            <a href="${post.url || 'https://www.instagram.com/camis_lashes/'}" target="_blank" class="ig-fresh-card" style="text-decoration:none; color:inherit; display:block;">
+                                <img src="${post.image}" alt="${post.title || 'Publicación Cami\'s Lashes'}" class="ig-fresh-img" loading="lazy">
+                                <span class="ig-badge-top-label">${post.badge || '📸 PUBLICACIÓN'}</span>
+                                <div class="ig-fresh-overlay">
+                                    <div class="ig-overlay-stats">
+                                        <span>❤️ ${(post.likes || 0).toLocaleString()}</span>
+                                        <span>💬 ${(post.comments || 0).toLocaleString()}</span>
+                                    </div>
+                                    <p class="ig-overlay-text">${post.caption || post.title || ''}</p>
+                                </div>
+                            </a>
+                        `).join('');
+                    }
+                } catch (err) {
+                    console.log('Using default Instagram feed view:', err);
+                }
+            };
+            loadDynamicInstagramFeed();
 
         });
     </script>

@@ -1,0 +1,94 @@
+{
+  "profile": {
+    "username": "camis_lashes",
+    "handle": "@camis_lashes",
+    "displayName": "Cami's Lashes • Alta Costura en Pestañas & Academia",
+    "verified": true,
+    "followers": "48.5K",
+    "following": "820",
+    "postsCount": "1,420",
+    "bio": "✨ Master Trainer Internacional | Certificación Oficial S.E.P.\n🏆 Creadora del Sistema de Retención Médica de 6 Semanas\n🎓 +500 Alumnas Graduadas y Estudios Exitosos\n📍 León, Gto. • Agenda & Masterclasses ↓",
+    "profilePic": "images/camila_marin.jpg",
+    "instagramUrl": "https://www.instagram.com/camis_lashes/"
+  },
+  "posts": [
+    {
+      "id": 1,
+      "shortcode": "DB_wispy_macro",
+      "url": "https://www.instagram.com/camis_lashes/",
+      "image": "images/alumnas/alumna-8.jpg",
+      "type": "reel",
+      "badge": "▶ REEL • 28.4K",
+      "likes": 2184,
+      "comments": 142,
+      "date": "Hace 2 días",
+      "title": "Aislamiento Quirúrgico & Efecto Wispy",
+      "caption": "La clave de una retención de 6 semanas no es solo el adhesivo, es el control exacto de la gota y la distancia milimétrica del folículo. En cabina VIP logramos esta densidad híbrida personalizada para cada estructura ocular ✨."
+    },
+    {
+      "id": 2,
+      "shortcode": "DB_graduacion_master",
+      "url": "https://www.instagram.com/camis_lashes/",
+      "image": "images/alumnas/alumna-4.jpg",
+      "type": "post",
+      "badge": "🎓 GRADUACIÓN",
+      "likes": 1845,
+      "comments": 98,
+      "date": "Hace 4 días",
+      "title": "Generación Élite • Certificación Oficial S.E.P.",
+      "caption": "¡Felicidades a nuestras nuevas Master Lash Artists! Tras 13 semanas de práctica intensiva en modelos reales, hoy reciben su aval curricular oficial con registro nacional. ¡Listas para facturar en grande! 🏆🥂"
+    },
+    {
+      "id": 3,
+      "shortcode": "DB_volumen_ruso",
+      "url": "https://www.instagram.com/camis_lashes/",
+      "image": "images/alumnas/alumna-1.jpg",
+      "type": "post",
+      "badge": "📸 MACRO",
+      "likes": 2430,
+      "comments": 176,
+      "date": "Hace 6 días",
+      "title": "Abanicos Perfectos 6D en Base Ultrafina",
+      "caption": "Macro shot de colocación simétrica sin grumos ni exceso de adhesivo. La técnica de abanicado que enseñamos permite cero peso sobre la pestaña natural y máxima comodidad para la clienta."
+    },
+    {
+      "id": 4,
+      "shortcode": "DB_mentor_1a1",
+      "url": "https://www.instagram.com/camis_lashes/",
+      "image": "images/alumnas/alumna-3.jpg",
+      "type": "reel",
+      "badge": "▶ REEL • 19.8K",
+      "likes": 1690,
+      "comments": 84,
+      "date": "Hace 1 semana",
+      "title": "Práctica en Modelos Reales con Camila",
+      "caption": "No dejamos a nadie sola con dudas. En cada sesión práctica corregimos postura, ángulo de pinza y tensión en tiempo real para que egreses con la seguridad de una artista consagrada ✨."
+    },
+    {
+      "id": 5,
+      "shortcode": "DB_antes_despues",
+      "url": "https://www.instagram.com/camis_lashes/",
+      "image": "images/alumnas/alumna-6.jpg",
+      "type": "post",
+      "badge": "✨ ANTES / DESPUÉS",
+      "likes": 3120,
+      "comments": 210,
+      "date": "Hace 1 semana",
+      "title": "Visagismo Foxy Eyes para Ojo Encapotado",
+      "caption": "Diseño de mirada foxy con curvaturas L y M para levantar el párpado y rejuvenecer la expresión al instante. Este es el servicio más solicitado en nuestra Boutique & Spa."
+    },
+    {
+      "id": 6,
+      "shortcode": "DB_caso_exito_estudio",
+      "url": "https://www.instagram.com/camis_lashes/",
+      "image": "images/alumnas/alumna-2.jpg",
+      "type": "post",
+      "badge": "🏆 CASO DE ÉXITO",
+      "likes": 2750,
+      "comments": 165,
+      "date": "Hace 2 semanas",
+      "title": "De Alumna a Dueña de Estudio High-Ticket",
+      "caption": "Nuestra graduada Andrea facturando +$35,000 MXN mensuales en su propio estudio tras aplicar el módulo de finanzas y marketing para Lash Artists incluido en la Maestría."
+    }
+  ]
+}
