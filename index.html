@@ -646,6 +646,245 @@
             }
         }
 
+        
+        /* ══════════════════════════════════════════════
+           RECURSOS EXCLUSIVOS & VIP PASSWORD MODAL
+           ══════════════════════════════════════════════ */
+        .resource-card.vip-locked {
+            position: relative;
+            cursor: pointer;
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(12, 12, 12, 0.95) 100%);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .resource-card.vip-locked:hover {
+            border-color: #D4AF37;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .resource-lock-badge {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            color: #D4AF37;
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 999px;
+        }
+
+        .vip-unlock-link {
+            color: #D4AF37 !important;
+            font-weight: 600;
+            font-size: 0.78rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* VIP Modal Overlay */
+        .vip-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(6, 6, 6, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .vip-modal-overlay.open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .vip-modal-card {
+            background: #121212;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            border-radius: 18px;
+            max-width: 520px;
+            width: 100%;
+            padding: 35px 30px;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(197, 160, 89, 0.15);
+            transform: scale(0.95);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .vip-modal-overlay.open .vip-modal-card {
+            transform: scale(1);
+        }
+
+        .vip-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 18px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        .vip-modal-close:hover {
+            color: #D4AF37;
+        }
+
+        .vip-lock-icon-circle {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin: 0 auto 12px;
+        }
+
+        .vip-luxury-tag {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #D4AF37;
+            font-weight: 700;
+            display: block;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .vip-modal-header h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .vip-modal-header p {
+            color: rgba(248, 245, 239, 0.75);
+            font-size: 0.88rem;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .vip-input-group label {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--primary-cream);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .vip-input-wrapper {
+            display: flex;
+            gap: 8px;
+        }
+
+        .vip-input-wrapper input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .vip-input-wrapper input:focus {
+            border-color: #D4AF37;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .btn-unlock-vip {
+            background: linear-gradient(135deg, #FFF0D0 0%, #D4AF37 100%);
+            color: #121212;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-unlock-vip:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .vip-error-msg {
+            color: #ff6b6b;
+            font-size: 0.8rem;
+            margin-top: 6px;
+            min-height: 18px;
+        }
+
+        .vip-no-access-box {
+            margin-top: 20px;
+            background: rgba(197, 160, 89, 0.06);
+            border: 1px dashed rgba(197, 160, 89, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .vip-box-text strong {
+            color: #FFFFFF;
+            font-size: 0.88rem;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .vip-box-text p {
+            color: rgba(248, 245, 239, 0.7);
+            font-size: 0.8rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .btn-vip-enroll {
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
+            padding: 10px 16px;
+            border-radius: 999px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-vip-enroll:hover {
+            background: #D4AF37;
+            color: #121212;
+        }
+
+
         /* ══════════════════════════════════════════════
            LANDING PAGE HEADER STYLES (ACADEMY & SPA MODES)
            ══════════════════════════════════════════════ */
@@ -6789,31 +7028,34 @@
                 </div>
             </div>
 
-            <!-- Recursos Descargables para Alumnas -->
+            <!-- Recursos Descargables Protegidos para Alumnas (Acceso VIP) -->
             <div class="resources-grid">
-                <a href="javascript:void(0)" class="resource-card" onclick="alert('Descargando Ficha Clínica de Consentimiento Informado (PDF)...')">
+                <div class="resource-card vip-locked" onclick="openVipResourceModal('Ficha Clínica de Consentimiento Informado (PDF)')">
+                    <div class="resource-lock-badge">🔒 Exclusivo Alumnas</div>
                     <span class="resource-icon">📋</span>
                     <div class="resource-info">
                         <h5>Ficha Clínica de Consentimiento</h5>
-                        <span>Descargar PDF Oficial &rarr;</span>
+                        <span class="vip-unlock-link">Desbloquear con Contraseña &rarr;</span>
                     </div>
-                </a>
+                </div>
 
-                <a href="javascript:void(0)" class="resource-card" onclick="alert('Descargando Guía de Visagismo y Mapeo Facial...')">
+                <div class="resource-card vip-locked" onclick="openVipResourceModal('Guía Oficial de Visagismo y Mapeo Facial (PDF Ilustrado)')">
+                    <div class="resource-lock-badge">🔒 Exclusivo Alumnas</div>
                     <span class="resource-icon">📐</span>
                     <div class="resource-info">
                         <h5>Guía de Visagismo & Mapeo</h5>
-                        <span>Descargar PDF Ilustrado &rarr;</span>
+                        <span class="vip-unlock-link">Desbloquear con Contraseña &rarr;</span>
                     </div>
-                </a>
+                </div>
 
-                <a href="javascript:void(0)" class="resource-card" onclick="alert('Abriendo Calculadora de Costos y Precios High-Ticket...')">
+                <div class="resource-card vip-locked" onclick="openVipResourceModal('Calculadora Financiera de Precios High-Ticket (Plantilla Excel)')">
+                    <div class="resource-lock-badge">🔒 Exclusivo Alumnas</div>
                     <span class="resource-icon">🧮</span>
                     <div class="resource-info">
                         <h5>Calculadora de Precios High-Ticket</h5>
-                        <span>Abrir Plantilla Excel &rarr;</span>
+                        <span class="vip-unlock-link">Desbloquear con Contraseña &rarr;</span>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
 
@@ -8622,7 +8864,101 @@
             };
             loadDynamicInstagramFeed();
 
+            // Manejo de Modal Protegido con Contraseña para Recursos VIP de Alumnas
+            let currentRequestedResource = '';
+            const validVipPasswords = ['CAMI2026', 'LASHVIP', 'ALUMNA2026', 'CAMILASHES', '1234'];
+
+            window.openVipResourceModal = (resourceName) => {
+                currentRequestedResource = resourceName;
+                const modal = document.getElementById('vipResourceModal');
+                const titleEl = document.getElementById('vipModalResourceTitle');
+                const inputEl = document.getElementById('vipPasswordInput');
+                const errorEl = document.getElementById('vipErrorMsg');
+
+                if (titleEl) titleEl.textContent = resourceName;
+                if (inputEl) inputEl.value = '';
+                if (errorEl) errorEl.textContent = '';
+                if (modal) {
+                    modal.classList.add('open');
+                    setTimeout(() => { if (inputEl) inputEl.focus(); }, 150);
+                }
+            };
+
+            window.closeVipModal = () => {
+                const modal = document.getElementById('vipResourceModal');
+                if (modal) modal.classList.remove('open');
+            };
+
+            window.unlockVipResource = () => {
+                const inputEl = document.getElementById('vipPasswordInput');
+                const errorEl = document.getElementById('vipErrorMsg');
+                if (!inputEl) return;
+
+                const typedPass = inputEl.value.trim().toUpperCase();
+
+                if (!typedPass) {
+                    if (errorEl) errorEl.textContent = '⚠️ Por favor ingresa tu clave de alumna.';
+                    return;
+                }
+
+                if (validVipPasswords.includes(typedPass)) {
+                    if (errorEl) {
+                        errorEl.style.color = '#2ecc71';
+                        errorEl.textContent = '✓ ¡Acceso autorizado! Descargando ' + currentRequestedResource + '...';
+                    }
+                    setTimeout(() => {
+                        alert('✨ ¡Descarga Autorizada!
+
+Accediendo a: ' + currentRequestedResource + '
+
+(Tu archivo se abrirá en unos segundos)');
+                        window.closeVipModal();
+                    }, 800);
+                } else {
+                    if (errorEl) {
+                        errorEl.style.color = '#ff6b6b';
+                        errorEl.textContent = '❌ Clave incorrecta. Si ya estás inscrita solicita tu clave a administración, o aparta tu lugar aquí abajo.';
+                    }
+                }
+            };
+
+
         });
     </script>
+
+    <!-- Modal Protegido de Contraseña para Recursos de Alumnas (VIP Gate) -->
+    <div class="vip-modal-overlay" id="vipResourceModal" onclick="if(event.target === this) closeVipModal()">
+        <div class="vip-modal-card">
+            <button class="vip-modal-close" onclick="closeVipModal()" aria-label="Cerrar">&times;</button>
+            <div class="vip-modal-header">
+                <div class="vip-lock-icon-circle">🔒</div>
+                <span class="vip-luxury-tag">Acceso Exclusivo para Alumnas</span>
+                <h3 id="vipModalResourceTitle">Recurso Oficial Protegido</h3>
+                <p>Este material de alta gama está reservado exclusivamente para las alumnas inscritas en la Maestría de Cami's Lashes Academy.</p>
+            </div>
+
+            <div class="vip-modal-body">
+                <div class="vip-input-group">
+                    <label for="vipPasswordInput">Ingresa tu Clave de Alumna Activa:</label>
+                    <div class="vip-input-wrapper">
+                        <input type="password" id="vipPasswordInput" placeholder="Contraseña de acceso" onkeydown="if(event.key==='Enter') unlockVipResource()">
+                        <button type="button" class="btn-unlock-vip" onclick="unlockVipResource()">Desbloquear 🔓</button>
+                    </div>
+                    <div class="vip-error-msg" id="vipErrorMsg"></div>
+                </div>
+
+                <div class="vip-no-access-box">
+                    <div class="vip-box-text">
+                        <strong>¿Aún no te has inscrito?</strong>
+                        <p>Aparta tu lugar en la Maestría de 13 Semanas para recibir tu clave personal, kits profesionales y acceso a todo el material médico y de visagismo.</p>
+                    </div>
+                    <a href="#inversion" class="btn-vip-enroll" onclick="closeVipModal(); document.getElementById('inversion').scrollIntoView({ behavior: 'smooth' });">
+                        Apartar Mi Lugar ($1,500 MXN) ✨
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
