@@ -6087,15 +6087,15 @@
 
                         <!-- Instagram Profile Subnav -->
                         <div class="ig-profile-subnav">
-                            <div class="ig-subnav-item active">
+                            <div class="ig-subnav-item active" id="igTabPosts" onclick="switchIgTab('posts', this)">
                                 <span>▦</span>
                                 <span>PUBLICACIONES</span>
                             </div>
-                            <div class="ig-subnav-item">
+                            <div class="ig-subnav-item" id="igTabReels" onclick="switchIgTab('reels', this)">
                                 <span>▷</span>
                                 <span>REELS</span>
                             </div>
-                            <div class="ig-subnav-item">
+                            <div class="ig-subnav-item" id="igTabTagged" onclick="switchIgTab('tagged', this)">
                                 <span>🏷</span>
                                 <span>ETIQUETADAS</span>
                             </div>
@@ -6183,7 +6183,7 @@
                             <div class="ig-auth-pill">🏆 +500 Egresadas Activas</div>
                             <div class="ig-auth-pill">🎓 Registro Oficial S.E.P.</div>
                             <div class="ig-auth-pill">🔬 Retención Médica 6 Semanas</div>
-                            <div class="ig-auth-pill">📍 León & Puerto Vallarta</div>
+                            <div class="ig-auth-pill">📍 Francia 140, Versalles, 48310 Puerto Vallarta, Jal.</div>
                         </div>
 
                     </div>
@@ -8556,42 +8556,65 @@
                 video.play().catch(() => {});
             };
 
-            // 11. Carga Dinámica del Feed de Instagram (Compatible con n8n / Webhook / JSON)
+            // 11. Carga Dinámica e Interactiva de Instagram (Publicaciones, Reels, Etiquetadas)
+            let cachedIgData = null;
+
+            window.renderIgCards = (items) => {
+                const grid = document.getElementById('igSpaciousGrid');
+                if (!grid || !Array.isArray(items)) return;
+
+                grid.style.opacity = '0';
+                setTimeout(() => {
+                    grid.innerHTML = items.slice(0, 6).map(post => `
+                        <a href="${post.url || 'https://www.instagram.com/camis_lashes/'}" target="_blank" class="ig-fresh-card">
+                            <img src="${post.image}" alt="${post.title || 'Instagram Post'}" class="ig-fresh-img" loading="lazy">
+                            <span class="ig-corner-icon">${post.cornerIcon || '📸'}</span>
+                            <div class="ig-fresh-overlay">
+                                <div class="ig-overlay-stats">
+                                    <span>❤️ ${(post.likes || 0).toLocaleString()}</span>
+                                    <span>💬 ${(post.comments || 0).toLocaleString()}</span>
+                                </div>
+                                <p class="ig-overlay-text">${post.title || post.caption || ''}</p>
+                            </div>
+                        </a>
+                    `).join('');
+                    grid.style.transition = 'opacity 0.3s ease';
+                    grid.style.opacity = '1';
+                }, 150);
+            };
+
+            window.switchIgTab = (tabName, el) => {
+                document.querySelectorAll('.ig-subnav-item').forEach(item => item.classList.remove('active'));
+                if (el) el.classList.add('active');
+
+                if (cachedIgData && cachedIgData[tabName]) {
+                    window.renderIgCards(cachedIgData[tabName]);
+                }
+            };
+
             window.loadDynamicInstagramFeed = async () => {
                 try {
-                    const res = await fetch('instagram_posts.json');
+                    const res = await fetch('instagram_posts.json?v=' + Date.now());
                     if (!res.ok) return;
-                    const data = await res.json();
+                    cachedIgData = await res.json();
 
-                    if (data.profile) {
+                    if (cachedIgData.profile) {
                         const handleEl = document.querySelector('.ig-title-handle');
-                        if (handleEl && data.profile.handle) handleEl.textContent = data.profile.handle;
+                        if (handleEl && cachedIgData.profile.handle) handleEl.textContent = cachedIgData.profile.handle;
 
                         const metricsEl = document.querySelector('.ig-metrics-row');
                         if (metricsEl) {
                             metricsEl.innerHTML = `
-                                <span><strong>${data.profile.postsCount || '1,420'}</strong> publicaciones</span>
-                                <span><strong>${data.profile.followers || '48.5k'}</strong> seguidoras</span>
-                                <span><strong>${data.profile.following || '+500'}</strong> alumnas</span>
+                                <span><strong>${cachedIgData.profile.postsCount || '1,249'}</strong> publicaciones</span>
+                                <span><strong>${cachedIgData.profile.followers || '2,928'}</strong> seguidoras</span>
+                                <span><strong>${cachedIgData.profile.following || '432'}</strong> seguidos</span>
                             `;
                         }
                     }
 
-                    const grid = document.getElementById('igSpaciousGrid');
-                    if (grid && Array.isArray(data.posts) && data.posts.length > 0) {
-                        grid.innerHTML = data.posts.slice(0, 6).map(post => `
-                            <a href="${post.url || 'https://www.instagram.com/camis_lashes/'}" target="_blank" class="ig-fresh-card">
-                                <img src="${post.image}" alt="${post.title || 'Publicación Cami\'s Lashes'}" class="ig-fresh-img" loading="lazy">
-                                <span class="ig-corner-icon">${post.cornerIcon || (post.type === 'reel' ? '▶' : post.type === 'carousel' ? '❐' : '📸')}</span>
-                                <div class="ig-fresh-overlay">
-                                    <div class="ig-overlay-stats">
-                                        <span>❤️ ${(post.likes || 0).toLocaleString()}</span>
-                                        <span>💬 ${(post.comments || 0).toLocaleString()}</span>
-                                    </div>
-                                    <p class="ig-overlay-text">${post.caption || post.title || ''}</p>
-                                </div>
-                            </a>
-                        `).join('');
+                    // Render default tab (posts)
+                    if (cachedIgData.posts) {
+                        window.renderIgCards(cachedIgData.posts);
                     }
                 } catch (err) {
                     console.log('Using default Instagram feed view:', err);
