@@ -1791,40 +1791,43 @@
         }
 
         /* ════════════════════════════════════════════════════════════
-           TAB 2: INSTAGRAM FEED EN VIVO (FRESCO & DESAHOGADO)
+           TAB 2: INSTAGRAM FEED EN VIVO (COMPACTO ESTILO PERFIL REAL)
            ════════════════════════════════════════════════════════════ */
         .ig-showcase-wrap {
             display: flex;
             flex-direction: column;
-            gap: 28px;
+            gap: 18px;
+            max-width: 860px;
+            margin: 0 auto;
+            width: 100%;
         }
 
         .ig-profile-luxury-header {
-            background: linear-gradient(135deg, rgba(30, 25, 18, 0.95) 0%, rgba(18, 16, 12, 0.98) 100%);
-            border: 1.5px solid rgba(212, 175, 55, 0.35);
-            border-radius: 20px;
-            padding: 20px 28px;
+            background: linear-gradient(135deg, rgba(28, 24, 18, 0.95) 0%, rgba(14, 12, 10, 0.98) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 18px;
+            padding: 16px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            gap: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
             flex-wrap: wrap;
         }
 
         .ig-profile-left-block {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 16px;
         }
 
         .ig-avatar-stories-ring {
-            width: 58px;
-            height: 58px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             padding: 2.5px;
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            box-shadow: 0 0 16px rgba(220, 39, 67, 0.4);
+            box-shadow: 0 0 14px rgba(220, 39, 67, 0.45);
             flex-shrink: 0;
         }
 
@@ -1839,19 +1842,19 @@
         .ig-profile-details {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 3px;
         }
 
         .ig-title-row {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
         .ig-title-handle {
             font-family: 'Inter', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #FFFFFF;
         }
@@ -1860,31 +1863,30 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 17px;
-            height: 17px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: #0095F6;
             color: #FFFFFF;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 900;
         }
 
         .ig-category-tag {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             color: var(--primary-gold);
             background: rgba(197, 160, 89, 0.15);
             border: 1px solid rgba(197, 160, 89, 0.3);
-            padding: 3px 10px;
+            padding: 2px 9px;
             border-radius: 999px;
             font-weight: 600;
-            letter-spacing: 0.5px;
         }
 
         .ig-metrics-row {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.75);
             display: flex;
-            gap: 18px;
+            gap: 16px;
         }
 
         .ig-metrics-row strong {
@@ -1895,76 +1897,116 @@
         .btn-ig-official-follow {
             display: inline-flex;
             align-items: center;
-            gap: 9px;
+            gap: 8px;
             background: linear-gradient(135deg, #FFF0D0 0%, #D4AF37 50%, #AA8030 100%);
             color: #121212 !important;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 999px;
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
             text-decoration: none;
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
             flex-shrink: 0;
         }
 
         .btn-ig-official-follow:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 28px rgba(212, 175, 55, 0.65);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.65);
             filter: brightness(1.08);
         }
 
-        /* 3x2 Spacious Instagram Grid */
+        /* Instagram Profile Subnavigation Bar */
+        .ig-profile-subnav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+            padding-top: 12px;
+            margin-top: 4px;
+        }
+
+        .ig-subnav-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: rgba(248, 245, 239, 0.55);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            padding-bottom: 4px;
+        }
+
+        .ig-subnav-item.active {
+            color: var(--primary-gold);
+            position: relative;
+        }
+
+        .ig-subnav-item.active::after {
+            content: '';
+            position: absolute;
+            top: -13px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            border-radius: 2px;
+        }
+
+        /* Compact Instagram Square 3x2 Grid */
         .ig-spacious-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 12px;
+            width: 100%;
         }
 
         .ig-fresh-card {
             position: relative;
-            border-radius: 18px;
+            border-radius: 8px;
             overflow: hidden;
             aspect-ratio: 1 / 1;
-            border: 1px solid rgba(197, 160, 89, 0.25);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-            background: #141210;
+            border: 1px solid rgba(197, 160, 89, 0.22);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            background: #12100e;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+            text-decoration: none;
+            display: block;
         }
 
         .ig-fresh-card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.025);
             border-color: var(--primary-gold);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+            z-index: 2;
         }
 
         .ig-fresh-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: transform 0.5s ease;
+            display: block;
         }
 
         .ig-fresh-card:hover .ig-fresh-img {
-            transform: scale(1.08);
+            transform: scale(1.06);
         }
 
-        .ig-badge-top-label {
+        .ig-corner-icon {
             position: absolute;
-            top: 12px;
-            left: 12px;
-            background: rgba(12, 10, 8, 0.85);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            backdrop-filter: blur(8px);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.68rem;
-            font-weight: 700;
+            top: 10px;
+            right: 10px;
             color: #FFFFFF;
-            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.85));
             z-index: 2;
             pointer-events: none;
         }
@@ -1972,17 +2014,17 @@
         .ig-fresh-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(10, 8, 6, 0.88);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.72);
+            backdrop-filter: blur(2.5px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 10px;
-            padding: 20px;
+            gap: 8px;
+            padding: 14px;
             text-align: center;
             opacity: 0;
-            transition: opacity 0.35s ease;
+            transition: opacity 0.25s ease;
             z-index: 3;
         }
 
@@ -1993,37 +2035,47 @@
         .ig-overlay-stats {
             display: flex;
             align-items: center;
-            gap: 16px;
-            font-size: 0.9rem;
+            gap: 14px;
+            font-size: 0.92rem;
             font-weight: 700;
             color: #FFFFFF;
         }
 
+        .ig-overlay-stats span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         .ig-overlay-text {
-            font-size: 0.78rem;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.45;
+            font-size: 0.74rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.35;
             margin: 0;
             font-weight: 400;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .ig-authority-footer-bar {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
-            margin-top: 8px;
+            gap: 10px;
+            margin-top: 4px;
         }
 
         .ig-auth-pill {
             background: rgba(25, 22, 18, 0.85);
             border: 1px solid rgba(197, 160, 89, 0.25);
-            border-radius: 12px;
-            padding: 12px 14px;
+            border-radius: 10px;
+            padding: 10px 12px;
             text-align: center;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: var(--primary-gold);
-            letter-spacing: 0.5px;
+            letter-spacing: 0.4px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -5939,7 +5991,7 @@
                     </div>
                 </div>
 
-                <!-- TAB PANE 2: LOGROS (Instagram Mural Fresco & Aireado) -->
+                <!-- TAB PANE 2: LOGROS (Instagram Mural Compacto Estilo Perfil Real) -->
                 <div class="founder-pane" id="paneLogros">
                     <div class="ig-showcase-wrap">
                         
@@ -5957,90 +6009,108 @@
                                     </div>
                                     <div class="ig-metrics-row">
                                         <span><strong>1,420</strong> publicaciones</span>
-                                        <span><strong>48.5k</strong> seguidoras</span>
-                                        <span><strong>+500</strong> alumnas</span>
+                                        <span><strong>48.5K</strong> seguidoras</span>
+                                        <span><strong>820</strong> seguidos</span>
                                     </div>
                                 </div>
                             </div>
                             <a href="https://www.instagram.com/camis_lashes/" target="_blank" class="btn-ig-official-follow">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                                 <span>Ver Instagram</span> ↗
                             </a>
                         </div>
 
-                        <!-- 3x2 Grid de Publicaciones -->
+                        <!-- Instagram Profile Subnav -->
+                        <div class="ig-profile-subnav">
+                            <div class="ig-subnav-item active">
+                                <span>▦</span>
+                                <span>PUBLICACIONES</span>
+                            </div>
+                            <div class="ig-subnav-item">
+                                <span>▷</span>
+                                <span>REELS</span>
+                            </div>
+                            <div class="ig-subnav-item">
+                                <span>🏷</span>
+                                <span>ETIQUETADAS</span>
+                            </div>
+                        </div>
+
+                        <!-- 3x2 Grid de Publicaciones Cuadradas y Compactas -->
                         <div class="ig-spacious-grid" id="igSpaciousGrid">
-                            <div class="ig-fresh-card">
-                                <img src="images/alumnas/alumna-8.jpg" alt="Wispy Fox Eye Effect" class="ig-fresh-img">
-                                <span class="ig-badge-top-label">▶ REEL • 18.2K</span>
+                            
+                            <a href="https://www.instagram.com/camis_lashes/" target="_blank" class="ig-fresh-card">
+                                <img src="images/instagram_feed/ig_1_wispy_macro.jpg" alt="Aislamiento Quirúrgico & Efecto Wispy" class="ig-fresh-img" loading="lazy">
+                                <span class="ig-corner-icon">▶</span>
                                 <div class="ig-fresh-overlay">
                                     <div class="ig-overlay-stats">
-                                        <span>❤️ 1,840</span>
-                                        <span>💬 122</span>
+                                        <span>❤️ 2,480</span>
+                                        <span>💬 142</span>
                                     </div>
-                                    <p class="ig-overlay-text">Wispy Fox Eye Set • Visagismo y arquitectura de la mirada</p>
+                                    <p class="ig-overlay-text">Aislamiento milimétrico & Efecto Wispy de 6 semanas</p>
                                 </div>
-                            </div>
+                            </a>
 
-                            <div class="ig-fresh-card">
-                                <img src="images/alumnas/alumna-1.jpg" alt="Aislamiento Médico 1:1" class="ig-fresh-img">
-                                <span class="ig-badge-top-label">📸 MACRO</span>
+                            <a href="https://www.instagram.com/camis_lashes/" target="_blank" class="ig-fresh-card">
+                                <img src="images/instagram_feed/ig_2_kit_herramientas.jpg" alt="Kit Profesional de Grado Médico" class="ig-fresh-img" loading="lazy">
+                                <span class="ig-corner-icon">❐</span>
                                 <div class="ig-fresh-overlay">
                                     <div class="ig-overlay-stats">
-                                        <span>❤️ 2,150</span>
-                                        <span>💬 94</span>
-                                    </div>
-                                    <p class="ig-overlay-text">Aislamiento milimétrico sin adherencias ni grumos</p>
-                                </div>
-                            </div>
-
-                            <div class="ig-fresh-card">
-                                <img src="images/alumnas/alumna-4.jpg" alt="Graduación Masterclass" class="ig-fresh-img">
-                                <span class="ig-badge-top-label">🎓 GRADUACIÓN</span>
-                                <div class="ig-fresh-overlay">
-                                    <div class="ig-overlay-stats">
-                                        <span>❤️ 3,240</span>
-                                        <span>💬 287</span>
-                                    </div>
-                                    <p class="ig-overlay-text">Generación Masterclass • Nuevas artistas certificadas</p>
-                                </div>
-                            </div>
-
-                            <div class="ig-fresh-card">
-                                <img src="images/alumnas/alumna-3.jpg" alt="Studio Boutique" class="ig-fresh-img">
-                                <span class="ig-badge-top-label">💎 CABINA VIP</span>
-                                <div class="ig-fresh-overlay">
-                                    <div class="ig-overlay-stats">
-                                        <span>❤️ 1,480</span>
-                                        <span>💬 73</span>
-                                    </div>
-                                    <p class="ig-overlay-text">Espacio Boutique • Agenda VIP llena con semanas de anticipación</p>
-                                </div>
-                            </div>
-
-                            <div class="ig-fresh-card">
-                                <img src="images/alumnas/alumna-6.jpg" alt="Retención 6 Semanas" class="ig-fresh-img">
-                                <span class="ig-badge-top-label">▶ REEL • 24.5K</span>
-                                <div class="ig-fresh-overlay">
-                                    <div class="ig-overlay-stats">
-                                        <span>❤️ 4,120</span>
-                                        <span>💬 315</span>
-                                    </div>
-                                    <p class="ig-overlay-text">Técnica de polimerización sin vapores y retención de 6 semanas</p>
-                                </div>
-                            </div>
-
-                            <div class="ig-fresh-card">
-                                <img src="images/alumnas/alumna-7.jpg" alt="Certificación Oficial" class="ig-fresh-img">
-                                <span class="ig-badge-top-label">✨ AVAL S.E.P.</span>
-                                <div class="ig-fresh-overlay">
-                                    <div class="ig-overlay-stats">
-                                        <span>❤️ 1,930</span>
+                                        <span>❤️ 1,920</span>
                                         <span>💬 88</span>
                                     </div>
-                                    <p class="ig-overlay-text">Certificación Oficial con Validez Curricular y Registro S.E.P.</p>
+                                    <p class="ig-overlay-text">Kit profesional de titanio y adhesivos médicos de la Academia</p>
                                 </div>
-                            </div>
+                            </a>
+
+                            <a href="https://www.instagram.com/camis_lashes/" target="_blank" class="ig-fresh-card">
+                                <img src="images/instagram_feed/ig_3_masterclass_work.jpg" alt="Práctica 1 a 1 en Modelo Real" class="ig-fresh-img" loading="lazy">
+                                <span class="ig-corner-icon">▶</span>
+                                <div class="ig-fresh-overlay">
+                                    <div class="ig-overlay-stats">
+                                        <span>❤️ 3,140</span>
+                                        <span>💬 215</span>
+                                    </div>
+                                    <p class="ig-overlay-text">Práctica clínica intensiva 1 a 1 con Camila Marín</p>
+                                </div>
+                            </a>
+
+                            <a href="https://www.instagram.com/camis_lashes/" target="_blank" class="ig-fresh-card">
+                                <img src="images/instagram_feed/ig_4_spa_cabin.jpg" alt="Cabina de Lujo en Boutique & Spa" class="ig-fresh-img" loading="lazy">
+                                <span class="ig-corner-icon">📌</span>
+                                <div class="ig-fresh-overlay">
+                                    <div class="ig-overlay-stats">
+                                        <span>❤️ 1,750</span>
+                                        <span>💬 64</span>
+                                    </div>
+                                    <p class="ig-overlay-text">Cabina VIP de alta gama climatizada y camillas ergonómicas</p>
+                                </div>
+                            </a>
+
+                            <a href="https://www.instagram.com/camis_lashes/" target="_blank" class="ig-fresh-card">
+                                <img src="images/instagram_feed/ig_5_lash_closeup.jpg" alt="Densidad Híbrida sin Peso" class="ig-fresh-img" loading="lazy">
+                                <span class="ig-corner-icon">❐</span>
+                                <div class="ig-fresh-overlay">
+                                    <div class="ig-overlay-stats">
+                                        <span>❤️ 2,890</span>
+                                        <span>💬 178</span>
+                                    </div>
+                                    <p class="ig-overlay-text">Densidad híbrida ultraligera con curvaturas mixtas CC y D</p>
+                                </div>
+                            </a>
+
+                            <a href="https://www.instagram.com/camis_lashes/" target="_blank" class="ig-fresh-card">
+                                <img src="images/instagram_feed/ig_6_diploma_master.jpg" alt="Egresadas con Registro Oficial S.E.P." class="ig-fresh-img" loading="lazy">
+                                <span class="ig-corner-icon">🎓</span>
+                                <div class="ig-fresh-overlay">
+                                    <div class="ig-overlay-stats">
+                                        <span>❤️ 3,420</span>
+                                        <span>💬 290</span>
+                                    </div>
+                                    <p class="ig-overlay-text">Graduación oficial Masterclass con certificación nacional S.E.P.</p>
+                                </div>
+                            </a>
+
                         </div>
 
                         <!-- Barra de Acreditaciones Inferior -->
@@ -6048,7 +6118,7 @@
                             <div class="ig-auth-pill">🏆 +500 Egresadas Activas</div>
                             <div class="ig-auth-pill">🎓 Registro Oficial S.E.P.</div>
                             <div class="ig-auth-pill">🔬 Retención Médica 6 Semanas</div>
-                            <div class="ig-auth-pill">📍 Puerto Vallarta & Guanajuato</div>
+                            <div class="ig-auth-pill">📍 León & Puerto Vallarta</div>
                         </div>
 
                     </div>
@@ -8396,9 +8466,9 @@
                     const grid = document.getElementById('igSpaciousGrid');
                     if (grid && Array.isArray(data.posts) && data.posts.length > 0) {
                         grid.innerHTML = data.posts.slice(0, 6).map(post => `
-                            <a href="${post.url || 'https://www.instagram.com/camis_lashes/'}" target="_blank" class="ig-fresh-card" style="text-decoration:none; color:inherit; display:block;">
+                            <a href="${post.url || 'https://www.instagram.com/camis_lashes/'}" target="_blank" class="ig-fresh-card">
                                 <img src="${post.image}" alt="${post.title || 'Publicación Cami\'s Lashes'}" class="ig-fresh-img" loading="lazy">
-                                <span class="ig-badge-top-label">${post.badge || '📸 PUBLICACIÓN'}</span>
+                                <span class="ig-corner-icon">${post.cornerIcon || (post.type === 'reel' ? '▶' : post.type === 'carousel' ? '❐' : '📸')}</span>
                                 <div class="ig-fresh-overlay">
                                     <div class="ig-overlay-stats">
                                         <span>❤️ ${(post.likes || 0).toLocaleString()}</span>
