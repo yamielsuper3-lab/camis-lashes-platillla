@@ -885,6 +885,125 @@
         }
 
 
+        
+        /* ══════════════════════════════════════════════
+           SPA & SANCTUARY HEADER: ROSA PASTEL & CHAMPÁN
+           ══════════════════════════════════════════════ */
+        body.active-spa header,
+        body.active-spa header.scrolled {
+            background: linear-gradient(135deg, rgba(24, 18, 22, 0.88) 0%, rgba(32, 22, 28, 0.92) 50%, rgba(22, 16, 20, 0.9) 100%) !important;
+            backdrop-filter: blur(20px) saturate(140%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+            border-bottom: 1px solid rgba(235, 198, 205, 0.22) !important;
+            box-shadow: 0 8px 32px rgba(18, 10, 16, 0.45), 0 0 25px rgba(235, 198, 205, 0.08) !important;
+            padding: 15px 40px !important;
+        }
+
+        body.active-spa .logo span.logo-accent {
+            background: linear-gradient(135deg, #FFF4F6 0%, #EBC6CD 45%, #E2C799 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            filter: drop-shadow(0 2px 8px rgba(235, 198, 205, 0.3));
+        }
+
+        /* Adaptive Nav Switching */
+        .desktop-nav.spa-nav {
+            display: none;
+            align-items: center;
+            gap: 22px;
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        body.active-spa .desktop-nav.spa-nav {
+            display: flex !important;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.active-spa .desktop-nav.academy-nav {
+            display: none !important;
+        }
+
+        body.active-academy .desktop-nav.spa-nav {
+            display: none !important;
+        }
+
+        body.active-academy .desktop-nav.academy-nav {
+            display: flex !important;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Spa Navigation Links (Pastel Rose & Porcelain Hover) */
+        body.active-spa .desktop-nav.spa-nav a {
+            color: rgba(255, 246, 248, 0.85);
+            font-weight: 500;
+            letter-spacing: 1.3px;
+            transition: all 0.35s ease;
+        }
+
+        body.active-spa .desktop-nav.spa-nav a:hover {
+            color: #EBC6CD;
+            text-shadow: 0 0 12px rgba(235, 198, 205, 0.4);
+        }
+
+        body.active-spa .desktop-nav.spa-nav a::after {
+            background: linear-gradient(90deg, #EBC6CD, #E2C799);
+        }
+
+        /* CTA Buttons Adaptive Visibility */
+        .btn-nav-spa-cta {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            background: linear-gradient(135deg, rgba(235, 198, 205, 0.18) 0%, rgba(226, 199, 153, 0.24) 100%);
+            border: 1px solid rgba(235, 198, 205, 0.55);
+            color: #FFF6F8;
+            padding: 10px 22px;
+            border-radius: 999px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 18px rgba(235, 198, 205, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-nav-spa-cta:hover {
+            background: linear-gradient(135deg, rgba(235, 198, 205, 0.35) 0%, rgba(226, 199, 153, 0.45) 100%);
+            border-color: #EBC6CD;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(235, 198, 205, 0.3), 0 0 15px rgba(226, 199, 153, 0.2);
+        }
+
+        .spa-btn-sparkle {
+            font-size: 0.95rem;
+            filter: drop-shadow(0 0 4px rgba(235, 198, 205, 0.5));
+        }
+
+        body.active-spa .btn-nav-spa-cta {
+            display: inline-flex !important;
+        }
+
+        body.active-spa .btn-academy-cta {
+            display: none !important;
+        }
+
+        body.active-academy .btn-nav-spa-cta {
+            display: none !important;
+        }
+
+        body.active-academy .btn-academy-cta {
+            display: inline-flex !important;
+        }
+
+
         /* ══════════════════════════════════════════════
            LANDING PAGE HEADER STYLES (ACADEMY & SPA MODES)
            ══════════════════════════════════════════════ */
@@ -5923,9 +6042,11 @@
 
     <!-- CAPA INFERIOR: Tu página real -->
     <div class="tu-pagina-web">
-        <header>
-            <a href="#" class="logo">CAMI'S <span>LASHES</span></a>
-            <nav class="desktop-nav">
+        <header id="mainHeader">
+            <a href="#" class="logo">CAMI'S <span class="logo-accent">LASHES</span></a>
+            
+            <!-- Desktop Nav: Academia (Conversión & Programa) -->
+            <nav class="desktop-nav academy-nav" id="academyDesktopNav">
                 <a href="#">Inicio</a>
                 <a href="#maestria">Maestría (13 Semanas)</a>
                 <a href="#temario">Plan de Estudios</a>
@@ -5934,8 +6055,27 @@
                 <a href="#portalAlumnas">Portal Alumnas</a>
                 <a href="#faq">Preguntas Frecuentes</a>
             </nav>
+
+            <!-- Desktop Nav: Boutique & Spa (Serenidad, Rosa Pastel & Champán Orgánico) -->
+            <nav class="desktop-nav spa-nav" id="spaDesktopNav">
+                <a href="#">Inicio</a>
+                <a href="#spaMenu">Menú de Experiencias</a>
+                <a href="#spaLashes">Pestañas de Autor</a>
+                <a href="#spaFaciales">Cuidado Facial</a>
+                <a href="#spaRituales">Rituales Holísticos</a>
+                <a href="#spaUbicacion">Ubicación & Citas</a>
+            </nav>
+
             <div class="header-controls">
-                <a href="#inversion" class="btn-nav-inscribirme">Inscribirme ($1,500)</a>
+                <!-- Botón Academia (Conversión) -->
+                <a href="#inversion" class="btn-nav-inscribirme btn-academy-cta" id="btnAcademyCta">Inscribirme ($1,500)</a>
+
+                <!-- Botón Boutique & Spa (Calma, Rosa Pastel & Champán Orgánico) -->
+                <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20de%20relajación%20y%20belleza%20en%20el%20Boutique%20%26%20Spa" target="_blank" class="btn-nav-spa-cta" id="btnSpaCta">
+                    <span class="spa-btn-sparkle">🌿</span>
+                    <span>Agendar Experiencia</span>
+                </a>
+
                 <button class="split-back-btn" id="splitBackBtn" title="Volver a la selección principal">☰ Menú</button>
                 <div class="music-toggle muted" id="musicToggleBtn" title="Silenciar/Activar música">
                     <svg class="music-icon" viewBox="0 0 24 24">
