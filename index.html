@@ -1264,6 +1264,462 @@
         }
 
 
+        
+        /* ══════════════════════════════════════════════
+           SPA GOURMET MENU & VISUAL SHOWCASE STYLES
+           ══════════════════════════════════════════════ */
+        .spa-main-wrapper {
+            display: none;
+            width: 100%;
+            background: #0E0A0C;
+            position: relative;
+            z-index: 20;
+        }
+
+        body.active-spa .spa-main-wrapper {
+            display: block !important;
+        }
+
+        body.active-spa .founder-showcase-section,
+        body.active-spa .courses-section,
+        body.active-spa .syllabus-section,
+        body.active-spa .pricing-enroll-section,
+        body.active-spa .congress-section,
+        body.active-spa .student-portal-section,
+        body.active-spa .faq-section {
+            display: none !important;
+        }
+
+        body.active-academy .spa-main-wrapper {
+            display: none !important;
+        }
+
+        body.active-academy .founder-showcase-section,
+        body.active-academy .courses-section,
+        body.active-academy .syllabus-section,
+        body.active-academy .pricing-enroll-section,
+        body.active-academy .congress-section,
+        body.active-academy .student-portal-section,
+        body.active-academy .faq-section {
+            display: block !important;
+        }
+
+        .spa-gourmet-menu-section {
+            padding: 90px 25px 110px;
+            background: radial-gradient(circle at 80% 20%, rgba(235, 198, 205, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 20% 80%, rgba(226, 199, 153, 0.04) 0%, transparent 50%),
+                        #0E0A0C;
+            border-top: 1px solid rgba(235, 198, 205, 0.15);
+        }
+
+        .spa-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .spa-section-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .spa-luxury-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(235, 198, 205, 0.12);
+            border: 1px solid rgba(235, 198, 205, 0.35);
+            color: #EBC6CD;
+            padding: 6px 18px;
+            border-radius: 999px;
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .spa-section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 3.8vw, 2.9rem);
+            color: #FFFFFF;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            line-height: 1.25;
+        }
+
+        .spa-section-header h2 span {
+            background: linear-gradient(135deg, #FFF4F6 0%, #EBC6CD 45%, #E2C799 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .spa-section-header p {
+            color: rgba(255, 246, 248, 0.75);
+            font-size: 0.95rem;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* 2-Column Grid: Menu Boards + Visual Showcase */
+        .spa-menu-stage-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.95fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Chef Menu Boards */
+        .spa-menu-boards-col {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .chef-menu-board {
+            background: linear-gradient(135deg, rgba(22, 16, 20, 0.92) 0%, rgba(16, 12, 14, 0.96) 100%);
+            border: 1px solid rgba(235, 198, 205, 0.22);
+            border-radius: 18px;
+            padding: 28px 26px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(235, 198, 205, 0.05);
+            backdrop-filter: blur(12px);
+            transition: border-color 0.35s ease;
+        }
+
+        .chef-menu-board:hover {
+            border-color: rgba(235, 198, 205, 0.4);
+        }
+
+        .chef-board-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(235, 198, 205, 0.18);
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+        }
+
+        .board-header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .chef-category-icon {
+            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(235, 198, 205, 0.12);
+            border: 1px solid rgba(235, 198, 205, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chef-sub-category {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #E2C799;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .board-header-left h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            color: #FFFFFF;
+            margin: 0;
+            letter-spacing: 0.8px;
+        }
+
+        .chef-badge-pill {
+            background: rgba(226, 199, 153, 0.12);
+            border: 1px solid rgba(226, 199, 153, 0.35);
+            color: #E2C799;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 999px;
+        }
+
+        /* Menu Items */
+        .chef-menu-items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .chef-menu-item {
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .chef-menu-item:hover,
+        .chef-menu-item.active {
+            background: rgba(235, 198, 205, 0.08);
+            border-color: rgba(235, 198, 205, 0.4);
+            transform: translateX(4px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .chef-menu-item.active {
+            border-color: #EBC6CD;
+            background: linear-gradient(90deg, rgba(235, 198, 205, 0.14) 0%, rgba(226, 199, 153, 0.06) 100%);
+        }
+
+        .item-main-row {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 5px;
+        }
+
+        .item-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: #FFFFFF;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .chef-menu-item:hover .item-name,
+        .chef-menu-item.active .item-name {
+            color: #EBC6CD;
+        }
+
+        .item-dots-leader {
+            flex: 1;
+            border-bottom: 1px dotted rgba(235, 198, 205, 0.3);
+            margin-bottom: 4px;
+        }
+
+        .item-select-btn {
+            font-size: 0.72rem;
+            color: #E2C799;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: transform 0.3s ease;
+        }
+
+        .chef-menu-item:hover .item-select-btn {
+            transform: translateX(3px);
+            color: #EBC6CD;
+        }
+
+        .item-short-desc {
+            color: rgba(255, 246, 248, 0.7);
+            font-size: 0.82rem;
+            margin: 0;
+            line-height: 1.45;
+            font-weight: 300;
+        }
+
+        /* Visual Showcase Column (Right Side) */
+        .spa-visual-showcase-col {
+            position: sticky;
+            top: 90px;
+        }
+
+        .spa-showcase-frame {
+            background: linear-gradient(135deg, rgba(22, 16, 20, 0.96) 0%, rgba(16, 12, 14, 0.98) 100%);
+            border: 1px solid rgba(235, 198, 205, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(235, 198, 205, 0.12);
+            backdrop-filter: blur(16px);
+        }
+
+        .showcase-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 340px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .showcase-main-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: opacity 0.5s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scale(1.02);
+        }
+
+        .showcase-overlay-vignette {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(14, 10, 12, 0.1) 0%, rgba(14, 10, 12, 0.75) 100%);
+            pointer-events: none;
+        }
+
+        .showcase-floating-tag {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            background: rgba(18, 12, 16, 0.85);
+            border: 1px solid rgba(235, 198, 205, 0.45);
+            color: #FFF6F8;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+        }
+
+        .sparkle-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #EBC6CD;
+            box-shadow: 0 0 8px #EBC6CD;
+        }
+
+        .showcase-auto-timer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .timer-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #EBC6CD, #E2C799);
+            transition: width 0.1s linear;
+        }
+
+        /* Showcase Info Card */
+        .showcase-info-card {
+            padding: 24px 22px 20px;
+        }
+
+        .showcase-service-cat {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #E2C799;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .showcase-service-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.35rem;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+            margin: 0 0 10px;
+            line-height: 1.25;
+        }
+
+        .showcase-service-desc {
+            color: rgba(255, 246, 248, 0.8);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin: 0 0 20px;
+            font-weight: 300;
+            min-height: 56px;
+        }
+
+        .showcase-action-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-showcase-book {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #EBC6CD 0%, #E2C799 100%);
+            color: #1A1215;
+            text-decoration: none;
+            padding: 13px 20px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(235, 198, 205, 0.3);
+            transition: all 0.35s ease;
+        }
+
+        .btn-showcase-book:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(235, 198, 205, 0.45);
+            color: #120B0E;
+        }
+
+        /* Gallery Pills */
+        .showcase-gallery-pills {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 22px 20px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .showcase-gallery-pills::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(235, 198, 205, 0.25);
+            color: rgba(255, 246, 248, 0.8);
+            font-size: 0.72rem;
+            padding: 6px 12px;
+            border-radius: 999px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-pill:hover,
+        .gallery-pill.active {
+            background: rgba(235, 198, 205, 0.2);
+            border-color: #EBC6CD;
+            color: #FFFFFF;
+        }
+
+        @media (max-width: 992px) {
+            .spa-menu-stage-grid {
+                grid-template-columns: 1fr;
+            }
+            .spa-visual-showcase-col {
+                position: static;
+            }
+            .showcase-img-wrap {
+                height: 280px;
+            }
+        }
+
+
         /* ══════════════════════════════════════════════
            LANDING PAGE HEADER STYLES (ACADEMY & SPA MODES)
            ══════════════════════════════════════════════ */
@@ -6638,6 +7094,195 @@
     </section>
 
 
+    <!-- ════════════════════════════════════════════════════════════
+         SECCIÓN BOUTIQUE & SPA: MENÚ GOURMET & SHOWCASE VISUAL EN VIVO
+         ════════════════════════════════════════════════════════════ -->
+    <div class="spa-main-wrapper" id="spaMainContent">
+        <section class="spa-gourmet-menu-section" id="spaMenu">
+            <div class="spa-container">
+                
+                <!-- Header de Sección: Calma, Rosa Pastel & Champán -->
+                <div class="spa-section-header">
+                    <span class="spa-luxury-pill">🌿 Menú Sensorial & Tratamientos de Autor</span>
+                    <h2>EXPERIENCIAS DE <span>ALTA COSTURA & SPA</span></h2>
+                    <p>Cada tratamiento es una pausa en el tiempo: visagismo a la medida de tu rostro, salud ocular y bienestar integral en Puerto Vallarta.</p>
+                </div>
+
+                <!-- Layout Principal: 2 Tablitas Estilo Chef (Izquierda) + Showcase Visual Interactivo (Derecha) -->
+                <div class="spa-menu-stage-grid">
+                    
+                    <!-- Columna Izquierda: Las 2 Tablitas Estilo Menú Chef -->
+                    <div class="spa-menu-boards-col">
+                        
+                        <!-- TABLITA 1: PESTAÑAS DE AUTOR -->
+                        <div class="chef-menu-board">
+                            <div class="chef-board-header">
+                                <div class="board-header-left">
+                                    <span class="chef-category-icon">👁️</span>
+                                    <div>
+                                        <span class="chef-sub-category">Lash Artistry & Coutoure</span>
+                                        <h3>Pestañas de Autor</h3>
+                                    </div>
+                                </div>
+                                <span class="chef-badge-pill">Fibras Seda</span>
+                            </div>
+
+                            <div class="chef-menu-items-list">
+                                <!-- Item 1: Efecto Rímel & Wet Set -->
+                                <div class="chef-menu-item active" data-service-id="rimel" data-category="Pestañas de Autor" data-title="Efecto Rímel & Wet Set" data-subtitle="Mirada Abierta & Efecto Glossy" data-desc="Aplicación de fibras tecnológicas con textura húmeda que simula el rímel recién aplicado sin grumos. Ideal para un look fresco, sofisticado y de máxima definición diaria." data-tag="✨ Retención 6 Semanas" data-img="images/spa/service-rimel.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Efecto Rímel & Wet Set</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Fibras tecnológicas con acabado húmedo glossy y visagismo personalizado.</p>
+                                </div>
+
+                                <!-- Item 2: Volumen Ruso Artesanal -->
+                                <div class="chef-menu-item" data-service-id="ruso" data-category="Pestañas de Autor" data-title="Volumen Ruso Artesanal" data-subtitle="Densidad Sedosa & Abanicos Perfectos" data-desc="Creación milimétrica de abanicos artesanales 2D a 6D ultraligeros. Proporciona una mirada profunda, esponjosa y con volumen de terciopelo sin añadir peso a la pestaña natural." data-tag="👑 Volumen Artesanal 2D–6D" data-img="images/spa/service-ruso.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Volumen Ruso Artesanal</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Abanicos hechos a mano para una densidad aterciopelada sin peso.</p>
+                                </div>
+
+                                <!-- Item 3: Fibras Tecnológicas VIP -->
+                                <div class="chef-menu-item" data-service-id="tecnologicas" data-category="Pestañas de Autor" data-title="Fibras Tecnológicas (Y, W, 4D)" data-subtitle="Retención Extrema & Textura Multidimensional" data-desc="Fibras pre-alineadas de última generación que se acoplan perfectamente a la base. Brindan un efecto tupido, uniforme y una retención médica comprobada de hasta 6 semanas." data-tag="🔬 Retención Médica Comprobada" data-img="images/spa/service-tecnologicas.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Fibras Tecnológicas (Y, W, 4D)</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Retención de 6 semanas con estructura multidimensional ultraligera.</p>
+                                </div>
+
+                                <!-- Item 4: Lifting de Pestañas & Keratina -->
+                                <div class="chef-menu-item" data-service-id="lifting" data-category="Pestañas de Autor" data-title="Lifting de Pestañas & Keratina" data-subtitle="Curvatura Natural & Nutrición Profunda" data-desc="Elevación desde la raíz de tus propias pestañas naturales acompañada de infusión de keratina vegetal y tinte negro profundo para una mirada despierta y elegante." data-tag="🌿 100% Pestaña Natural" data-img="images/spa/service-lifting.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Lifting de Pestañas & Keratina</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Curvatura y nutrición profunda de tu pestaña natural con tinte.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TABLITA 2: FACIALES & RITUALES DE SPA -->
+                        <div class="chef-menu-board">
+                            <div class="chef-board-header">
+                                <div class="board-header-left">
+                                    <span class="chef-category-icon">🌸</span>
+                                    <div>
+                                        <span class="chef-sub-category">Sanctuary & Holistic Care</span>
+                                        <h3>Faciales & Rituales de Spa</h3>
+                                    </div>
+                                </div>
+                                <span class="chef-badge-pill">Cabina Privada</span>
+                            </div>
+
+                            <div class="chef-menu-items-list">
+                                <!-- Item 5: Limpieza Facial Profunda & Glow -->
+                                <div class="chef-menu-item" data-service-id="facial" data-category="Faciales & Rituales de Spa" data-title="Limpieza Facial Profunda & Glow" data-subtitle="Extracción Ultrasónica & Mascarilla Hidroplástica" data-desc="Protocolo médico-estético con vapor de ozono, desincrustación ultrasónica de poros sin dolor, tónico equilibrante y mascarilla hidroplástica personalizada con ácido hialurónico." data-tag="💎 Efecto Glow Inmediato" data-img="images/spa/service-facial.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Limpieza Facial Profunda & Glow</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Extracción ultrasónica, vapor de ozono e hidratación profunda.</p>
+                                </div>
+
+                                <!-- Item 6: Dermaplaning & Piel de Porcelana -->
+                                <div class="chef-menu-item" data-service-id="dermaplaning" data-category="Faciales & Rituales de Spa" data-title="Dermaplaning & Piel de Porcelana" data-subtitle="Exfoliación Médica & Suavidad Extrema" data-desc="Retiro controlado de células muertas y vello facial con técnica quirúrgica suave. Deja la piel ultra sedosa, luminosa y lista para una absorción profunda de activos botánicos." data-tag="✨ Textura Seda de Porcelana" data-img="images/spa/service-dermaplaning.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Dermaplaning & Piel de Porcelana</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Exfoliación médica con bisturí para piel de porcelana y luminosidad.</p>
+                                </div>
+
+                                <!-- Item 7: Henna Lips & Perfilado Hidratante -->
+                                <div class="chef-menu-item" data-service-id="lips" data-category="Faciales & Rituales de Spa" data-title="Henna Lips & Perfilado Hidratante" data-subtitle="Color Semipermanente & Efecto Labios Besados" data-desc="Tratamiento de color y nutrición con micropigmentos naturales de henna que perfilan y aportan un tono ruborizado saludable con máxima hidratación durante semanas." data-tag="💋 Tono Saludable Semipermanente" data-img="images/spa/service-lips.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Henna Lips & Perfilado</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Color semipermanente hidratante con efecto labios besados.</p>
+                                </div>
+
+                                <!-- Item 8: Ritual Relajante con Aromaterapia -->
+                                <div class="chef-menu-item" data-service-id="ritual" data-category="Faciales & Rituales de Spa" data-title="Ritual Relajante con Aromaterapia" data-subtitle="Descompresión Craneofacial & Masaje Sensorial" data-desc="Experiencia holística de relajación con aceites esenciales botánicos de lavanda y jazmín, masaje craneofacial antiestrés y terapia de sonido en cabina con luz tenue." data-tag="🕯️ Paz & Relajación Absoluta" data-img="images/spa/service-ritual.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Ritual Relajante & Aromaterapia</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Masaje craneofacial antiestrés y descompresión en cabina privada.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Columna Derecha: Showcase Visual Interactivo de Trabajos Reales -->
+                    <div class="spa-visual-showcase-col">
+                        <div class="spa-showcase-frame" id="spaShowcaseFrame">
+                            
+                            <!-- Imagen Principal con Zoom y Transición Suave -->
+                            <div class="showcase-img-wrap">
+                                <img src="images/spa/service-rimel.jpg" alt="Resultado de Pestañas & Spa" id="spaShowcaseMainImg" class="showcase-main-img">
+                                <div class="showcase-overlay-vignette"></div>
+                                
+                                <!-- Floating Result Badge -->
+                                <div class="showcase-floating-tag" id="spaShowcaseTag">
+                                    <span class="sparkle-dot"></span>
+                                    <span id="spaShowcaseTagText">✨ Retención 6 Semanas</span>
+                                </div>
+
+                                <!-- Autoplay / Auto-Rotate Progress Bar -->
+                                <div class="showcase-auto-timer-bar">
+                                    <div class="timer-progress-fill" id="spaTimerProgress"></div>
+                                </div>
+                            </div>
+
+                            <!-- Card Inferior de Información y Acción Directa -->
+                            <div class="showcase-info-card">
+                                <div class="showcase-text-block">
+                                    <span class="showcase-service-cat" id="spaShowcaseCat">Pestañas de Autor</span>
+                                    <h4 class="showcase-service-title" id="spaShowcaseTitle">Efecto Rímel & Wet Set</h4>
+                                    <p class="showcase-service-desc" id="spaShowcaseDesc">Aplicación de fibras tecnológicas con textura húmeda que simula el rímel recién aplicado sin grumos. Ideal para un look fresco, sofisticado y de máxima definición diaria.</p>
+                                </div>
+
+                                <div class="showcase-action-row">
+                                    <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20para%20el%20servicio:%20Efecto%20Rímel" target="_blank" class="btn-showcase-book" id="spaShowcaseBookBtn">
+                                        <span>🌿 Agendar Este Servicio</span>
+                                        <span class="btn-arrow">→</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Controles de Navegación Rápida de Fotos -->
+                            <div class="showcase-gallery-pills" id="spaGalleryPills">
+                                <button type="button" class="gallery-pill active" onclick="jumpToSpaService('rimel', this)">Efecto Rímel</button>
+                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('ruso', this)">Volumen Ruso</button>
+                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('facial', this)">Facial Glow</button>
+                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('dermaplaning', this)">Dermaplaning</button>
+                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('lips', this)">Henna Lips</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+
 
     <!-- ════════════════════════════════════════════════════════════
          4. SECCIÓN INTERACTIVA: CONOCE A LA FUNDADORA (CAMILA MARÍN)
@@ -9347,6 +9992,120 @@
                 }
             };
             loadDynamicInstagramFeed();
+
+            // ══════════════════════════════════════════════
+            // CONTROL INTERACTIVO DEL MENÚ GOURMET DE SPA
+            // ══════════════════════════════════════════════
+            let spaAutoTimer = null;
+            let spaTimerInterval = null;
+            let spaServiceIndex = 0;
+            let spaServicesList = [];
+
+            window.initSpaServicesList = () => {
+                const items = document.querySelectorAll('.chef-menu-item');
+                spaServicesList = Array.from(items);
+            };
+
+            window.updateSpaShowcase = (itemEl) => {
+                if (!itemEl) return;
+
+                const img = itemEl.getAttribute('data-img') || 'images/spa/service-rimel.jpg';
+                const cat = itemEl.getAttribute('data-category') || 'Pestañas de Autor';
+                const title = itemEl.getAttribute('data-title') || 'Servicio de Spa';
+                const desc = itemEl.getAttribute('data-desc') || '';
+                const tag = itemEl.getAttribute('data-tag') || '✨ Experiencia de Autor';
+                const serviceId = itemEl.getAttribute('data-service-id') || '';
+
+                const mainImg = document.getElementById('spaShowcaseMainImg');
+                const catEl = document.getElementById('spaShowcaseCat');
+                const titleEl = document.getElementById('spaShowcaseTitle');
+                const descEl = document.getElementById('spaShowcaseDesc');
+                const tagEl = document.getElementById('spaShowcaseTagText');
+                const bookBtn = document.getElementById('spaShowcaseBookBtn');
+
+                if (mainImg) {
+                    mainImg.style.opacity = '0.3';
+                    mainImg.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        mainImg.src = img;
+                        mainImg.style.opacity = '1';
+                        mainImg.style.transform = 'scale(1.02)';
+                    }, 180);
+                }
+
+                if (catEl) catEl.textContent = cat;
+                if (titleEl) titleEl.textContent = title;
+                if (descEl) descEl.textContent = desc;
+                if (tagEl) tagEl.textContent = tag;
+
+                if (bookBtn) {
+                    const cleanTitle = encodeURIComponent(title);
+                    bookBtn.href = `https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20para%20el%20servicio:%20${cleanTitle}`;
+                }
+
+                // Update active state in menu
+                document.querySelectorAll('.chef-menu-item').forEach(i => i.classList.remove('active'));
+                itemEl.classList.add('active');
+
+                // Update gallery pill if matched
+                document.querySelectorAll('.gallery-pill').forEach(p => p.classList.remove('active'));
+                const matchedPill = Array.from(document.querySelectorAll('.gallery-pill')).find(p => p.textContent.toLowerCase().includes(serviceId.toLowerCase()));
+                if (matchedPill) matchedPill.classList.add('active');
+            };
+
+            window.previewSpaService = (itemEl) => {
+                window.updateSpaShowcase(itemEl);
+            };
+
+            window.selectSpaService = (itemEl) => {
+                window.updateSpaShowcase(itemEl);
+            };
+
+            window.jumpToSpaService = (serviceId, pillBtn) => {
+                const targetItem = document.querySelector(`.chef-menu-item[data-service-id="${serviceId}"]`);
+                if (targetItem) {
+                    window.updateSpaShowcase(targetItem);
+                }
+                if (pillBtn) {
+                    document.querySelectorAll('.gallery-pill').forEach(p => p.classList.remove('active'));
+                    pillBtn.classList.add('active');
+                }
+            };
+
+            // Auto-rotate showcase works smoothly when idle
+            window.startSpaAutoRotator = () => {
+                window.initSpaServicesList();
+                if (!spaServicesList.length) return;
+
+                let progress = 0;
+                const progressBar = document.getElementById('spaTimerProgress');
+
+                if (spaTimerInterval) clearInterval(spaTimerInterval);
+
+                spaTimerInterval = setInterval(() => {
+                    progress += 2.5;
+                    if (progressBar) progressBar.style.width = progress + '%';
+
+                    if (progress >= 100) {
+                        progress = 0;
+                        if (progressBar) progressBar.style.width = '0%';
+                        spaServiceIndex = (spaServiceIndex + 1) % spaServicesList.length;
+                        window.updateSpaShowcase(spaServicesList[spaServiceIndex]);
+                    }
+                }, 100);
+            };
+
+            // Start auto rotator when Spa is active
+            const origSelectSpa = window.selectSpa;
+            window.selectSpa = (isInitial = false) => {
+                if (typeof origSelectSpa === 'function') origSelectSpa(isInitial);
+                setTimeout(() => {
+                    window.startSpaAutoRotator();
+                }, 800);
+            };
+
+            window.initSpaServicesList();
+
 
             // Manejo de Modal Protegido con Contraseña para Recursos VIP de Alumnas
             let currentRequestedResource = '';
