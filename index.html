@@ -1004,6 +1004,266 @@
         }
 
 
+        
+        /* ══════════════════════════════════════════════
+           SPA HERO BANNER & EXPANDED CONTENT STYLES
+           ══════════════════════════════════════════════ */
+        .spa-video-overlay {
+            background: linear-gradient(180deg, rgba(14, 10, 12, 0.45) 0%, rgba(20, 14, 18, 0.78) 50%, rgba(12, 8, 10, 0.92) 100%) !important;
+            transition: background 1s ease;
+        }
+
+        .split-panel:hover .spa-video-overlay {
+            background: linear-gradient(180deg, rgba(14, 10, 12, 0.25) 0%, rgba(20, 14, 18, 0.6) 50%, rgba(12, 8, 10, 0.85) 100%) !important;
+        }
+
+        /* Split Preview Text */
+        .spa-tag-glow {
+            color: #EBC6CD !important;
+            letter-spacing: 3px !important;
+            font-size: 0.72rem !important;
+            font-weight: 600 !important;
+            text-shadow: 0 0 10px rgba(235, 198, 205, 0.4);
+        }
+
+        .spa-split-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+            color: #FFF6F8 !important;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .spa-title-accent {
+            background: linear-gradient(135deg, #FFF4F6 0%, #EBC6CD 45%, #E2C799 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: italic;
+        }
+
+        .spa-split-desc {
+            font-size: 0.96rem;
+            color: rgba(255, 246, 248, 0.85) !important;
+            line-height: 1.65;
+            max-width: 420px;
+            margin: 0 auto 26px;
+            font-weight: 300;
+        }
+
+        .btn-spa-preview {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(235, 198, 205, 0.22) 0%, rgba(226, 199, 153, 0.28) 100%);
+            border: 1px solid rgba(235, 198, 205, 0.6);
+            color: #FFF6F8;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.84rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(235, 198, 205, 0.15);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-spa-preview:hover {
+            background: linear-gradient(135deg, rgba(235, 198, 205, 0.4) 0%, rgba(226, 199, 153, 0.5) 100%);
+            border-color: #EBC6CD;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(235, 198, 205, 0.35);
+        }
+
+        .spa-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .split-panel:hover .spa-arrow {
+            transform: translateX(4px);
+        }
+
+        /* ══════════════════════════════════════════════
+           SPA EXPANDED HERO BANNER (Full Width View)
+           ══════════════════════════════════════════════ */
+        .spa-expanded-content {
+            display: none;
+            position: relative;
+            z-index: 10;
+            max-width: 860px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            padding: 120px 25px 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body.active-spa .spa-expanded-content {
+            display: block !important;
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .spa-hero-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(235, 198, 205, 0.12);
+            border: 1px solid rgba(235, 198, 205, 0.35);
+            color: #EBC6CD;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 22px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 15px rgba(235, 198, 205, 0.1);
+        }
+
+        .spa-hero-headline {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+            color: #FFFFFF;
+            font-weight: 400;
+            line-height: 1.18;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .spa-hero-headline span {
+            background: linear-gradient(135deg, #FFF4F6 0%, #EBC6CD 45%, #E2C799 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .spa-quote-callout {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            color: #E2C799;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            max-width: 680px;
+            margin: 0 auto 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .spa-hero-lead {
+            font-size: 1.05rem;
+            color: rgba(255, 246, 248, 0.88);
+            line-height: 1.75;
+            max-width: 720px;
+            margin: 0 auto 34px;
+            font-weight: 300;
+        }
+
+        /* Hero CTA Buttons */
+        .spa-hero-cta-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .btn-spa-hero-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #EBC6CD 0%, #E2C799 100%);
+            color: #1A1215;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(235, 198, 205, 0.35);
+            transition: all 0.35s ease;
+        }
+
+        .btn-spa-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(235, 198, 205, 0.5), 0 0 20px rgba(226, 199, 153, 0.3);
+            color: #120B0E;
+        }
+
+        .btn-spa-hero-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(235, 198, 205, 0.4);
+            color: #FFF6F8;
+            text-decoration: none;
+            padding: 16px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.86rem;
+            letter-spacing: 0.8px;
+            backdrop-filter: blur(10px);
+            transition: all 0.35s ease;
+        }
+
+        .btn-spa-hero-secondary:hover {
+            background: rgba(235, 198, 205, 0.2);
+            border-color: #EBC6CD;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        /* Wellness Pills Row */
+        .spa-hero-wellness-pills {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .spa-wellness-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(20, 14, 18, 0.7);
+            border: 1px solid rgba(235, 198, 205, 0.25);
+            border-radius: 999px;
+            padding: 8px 16px;
+            color: rgba(255, 246, 248, 0.85);
+            font-size: 0.8rem;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .spa-wellness-pill .pill-icon {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .spa-expanded-content {
+                padding: 90px 18px 40px;
+            }
+            .spa-hero-cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn-spa-hero-primary,
+            .btn-spa-hero-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+
         /* ══════════════════════════════════════════════
            LANDING PAGE HEADER STYLES (ACADEMY & SPA MODES)
            ══════════════════════════════════════════════ */
@@ -6302,20 +6562,77 @@
             </div>
         </div>
 
-        <!-- Panel Derecho: Boutique & Spa -->
-        <div class="split-panel spa-panel" id="spaPanel">
+                <!-- Panel Derecho: Boutique & Spa -->
+        <div class="split-panel spa-panel" id="spaPanel" onclick="selectSpa()">
             <div class="split-bg-container">
-                <video class="split-video-bg" autoplay muted loop playsinline poster="images/boutique_split.png">
+                <video class="split-video-bg" autoplay muted loop playsinline>
                     <source src="videos/spa_bg_video.mp4" type="video/mp4">
                     <source src="hero-bg.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="split-overlay"></div>
-            <div class="split-content">
-                <span class="split-tag">Servicios Exclusivos</span>
-                <h2>Boutique & Spa</h2>
-                <p>Consiente tu mirada con extensiones de pestañas de alta costura y relájate con nuestros tratamientos exclusivos de spa.</p>
-                <span class="btn-gold" style="display: inline-block;">Entrar a Boutique</span>
+            <div class="split-overlay spa-video-overlay"></div>
+            
+            <!-- Vista Previa Split (Antes de hacer clic) -->
+            <div class="split-content spa-preview-content">
+                <span class="split-tag spa-tag-glow">✨ SERVICIOS EXCLUSIVOS • PUERTO VALLARTA</span>
+                <h2 class="spa-split-title">BOUTIQUE <span class="spa-title-accent">& SPA</span></h2>
+                <p class="spa-split-desc">Consiente tu mirada con extensiones de pestañas de alta costura y renueva tu energía con nuestros tratamientos exclusivos de spa.</p>
+                <span class="btn-spa-preview">
+                    <span>Vivir la Experiencia</span>
+                    <span class="spa-arrow">→</span>
+                </span>
+            </div>
+
+            <!-- Contenido Expandido: Hero Banner Completo de Boutique & Spa -->
+            <div class="spa-expanded-content" id="spaExpandedContent">
+                <div class="spa-hero-badge-pill">
+                    <span class="spa-badge-sparkle">🌸</span>
+                    <span>Santuario de Belleza, Pestañas de Autor & Bienestar</span>
+                </div>
+                
+                <h1 class="spa-hero-headline">
+                    EL ARTE DE <br>
+                    <span>CONSENTIR TU MIRADA</span>
+                </h1>
+
+                <div class="spa-quote-callout">
+                    “Un espacio privado donde el tiempo se detiene para realzar tu belleza natural con suavidad y maestría.”
+                </div>
+
+                <p class="spa-hero-lead">
+                    Déjate envolver por una atmósfera de calma y sofisticación. Diseños de pestañas de alta costura adaptados a tu visagismo, cuidado médico sin daño ocular y rituales de relajación profunda en cabinas privadas con aromaterapia.
+                </p>
+
+                <!-- Botones Principales del Banner -->
+                <div class="spa-hero-cta-group">
+                    <a href="https://wa.me/5214731002030?text=¡Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20de%20relajación%20y%20pestañas%20en%20el%20Boutique%20%26%20Spa" target="_blank" class="btn-spa-hero-primary">
+                        <span class="btn-spa-icon">🌿</span>
+                        <span>Agendar Mi Cita de Consentimiento</span>
+                    </a>
+                    <a href="#spaMenu" class="btn-spa-hero-secondary" onclick="document.getElementById('spaMenu')?.scrollIntoView({ behavior: 'smooth' }); return false;">
+                        <span>✨ Explorar Menú de Experiencias</span>
+                    </a>
+                </div>
+
+                <!-- Píldoras de Confianza & Bienestar -->
+                <div class="spa-hero-wellness-pills">
+                    <div class="spa-wellness-pill">
+                        <span class="pill-icon">💎</span>
+                        <span>Fibras de Seda Hipoalergénicas</span>
+                    </div>
+                    <div class="spa-wellness-pill">
+                        <span class="pill-icon">🔬</span>
+                        <span>Bioseguridad & Cero Daño Ocular</span>
+                    </div>
+                    <div class="spa-wellness-pill">
+                        <span class="pill-icon">🕯️</span>
+                        <span>Cabinas Privadas & Aromaterapia</span>
+                    </div>
+                    <div class="spa-wellness-pill">
+                        <span class="pill-icon">📍</span>
+                        <span>Francia 140, Versalles, Puerto Vallarta</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
