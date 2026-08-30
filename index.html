@@ -1720,6 +1720,213 @@
         }
 
 
+        
+        /* ══════════════════════════════════════════════
+           SPA LOCATION, APPOINTMENTS & GLOW HIGHLIGHTS
+           ══════════════════════════════════════════════ */
+        .spa-location-booking-section {
+            padding: 80px 25px 120px;
+            background: linear-gradient(180deg, #0E0A0C 0%, #161014 100%);
+            border-top: 1px solid rgba(235, 198, 205, 0.15);
+        }
+
+        .spa-location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin-top: 20px;
+        }
+
+        .spa-location-card,
+        .spa-booking-concierge-card {
+            background: linear-gradient(135deg, rgba(22, 16, 20, 0.92) 0%, rgba(16, 12, 14, 0.96) 100%);
+            border: 1px solid rgba(235, 198, 205, 0.25);
+            border-radius: 20px;
+            padding: 34px 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(235, 198, 205, 0.06);
+            backdrop-filter: blur(12px);
+        }
+
+        .loc-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(235, 198, 205, 0.15);
+            padding-bottom: 16px;
+        }
+
+        .loc-icon {
+            font-size: 1.8rem;
+        }
+
+        .loc-card-header h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        .loc-sub {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #E2C799;
+            font-weight: 600;
+        }
+
+        .loc-details-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .loc-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .loc-item-icon {
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .loc-item strong {
+            color: #EBC6CD;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .loc-item p {
+            color: rgba(255, 246, 248, 0.8);
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .btn-maps-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(235, 198, 205, 0.35);
+            color: #FFF6F8;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-maps-link:hover {
+            background: rgba(235, 198, 205, 0.15);
+            border-color: #EBC6CD;
+            color: #FFFFFF;
+        }
+
+        /* Concierge Card */
+        .concierge-badge {
+            display: inline-block;
+            background: rgba(235, 198, 205, 0.15);
+            border: 1px solid rgba(235, 198, 205, 0.4);
+            color: #EBC6CD;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+        }
+
+        .spa-booking-concierge-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.45rem;
+            color: #FFFFFF;
+            margin: 0 0 10px;
+        }
+
+        .concierge-lead {
+            color: rgba(255, 246, 248, 0.8);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 22px;
+            font-weight: 300;
+        }
+
+        .concierge-features {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .c-feat {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 246, 248, 0.85);
+            font-size: 0.86rem;
+        }
+
+        .c-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #EBC6CD;
+            box-shadow: 0 0 8px #EBC6CD;
+        }
+
+        .btn-concierge-wa {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: linear-gradient(135deg, #EBC6CD 0%, #E2C799 100%);
+            color: #1A1215;
+            text-decoration: none;
+            padding: 15px 24px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(235, 198, 205, 0.35);
+            transition: all 0.35s ease;
+        }
+
+        .btn-concierge-wa:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(235, 198, 205, 0.5);
+            color: #120B0E;
+        }
+
+        /* Target Glow Flash on Navigation Jump */
+        @keyframes spaGlowPulse {
+            0% { box-shadow: 0 0 0 rgba(235, 198, 205, 0); border-color: rgba(235, 198, 205, 0.22); }
+            50% { box-shadow: 0 0 35px rgba(235, 198, 205, 0.6); border-color: #EBC6CD; }
+            100% { box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); border-color: rgba(235, 198, 205, 0.22); }
+        }
+
+        .spa-highlight-target {
+            animation: spaGlowPulse 1.6s ease forwards;
+        }
+
+        @media (max-width: 992px) {
+            .spa-location-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
         /* ══════════════════════════════════════════════
            LANDING PAGE HEADER STYLES (ACADEMY & SPA MODES)
            ══════════════════════════════════════════════ */
@@ -7098,6 +7305,8 @@
          SECCIÓN BOUTIQUE & SPA: MENÚ GOURMET & SHOWCASE VISUAL EN VIVO
          ════════════════════════════════════════════════════════════ -->
     <div class="spa-main-wrapper" id="spaMainContent">
+        
+        <!-- SECCIÓN 1: MENÚ GOURMET DE SERVICIOS -->
         <section class="spa-gourmet-menu-section" id="spaMenu">
             <div class="spa-container">
                 
@@ -7114,8 +7323,8 @@
                     <!-- Columna Izquierda: Las 2 Tablitas Estilo Menú Chef -->
                     <div class="spa-menu-boards-col">
                         
-                        <!-- TABLITA 1: PESTAÑAS DE AUTOR -->
-                        <div class="chef-menu-board">
+                        <!-- TABLITA 1: PESTAÑAS DE AUTOR (Target ID: #spaLashes) -->
+                        <div class="chef-menu-board" id="spaLashes">
                             <div class="chef-board-header">
                                 <div class="board-header-left">
                                     <span class="chef-category-icon">👁️</span>
@@ -7170,14 +7379,14 @@
                             </div>
                         </div>
 
-                        <!-- TABLITA 2: FACIALES & RITUALES DE SPA -->
-                        <div class="chef-menu-board">
+                        <!-- TABLITA 2: FACIALES & CUIDADO FACIAL (Target ID: #spaFaciales) -->
+                        <div class="chef-menu-board" id="spaFaciales">
                             <div class="chef-board-header">
                                 <div class="board-header-left">
                                     <span class="chef-category-icon">🌸</span>
                                     <div>
                                         <span class="chef-sub-category">Sanctuary & Holistic Care</span>
-                                        <h3>Faciales & Rituales de Spa</h3>
+                                        <h3>Cuidado Facial & Piel</h3>
                                     </div>
                                 </div>
                                 <span class="chef-badge-pill">Cabina Privada</span>
@@ -7213,7 +7422,23 @@
                                     </div>
                                     <p class="item-short-desc">Color semipermanente hidratante con efecto labios besados.</p>
                                 </div>
+                            </div>
+                        </div>
 
+                        <!-- TABLITA 3: RITUALES HOLÍSTICOS & BIENESTAR (Target ID: #spaRituales) -->
+                        <div class="chef-menu-board" id="spaRituales">
+                            <div class="chef-board-header">
+                                <div class="board-header-left">
+                                    <span class="chef-category-icon">🕯️</span>
+                                    <div>
+                                        <span class="chef-sub-category">Sanctuary & Aromatherapy</span>
+                                        <h3>Rituales Holísticos</h3>
+                                    </div>
+                                </div>
+                                <span class="chef-badge-pill">Relajación Total</span>
+                            </div>
+
+                            <div class="chef-menu-items-list">
                                 <!-- Item 8: Ritual Relajante con Aromaterapia -->
                                 <div class="chef-menu-item" data-service-id="ritual" data-category="Faciales & Rituales de Spa" data-title="Ritual Relajante con Aromaterapia" data-subtitle="Descompresión Craneofacial & Masaje Sensorial" data-desc="Experiencia holística de relajación con aceites esenciales botánicos de lavanda y jazmín, masaje craneofacial antiestrés y terapia de sonido en cabina con luz tenue." data-tag="🕯️ Paz & Relajación Absoluta" data-img="images/spa/service-ritual.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
                                     <div class="item-main-row">
@@ -7281,6 +7506,89 @@
 
             </div>
         </section>
+
+        <!-- SECCIÓN 2: UBICACIÓN, SANTUARIO & CITAS SPA (Target ID: #spaUbicacion) -->
+        <section class="spa-location-booking-section" id="spaUbicacion">
+            <div class="spa-container">
+                
+                <div class="spa-section-header">
+                    <span class="spa-luxury-pill">📍 Santuario & Reserva</span>
+                    <h2>UBICACIÓN & <span>RESERVA DE CITAS</span></h2>
+                    <p>Tu cita privada te espera en un entorno sereno, climatizado y con atención personalizada en Puerto Vallarta.</p>
+                </div>
+
+                <div class="spa-location-grid">
+                    <!-- Tarjeta de Ubicación & Horarios -->
+                    <div class="spa-location-card">
+                        <div class="loc-card-header">
+                            <span class="loc-icon">🏛️</span>
+                            <div>
+                                <h3>Santuario Cami's Lashes</h3>
+                                <span class="loc-sub">Boutique & Spa Exclusivo</span>
+                            </div>
+                        </div>
+
+                        <div class="loc-details-list">
+                            <div class="loc-item">
+                                <span class="loc-item-icon">📍</span>
+                                <div>
+                                    <strong>Dirección Oficial:</strong>
+                                    <p>Francia 140, Versalles, 48310 Puerto Vallarta, Jal.</p>
+                                </div>
+                            </div>
+                            <div class="loc-item">
+                                <span class="loc-item-icon">⏰</span>
+                                <div>
+                                    <strong>Horarios de Atención:</strong>
+                                    <p>Lunes a Sábado: 10:00 AM – 7:00 PM (Previa Cita)</p>
+                                </div>
+                            </div>
+                            <div class="loc-item">
+                                <span class="loc-item-icon">☕</span>
+                                <div>
+                                    <strong>Amenidades Incluidas:</strong>
+                                    <p>Cabina privada climatizada, aromaterapia botánica, café gourmet & té relajante de cortesía.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://maps.google.com/?q=Francia+140+Versalles+48310+Puerto+Vallarta+Jal" target="_blank" class="btn-maps-link">
+                            <span>🗺️ Abrir en Google Maps</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                    <!-- Tarjeta de Concierge & Agendamiento Rápido -->
+                    <div class="spa-booking-concierge-card">
+                        <div class="concierge-badge">✨ Concierge WhatsApp 24/7</div>
+                        <h3>Agenda tu Experiencia</h3>
+                        <p class="concierge-lead">Selecciona tu servicio deseado y nuestro equipo te asignará el horario ideal para tu sesión de relajación y belleza.</p>
+
+                        <div class="concierge-features">
+                            <div class="c-feat">
+                                <span class="c-dot"></span>
+                                <span>Atención personalizada 1 a 1</span>
+                            </div>
+                            <div class="c-feat">
+                                <span class="c-dot"></span>
+                                <span>Diagnóstico de visagismo sin costo</span>
+                            </div>
+                            <div class="c-feat">
+                                <span class="c-dot"></span>
+                                <span>Protocolos de bioseguridad médica</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20en%20el%20Boutique%20%26%20Spa" target="_blank" class="btn-concierge-wa">
+                            <span class="wa-icon">🌿</span>
+                            <span>Agendar Mi Cita por WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </div>
 
 
@@ -10075,6 +10383,33 @@
             // Auto-rotate showcase works smoothly when idle
             window.startSpaAutoRotator = () => {
                 window.initSpaServicesList();
+
+            // Smooth Scroll & Glow Handler for Spa Links
+            document.querySelectorAll('#spaDesktopNav a, .spa-expanded-content a[href^="#"], .btn-nav-spa-cta').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (!href || !href.startsWith('#') || href === '#') return;
+                    
+                    const targetEl = document.querySelector(href);
+                    if (targetEl) {
+                        e.preventDefault();
+                        const headerOffset = 90;
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Add glow pulse
+                        targetEl.classList.remove('spa-highlight-target');
+                        void targetEl.offsetWidth; // Trigger reflow
+                        targetEl.classList.add('spa-highlight-target');
+                    }
+                });
+            });
+
                 if (!spaServicesList.length) return;
 
                 let progress = 0;
@@ -10105,6 +10440,33 @@
             };
 
             window.initSpaServicesList();
+
+            // Smooth Scroll & Glow Handler for Spa Links
+            document.querySelectorAll('#spaDesktopNav a, .spa-expanded-content a[href^="#"], .btn-nav-spa-cta').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (!href || !href.startsWith('#') || href === '#') return;
+                    
+                    const targetEl = document.querySelector(href);
+                    if (targetEl) {
+                        e.preventDefault();
+                        const headerOffset = 90;
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Add glow pulse
+                        targetEl.classList.remove('spa-highlight-target');
+                        void targetEl.offsetWidth; // Trigger reflow
+                        targetEl.classList.add('spa-highlight-target');
+                    }
+                });
+            });
+
 
 
             // Manejo de Modal Protegido con Contraseña para Recursos VIP de Alumnas
