@@ -1927,6 +1927,239 @@
         }
 
 
+        
+        /* ══════════════════════════════════════════════
+           SPA FLANKS & BOTANICAL DECORATIVE ELEMENTS
+           ══════════════════════════════════════════════ */
+        .spa-gourmet-menu-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spa-side-decor {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 240px;
+            pointer-events: none;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .spa-decor-left {
+            left: 15px;
+        }
+
+        .spa-decor-right {
+            right: 15px;
+        }
+
+        /* Botanical Plant SVGs */
+        .decor-plant {
+            opacity: 0.85;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.5));
+            transition: transform 0.8s ease;
+        }
+
+        .plant-eucalyptus {
+            width: 170px;
+            height: 380px;
+            animation: botanicalDrift 7s ease-in-out infinite alternate;
+        }
+
+        .plant-monstera {
+            width: 200px;
+            height: 360px;
+            animation: botanicalDrift 8.5s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes botanicalDrift {
+            0% { transform: translateY(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(-14px) rotate(1.5deg) scale(1.02); }
+            100% { transform: translateY(6px) rotate(-1.2deg) scale(0.99); }
+        }
+
+        /* Zen Stones Object */
+        .decor-zen-set {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-top: -30px;
+        }
+
+        .zen-stones-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.8));
+        }
+
+        .zen-stone {
+            border-radius: 999px;
+            background: linear-gradient(135deg, #32252B 0%, #1A1216 100%);
+            border: 1px solid rgba(235, 198, 205, 0.25);
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.15), 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .stone-bottom {
+            width: 72px;
+            height: 22px;
+        }
+
+        .stone-mid {
+            width: 54px;
+            height: 18px;
+        }
+
+        .stone-top {
+            width: 38px;
+            height: 14px;
+        }
+
+        /* Glowing Candle Object */
+        .zen-candle-wrap {
+            position: relative;
+            margin-top: 4px;
+        }
+
+        .candle-cup {
+            width: 36px;
+            height: 22px;
+            background: linear-gradient(135deg, rgba(235, 198, 205, 0.25) 0%, rgba(226, 199, 153, 0.35) 100%);
+            border: 1px solid rgba(235, 198, 205, 0.5);
+            border-radius: 6px 6px 12px 12px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .candle-flame {
+            position: absolute;
+            top: -12px;
+            width: 8px;
+            height: 14px;
+            background: radial-gradient(ellipse at bottom, #FFF4D0 0%, #E2C799 50%, rgba(235, 198, 205, 0.6) 80%, transparent 100%);
+            border-radius: 50% 50% 20% 20%;
+            animation: flameFlicker 1.8s ease-in-out infinite alternate;
+            box-shadow: 0 0 12px #E2C799, 0 0 20px rgba(235, 198, 205, 0.8);
+        }
+
+        .candle-glow {
+            position: absolute;
+            top: -20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(226, 199, 153, 0.35) 0%, transparent 70%);
+            animation: flameFlicker 1.8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes flameFlicker {
+            0% { transform: scale(1) rotate(-1deg); opacity: 0.85; }
+            50% { transform: scale(1.12) rotate(1.5deg); opacity: 1; }
+            100% { transform: scale(0.94) rotate(-0.5deg); opacity: 0.8; }
+        }
+
+        /* Floating Droplets & Flowers (Right Side) */
+        .decor-spa-droplets {
+            position: relative;
+            width: 100px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .floating-droplet {
+            position: absolute;
+            font-size: 1.3rem;
+            filter: drop-shadow(0 4px 10px rgba(235, 198, 205, 0.4));
+            animation: dropletFloat 4.5s ease-in-out infinite alternate;
+        }
+
+        .drop-1 {
+            top: 10px;
+            left: 15px;
+            font-size: 1.1rem;
+            animation-delay: 0s;
+        }
+
+        .drop-2 {
+            top: 45px;
+            right: 15px;
+            font-size: 1.2rem;
+            animation-delay: 1.2s;
+        }
+
+        .drop-3 {
+            bottom: 10px;
+            left: 35px;
+            font-size: 1.5rem;
+            animation-delay: 2.4s;
+        }
+
+        @keyframes dropletFloat {
+            0% { transform: translateY(0px) scale(1); opacity: 0.75; }
+            100% { transform: translateY(-16px) scale(1.15); opacity: 1; }
+        }
+
+        /* Floating Wellness Badges */
+        .decor-floating-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(26, 18, 22, 0.85);
+            border: 1px solid rgba(235, 198, 205, 0.4);
+            color: #FFF6F8;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(235, 198, 205, 0.15);
+            backdrop-filter: blur(10px);
+            animation: badgeFloat 5s ease-in-out infinite alternate;
+        }
+
+        .pill-left {
+            animation-delay: 0.5s;
+        }
+
+        .pill-right {
+            animation-delay: 2.5s;
+        }
+
+        @keyframes badgeFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-8px); }
+        }
+
+        /* Hide flank decor on smaller screens where space is tight */
+        @media (max-width: 1400px) {
+            .spa-side-decor {
+                width: 120px;
+                opacity: 0.5;
+            }
+            .decor-floating-pill {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .spa-side-decor {
+                display: none !important;
+            }
+        }
+
+
         /* ══════════════════════════════════════════════
            LANDING PAGE HEADER STYLES (ACADEMY & SPA MODES)
            ══════════════════════════════════════════════ */
@@ -7308,6 +7541,93 @@
         
         <!-- SECCIÓN 1: MENÚ GOURMET DE SERVICIOS -->
         <section class="spa-gourmet-menu-section" id="spaMenu">
+            
+            <!-- 🌿 FLANCO IZQUIERDO: DECORACIÓN BOTÁNICA, PIEDRAS ZEN & VELA AROMÁTICA -->
+            <div class="spa-side-decor spa-decor-left">
+                <!-- Rama Botánica de Eucalipto Flotante -->
+                <div class="decor-item decor-plant plant-eucalyptus">
+                    <svg viewBox="0 0 200 450" class="svg-botanical">
+                        <path d="M100 450 Q90 300 110 150 T95 0" stroke="url(#stemGradLeft)" stroke-width="2.5" fill="none" opacity="0.6"/>
+                        <!-- Hojas de Eucalipto / Salvia con degradado suave -->
+                        <path d="M100 380 C60 360 40 330 65 310 C90 290 102 340 100 380 Z" fill="url(#leafGradLeft)" opacity="0.75"/>
+                        <path d="M105 320 C145 300 165 270 140 250 C115 230 103 280 105 320 Z" fill="url(#leafGradLeft)" opacity="0.8"/>
+                        <path d="M98 260 C55 240 35 210 60 190 C85 170 98 220 98 260 Z" fill="url(#leafGradLeft)" opacity="0.85"/>
+                        <path d="M104 200 C140 180 160 150 135 130 C110 110 102 160 104 200 Z" fill="url(#leafGradLeft)" opacity="0.9"/>
+                        <path d="M96 140 C60 120 45 95 68 80 C90 65 98 105 96 140 Z" fill="url(#leafGradLeft)" opacity="0.85"/>
+                        <path d="M102 80 C130 65 145 40 125 25 C105 10 100 48 102 80 Z" fill="url(#leafGradLeft)" opacity="0.9"/>
+                        <defs>
+                            <linearGradient id="stemGradLeft" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#EBC6CD" stop-opacity="0.3"/>
+                                <stop offset="100%" stop-color="#E2C799" stop-opacity="0.7"/>
+                            </linearGradient>
+                            <linearGradient id="leafGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="rgba(235, 198, 205, 0.45)"/>
+                                <stop offset="50%" stop-color="rgba(180, 140, 150, 0.3)"/>
+                                <stop offset="100%" stop-color="rgba(226, 199, 153, 0.35)"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <!-- Objeto Spa: Piedras Zen Rodadas & Vela Aromática Iluminada -->
+                <div class="decor-item decor-zen-set">
+                    <div class="zen-stones-wrap">
+                        <div class="zen-stone stone-bottom"></div>
+                        <div class="zen-stone stone-mid"></div>
+                        <div class="zen-stone stone-top"></div>
+                    </div>
+                    <div class="zen-candle-wrap">
+                        <div class="candle-cup">
+                            <div class="candle-flame"></div>
+                            <div class="candle-glow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Píldora de Bienestar Flotante -->
+                <div class="decor-floating-pill pill-left">
+                    <span class="pill-sparkle">🌿</span>
+                    <span>Aromaterapia Botánica</span>
+                </div>
+            </div>
+
+            <!-- 🌸 FLANCO DERECHO: HOJA MONSTERA, FLOR DE ORQUÍDEA & ESENCIA DE SPA -->
+            <div class="spa-side-decor spa-decor-right">
+                <!-- Hoja de Monstera / Palma Tropical en Silueta Suave -->
+                <div class="decor-item decor-plant plant-monstera">
+                    <svg viewBox="0 0 260 400" class="svg-monstera">
+                        <path d="M130 380 Q140 260 120 120 T140 10" stroke="url(#stemGradRight)" stroke-width="2" fill="none" opacity="0.5"/>
+                        <path d="M130 20 C190 60 240 140 220 230 C200 310 140 350 130 380 C120 350 60 310 40 230 C20 140 70 60 130 20 Z" fill="url(#monsteraGrad)" opacity="0.35"/>
+                        <!-- Cortes de la Monstera -->
+                        <path d="M130 90 Q170 110 200 130 M130 150 Q180 175 220 200 M130 220 Q175 245 205 275" stroke="#0E0A0C" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        <path d="M130 90 Q90 110 60 130 M130 150 Q80 175 40 200 M130 220 Q85 245 55 275" stroke="#0E0A0C" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="stemGradRight" x1="0%" y1="100%" x2="0%" y2="0%">
+                                <stop offset="0%" stop-color="#E2C799" stop-opacity="0.3"/>
+                                <stop offset="100%" stop-color="#EBC6CD" stop-opacity="0.6"/>
+                            </linearGradient>
+                            <linearGradient id="monsteraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="rgba(226, 199, 153, 0.4)"/>
+                                <stop offset="60%" stop-color="rgba(235, 198, 205, 0.3)"/>
+                                <stop offset="100%" stop-color="rgba(140, 90, 110, 0.2)"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <!-- Objeto Spa: Gotas de Esencia & Flor de Loto/Orquídea -->
+                <div class="decor-item decor-spa-droplets">
+                    <div class="floating-droplet drop-1">💧</div>
+                    <div class="floating-droplet drop-2">✨</div>
+                    <div class="floating-droplet drop-3">🌸</div>
+                </div>
+
+                <!-- Píldora de Bienestar Flotante -->
+                <div class="decor-floating-pill pill-right">
+                    <span class="pill-sparkle">🕯️</span>
+                    <span>Cabina Privada & Relajación</span>
+                </div>
+            </div>
             <div class="spa-container">
                 
                 <!-- Header de Sección: Calma, Rosa Pastel & Champán -->
