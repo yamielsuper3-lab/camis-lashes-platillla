@@ -2160,6 +2160,102 @@
         }
 
 
+        
+        /* ══════════════════════════════════════════════
+           SPA CATEGORY FILTER TABS & PRICE TAGS
+           ══════════════════════════════════════════════ */
+        .spa-category-filter-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .spa-cat-tab {
+            background: rgba(26, 18, 22, 0.7);
+            border: 1px solid rgba(235, 198, 205, 0.25);
+            color: rgba(255, 246, 248, 0.8);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 999px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .spa-cat-tab:hover,
+        .spa-cat-tab.active {
+            background: linear-gradient(135deg, rgba(235, 198, 205, 0.25) 0%, rgba(226, 199, 153, 0.35) 100%);
+            border-color: #EBC6CD;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(235, 198, 205, 0.2);
+        }
+
+        .spa-color-addon-notice {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(226, 199, 153, 0.08);
+            border: 1px dashed rgba(226, 199, 153, 0.35);
+            border-radius: 12px;
+            padding: 10px 16px;
+            margin-bottom: 18px;
+            font-size: 0.8rem;
+            color: rgba(255, 246, 248, 0.85);
+        }
+
+        .spa-color-addon-notice strong {
+            color: #E2C799;
+        }
+
+        .spa-color-addon-notice em {
+            color: #EBC6CD;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .item-price-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #E2C799;
+            letter-spacing: 0.5px;
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+
+        .price-gold {
+            color: #EBC6CD !important;
+            text-shadow: 0 0 10px rgba(235, 198, 205, 0.4);
+        }
+
+        .chef-item-highlight {
+            background: linear-gradient(90deg, rgba(235, 198, 205, 0.1) 0%, rgba(226, 199, 153, 0.12) 100%) !important;
+            border-color: rgba(226, 199, 153, 0.4) !important;
+        }
+
+        .showcase-price-badge {
+            position: absolute;
+            bottom: 18px;
+            right: 18px;
+            background: linear-gradient(135deg, #EBC6CD 0%, #E2C799 100%);
+            color: #1A1215;
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            padding: 6px 16px;
+            border-radius: 999px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+            letter-spacing: 0.5px;
+            z-index: 5;
+        }
+
+
         /* ══════════════════════════════════════════════
            LANDING PAGE HEADER STYLES (ACADEMY & SPA MODES)
            ══════════════════════════════════════════════ */
@@ -7215,10 +7311,11 @@
             <!-- Desktop Nav: Boutique & Spa (Serenidad, Rosa Pastel & Champán Orgánico) -->
             <nav class="desktop-nav spa-nav" id="spaDesktopNav">
                 <a href="#">Inicio</a>
-                <a href="#spaMenu">Menú de Experiencias</a>
+                <a href="#spaMenu">Menú & Precios</a>
                 <a href="#spaLashes">Pestañas de Autor</a>
-                <a href="#spaFaciales">Cuidado Facial</a>
-                <a href="#spaRituales">Rituales Holísticos</a>
+                <a href="#spaCejas">Cejas & Lifting</a>
+                <a href="#spaMasajes">Masajes</a>
+                <a href="#spaPedicura">Pedicura & Combos</a>
                 <a href="#spaUbicacion">Ubicación & Citas</a>
             </nav>
 
@@ -7537,6 +7634,9 @@
     <!-- ════════════════════════════════════════════════════════════
          SECCIÓN BOUTIQUE & SPA: MENÚ GOURMET & SHOWCASE VISUAL EN VIVO
          ════════════════════════════════════════════════════════════ -->
+        <!-- ════════════════════════════════════════════════════════════
+         SECCIÓN BOUTIQUE & SPA: MENÚ OFICIAL GOURMET & SHOWCASE EN VIVO
+         ════════════════════════════════════════════════════════════ -->
     <div class="spa-main-wrapper" id="spaMainContent">
         
         <!-- SECCIÓN 1: MENÚ GOURMET DE SERVICIOS -->
@@ -7548,7 +7648,6 @@
                 <div class="decor-item decor-plant plant-eucalyptus">
                     <svg viewBox="0 0 200 450" class="svg-botanical">
                         <path d="M100 450 Q90 300 110 150 T95 0" stroke="url(#stemGradLeft)" stroke-width="2.5" fill="none" opacity="0.6"/>
-                        <!-- Hojas de Eucalipto / Salvia con degradado suave -->
                         <path d="M100 380 C60 360 40 330 65 310 C90 290 102 340 100 380 Z" fill="url(#leafGradLeft)" opacity="0.75"/>
                         <path d="M105 320 C145 300 165 270 140 250 C115 230 103 280 105 320 Z" fill="url(#leafGradLeft)" opacity="0.8"/>
                         <path d="M98 260 C55 240 35 210 60 190 C85 170 98 220 98 260 Z" fill="url(#leafGradLeft)" opacity="0.85"/>
@@ -7598,7 +7697,6 @@
                     <svg viewBox="0 0 260 400" class="svg-monstera">
                         <path d="M130 380 Q140 260 120 120 T140 10" stroke="url(#stemGradRight)" stroke-width="2" fill="none" opacity="0.5"/>
                         <path d="M130 20 C190 60 240 140 220 230 C200 310 140 350 130 380 C120 350 60 310 40 230 C20 140 70 60 130 20 Z" fill="url(#monsteraGrad)" opacity="0.35"/>
-                        <!-- Cortes de la Monstera -->
                         <path d="M130 90 Q170 110 200 130 M130 150 Q180 175 220 200 M130 220 Q175 245 205 275" stroke="#0E0A0C" stroke-width="6" fill="none" stroke-linecap="round"/>
                         <path d="M130 90 Q90 110 60 130 M130 150 Q80 175 40 200 M130 220 Q85 245 55 275" stroke="#0E0A0C" stroke-width="6" fill="none" stroke-linecap="round"/>
                         <defs>
@@ -7628,145 +7726,372 @@
                     <span>Cabina Privada & Relajación</span>
                 </div>
             </div>
+
             <div class="spa-container">
                 
                 <!-- Header de Sección: Calma, Rosa Pastel & Champán -->
                 <div class="spa-section-header">
-                    <span class="spa-luxury-pill">🌿 Menú Sensorial & Tratamientos de Autor</span>
-                    <h2>EXPERIENCIAS DE <span>ALTA COSTURA & SPA</span></h2>
+                    <span class="spa-luxury-pill">🌿 Menú Oficial & Tarifas Exclusivas</span>
+                    <h2>MENÚ DE EXPERIENCIAS <span>BOUTIQUE & SPA</span></h2>
                     <p>Cada tratamiento es una pausa en el tiempo: visagismo a la medida de tu rostro, salud ocular y bienestar integral en Puerto Vallarta.</p>
                 </div>
 
-                <!-- Layout Principal: 2 Tablitas Estilo Chef (Izquierda) + Showcase Visual Interactivo (Derecha) -->
+                <!-- Filtros Rápidos por Categoría -->
+                <div class="spa-category-filter-bar">
+                    <button type="button" class="spa-cat-tab active" onclick="filterSpaCategory('all', this)">✨ Todo el Menú</button>
+                    <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('lashes', this)">👁️ Pestañas de Autor (15)</button>
+                    <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('brows', this)">🪄 Cejas & Lifting</button>
+                    <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('massage', this)">🌿 Masajes Holísticos (5)</button>
+                    <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('pedi', this)">🌸 Pedicura & Combos</button>
+                </div>
+
+                <!-- Layout Principal: Tablitas Estilo Chef (Izquierda) + Showcase Visual Interactivo (Derecha) -->
                 <div class="spa-menu-stage-grid">
                     
-                    <!-- Columna Izquierda: Las 2 Tablitas Estilo Menú Chef -->
+                    <!-- Columna Izquierda: Las Tablitas Estilo Menú Chef -->
                     <div class="spa-menu-boards-col">
                         
-                        <!-- TABLITA 1: PESTAÑAS DE AUTOR (Target ID: #spaLashes) -->
-                        <div class="chef-menu-board" id="spaLashes">
+                        <!-- TABLITA 1: PESTAÑAS DE AUTOR & EFECTOS (Target ID: #spaLashes) -->
+                        <div class="chef-menu-board board-category-lashes" id="spaLashes">
                             <div class="chef-board-header">
                                 <div class="board-header-left">
                                     <span class="chef-category-icon">👁️</span>
                                     <div>
-                                        <span class="chef-sub-category">Lash Artistry & Coutoure</span>
-                                        <h3>Pestañas de Autor</h3>
+                                        <span class="chef-sub-category">Lash Artistry & Signature Sets</span>
+                                        <h3>Pestañas de Autor & Efectos Élite</h3>
                                     </div>
                                 </div>
-                                <span class="chef-badge-pill">Fibras Seda</span>
+                                <span class="chef-badge-pill">15 Diseños</span>
+                            </div>
+
+                            <!-- Nota de Color Adicional -->
+                            <div class="spa-color-addon-notice">
+                                <span class="addon-icon">🎨</span>
+                                <span><strong>Personalización:</strong> Color adicional a cualquier set o tratamiento: <em>+$200 MXN extra</em>.</span>
                             </div>
 
                             <div class="chef-menu-items-list">
-                                <!-- Item 1: Efecto Rímel & Wet Set -->
-                                <div class="chef-menu-item active" data-service-id="rimel" data-category="Pestañas de Autor" data-title="Efecto Rímel & Wet Set" data-subtitle="Mirada Abierta & Efecto Glossy" data-desc="Aplicación de fibras tecnológicas con textura húmeda que simula el rímel recién aplicado sin grumos. Ideal para un look fresco, sofisticado y de máxima definición diaria." data-tag="✨ Retención 6 Semanas" data-img="images/spa/service-rimel.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                <!-- 1. Clásicas $700 -->
+                                <div class="chef-menu-item active" data-service-id="clasicas" data-category="Pestañas de Autor" data-price="$700 MXN" data-title="Clásicas 1:1" data-subtitle="Elegancia Pura & Sutileza Natural" data-desc="Técnica de aislamiento milimétrico de una extensión por cada pestaña natural. Brinda una definición limpia, mirada descansada y elegancia atemporal para uso diario." data-tag="✨ Elegancia 1:1 Diaria" data-img="images/spa/service-clasicas.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
                                     <div class="item-main-row">
-                                        <span class="item-name">Efecto Rímel & Wet Set</span>
+                                        <span class="item-name">Clásicas (1:1)</span>
                                         <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$700</span>
                                         <span class="item-select-btn">Explorar →</span>
                                     </div>
-                                    <p class="item-short-desc">Fibras tecnológicas con acabado húmedo glossy y visagismo personalizado.</p>
+                                    <p class="item-short-desc">Aislamiento 1:1 para una definición sutil, ligera y elegante.</p>
                                 </div>
 
-                                <!-- Item 2: Volumen Ruso Artesanal -->
-                                <div class="chef-menu-item" data-service-id="ruso" data-category="Pestañas de Autor" data-title="Volumen Ruso Artesanal" data-subtitle="Densidad Sedosa & Abanicos Perfectos" data-desc="Creación milimétrica de abanicos artesanales 2D a 6D ultraligeros. Proporciona una mirada profunda, esponjosa y con volumen de terciopelo sin añadir peso a la pestaña natural." data-tag="👑 Volumen Artesanal 2D–6D" data-img="images/spa/service-ruso.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                <!-- 2. Híbridas $750 -->
+                                <div class="chef-menu-item" data-service-id="hibridas" data-category="Pestañas de Autor" data-price="$750 MXN" data-title="Híbridas" data-subtitle="Textura Equilibrada & Densidad Sutil" data-desc="Combinación artística de fibras clásicas con abanicos suaves de volumen. Logra una textura esponjosa perfecta para quienes buscan más volumen sin perder naturalidad." data-tag="💎 Textura & Volumen Suave" data-img="images/spa/service-hibridas.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
                                     <div class="item-main-row">
-                                        <span class="item-name">Volumen Ruso Artesanal</span>
+                                        <span class="item-name">Híbridas</span>
                                         <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$750</span>
                                         <span class="item-select-btn">Explorar →</span>
                                     </div>
-                                    <p class="item-short-desc">Abanicos hechos a mano para una densidad aterciopelada sin peso.</p>
+                                    <p class="item-short-desc">Fusión de fibras clásicas y abanicos para textura y dimensión.</p>
                                 </div>
 
-                                <!-- Item 3: Fibras Tecnológicas VIP -->
-                                <div class="chef-menu-item" data-service-id="tecnologicas" data-category="Pestañas de Autor" data-title="Fibras Tecnológicas (Y, W, 4D)" data-subtitle="Retención Extrema & Textura Multidimensional" data-desc="Fibras pre-alineadas de última generación que se acoplan perfectamente a la base. Brindan un efecto tupido, uniforme y una retención médica comprobada de hasta 6 semanas." data-tag="🔬 Retención Médica Comprobada" data-img="images/spa/service-tecnologicas.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                <!-- 3. Efecto Rímel $700 -->
+                                <div class="chef-menu-item" data-service-id="rimel" data-category="Pestañas de Autor" data-price="$700 MXN" data-title="Efecto Rímel" data-subtitle="Definición Glossy Sin Grumos" data-desc="Fibras tecnológicas con acabado brillante que simulan pestañas maquilladas con rímel de alta gama recién aplicado. Cero grumos y máxima definición constante." data-tag="🌟 Look Rímel Perfecto" data-img="images/spa/service-rimel.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
                                     <div class="item-main-row">
-                                        <span class="item-name">Fibras Tecnológicas (Y, W, 4D)</span>
+                                        <span class="item-name">Efecto Rímel</span>
                                         <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$700</span>
                                         <span class="item-select-btn">Explorar →</span>
                                     </div>
-                                    <p class="item-short-desc">Retención de 6 semanas con estructura multidimensional ultraligera.</p>
+                                    <p class="item-short-desc">Simula el rímel recién aplicado con textura húmeda y brillo.</p>
                                 </div>
 
-                                <!-- Item 4: Lifting de Pestañas & Keratina -->
-                                <div class="chef-menu-item" data-service-id="lifting" data-category="Pestañas de Autor" data-title="Lifting de Pestañas & Keratina" data-subtitle="Curvatura Natural & Nutrición Profunda" data-desc="Elevación desde la raíz de tus propias pestañas naturales acompañada de infusión de keratina vegetal y tinte negro profundo para una mirada despierta y elegante." data-tag="🌿 100% Pestaña Natural" data-img="images/spa/service-lifting.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                <!-- 4. Efecto Sweet Lashes $850 -->
+                                <div class="chef-menu-item" data-service-id="sweet" data-category="Pestañas de Autor" data-price="$850 MXN" data-title="Efecto Sweet Lashes" data-subtitle="Apertura de Mirada & Visagismo Dulce" data-desc="Diseño curvo y armonioso con mayor longitud en el centro del ojo para crear un efecto de ojos abiertos, mirada inocente, fresca y rejuvenecida." data-tag="🌸 Efecto Muñeca & Rejuvenecedor" data-img="images/spa/service-sweet.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
                                     <div class="item-main-row">
-                                        <span class="item-name">Lifting de Pestañas & Keratina</span>
+                                        <span class="item-name">Efecto Sweet Lashes</span>
                                         <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$850</span>
                                         <span class="item-select-btn">Explorar →</span>
                                     </div>
-                                    <p class="item-short-desc">Curvatura y nutrición profunda de tu pestaña natural con tinte.</p>
+                                    <p class="item-short-desc">Diseño dulce con apertura de mirada y visagismo fresco.</p>
+                                </div>
+
+                                <!-- 5. Efecto Diva’s Lashes $850 -->
+                                <div class="chef-menu-item" data-service-id="divas" data-category="Pestañas de Autor" data-price="$850 MXN" data-title="Efecto Diva’s Lashes" data-subtitle="Impacto de Pasarela & Curvatura Glam" data-desc="Set de alta presencia escénica con abanicos de densidad graduada y curvaturas combinadas para un porte sofisticado digno de alfombra roja." data-tag="👑 Impacto Glamour de Pasarela" data-img="images/spa/service-divas.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Efecto Diva’s Lashes</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$850</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Impacto dramático con curvatura glamurosa y máxima presencia.</p>
+                                </div>
+
+                                <!-- 6. Efecto Mojado (Wet Set) $850 -->
+                                <div class="chef-menu-item" data-service-id="mojado" data-category="Pestañas de Autor" data-price="$850 MXN" data-title="Efecto Mojado (Wet Set)" data-subtitle="Puntas Cerradas & Máxima Tendencia" data-desc="Técnica vanguardista que utiliza abanicos sin abrir para lograr un efecto mojado y definido, aportando textura puntiaguda de alto impacto estético." data-tag="💧 Tendencia Mundial Wet Set" data-img="images/spa/service-mojado.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Efecto Mojado (Wet Set)</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$850</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Puntas texturizadas con acabado brillante y mojado.</p>
+                                </div>
+
+                                <!-- 7. Efecto Foxy Eyes $850 -->
+                                <div class="chef-menu-item" data-service-id="foxy" data-category="Pestañas de Autor" data-price="$850 MXN" data-title="Efecto Foxy Eyes" data-subtitle="Elevación Lateral & Mirada Felina" data-desc="Mapeo estratégico con curvaturas L y M alargadas en el tercio exterior del ojo que estiliza y rasga la mirada para un efecto lifting felino irresistible." data-tag="🦊 Efecto Lifting Felino" data-img="images/spa/service-foxy.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Efecto Foxy Eyes</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$850</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Alargamiento lateral para estilizar y rasgar la mirada felina.</p>
+                                </div>
+
+                                <!-- 8. Efecto Kim K $850 -->
+                                <div class="chef-menu-item" data-service-id="kimk" data-category="Pestañas de Autor" data-price="$850 MXN" data-title="Efecto Kim K" data-subtitle="Espigas Puntiagudas & Estilo Celebrity" data-desc="Espigas más largas distribuidas simétricamente sobre una base de volumen denso. Crea el famoso look icónico de Kim Kardashian con textura despuntada." data-tag="✨ Estilo Icónico Kardashian" data-img="images/spa/service-kimk.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Efecto Kim K</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$850</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Espigas simétricas despuntadas sobre una base de volumen.</p>
+                                </div>
+
+                                <!-- 9. Efecto Wispy $850 -->
+                                <div class="chef-menu-item" data-service-id="wispy" data-category="Pestañas de Autor" data-price="$850 MXN" data-title="Efecto Wispy" data-subtitle="Textura Desordenada & Chic" data-desc="Juego dinámico de diferentes longitudes y grosores que imita el crecimiento natural pero con una textura vaporosa, plumosa y sumamente favorecedora." data-tag="🪶 Textura Plumosa & Chic" data-img="images/spa/service-wispy.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Efecto Wispy</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$850</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Longitudes alternadas para un look plumoso, ligero y moderno.</p>
+                                </div>
+
+                                <!-- 10. Volumen $850 -->
+                                <div class="chef-menu-item" data-service-id="volumen" data-category="Pestañas de Autor" data-price="$850 MXN" data-title="Volumen Ruso" data-subtitle="Densidad Sedosa & Abanicos 2D–4D" data-desc="Aplicación de abanicos artesanales ultraligeros de 2 a 4 extensiones por pestaña. Proporciona una densidad tupida y aterciopelada sin dañar la pestaña natural." data-tag="🖤 Densidad Aterciopelada" data-img="images/spa/service-volumen.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Volumen</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$850</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Abanicos suaves para una mirada densa, profunda y tupida.</p>
+                                </div>
+
+                                <!-- 11. Long Style $850 -->
+                                <div class="chef-menu-item" data-service-id="longstyle" data-category="Pestañas de Autor" data-price="$850 MXN" data-title="Long Style" data-subtitle="Longitudes Estilizadas & Alcance Máximo" data-desc="Diseño pensado para quienes aman las longitudes pronunciadas pero con una fibra de grosor pluma que garantiza la salud y retención de la pestaña." data-tag="📏 Longitud Extrema Segura" data-img="images/spa/service-longstyle.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Long Style</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$850</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Longitudes alargadas con distribución balanceada y segura.</p>
+                                </div>
+
+                                <!-- 12. Bitch Lashes $850 -->
+                                <div class="chef-menu-item" data-service-id="bitchlashes" data-category="Pestañas de Autor" data-price="$850 MXN" data-title="Bitch Lashes" data-subtitle="Mirada Atrevida & Personalidad Marcada" data-desc="Set de carácter audaz, curvaturas intensas y densidad focalizada. Diseñado para mujeres que buscan una presencia imponente y una mirada inolvidable." data-tag="🔥 Carácter Fuerte & Audaz" data-img="images/spa/service-bitchlashes.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Bitch Lashes</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$850</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Look audaz y marcado con volumen y curvaturas intensas.</p>
+                                </div>
+
+                                <!-- 13. Efecto Eyeliner $1,100 -->
+                                <div class="chef-menu-item" data-service-id="eyeliner" data-category="Pestañas de Autor" data-price="$1,100 MXN" data-title="Efecto Eyeliner" data-subtitle="Delineado Perfecto & Densidad en Base" data-desc="Mapeo milimétrico de alta precisión con longitudes cortas y tupidas en la base que recrean a la perfección un delineado negro intenso sin necesidad de maquillaje." data-tag="🖋️ Delineado Permanente Óptico" data-img="images/spa/service-eyeliner.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Efecto Eyeliner</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$1,100</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Simula un delineado perfecto con densidad compacta en la base.</p>
+                                </div>
+
+                                <!-- 14. Mega Volumen $1,100 -->
+                                <div class="chef-menu-item" data-service-id="megavolumen" data-category="Pestañas de Autor" data-price="$1,100 MXN" data-title="Mega Volumen" data-subtitle="Abanicos 6D–10D Ultrafinos de Terciopelo" data-desc="La máxima expresión del arte en pestañas. Abanicos de 6 a 10 fibras microscópicas de 0.03 mm que crean una oscuridad profunda, tupida y suave como la seda." data-tag="💎 Máxima Oscuridad & Suavidad" data-img="images/spa/service-megavolumen.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Mega Volumen</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$1,100</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Abanicos ultrafinos para una densidad extrema, suave y negra.</p>
+                                </div>
+
+                                <!-- 15. Aplicación Expréss $650 -->
+                                <div class="chef-menu-item" data-service-id="express" data-category="Pestañas de Autor" data-price="$650 MXN" data-title="Aplicación Expréss (1h 15m)" data-subtitle="Sesión Rápida de Alta Eficiencia" data-desc="Protocolo optimizado de colocación rápida en 75 minutos para clientas con agenda apretada que no quieren renunciar a una mirada impecable y profesional." data-tag="⚡ Sesión Rápida de 75 Min" data-img="images/spa/service-express.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Aplicación Expréss (1h 15m)</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$650</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Servicio rápido de 75 minutos para agendas apretadas.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- TABLITA 2: FACIALES & CUIDADO FACIAL (Target ID: #spaFaciales) -->
-                        <div class="chef-menu-board" id="spaFaciales">
+                        <!-- TABLITA 2: CEJAS HD & LIFTING (Target ID: #spaCejas) -->
+                        <div class="chef-menu-board board-category-brows" id="spaCejas">
                             <div class="chef-board-header">
                                 <div class="board-header-left">
-                                    <span class="chef-category-icon">🌸</span>
+                                    <span class="chef-category-icon">🪄</span>
                                     <div>
-                                        <span class="chef-sub-category">Sanctuary & Holistic Care</span>
-                                        <h3>Cuidado Facial & Piel</h3>
+                                        <span class="chef-sub-category">Brow Architecture & Natural Lift</span>
+                                        <h3>Cejas HD & Lifting de Pestañas</h3>
+                                    </div>
+                                </div>
+                                <span class="chef-badge-pill">Natural Care</span>
+                            </div>
+
+                            <div class="chef-menu-items-list">
+                                <!-- Lifting $400 -->
+                                <div class="chef-menu-item" data-service-id="lifting" data-category="Cejas & Lifting" data-price="$400 MXN" data-title="Lifting de Pestañas" data-subtitle="Curvatura Natural & Nutrición Profunda" data-desc="Elevación desde la raíz de tus propias pestañas naturales acompañada de baño de keratina y tinte negro profundo para abrir la mirada sin extensiones." data-tag="🌿 100% Pestaña Natural" data-img="images/spa/service-lifting.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Lifting de Pestañas</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$400</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Curvatura y nutrición profunda de tu pestaña natural con tinte.</p>
+                                </div>
+
+                                <!-- Cejas HD $450 -->
+                                <div class="chef-menu-item" data-service-id="cejas" data-category="Cejas & Lifting" data-price="$450 MXN" data-title="Cejas HD Completo" data-subtitle="Diseño, Depilación, Laminado & Henna" data-desc="Servicio integral 4 en 1 para cejas impecables: Diseño de visagismo según tu rostro, depilación de precisión, laminado para ordenarlas y pigmento Henna para sombreado semipermanente." data-tag="✨ Tratamiento 4 en 1 Completo" data-img="images/spa/service-cejas.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Cejas HD (Todo Incluido)</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$450</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Incluye: Diseño de Visagismo, Depilación, Laminado & Pigmento Henna.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TABLITA 3: MASAJES HOLÍSTICOS & TERAPÉUTICOS (Target ID: #spaMasajes) -->
+                        <div class="chef-menu-board board-category-massage" id="spaMasajes">
+                            <div class="chef-board-header">
+                                <div class="board-header-left">
+                                    <span class="chef-category-icon">🌿</span>
+                                    <div>
+                                        <span class="chef-sub-category">Sanctuary Body Rituals</span>
+                                        <h3>Masajes Holísticos & Terapéuticos</h3>
                                     </div>
                                 </div>
                                 <span class="chef-badge-pill">Cabina Privada</span>
                             </div>
 
                             <div class="chef-menu-items-list">
-                                <!-- Item 5: Limpieza Facial Profunda & Glow -->
-                                <div class="chef-menu-item" data-service-id="facial" data-category="Faciales & Rituales de Spa" data-title="Limpieza Facial Profunda & Glow" data-subtitle="Extracción Ultrasónica & Mascarilla Hidroplástica" data-desc="Protocolo médico-estético con vapor de ozono, desincrustación ultrasónica de poros sin dolor, tónico equilibrante y mascarilla hidroplástica personalizada con ácido hialurónico." data-tag="💎 Efecto Glow Inmediato" data-img="images/spa/service-facial.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                <!-- 1. Masaje Relajante $500 -->
+                                <div class="chef-menu-item" data-service-id="masaje-relajante" data-category="Masajes Holísticos" data-price="$500 MXN" data-title="Masaje Relajante" data-subtitle="Descompresión Antiestrés con Aromaterapia" data-desc="Masaje corporal completo de maniobras suaves y envolventes con aceites esenciales botánicos para disipar el estrés, calmar el sistema nervioso y renovar la energía." data-tag="🕯️ Paz & Relajación Antiestrés" data-img="images/spa/service-masaje.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
                                     <div class="item-main-row">
-                                        <span class="item-name">Limpieza Facial Profunda & Glow</span>
+                                        <span class="item-name">Masaje Relajante</span>
                                         <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$500</span>
                                         <span class="item-select-btn">Explorar →</span>
                                     </div>
-                                    <p class="item-short-desc">Extracción ultrasónica, vapor de ozono e hidratación profunda.</p>
+                                    <p class="item-short-desc">Descompresión corporal completa con aceites esenciales botánicos.</p>
                                 </div>
 
-                                <!-- Item 6: Dermaplaning & Piel de Porcelana -->
-                                <div class="chef-menu-item" data-service-id="dermaplaning" data-category="Faciales & Rituales de Spa" data-title="Dermaplaning & Piel de Porcelana" data-subtitle="Exfoliación Médica & Suavidad Extrema" data-desc="Retiro controlado de células muertas y vello facial con técnica quirúrgica suave. Deja la piel ultra sedosa, luminosa y lista para una absorción profunda de activos botánicos." data-tag="✨ Textura Seda de Porcelana" data-img="images/spa/service-dermaplaning.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                <!-- 2. Masaje Terapéutico $650 -->
+                                <div class="chef-menu-item" data-service-id="masaje-terapeutico" data-category="Masajes Holísticos" data-price="$650 MXN" data-title="Masaje Terapéutico" data-subtitle="Alivio de Contracturas & Tensión" data-desc="Técnica enfocada en liberar sobrecargas musculares, rigidez en cuello y espalda causadas por posturas o fatiga física, restaurando el bienestar muscular." data-tag="🩺 Alivio Muscular Focalizado" data-img="images/spa/service-masaje.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
                                     <div class="item-main-row">
-                                        <span class="item-name">Dermaplaning & Piel de Porcelana</span>
+                                        <span class="item-name">Masaje Terapéutico</span>
                                         <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$650</span>
                                         <span class="item-select-btn">Explorar →</span>
                                     </div>
-                                    <p class="item-short-desc">Exfoliación médica con bisturí para piel de porcelana y luminosidad.</p>
+                                    <p class="item-short-desc">Alivio de contracturas y rigidez muscular en espalda y cuello.</p>
                                 </div>
 
-                                <!-- Item 7: Henna Lips & Perfilado Hidratante -->
-                                <div class="chef-menu-item" data-service-id="lips" data-category="Faciales & Rituales de Spa" data-title="Henna Lips & Perfilado Hidratante" data-subtitle="Color Semipermanente & Efecto Labios Besados" data-desc="Tratamiento de color y nutrición con micropigmentos naturales de henna que perfilan y aportan un tono ruborizado saludable con máxima hidratación durante semanas." data-tag="💋 Tono Saludable Semipermanente" data-img="images/spa/service-lips.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                <!-- 3. Masaje Tejido Profundo $750 -->
+                                <div class="chef-menu-item" data-service-id="masaje-tejido" data-category="Masajes Holísticos" data-price="$750 MXN" data-title="Masaje Tejido Profundo" data-subtitle="Presión Firme & Liberación Miofascial" data-desc="Manipulación profunda de capas musculares y tejido conectivo para desarmar nudos crónicos y mejorar la movilidad en personas activas o con dolor postural." data-tag="💪 Presión Intensa & Descontracturante" data-img="images/spa/service-masaje.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
                                     <div class="item-main-row">
-                                        <span class="item-name">Henna Lips & Perfilado</span>
+                                        <span class="item-name">Masaje Tejido Profundo</span>
                                         <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$750</span>
                                         <span class="item-select-btn">Explorar →</span>
                                     </div>
-                                    <p class="item-short-desc">Color semipermanente hidratante con efecto labios besados.</p>
+                                    <p class="item-short-desc">Presión profunda para descontracturar capas musculares profundas.</p>
+                                </div>
+
+                                <!-- 4. Masaje Piedras Calientes $850 -->
+                                <div class="chef-menu-item" data-service-id="masaje-piedras" data-category="Masajes Holísticos" data-price="$850 MXN" data-title="Masaje con Piedras Calientes" data-subtitle="Termoterapia Volcánica & Armonización" data-desc="Terapia milenaria con piedras volcánicas basálticas calientes colocadas en puntos energéticos y deslizadas con aceites tibios para una sedación muscular total." data-tag="🪨 Termoterapia Volcánica" data-img="images/spa/service-masaje-piedras.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Masaje Piedras Calientes</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$850</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Piedras volcánicas calientes y aceites tibios para relajación profunda.</p>
+                                </div>
+
+                                <!-- 5. Masaje Ventosas $850 -->
+                                <div class="chef-menu-item" data-service-id="masaje-ventosas" data-category="Masajes Holísticos" data-price="$850 MXN" data-title="Masaje con Ventosas (Cupping)" data-subtitle="Desintoxicación & Reactivación Circulatoria" data-desc="Terapia de succión controlada que promueve la circulación sanguínea, desinflama tejidos y ayuda al drenaje de toxinas acumuladas en la musculatura." data-tag="🩸 Cupping Therapy & Drenaje" data-img="images/spa/service-masaje-ventosas.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Masaje con Ventosas</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$850</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Terapia de ventosas para desinflamar y reactivar circulación.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- TABLITA 3: RITUALES HOLÍSTICOS & BIENESTAR (Target ID: #spaRituales) -->
-                        <div class="chef-menu-board" id="spaRituales">
+                        <!-- TABLITA 4: PEDICURA SPA & COMBOS VIP (Target ID: #spaPedicura) -->
+                        <div class="chef-menu-board board-category-pedi" id="spaPedicura">
                             <div class="chef-board-header">
                                 <div class="board-header-left">
-                                    <span class="chef-category-icon">🕯️</span>
+                                    <span class="chef-category-icon">🌸</span>
                                     <div>
-                                        <span class="chef-sub-category">Sanctuary & Aromatherapy</span>
-                                        <h3>Rituales Holísticos</h3>
+                                        <span class="chef-sub-category">Nail Care & Foot Sanctuary</span>
+                                        <h3>Pedicura Spa & Combos VIP</h3>
                                     </div>
                                 </div>
-                                <span class="chef-badge-pill">Relajación Total</span>
+                                <span class="chef-badge-pill">Consentimiento Total</span>
                             </div>
 
                             <div class="chef-menu-items-list">
-                                <!-- Item 8: Ritual Relajante con Aromaterapia -->
-                                <div class="chef-menu-item" data-service-id="ritual" data-category="Faciales & Rituales de Spa" data-title="Ritual Relajante con Aromaterapia" data-subtitle="Descompresión Craneofacial & Masaje Sensorial" data-desc="Experiencia holística de relajación con aceites esenciales botánicos de lavanda y jazmín, masaje craneofacial antiestrés y terapia de sonido en cabina con luz tenue." data-tag="🕯️ Paz & Relajación Absoluta" data-img="images/spa/service-ritual.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                <!-- Combo VIP $799 -->
+                                <div class="chef-menu-item chef-item-highlight" data-service-id="combo-masaje-pedi" data-category="Combos VIP" data-price="$799 MXN" data-title="Combo: Masaje Relajante + Pedicura Spa" data-subtitle="Experiencia Integral de Consentimiento" data-desc="El paquete consentido de Cami's Lashes. Disfruta de un Masaje Relajante antiestrés en cabina privada y una Pedicura Spa completa para pies suaves y renovados a un precio especial." data-tag="👑 Experiencia VIP 2 en 1" data-img="images/spa/service-combo.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
                                     <div class="item-main-row">
-                                        <span class="item-name">Ritual Relajante & Aromaterapia</span>
+                                        <span class="item-name">✨ Combo: Masaje Relajante + Pedicura</span>
                                         <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag price-gold">$799</span>
                                         <span class="item-select-btn">Explorar →</span>
                                     </div>
-                                    <p class="item-short-desc">Masaje craneofacial antiestrés y descompresión en cabina privada.</p>
+                                    <p class="item-short-desc">Paquete 2 en 1: Masaje Relajante en cabina + Pedicura Spa completa.</p>
+                                </div>
+
+                                <!-- Pedicura Spa $350 -->
+                                <div class="chef-menu-item" data-service-id="pedicura-spa" data-category="Pedicura Spa" data-price="$350 MXN" data-title="Pedicura Spa" data-subtitle="Limpieza, Exfoliación & Pies de Seda" data-desc="Cuidado estético e higiénico con sales aromáticas, retiro de asperezas, corte y limado profesional, exfoliación botánica y masaje hidratante de pies." data-tag="🌸 Cuidado Botánico & Suavidad" data-img="images/spa/service-pedicura.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Pedicura Spa</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$350</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Exfoliación con sales, limado, hidratación y cuidado de cutículas.</p>
+                                </div>
+
+                                <!-- Pedicura Parafina $450 -->
+                                <div class="chef-menu-item" data-service-id="pedicura-parafina" data-category="Pedicura Spa" data-price="$450 MXN" data-title="Pedicura con Parafina" data-subtitle="Baño Tibio & Hidratación Extrema" data-desc="Pedicura completa enriquecida con mascarilla de parafina tibia que sella la humedad, alivia la resequedad extrema y deja la piel suave como seda." data-tag="✨ Hidratación Profunda con Parafina" data-img="images/spa/service-pedicura.jpg" onmouseenter="previewSpaService(this)" onclick="selectSpaService(this)">
+                                    <div class="item-main-row">
+                                        <span class="item-name">Pedicura con Parafina</span>
+                                        <span class="item-dots-leader"></span>
+                                        <span class="item-price-tag">$450</span>
+                                        <span class="item-select-btn">Explorar →</span>
+                                    </div>
+                                    <p class="item-short-desc">Baño tibio de parafina para una hidratación profunda y talones sedosos.</p>
                                 </div>
                             </div>
                         </div>
@@ -7779,13 +8104,18 @@
                             
                             <!-- Imagen Principal con Zoom y Transición Suave -->
                             <div class="showcase-img-wrap">
-                                <img src="images/spa/service-rimel.jpg" alt="Resultado de Pestañas & Spa" id="spaShowcaseMainImg" class="showcase-main-img">
+                                <img src="images/spa/service-clasicas.jpg" alt="Resultado de Pestañas & Spa" id="spaShowcaseMainImg" class="showcase-main-img">
                                 <div class="showcase-overlay-vignette"></div>
                                 
                                 <!-- Floating Result Badge -->
                                 <div class="showcase-floating-tag" id="spaShowcaseTag">
                                     <span class="sparkle-dot"></span>
-                                    <span id="spaShowcaseTagText">✨ Retención 6 Semanas</span>
+                                    <span id="spaShowcaseTagText">✨ Elegancia 1:1 Diaria</span>
+                                </div>
+
+                                <!-- Floating Price Badge on Image -->
+                                <div class="showcase-price-badge" id="spaShowcasePriceBadge">
+                                    <span id="spaShowcasePrice">$700 MXN</span>
                                 </div>
 
                                 <!-- Autoplay / Auto-Rotate Progress Bar -->
@@ -7798,12 +8128,12 @@
                             <div class="showcase-info-card">
                                 <div class="showcase-text-block">
                                     <span class="showcase-service-cat" id="spaShowcaseCat">Pestañas de Autor</span>
-                                    <h4 class="showcase-service-title" id="spaShowcaseTitle">Efecto Rímel & Wet Set</h4>
-                                    <p class="showcase-service-desc" id="spaShowcaseDesc">Aplicación de fibras tecnológicas con textura húmeda que simula el rímel recién aplicado sin grumos. Ideal para un look fresco, sofisticado y de máxima definición diaria.</p>
+                                    <h4 class="showcase-service-title" id="spaShowcaseTitle">Clásicas 1:1</h4>
+                                    <p class="showcase-service-desc" id="spaShowcaseDesc">Técnica de aislamiento milimétrico de una extensión por cada pestaña natural. Brinda una definición limpia, mirada descansada y elegancia atemporal para uso diario.</p>
                                 </div>
 
                                 <div class="showcase-action-row">
-                                    <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20para%20el%20servicio:%20Efecto%20Rímel" target="_blank" class="btn-showcase-book" id="spaShowcaseBookBtn">
+                                    <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20para%20el%20servicio:%20Clásicas%20($700%20MXN)" target="_blank" class="btn-showcase-book" id="spaShowcaseBookBtn">
                                         <span>🌿 Agendar Este Servicio</span>
                                         <span class="btn-arrow">→</span>
                                     </a>
@@ -7812,11 +8142,11 @@
 
                             <!-- Controles de Navegación Rápida de Fotos -->
                             <div class="showcase-gallery-pills" id="spaGalleryPills">
-                                <button type="button" class="gallery-pill active" onclick="jumpToSpaService('rimel', this)">Efecto Rímel</button>
-                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('ruso', this)">Volumen Ruso</button>
-                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('facial', this)">Facial Glow</button>
-                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('dermaplaning', this)">Dermaplaning</button>
-                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('lips', this)">Henna Lips</button>
+                                <button type="button" class="gallery-pill active" onclick="jumpToSpaService('clasicas', this)">Clásicas ($700)</button>
+                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('foxy', this)">Foxy ($850)</button>
+                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('eyeliner', this)">Eyeliner ($1100)</button>
+                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('cejas', this)">Cejas HD ($450)</button>
+                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('combo-masaje-pedi', this)">Combo Relax ($799)</button>
                             </div>
 
                         </div>
@@ -7910,7 +8240,6 @@
         </section>
 
     </div>
-
 
     <!-- ════════════════════════════════════════════════════════════
          4. SECCIÓN INTERACTIVA: CONOCE A LA FUNDADORA (CAMILA MARÍN)
@@ -10701,7 +11030,87 @@
 
             // Auto-rotate showcase works smoothly when idle
             window.startSpaAutoRotator = () => {
+                
+            // Spa Category Filtering Function
+            window.filterSpaCategory = (cat, tabBtn) => {
+                document.querySelectorAll('.spa-cat-tab').forEach(t => t.classList.remove('active'));
+                if (tabBtn) tabBtn.classList.add('active');
+
+                const boards = {
+                    'all': ['.board-category-lashes', '.board-category-brows', '.board-category-massage', '.board-category-pedi'],
+                    'lashes': ['.board-category-lashes'],
+                    'brows': ['.board-category-brows'],
+                    'massage': ['.board-category-massage'],
+                    'pedi': ['.board-category-pedi']
+                };
+
+                const allBoards = document.querySelectorAll('.chef-menu-board');
+                allBoards.forEach(b => b.style.display = 'none');
+
+                const targets = boards[cat] || boards['all'];
+                targets.forEach(sel => {
+                    document.querySelectorAll(sel).forEach(b => {
+                        b.style.display = 'block';
+                    });
+                });
+
+                // Update services list
                 window.initSpaServicesList();
+            };
+
+            // Enhanced Showcase update including Price
+            const origUpdateSpaShowcase = window.updateSpaShowcase;
+            window.updateSpaShowcase = (itemEl) => {
+                if (!itemEl) return;
+
+                const img = itemEl.getAttribute('data-img') || 'images/spa/service-clasicas.jpg';
+                const cat = itemEl.getAttribute('data-category') || 'Pestañas de Autor';
+                const title = itemEl.getAttribute('data-title') || 'Servicio de Spa';
+                const price = itemEl.getAttribute('data-price') || '$850 MXN';
+                const desc = itemEl.getAttribute('data-desc') || '';
+                const tag = itemEl.getAttribute('data-tag') || '✨ Experiencia de Autor';
+                const serviceId = itemEl.getAttribute('data-service-id') || '';
+
+                const mainImg = document.getElementById('spaShowcaseMainImg');
+                const catEl = document.getElementById('spaShowcaseCat');
+                const titleEl = document.getElementById('spaShowcaseTitle');
+                const descEl = document.getElementById('spaShowcaseDesc');
+                const tagEl = document.getElementById('spaShowcaseTagText');
+                const priceEl = document.getElementById('spaShowcasePrice');
+                const bookBtn = document.getElementById('spaShowcaseBookBtn');
+
+                if (mainImg) {
+                    mainImg.style.opacity = '0.3';
+                    mainImg.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        mainImg.src = img;
+                        mainImg.style.opacity = '1';
+                        mainImg.style.transform = 'scale(1.02)';
+                    }, 180);
+                }
+
+                if (catEl) catEl.textContent = cat;
+                if (titleEl) titleEl.textContent = title;
+                if (descEl) descEl.textContent = desc;
+                if (tagEl) tagEl.textContent = tag;
+                if (priceEl) priceEl.textContent = price;
+
+                if (bookBtn) {
+                    const cleanTitle = encodeURIComponent(`${title} (${price})`);
+                    bookBtn.href = `https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20para%20el%20servicio:%20${cleanTitle}`;
+                }
+
+                // Update active state in menu
+                document.querySelectorAll('.chef-menu-item').forEach(i => i.classList.remove('active'));
+                itemEl.classList.add('active');
+
+                // Update gallery pill if matched
+                document.querySelectorAll('.gallery-pill').forEach(p => p.classList.remove('active'));
+                const matchedPill = Array.from(document.querySelectorAll('.gallery-pill')).find(p => p.textContent.toLowerCase().includes(serviceId.toLowerCase()));
+                if (matchedPill) matchedPill.classList.add('active');
+            };
+
+            window.initSpaServicesList();
 
             // Smooth Scroll & Glow Handler for Spa Links
             document.querySelectorAll('#spaDesktopNav a, .spa-expanded-content a[href^="#"], .btn-nav-spa-cta').forEach(link => {
@@ -10756,6 +11165,86 @@
                 setTimeout(() => {
                     window.startSpaAutoRotator();
                 }, 800);
+            };
+
+            
+            // Spa Category Filtering Function
+            window.filterSpaCategory = (cat, tabBtn) => {
+                document.querySelectorAll('.spa-cat-tab').forEach(t => t.classList.remove('active'));
+                if (tabBtn) tabBtn.classList.add('active');
+
+                const boards = {
+                    'all': ['.board-category-lashes', '.board-category-brows', '.board-category-massage', '.board-category-pedi'],
+                    'lashes': ['.board-category-lashes'],
+                    'brows': ['.board-category-brows'],
+                    'massage': ['.board-category-massage'],
+                    'pedi': ['.board-category-pedi']
+                };
+
+                const allBoards = document.querySelectorAll('.chef-menu-board');
+                allBoards.forEach(b => b.style.display = 'none');
+
+                const targets = boards[cat] || boards['all'];
+                targets.forEach(sel => {
+                    document.querySelectorAll(sel).forEach(b => {
+                        b.style.display = 'block';
+                    });
+                });
+
+                // Update services list
+                window.initSpaServicesList();
+            };
+
+            // Enhanced Showcase update including Price
+            const origUpdateSpaShowcase = window.updateSpaShowcase;
+            window.updateSpaShowcase = (itemEl) => {
+                if (!itemEl) return;
+
+                const img = itemEl.getAttribute('data-img') || 'images/spa/service-clasicas.jpg';
+                const cat = itemEl.getAttribute('data-category') || 'Pestañas de Autor';
+                const title = itemEl.getAttribute('data-title') || 'Servicio de Spa';
+                const price = itemEl.getAttribute('data-price') || '$850 MXN';
+                const desc = itemEl.getAttribute('data-desc') || '';
+                const tag = itemEl.getAttribute('data-tag') || '✨ Experiencia de Autor';
+                const serviceId = itemEl.getAttribute('data-service-id') || '';
+
+                const mainImg = document.getElementById('spaShowcaseMainImg');
+                const catEl = document.getElementById('spaShowcaseCat');
+                const titleEl = document.getElementById('spaShowcaseTitle');
+                const descEl = document.getElementById('spaShowcaseDesc');
+                const tagEl = document.getElementById('spaShowcaseTagText');
+                const priceEl = document.getElementById('spaShowcasePrice');
+                const bookBtn = document.getElementById('spaShowcaseBookBtn');
+
+                if (mainImg) {
+                    mainImg.style.opacity = '0.3';
+                    mainImg.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        mainImg.src = img;
+                        mainImg.style.opacity = '1';
+                        mainImg.style.transform = 'scale(1.02)';
+                    }, 180);
+                }
+
+                if (catEl) catEl.textContent = cat;
+                if (titleEl) titleEl.textContent = title;
+                if (descEl) descEl.textContent = desc;
+                if (tagEl) tagEl.textContent = tag;
+                if (priceEl) priceEl.textContent = price;
+
+                if (bookBtn) {
+                    const cleanTitle = encodeURIComponent(`${title} (${price})`);
+                    bookBtn.href = `https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20para%20el%20servicio:%20${cleanTitle}`;
+                }
+
+                // Update active state in menu
+                document.querySelectorAll('.chef-menu-item').forEach(i => i.classList.remove('active'));
+                itemEl.classList.add('active');
+
+                // Update gallery pill if matched
+                document.querySelectorAll('.gallery-pill').forEach(p => p.classList.remove('active'));
+                const matchedPill = Array.from(document.querySelectorAll('.gallery-pill')).find(p => p.textContent.toLowerCase().includes(serviceId.toLowerCase()));
+                if (matchedPill) matchedPill.classList.add('active');
             };
 
             window.initSpaServicesList();
