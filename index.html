@@ -2256,6 +2256,159 @@
         }
 
 
+        
+        /* ══════════════════════════════════════════════
+           MIXED HIGHLIGHTS GRID (TODO EL MENÚ VIEW)
+           ══════════════════════════════════════════════ */
+        .spa-mixed-highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px;
+            margin-bottom: 25px;
+        }
+
+        .mixed-highlight-card {
+            background: linear-gradient(135deg, rgba(26, 18, 22, 0.92) 0%, rgba(16, 12, 14, 0.96) 100%);
+            border: 1px solid rgba(235, 198, 205, 0.22);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mixed-highlight-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(235, 198, 205, 0.5);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(235, 198, 205, 0.12);
+        }
+
+        .highlight-card-featured {
+            border-color: rgba(226, 199, 153, 0.45) !important;
+            background: linear-gradient(135deg, rgba(34, 24, 28, 0.95) 0%, rgba(20, 14, 16, 0.98) 100%) !important;
+        }
+
+        .m-card-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .m-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.7s ease;
+        }
+
+        .mixed-highlight-card:hover .m-card-img {
+            transform: scale(1.06);
+        }
+
+        .m-card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(18, 12, 16, 0.85);
+            border: 1px solid rgba(235, 198, 205, 0.4);
+            color: #FFF6F8;
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 999px;
+            backdrop-filter: blur(6px);
+        }
+
+        .m-card-price {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #EBC6CD 0%, #E2C799 100%);
+            color: #1A1215;
+            font-family: 'Cinzel', serif;
+            font-size: 0.92rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .m-card-content {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .m-card-cat {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #E2C799;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .m-card-content h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            color: #FFFFFF;
+            margin: 0 0 6px;
+        }
+
+        .m-card-content p {
+            font-size: 0.78rem;
+            color: rgba(255, 246, 248, 0.75);
+            line-height: 1.45;
+            margin: 0 0 14px;
+            flex: 1;
+        }
+
+        .m-card-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(235, 198, 205, 0.12);
+        }
+
+        .m-btn-explore {
+            font-size: 0.75rem;
+            color: #EBC6CD;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .mixed-highlight-card:hover .m-btn-explore {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+
+        .m-btn-wa {
+            background: linear-gradient(135deg, #EBC6CD 0%, #E2C799 100%);
+            color: #1A1215;
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            transition: transform 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .m-btn-wa:hover {
+            transform: translateY(-2px);
+            color: #120B0E;
+        }
+
+
         /* ══════════════════════════════════════════════
            LANDING PAGE HEADER STYLES (ACADEMY & SPA MODES)
            ══════════════════════════════════════════════ */
@@ -7746,7 +7899,157 @@
                 </div>
 
                 <!-- Layout Principal: Tablitas Estilo Chef (Izquierda) + Showcase Visual Interactivo (Derecha) -->
-                <div class="spa-menu-stage-grid">
+                                <!-- VISTA 1: MOSAICO MEZCLADO DESTACADO (Solo activo en "✨ Todo el Menú") -->
+                <div class="spa-mixed-highlights-grid" id="spaMixedHighlights">
+                    
+                    <!-- 1. Foxy Eyes (Pestañas) -->
+                    <div class="mixed-highlight-card" onclick="filterSpaCategory('lashes', document.querySelectorAll('.spa-cat-tab')[1]); jumpToSpaService('foxy');">
+                        <div class="m-card-img-wrap">
+                            <img src="images/spa/service-foxy.jpg" alt="Efecto Foxy Eyes" class="m-card-img">
+                            <span class="m-card-badge">🦊 Mirada Felina</span>
+                            <span class="m-card-price">$850</span>
+                        </div>
+                        <div class="m-card-content">
+                            <span class="m-card-cat">Pestañas de Autor</span>
+                            <h4>Efecto Foxy Eyes</h4>
+                            <p>Alargamiento lateral para estilizar y rasgar la mirada felina con visagismo.</p>
+                            <div class="m-card-actions">
+                                <span class="m-btn-explore">Ver en Menú →</span>
+                                <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20Efecto%20Foxy%20Eyes%20($850%20MXN)" target="_blank" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Combo VIP (Pedicura & Masaje) -->
+                    <div class="mixed-highlight-card highlight-card-featured" onclick="filterSpaCategory('pedi', document.querySelectorAll('.spa-cat-tab')[4]); jumpToSpaService('combo-masaje-pedi');">
+                        <div class="m-card-img-wrap">
+                            <img src="images/spa/service-combo.jpg" alt="Combo Masaje + Pedicura" class="m-card-img">
+                            <span class="m-card-badge">👑 Experiencia VIP 2 en 1</span>
+                            <span class="m-card-price price-gold">$799</span>
+                        </div>
+                        <div class="m-card-content">
+                            <span class="m-card-cat">Combos Exclusivos</span>
+                            <h4>Combo: Masaje Relajante + Pedicura</h4>
+                            <p>Paquete 2 en 1: Masaje antiestrés en cabina privada + Pedicura Spa completa.</p>
+                            <div class="m-card-actions">
+                                <span class="m-btn-explore">Ver en Menú →</span>
+                                <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20el%20Combo%20VIP%20Masaje%20+%20Pedicura%20($799%20MXN)" target="_blank" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Efecto Mojado / Wet Set (Pestañas) -->
+                    <div class="mixed-highlight-card" onclick="filterSpaCategory('lashes', document.querySelectorAll('.spa-cat-tab')[1]); jumpToSpaService('mojado');">
+                        <div class="m-card-img-wrap">
+                            <img src="images/spa/service-mojado.jpg" alt="Efecto Mojado" class="m-card-img">
+                            <span class="m-card-badge">💧 Tendencia Wet Look</span>
+                            <span class="m-card-price">$850</span>
+                        </div>
+                        <div class="m-card-content">
+                            <span class="m-card-cat">Pestañas de Autor</span>
+                            <h4>Efecto Mojado (Wet Set)</h4>
+                            <p>Puntas cerradas texturizadas de máxima tendencia con acabado brillante.</p>
+                            <div class="m-card-actions">
+                                <span class="m-btn-explore">Ver en Menú →</span>
+                                <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20Efecto%20Mojado%20($850%20MXN)" target="_blank" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Cejas HD Completo (Cejas) -->
+                    <div class="mixed-highlight-card" onclick="filterSpaCategory('brows', document.querySelectorAll('.spa-cat-tab')[2]); jumpToSpaService('cejas');">
+                        <div class="m-card-img-wrap">
+                            <img src="images/spa/service-cejas.jpg" alt="Cejas HD" class="m-card-img">
+                            <span class="m-card-badge">✨ Tratamiento 4 en 1</span>
+                            <span class="m-card-price">$450</span>
+                        </div>
+                        <div class="m-card-content">
+                            <span class="m-card-cat">Cejas & Lifting</span>
+                            <h4>Cejas HD (Todo Incluido)</h4>
+                            <p>Incluye: Diseño de Visagismo, Depilación, Laminado & Pigmento Henna.</p>
+                            <div class="m-card-actions">
+                                <span class="m-btn-explore">Ver en Menú →</span>
+                                <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20Cejas%20HD%20($450%20MXN)" target="_blank" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Masaje Piedras Calientes (Masajes) -->
+                    <div class="mixed-highlight-card" onclick="filterSpaCategory('massage', document.querySelectorAll('.spa-cat-tab')[3]); jumpToSpaService('masaje-piedras');">
+                        <div class="m-card-img-wrap">
+                            <img src="images/spa/service-masaje-piedras.jpg" alt="Masaje Piedras Calientes" class="m-card-img">
+                            <span class="m-card-badge">🪨 Termoterapia Volcánica</span>
+                            <span class="m-card-price">$850</span>
+                        </div>
+                        <div class="m-card-content">
+                            <span class="m-card-cat">Masajes Holísticos</span>
+                            <h4>Masaje Piedras Calientes</h4>
+                            <p>Piedras basálticas volcánicas y aceites tibios para sedación muscular total.</p>
+                            <div class="m-card-actions">
+                                <span class="m-btn-explore">Ver en Menú →</span>
+                                <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20Masaje%20Piedras%20Calientes%20($850%20MXN)" target="_blank" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Mega Volumen (Pestañas) -->
+                    <div class="mixed-highlight-card" onclick="filterSpaCategory('lashes', document.querySelectorAll('.spa-cat-tab')[1]); jumpToSpaService('megavolumen');">
+                        <div class="m-card-img-wrap">
+                            <img src="images/spa/service-megavolumen.jpg" alt="Mega Volumen" class="m-card-img">
+                            <span class="m-card-badge">💎 Máxima Densidad</span>
+                            <span class="m-card-price">$1,100</span>
+                        </div>
+                        <div class="m-card-content">
+                            <span class="m-card-cat">Pestañas de Autor</span>
+                            <h4>Mega Volumen de Terciopelo</h4>
+                            <p>Abanicos 6D–10D ultrafinos para máxima oscuridad, suavidad y ligereza.</p>
+                            <div class="m-card-actions">
+                                <span class="m-btn-explore">Ver en Menú →</span>
+                                <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20Mega%20Volumen%20($1100%20MXN)" target="_blank" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. Masaje Relajante (Masajes) -->
+                    <div class="mixed-highlight-card" onclick="filterSpaCategory('massage', document.querySelectorAll('.spa-cat-tab')[3]); jumpToSpaService('masaje-relajante');">
+                        <div class="m-card-img-wrap">
+                            <img src="images/spa/service-masaje.jpg" alt="Masaje Relajante" class="m-card-img">
+                            <span class="m-card-badge">🕯️ Descompresión Antiestrés</span>
+                            <span class="m-card-price">$500</span>
+                        </div>
+                        <div class="m-card-content">
+                            <span class="m-card-cat">Masajes Holísticos</span>
+                            <h4>Masaje Relajante Antiestrés</h4>
+                            <p>Maniobras suaves y envolventes con aceites esenciales botánicos de lavanda.</p>
+                            <div class="m-card-actions">
+                                <span class="m-btn-explore">Ver en Menú →</span>
+                                <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20Masaje%20Relajante%20($500%20MXN)" target="_blank" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. Pedicura Parafina (Pedicura) -->
+                    <div class="mixed-highlight-card" onclick="filterSpaCategory('pedi', document.querySelectorAll('.spa-cat-tab')[4]); jumpToSpaService('pedicura-parafina');">
+                        <div class="m-card-img-wrap">
+                            <img src="images/spa/service-pedicura.jpg" alt="Pedicura Parafina" class="m-card-img">
+                            <span class="m-card-badge">✨ Hidratación Extrema</span>
+                            <span class="m-card-price">$450</span>
+                        </div>
+                        <div class="m-card-content">
+                            <span class="m-card-cat">Pedicura Spa</span>
+                            <h4>Pedicura con Parafina</h4>
+                            <p>Baño tibio de parafina para hidratación celular profunda y pies de seda.</p>
+                            <div class="m-card-actions">
+                                <span class="m-btn-explore">Ver en Menú →</span>
+                                <a href="https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20Pedicura%20con%20Parafina%20($450%20MXN)" target="_blank" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- VISTA 2: LISTAS CATEGORIZADAS + SHOWCASE (Activo al elegir Pestañas, Cejas, Masajes o Pedicura) -->
+                <div class="spa-menu-stage-grid" id="spaCategorizedStage">
                     
                     <!-- Columna Izquierda: Las Tablitas Estilo Menú Chef -->
                     <div class="spa-menu-boards-col">
@@ -10955,72 +11258,56 @@
             let spaAutoTimer = null;
             let spaTimerInterval = null;
             let spaServiceIndex = 0;
+                        // ══════════════════════════════════════════════
+            // SPA BOUTIQUE & MENÚ CHEF JS ENGINE
+            // ══════════════════════════════════════════════
             let spaServicesList = [];
+            let currentSpaServiceIndex = 0;
+            let spaRotatorInterval = null;
 
             window.initSpaServicesList = () => {
-                const items = document.querySelectorAll('.chef-menu-item');
-                spaServicesList = Array.from(items);
-            };
-
-            window.updateSpaShowcase = (itemEl) => {
-                if (!itemEl) return;
-
-                const img = itemEl.getAttribute('data-img') || 'images/spa/service-rimel.jpg';
-                const cat = itemEl.getAttribute('data-category') || 'Pestañas de Autor';
-                const title = itemEl.getAttribute('data-title') || 'Servicio de Spa';
-                const desc = itemEl.getAttribute('data-desc') || '';
-                const tag = itemEl.getAttribute('data-tag') || '✨ Experiencia de Autor';
-                const serviceId = itemEl.getAttribute('data-service-id') || '';
-
-                const mainImg = document.getElementById('spaShowcaseMainImg');
-                const catEl = document.getElementById('spaShowcaseCat');
-                const titleEl = document.getElementById('spaShowcaseTitle');
-                const descEl = document.getElementById('spaShowcaseDesc');
-                const tagEl = document.getElementById('spaShowcaseTagText');
-                const bookBtn = document.getElementById('spaShowcaseBookBtn');
-
-                if (mainImg) {
-                    mainImg.style.opacity = '0.3';
-                    mainImg.style.transform = 'scale(1.05)';
-                    setTimeout(() => {
-                        mainImg.src = img;
-                        mainImg.style.opacity = '1';
-                        mainImg.style.transform = 'scale(1.02)';
-                    }, 180);
+                const visibleBoard = Array.from(document.querySelectorAll('.chef-menu-board')).find(b => b.style.display !== 'none' && b.offsetParent !== null) || document.querySelector('.board-category-lashes');
+                if (visibleBoard) {
+                    spaServicesList = Array.from(visibleBoard.querySelectorAll('.chef-menu-item'));
+                } else {
+                    spaServicesList = Array.from(document.querySelectorAll('.chef-menu-item'));
                 }
-
-                if (catEl) catEl.textContent = cat;
-                if (titleEl) titleEl.textContent = title;
-                if (descEl) descEl.textContent = desc;
-                if (tagEl) tagEl.textContent = tag;
-
-                if (bookBtn) {
-                    const cleanTitle = encodeURIComponent(title);
-                    bookBtn.href = `https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20para%20el%20servicio:%20${cleanTitle}`;
+                currentSpaServiceIndex = 0;
+                if (spaServicesList.length > 0) {
+                    window.updateSpaShowcase(spaServicesList[0]);
+                    window.startSpaAutoRotator();
                 }
-
-                // Update active state in menu
-                document.querySelectorAll('.chef-menu-item').forEach(i => i.classList.remove('active'));
-                itemEl.classList.add('active');
-
-                // Update gallery pill if matched
-                document.querySelectorAll('.gallery-pill').forEach(p => p.classList.remove('active'));
-                const matchedPill = Array.from(document.querySelectorAll('.gallery-pill')).find(p => p.textContent.toLowerCase().includes(serviceId.toLowerCase()));
-                if (matchedPill) matchedPill.classList.add('active');
             };
 
             window.previewSpaService = (itemEl) => {
+                if (!itemEl) return;
                 window.updateSpaShowcase(itemEl);
             };
 
             window.selectSpaService = (itemEl) => {
+                if (!itemEl) return;
                 window.updateSpaShowcase(itemEl);
+                if (spaRotatorInterval) {
+                    clearInterval(spaRotatorInterval);
+                    window.startSpaAutoRotator();
+                }
             };
 
             window.jumpToSpaService = (serviceId, pillBtn) => {
-                const targetItem = document.querySelector(`.chef-menu-item[data-service-id="${serviceId}"]`);
-                if (targetItem) {
-                    window.updateSpaShowcase(targetItem);
+                const matchedItem = Array.from(document.querySelectorAll('.chef-menu-item')).find(el => el.getAttribute('data-service-id') === serviceId);
+                if (matchedItem) {
+                    // Make sure parent board is visible
+                    const parentBoard = matchedItem.closest('.chef-menu-board');
+                    if (parentBoard && parentBoard.style.display === 'none') {
+                        document.querySelectorAll('.chef-menu-board').forEach(b => b.style.display = 'none');
+                        parentBoard.style.display = 'block';
+                        const stageGrid = document.getElementById('spaCategorizedStage');
+                        const mixedGrid = document.getElementById('spaMixedHighlights');
+                        if (stageGrid) stageGrid.style.display = 'grid';
+                        if (mixedGrid) mixedGrid.style.display = 'none';
+                    }
+                    window.updateSpaShowcase(matchedItem);
+                    matchedItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
                 if (pillBtn) {
                     document.querySelectorAll('.gallery-pill').forEach(p => p.classList.remove('active'));
@@ -11030,36 +11317,77 @@
 
             // Auto-rotate showcase works smoothly when idle
             window.startSpaAutoRotator = () => {
+                if (spaRotatorInterval) clearInterval(spaRotatorInterval);
+                const progressFill = document.getElementById('spaTimerProgress');
                 
-            // Spa Category Filtering Function
+                if (progressFill) {
+                    progressFill.style.transition = 'none';
+                    progressFill.style.width = '0%';
+                    setTimeout(() => {
+                        progressFill.style.transition = 'width 4s linear';
+                        progressFill.style.width = '100%';
+                    }, 50);
+                }
+
+                spaRotatorInterval = setInterval(() => {
+                    if (spaServicesList.length === 0) return;
+                    currentSpaServiceIndex = (currentSpaServiceIndex + 1) % spaServicesList.length;
+                    const nextItem = spaServicesList[currentSpaServiceIndex];
+                    window.updateSpaShowcase(nextItem);
+
+                    if (progressFill) {
+                        progressFill.style.transition = 'none';
+                        progressFill.style.width = '0%';
+                        setTimeout(() => {
+                            progressFill.style.transition = 'width 4s linear';
+                            progressFill.style.width = '100%';
+                        }, 50);
+                    }
+                }, 4000);
+            };
+
+            // Spa Category Filtering Function (Mixed Grid for "All", Clean Lists for Specific Categories)
             window.filterSpaCategory = (cat, tabBtn) => {
                 document.querySelectorAll('.spa-cat-tab').forEach(t => t.classList.remove('active'));
                 if (tabBtn) tabBtn.classList.add('active');
 
+                const mixedGrid = document.getElementById('spaMixedHighlights');
+                const stageGrid = document.getElementById('spaCategorizedStage');
+
                 const boards = {
-                    'all': ['.board-category-lashes', '.board-category-brows', '.board-category-massage', '.board-category-pedi'],
-                    'lashes': ['.board-category-lashes'],
-                    'brows': ['.board-category-brows'],
-                    'massage': ['.board-category-massage'],
-                    'pedi': ['.board-category-pedi']
+                    'lashes': '.board-category-lashes',
+                    'brows': '.board-category-brows',
+                    'massage': '.board-category-massage',
+                    'pedi': '.board-category-pedi'
                 };
 
-                const allBoards = document.querySelectorAll('.chef-menu-board');
-                allBoards.forEach(b => b.style.display = 'none');
+                if (cat === 'all') {
+                    // Show Mixed Curated Grid of Square Cards (Zero boring long list!)
+                    if (mixedGrid) mixedGrid.style.display = 'grid';
+                    if (stageGrid) stageGrid.style.display = 'none';
+                } else {
+                    // Show Clean, Focused Category Board + Live Side Showcase
+                    if (mixedGrid) mixedGrid.style.display = 'none';
+                    if (stageGrid) stageGrid.style.display = 'grid';
 
-                const targets = boards[cat] || boards['all'];
-                targets.forEach(sel => {
-                    document.querySelectorAll(sel).forEach(b => {
-                        b.style.display = 'block';
-                    });
-                });
-
-                // Update services list
+                    document.querySelectorAll('.chef-menu-board').forEach(b => b.style.display = 'none');
+                    const targetSelector = boards[cat];
+                    if (targetSelector) {
+                        const targetBoard = document.querySelector(targetSelector);
+                        if (targetBoard) {
+                            targetBoard.style.display = 'block';
+                            // Select first active item of that board for the showcase
+                            const firstItem = targetBoard.querySelector('.chef-menu-item');
+                            if (firstItem && window.updateSpaShowcase) {
+                                window.updateSpaShowcase(firstItem);
+                            }
+                        }
+                    }
+                }
                 window.initSpaServicesList();
             };
 
             // Enhanced Showcase update including Price
-            const origUpdateSpaShowcase = window.updateSpaShowcase;
             window.updateSpaShowcase = (itemEl) => {
                 if (!itemEl) return;
 
@@ -11110,144 +11438,44 @@
                 if (matchedPill) matchedPill.classList.add('active');
             };
 
-            window.initSpaServicesList();
-
-            // Smooth Scroll & Glow Handler for Spa Links
+            // Smooth scrolling to section targets with subtle highlight flash
             document.querySelectorAll('#spaDesktopNav a, .spa-expanded-content a[href^="#"], .btn-nav-spa-cta').forEach(link => {
                 link.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
-                    if (!href || !href.startsWith('#') || href === '#') return;
-                    
-                    const targetEl = document.querySelector(href);
-                    if (targetEl) {
+                    if (href && href.startsWith('#') && href.length > 1) {
                         e.preventDefault();
-                        const headerOffset = 90;
-                        const elementPosition = targetEl.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        const target = document.querySelector(href);
+                        if (target) {
+                            // If user clicked a specific category nav link, trigger filter tab
+                            if (href === '#spaLashes') window.filterSpaCategory('lashes', document.querySelectorAll('.spa-cat-tab')[1]);
+                            else if (href === '#spaCejas') window.filterSpaCategory('brows', document.querySelectorAll('.spa-cat-tab')[2]);
+                            else if (href === '#spaMasajes') window.filterSpaCategory('massage', document.querySelectorAll('.spa-cat-tab')[3]);
+                            else if (href === '#spaPedicura') window.filterSpaCategory('pedi', document.querySelectorAll('.spa-cat-tab')[4]);
+                            else if (href === '#spaMenu') window.filterSpaCategory('all', document.querySelectorAll('.spa-cat-tab')[0]);
 
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
+                            const offset = 90;
+                            const elementPosition = target.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-                        // Add glow pulse
-                        targetEl.classList.remove('spa-highlight-target');
-                        void targetEl.offsetWidth; // Trigger reflow
-                        targetEl.classList.add('spa-highlight-target');
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+
+                            // Soft glow highlight on target
+                            target.style.transition = 'box-shadow 0.6s ease';
+                            target.style.boxShadow = '0 0 45px rgba(235, 198, 205, 0.4)';
+                            setTimeout(() => {
+                                target.style.boxShadow = '';
+                            }, 1800);
+                        }
                     }
                 });
             });
 
-                if (!spaServicesList.length) return;
-
-                let progress = 0;
-                const progressBar = document.getElementById('spaTimerProgress');
-
-                if (spaTimerInterval) clearInterval(spaTimerInterval);
-
-                spaTimerInterval = setInterval(() => {
-                    progress += 2.5;
-                    if (progressBar) progressBar.style.width = progress + '%';
-
-                    if (progress >= 100) {
-                        progress = 0;
-                        if (progressBar) progressBar.style.width = '0%';
-                        spaServiceIndex = (spaServiceIndex + 1) % spaServicesList.length;
-                        window.updateSpaShowcase(spaServicesList[spaServiceIndex]);
-                    }
-                }, 100);
-            };
-
-            // Start auto rotator when Spa is active
-            const origSelectSpa = window.selectSpa;
-            window.selectSpa = (isInitial = false) => {
-                if (typeof origSelectSpa === 'function') origSelectSpa(isInitial);
-                setTimeout(() => {
-                    window.startSpaAutoRotator();
-                }, 800);
-            };
-
-            
-            // Spa Category Filtering Function
-            window.filterSpaCategory = (cat, tabBtn) => {
-                document.querySelectorAll('.spa-cat-tab').forEach(t => t.classList.remove('active'));
-                if (tabBtn) tabBtn.classList.add('active');
-
-                const boards = {
-                    'all': ['.board-category-lashes', '.board-category-brows', '.board-category-massage', '.board-category-pedi'],
-                    'lashes': ['.board-category-lashes'],
-                    'brows': ['.board-category-brows'],
-                    'massage': ['.board-category-massage'],
-                    'pedi': ['.board-category-pedi']
-                };
-
-                const allBoards = document.querySelectorAll('.chef-menu-board');
-                allBoards.forEach(b => b.style.display = 'none');
-
-                const targets = boards[cat] || boards['all'];
-                targets.forEach(sel => {
-                    document.querySelectorAll(sel).forEach(b => {
-                        b.style.display = 'block';
-                    });
-                });
-
-                // Update services list
-                window.initSpaServicesList();
-            };
-
-            // Enhanced Showcase update including Price
-            const origUpdateSpaShowcase = window.updateSpaShowcase;
-            window.updateSpaShowcase = (itemEl) => {
-                if (!itemEl) return;
-
-                const img = itemEl.getAttribute('data-img') || 'images/spa/service-clasicas.jpg';
-                const cat = itemEl.getAttribute('data-category') || 'Pestañas de Autor';
-                const title = itemEl.getAttribute('data-title') || 'Servicio de Spa';
-                const price = itemEl.getAttribute('data-price') || '$850 MXN';
-                const desc = itemEl.getAttribute('data-desc') || '';
-                const tag = itemEl.getAttribute('data-tag') || '✨ Experiencia de Autor';
-                const serviceId = itemEl.getAttribute('data-service-id') || '';
-
-                const mainImg = document.getElementById('spaShowcaseMainImg');
-                const catEl = document.getElementById('spaShowcaseCat');
-                const titleEl = document.getElementById('spaShowcaseTitle');
-                const descEl = document.getElementById('spaShowcaseDesc');
-                const tagEl = document.getElementById('spaShowcaseTagText');
-                const priceEl = document.getElementById('spaShowcasePrice');
-                const bookBtn = document.getElementById('spaShowcaseBookBtn');
-
-                if (mainImg) {
-                    mainImg.style.opacity = '0.3';
-                    mainImg.style.transform = 'scale(1.05)';
-                    setTimeout(() => {
-                        mainImg.src = img;
-                        mainImg.style.opacity = '1';
-                        mainImg.style.transform = 'scale(1.02)';
-                    }, 180);
-                }
-
-                if (catEl) catEl.textContent = cat;
-                if (titleEl) titleEl.textContent = title;
-                if (descEl) descEl.textContent = desc;
-                if (tagEl) tagEl.textContent = tag;
-                if (priceEl) priceEl.textContent = price;
-
-                if (bookBtn) {
-                    const cleanTitle = encodeURIComponent(`${title} (${price})`);
-                    bookBtn.href = `https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20para%20el%20servicio:%20${cleanTitle}`;
-                }
-
-                // Update active state in menu
-                document.querySelectorAll('.chef-menu-item').forEach(i => i.classList.remove('active'));
-                itemEl.classList.add('active');
-
-                // Update gallery pill if matched
-                document.querySelectorAll('.gallery-pill').forEach(p => p.classList.remove('active'));
-                const matchedPill = Array.from(document.querySelectorAll('.gallery-pill')).find(p => p.textContent.toLowerCase().includes(serviceId.toLowerCase()));
-                if (matchedPill) matchedPill.classList.add('active');
-            };
-
+            // Initialize spa services list
             window.initSpaServicesList();
+
 
             // Smooth Scroll & Glow Handler for Spa Links
             document.querySelectorAll('#spaDesktopNav a, .spa-expanded-content a[href^="#"], .btn-nav-spa-cta').forEach(link => {
