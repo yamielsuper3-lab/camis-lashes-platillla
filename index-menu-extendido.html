@@ -7734,7 +7734,514 @@
         body.night-mode .cal-custom-note p {
             color: rgba(248, 245, 239, 0.8);
         }
-    </style>
+    
+        /* ==========================================================================
+           LUXURY SPA & BEAUTY FOOTER & VIP BANNER STYLING
+           ========================================================================== */
+        footer.luxury-spa-footer {
+            background: linear-gradient(180deg, #140E12 0%, #0D090B 100%) !important;
+            color: rgba(255, 255, 255, 0.85) !important;
+            padding: 0 0 115px 0 !important;
+            border-top: 1.5px solid rgba(197, 160, 89, 0.4) !important;
+            font-size: 0.92rem !important;
+            position: relative !important;
+            overflow: hidden !important;
+            z-index: 10 !important;
+        }
+
+        footer.luxury-spa-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 120px;
+            background: radial-gradient(ellipse at top, rgba(235, 198, 205, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Pre-Footer Spa VIP Banner */
+        .spa-vip-banner-wrap {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 40px 25px 35px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .spa-vip-banner {
+            background: linear-gradient(135deg, rgba(38, 26, 33, 0.9) 0%, rgba(20, 14, 18, 0.98) 100%);
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            border-radius: 20px;
+            padding: 35px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .spa-vip-content {
+            max-width: 680px;
+        }
+
+        .spa-vip-tag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--primary-gold);
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .spa-vip-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.25;
+            margin-bottom: 10px;
+        }
+
+        .spa-vip-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        .spa-amenities-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .spa-pill {
+            background: rgba(235, 198, 205, 0.08);
+            border: 1px solid rgba(235, 198, 205, 0.2);
+            color: #EBC6CD;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 999px;
+            letter-spacing: 0.3px;
+        }
+
+        .spa-vip-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-width: 280px;
+        }
+
+        .btn-spa-vip-book {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #EBC6CD 0%, #E2C799 100%);
+            color: #1A1217 !important;
+            font-weight: 700;
+            font-size: 0.92rem;
+            padding: 15px 26px;
+            border-radius: 999px;
+            text-decoration: none !important;
+            box-shadow: 0 8px 25px rgba(226, 199, 153, 0.25);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-spa-vip-book:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(226, 199, 153, 0.45);
+            color: #000000 !important;
+        }
+
+        .btn-spa-icon {
+            display: flex;
+            align-items: center;
+            color: #128C7E;
+        }
+
+        .spa-response-time {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.55);
+            font-weight: 400;
+        }
+
+        /* 4-Column Grid */
+        footer.luxury-spa-footer .footer-container {
+            display: grid !important;
+            grid-template-columns: 1.2fr 1.3fr 1fr 1fr !important;
+            gap: 35px !important;
+            max-width: 1240px !important;
+            margin: 0 auto !important;
+            padding: 20px 25px 45px !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            position: relative !important;
+            z-index: 2 !important;
+        }
+
+        footer.luxury-spa-footer .footer-col h4 {
+            font-family: 'Cinzel', serif !important;
+            color: #FFFFFF !important;
+            font-size: 1.05rem !important;
+            letter-spacing: 1.5px !important;
+            text-transform: uppercase !important;
+            margin-bottom: 20px !important;
+            position: relative !important;
+            padding-bottom: 8px !important;
+        }
+
+        footer.luxury-spa-footer .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-gold), transparent) !important;
+        }
+
+        .footer-col-brand .footer-logo {
+            font-family: 'Cinzel', serif !important;
+            font-size: 1.5rem !important;
+            color: #FFFFFF !important;
+            text-decoration: none !important;
+            letter-spacing: 2px !important;
+            font-weight: 800 !important;
+            display: inline-block !important;
+            margin-bottom: 2px !important;
+        }
+
+        .footer-col-brand .footer-logo span {
+            color: var(--primary-gold) !important;
+        }
+
+        .footer-subtitle-tag {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #EBC6CD;
+            margin-bottom: 14px;
+        }
+
+        .footer-col-brand p {
+            font-size: 0.86rem;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        .footer-trust-badges {
+            display: flex;
+            gap: 8px;
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        /* Social Links List with Logos Next to Names */
+        .social-sub-desc {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 14px;
+            line-height: 1.4;
+        }
+
+        .social-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-card-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 8px 12px;
+            text-decoration: none !important;
+            transition: all 0.25s ease;
+        }
+
+        .social-card-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(197, 160, 89, 0.5);
+            transform: translateX(4px);
+        }
+
+        .social-icon-box {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.25s ease;
+        }
+
+        .social-card-item:hover .social-icon-box {
+            transform: scale(1.1);
+        }
+
+        .ig-box {
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            color: #FFFFFF;
+        }
+
+        .tiktok-box {
+            background: #000000;
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .fb-box {
+            background: #1877F2;
+            color: #FFFFFF;
+        }
+
+        .wa-box {
+            background: #25D366;
+            color: #FFFFFF;
+        }
+
+        .social-meta-info {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .social-platform-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.2;
+        }
+
+        .social-handle-text {
+            font-size: 0.74rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+        }
+
+        .social-arrow {
+            font-size: 0.9rem;
+            color: rgba(197, 160, 89, 0.6);
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .social-card-item:hover .social-arrow {
+            color: var(--primary-gold);
+            transform: translate(2px, -2px);
+        }
+
+        /* Location Details */
+        .location-details-box {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .location-address {
+            font-size: 0.86rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+
+        .location-address strong {
+            color: #FFFFFF;
+        }
+
+        .location-note {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.55);
+            font-style: italic;
+            margin: 0;
+        }
+
+        .btn-footer-maps {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary-gold) !important;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none !important;
+            margin-top: 4px;
+            transition: gap 0.2s ease, color 0.2s ease;
+        }
+
+        .btn-footer-maps:hover {
+            color: #FFFFFF !important;
+            gap: 10px;
+        }
+
+        /* Hours List */
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 14px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.82rem;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+            padding-bottom: 6px;
+        }
+
+        .day-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+        }
+
+        .time-label {
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        .closed-tag {
+            color: #EBC6CD;
+            font-size: 0.76rem;
+        }
+
+        .spa-live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(39, 174, 96, 0.12);
+            border: 1px solid rgba(39, 174, 96, 0.35);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            color: #2ECC71;
+            font-weight: 600;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #2ECC71;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #2ECC71;
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.3); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Footer Bottom Bar */
+        footer.luxury-spa-footer .footer-bottom {
+            max-width: 1240px !important;
+            margin: 0 auto !important;
+            padding: 22px 25px 0 !important;
+            position: relative !important;
+            z-index: 2 !important;
+        }
+
+        .footer-bottom-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .copyright-text strong {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .legal-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.5) !important;
+            text-decoration: none !important;
+            transition: color 0.2s ease;
+        }
+
+        .legal-links a:hover {
+            color: var(--primary-gold) !important;
+        }
+
+        .dev-tag strong {
+            color: var(--primary-gold);
+        }
+
+        .sep {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .spa-vip-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 25px;
+            }
+            .spa-amenities-pills {
+                justify-content: center;
+            }
+            .spa-vip-action {
+                width: 100%;
+            }
+            footer.luxury-spa-footer .footer-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 30px !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            footer.luxury-spa-footer .footer-container {
+                grid-template-columns: 1fr !important;
+                gap: 28px !important;
+            }
+            .footer-bottom-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .legal-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+</style>
     <!-- GSAP Libraries for Diamond Portal Transition -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
@@ -10249,41 +10756,170 @@
             }
         });
     </script>
-    <footer>
-        <div class="footer-container">
-            <!-- Columna 1: Branding -->
-            <div class="footer-col">
-                <a href="#" class="footer-logo">CAMI'S <span>LASHES</span></a>
-                <p>Estética premium de pestañas y academia de alto rendimiento. Elevando miradas y empoderando profesionales de la belleza.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link" title="Instagram">IG</a>
-                    <a href="#" class="social-link" title="Facebook">FB</a>
-                    <a href="#" class="social-link" title="WhatsApp">WA</a>
+    <!-- LUXURY SPA & BEAUTY FOOTER & PRE-FOOTER BANNER -->
+    <footer class="luxury-spa-footer">
+        
+        <!-- PRE-FOOTER SPA & BEAUTY VIP BANNER -->
+        <div class="spa-vip-banner-wrap">
+            <div class="spa-vip-banner">
+                <div class="spa-vip-content">
+                    <span class="spa-vip-tag">✦ SANTUARIO DE BELLEZA & ACADEMIA INTERNACIONAL ✦</span>
+                    <h3 class="spa-vip-title">Eleva Tu Mirada en un Espacio Diseñado para tu Calma</h3>
+                    <p class="spa-vip-desc">Disfruta de una experiencia sensorial única en Puerto Vallarta con visagismo de autor, aromaterapia relajante y atención 1 a 1 de alta precisión.</p>
+                    
+                    <div class="spa-amenities-pills">
+                        <span class="spa-pill">🌸 Cabina Climatizada</span>
+                        <span class="spa-pill">✨ Diagnóstico de Visagismo</span>
+                        <span class="spa-pill">💎 Fibras Hipoalergénicas</span>
+                        <span class="spa-pill">☕ Café Gourmet & Té Relax</span>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Columna 2: Ubicación Oficial -->
-            <div class="footer-col">
-                <h4>Ubicación Oficial</h4>
-                <ul>
-                    <li><strong>Studio & Academy:</strong> <a href="https://www.google.com/maps/place/Cami's+Lashes+Studio/@20.6352791,-105.2308862,17z/data=!4m15!1m8!3m7!1s0x8421456529e770e1:0x8cebe9efb185f1b2!2sFrancia+140,+Versalles,+48310+Puerto+Vallarta,+Jal.!3b1!8m2!3d20.6352791!4d-105.2283113!16s%2Fg%2F11c1ht33t2!3m5!1s0x8421457cef11d937:0xd0a3589c24469c34!8m2!3d20.634762!4d-105.2286707!16s%2Fg%2F11ngjhl75f?entry=ttu" target="_blank" style="color: inherit; text-decoration: underline;">Francia 140, Versalles, 48310 Puerto Vallarta, Jal.</a></li>
-                </ul>
-            </div>
-
-            <!-- Columna 3: Horarios -->
-            <div class="footer-col">
-                <h4>Horarios de Atención</h4>
-                <ul>
-                    <li>Lunes a Viernes: 10:00 AM – 8:00 PM</li>
-                    <li>Sábados: 10:00 AM – 6:00 PM</li>
-                    <li>Domingos: Cerrado</li>
-                </ul>
+                <div class="spa-vip-action">
+                    <a href="https://api.whatsapp.com/send?phone=5214731002030&text=%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20en%20el%20Santuario%20Spa%20o%20solicitar%20informaci%C3%B3n%20de%20la%20Academia." target="_blank" rel="noopener noreferrer" class="btn-spa-vip-book">
+                        <span class="btn-spa-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.301-.15-1.782-.879-2.058-.979-.276-.1-.477-.15-.678.15-.201.3-.778.979-.954 1.18-.176.2-.352.226-.653.076-.301-.15-1.272-.469-2.423-1.496-.896-.799-1.501-1.786-1.677-2.087-.176-.3-.019-.462.132-.612.136-.135.301-.351.452-.527.15-.176.201-.301.301-.502.101-.2.05-.376-.025-.527-.075-.15-.678-1.633-.929-2.234-.244-.585-.492-.505-.678-.514-.176-.008-.377-.01-.578-.01-.201 0-.527.075-.803.376s-1.054 1.03-1.054 2.511c0 1.481 1.079 2.911 1.23 3.112.15.2 2.124 3.243 5.145 4.549.719.311 1.28.497 1.718.636.722.23 1.378.197 1.897.12.578-.087 1.782-.728 2.033-1.431.251-.703.251-1.305.176-1.43-.075-.126-.276-.201-.577-.352zM12 21.8c-1.782 0-3.486-.474-4.978-1.31l-.356-.203-3.699.97.987-3.606-.23-.367c-.933-1.488-1.424-3.21-1.424-4.984 0-5.348 4.352-9.7 9.7-9.7 2.591 0 5.027 1.009 6.86 2.841 1.832 1.832 2.84 4.269 2.84 6.859 0 5.348-4.352 9.7-9.7 9.7zm0-21.8c-6.627 0-12 5.373-12 12 0 2.115.549 4.103 1.512 5.834l-1.512 5.53 5.674-1.488c1.677.915 3.593 1.424 5.626 1.424 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/></svg>
+                        </span>
+                        <span>Agendar Cita Spa por WhatsApp</span>
+                    </a>
+                    <span class="spa-response-time">⚡ Respuesta inmediata en cabina</span>
+                </div>
             </div>
         </div>
 
+        <!-- MAIN 4-COLUMN FOOTER CONTAINER -->
+        <div class="footer-container">
+            
+            <!-- Columna 1: Identidad & Filosofía -->
+            <div class="footer-col footer-col-brand">
+                <a href="#" class="footer-logo">CAMI'S <span>LASHES</span></a>
+                <span class="footer-subtitle-tag">SANTUARIO SPA & ACADEMY</span>
+                <p>Estética boutique de alta gama especializada en extensiones de pestañas de autor, cejas HD y formación internacional para Master Lash Artists en Puerto Vallarta.</p>
+                <div class="footer-trust-badges">
+                    <span class="trust-badge">📍 Puerto Vallarta</span>
+                    <span class="trust-badge">🏆 Master Trainer</span>
+                </div>
+            </div>
+
+            <!-- Columna 2: Redes Sociales Oficiales con Logos al Lado de Nombres -->
+            <div class="footer-col footer-col-social">
+                <h4>Nuestras Redes Oficiales</h4>
+                <p class="social-sub-desc">Sigue nuestras transformaciones, masterclasses y tendencias diarias:</p>
+                
+                <div class="social-links-list">
+                    
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/camis_lashes/" target="_blank" rel="noopener noreferrer" class="social-card-item social-ig" title="Instagram Oficial Cami's Lashes">
+                        <div class="social-icon-box ig-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689-.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
+                        <div class="social-meta-info">
+                            <span class="social-platform-name">Instagram</span>
+                            <span class="social-handle-text">@camis_lashes</span>
+                        </div>
+                        <span class="social-arrow">↗</span>
+                    </a>
+
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@camislashes" target="_blank" rel="noopener noreferrer" class="social-card-item social-tiktok" title="TikTok Oficial Cami's Lashes">
+                        <div class="social-icon-box tiktok-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/>
+                            </svg>
+                        </div>
+                        <div class="social-meta-info">
+                            <span class="social-platform-name">TikTok</span>
+                            <span class="social-handle-text">@camislashes</span>
+                        </div>
+                        <span class="social-arrow">↗</span>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/Camislashes.academy" target="_blank" rel="noopener noreferrer" class="social-card-item social-fb" title="Facebook Academy">
+                        <div class="social-icon-box fb-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </div>
+                        <div class="social-meta-info">
+                            <span class="social-platform-name">Facebook</span>
+                            <span class="social-handle-text">Camislashes.academy</span>
+                        </div>
+                        <span class="social-arrow">↗</span>
+                    </a>
+
+                    <!-- WhatsApp VIP -->
+                    <a href="https://api.whatsapp.com/send?phone=5214731002030&text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="social-card-item social-wa" title="WhatsApp Citas Directas">
+                        <div class="social-icon-box wa-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.301-.15-1.782-.879-2.058-.979-.276-.1-.477-.15-.678.15-.201.3-.778.979-.954 1.18-.176.2-.352.226-.653.076-.301-.15-1.272-.469-2.423-1.496-.896-.799-1.501-1.786-1.677-2.087-.176-.3-.019-.462.132-.612.136-.135.301-.351.452-.527.15-.176.201-.301.301-.502.101-.2.05-.376-.025-.527-.075-.15-.678-1.633-.929-2.234-.244-.585-.492-.505-.678-.514-.176-.008-.377-.01-.578-.01-.201 0-.527.075-.803.376s-1.054 1.03-1.054 2.511c0 1.481 1.079 2.911 1.23 3.112.15.2 2.124 3.243 5.145 4.549.719.311 1.28.497 1.718.636.722.23 1.378.197 1.897.12.578-.087 1.782-.728 2.033-1.431.251-.703.251-1.305.176-1.43-.075-.126-.276-.201-.577-.352zM12 21.8c-1.782 0-3.486-.474-4.978-1.31l-.356-.203-3.699.97.987-3.606-.23-.367c-.933-1.488-1.424-3.21-1.424-4.984 0-5.348 4.352-9.7 9.7-9.7 2.591 0 5.027 1.009 6.86 2.841 1.832 1.832 2.84 4.269 2.84 6.859 0 5.348-4.352 9.7-9.7 9.7zm0-21.8c-6.627 0-12 5.373-12 12 0 2.115.549 4.103 1.512 5.834l-1.512 5.53 5.674-1.488c1.677.915 3.593 1.424 5.626 1.424 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <div class="social-meta-info">
+                            <span class="social-platform-name">WhatsApp Directo</span>
+                            <span class="social-handle-text">+52 (473) 100 2030</span>
+                        </div>
+                        <span class="social-arrow">↗</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Columna 3: Ubicación Oficial -->
+            <div class="footer-col footer-col-location">
+                <h4>Santuario & Ubicación</h4>
+                <div class="location-details-box">
+                    <p class="location-address">
+                        <span class="loc-pin">📍</span>
+                        <strong>Calle Francia 140</strong>, Col. Versalles, 48310 Puerto Vallarta, Jalisco.
+                    </p>
+                    <p class="location-note">En el corazón de la zona gastronómica y de bienestar de Versalles.</p>
+                    <a href="https://www.google.com/maps/place/Cami's+Lashes+Studio/@20.6352791,-105.2308862,17z/data=!4m15!1m8!3m7!1s0x8421456529e770e1:0x8cebe9efb185f1b2!2sFrancia+140,+Versalles,+48310+Puerto+Vallarta,+Jal.!3b1!8m2!3d20.6352791!4d-105.2283113!16s%2Fg%2F11c1ht33t2!3m5!1s0x8421457cef11d937:0xd0a3589c24469c34!8m2!3d20.634762!4d-105.2286707!16s%2Fg%2F11ngjhl75f?entry=ttu" target="_blank" rel="noopener noreferrer" class="btn-footer-maps">
+                        <span>Ver en Google Maps</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna 4: Horarios & Estatus -->
+            <div class="footer-col footer-col-hours">
+                <h4>Horarios de Atención</h4>
+                <ul class="hours-list">
+                    <li>
+                        <span class="day-label">Lunes a Viernes:</span>
+                        <span class="time-label">10:00 AM – 8:00 PM</span>
+                    </li>
+                    <li>
+                        <span class="day-label">Sábados:</span>
+                        <span class="time-label">10:00 AM – 6:00 PM</span>
+                    </li>
+                    <li>
+                        <span class="day-label">Domingos:</span>
+                        <span class="time-label closed-tag">Cerrado (Citas VIP)</span>
+                    </li>
+                </ul>
+                <div class="spa-live-badge">
+                    <span class="pulse-dot"></span>
+                    <span>Atención Exclusiva Previa Cita</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER BOTTOM COPYRIGHT BAR -->
         <div class="footer-bottom">
-            <p>&copy; 2026 Cami's Lashes. Todos los derechos reservados.</p>
-            <p><a href="#">Aviso de Privacidad</a>  |  <a href="#">Términos de Servicio</a></p>
+            <div class="footer-bottom-inner">
+                <p class="copyright-text">&copy; 2026 <strong>Cami's Lashes</strong>. Todos los derechos reservados. Santuario de Belleza & Academia.</p>
+                <div class="legal-links">
+                    <a href="#aviso">Aviso de Privacidad</a>
+                    <span class="sep">•</span>
+                    <a href="#terminos">Términos de Servicio</a>
+                    <span class="sep">•</span>
+                    <span class="dev-tag">Diseñado por <strong>Yamiel Derbez</strong></span>
+                </div>
+            </div>
         </div>
     </footer>
     </div> <!-- FIN CAPA INFERIOR: Tu página real -->
