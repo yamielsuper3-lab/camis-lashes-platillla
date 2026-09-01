@@ -8152,509 +8152,235 @@
 
 
         /* ==========================================================================
-           LUXURY SPA & BEAUTY FOOTER & VIP BANNER STYLING
+           HOLOGRAPHIC CENTER-OUTWARD EXPANDING VIDEO PORTAL (CAMILA MASTER TRAINER)
            ========================================================================== */
-        footer.luxury-spa-footer {
-            background: linear-gradient(180deg, #140E12 0%, #0D090B 100%) !important;
-            color: rgba(255, 255, 255, 0.85) !important;
-            padding: 0 0 115px 0 !important;
-            border-top: 1.5px solid rgba(197, 160, 89, 0.4) !important;
-            font-size: 0.92rem !important;
-            position: relative !important;
-            overflow: hidden !important;
-            z-index: 10 !important;
+        
+        .founder-media-inner {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            background: #0D0B0D;
         }
 
-        footer.luxury-spa-footer::before {
+        #founderPortraitImg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 10%;
+            transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+            display: block;
+        }
+
+        /* Center Hologram Portal Container */
+        .founder-holo-portal {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(0);
+            transform-origin: center center;
+            border-radius: 22px;
+            overflow: hidden;
+            z-index: 30;
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.55s cubic-bezier(0.16, 1.25, 0.3, 1), opacity 0.35s ease, box-shadow 0.5s ease;
+            box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+            background: #000000;
+        }
+
+        /* Active State - Expands Outward from Center */
+        .founder-media-frame.holo-active .founder-holo-portal {
+            transform: scale(1);
+            opacity: 1;
+            pointer-events: auto;
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.4), 0 25px 60px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Holographic Laser Ring Pulse from Center */
+        .holo-pulse-emitter {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            transform: translate(-50%, -50%) scale(0);
+            border-radius: 50%;
+            border: 2px solid #E2C799;
+            box-shadow: 0 0 30px #D4AF37, inset 0 0 20px #EBC6CD;
+            z-index: 25;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .founder-media-frame.holo-pulsing .holo-pulse-emitter {
+            animation: holoPulseOut 0.75s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes holoPulseOut {
+            0% { transform: translate(-50%, -50%) scale(0.2); opacity: 1; }
+            50% { opacity: 0.9; }
+            100% { transform: translate(-50%, -50%) scale(5.5); opacity: 0; }
+        }
+
+        /* Holographic Shimmer Sweep (Subtle & Crisp) */
+        .founder-holo-portal::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 120px;
-            background: radial-gradient(ellipse at top, rgba(235, 198, 205, 0.08) 0%, transparent 70%);
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                transparent 0%,
+                rgba(212, 175, 55, 0.12) 49%,
+                rgba(235, 198, 205, 0.25) 50%,
+                rgba(212, 175, 55, 0.12) 51%,
+                transparent 100%
+            );
+            background-size: 100% 250%;
             pointer-events: none;
+            z-index: 5;
+            opacity: 0;
         }
 
-        /* Pre-Footer Spa VIP Banner */
-        .spa-vip-banner-wrap {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 40px 25px 35px;
+        .founder-media-frame.holo-active .founder-holo-portal::after {
+            opacity: 0.35;
+            animation: scanlineSweep 4s linear infinite;
+        }
+
+        @keyframes scanlineSweep {
+            0% { background-position: 0 -250%; }
+            100% { background-position: 0 250%; }
+        }
+
+        /* Video element inside portal */
+        .founder-holo-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 22px;
+            background: #000;
             position: relative;
             z-index: 2;
         }
 
-        .spa-vip-banner {
-            background: linear-gradient(135deg, rgba(38, 26, 33, 0.9) 0%, rgba(20, 14, 18, 0.98) 100%);
-            border: 1px solid rgba(197, 160, 89, 0.35);
-            border-radius: 20px;
-            padding: 35px 40px;
+        /* Holographic Top Control Bar */
+        .holo-top-bar {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            right: 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 30px;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            z-index: 15;
+            pointer-events: auto;
         }
 
-        .spa-vip-content {
-            max-width: 680px;
-        }
-
-        .spa-vip-tag {
-            font-size: 0.78rem;
+        .holo-live-tag {
+            background: rgba(18, 14, 17, 0.88);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            color: #E2C799;
+            font-size: 0.74rem;
             font-weight: 700;
-            letter-spacing: 2.5px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--primary-gold);
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        .spa-vip-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            line-height: 1.25;
-            margin-bottom: 10px;
-        }
-
-        .spa-vip-desc {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.75);
-            line-height: 1.6;
-            margin-bottom: 16px;
-            font-weight: 300;
-        }
-
-        .spa-amenities-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .spa-pill {
-            background: rgba(235, 198, 205, 0.08);
-            border: 1px solid rgba(235, 198, 205, 0.2);
-            color: #EBC6CD;
-            font-size: 0.78rem;
-            font-weight: 600;
             padding: 5px 12px;
             border-radius: 999px;
-            letter-spacing: 0.3px;
-        }
-
-        .spa-vip-action {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            min-width: 280px;
-        }
-
-        .btn-spa-vip-book {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #EBC6CD 0%, #E2C799 100%);
-            color: #1A1217 !important;
-            font-weight: 700;
-            font-size: 0.92rem;
-            padding: 15px 26px;
-            border-radius: 999px;
-            text-decoration: none !important;
-            box-shadow: 0 8px 25px rgba(226, 199, 153, 0.25);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            width: 100%;
-            text-align: center;
+            gap: 7px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
-        .btn-spa-vip-book:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(226, 199, 153, 0.45);
-            color: #000000 !important;
-        }
-
-        .btn-spa-icon {
-            display: flex;
-            align-items: center;
-            color: #128C7E;
-        }
-
-        .spa-response-time {
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.55);
-            font-weight: 400;
-        }
-
-        /* 4-Column Grid */
-        footer.luxury-spa-footer .footer-container {
-            display: grid !important;
-            grid-template-columns: 1.2fr 1.3fr 1fr 1fr !important;
-            gap: 35px !important;
-            max-width: 1240px !important;
-            margin: 0 auto !important;
-            padding: 20px 25px 45px !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-            position: relative !important;
-            z-index: 2 !important;
-        }
-
-        footer.luxury-spa-footer .footer-col h4 {
-            font-family: 'Cinzel', serif !important;
-            color: #FFFFFF !important;
-            font-size: 1.05rem !important;
-            letter-spacing: 1.5px !important;
-            text-transform: uppercase !important;
-            margin-bottom: 20px !important;
-            position: relative !important;
-            padding-bottom: 8px !important;
-        }
-
-        footer.luxury-spa-footer .footer-col h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 35px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-gold), transparent) !important;
-        }
-
-        .footer-col-brand .footer-logo {
-            font-family: 'Cinzel', serif !important;
-            font-size: 1.5rem !important;
-            color: #FFFFFF !important;
-            text-decoration: none !important;
-            letter-spacing: 2px !important;
-            font-weight: 800 !important;
-            display: inline-block !important;
-            margin-bottom: 2px !important;
-        }
-
-        .footer-col-brand .footer-logo span {
-            color: var(--primary-gold) !important;
-        }
-
-        .footer-subtitle-tag {
-            display: block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #EBC6CD;
-            margin-bottom: 14px;
-        }
-
-        .footer-col-brand p {
-            font-size: 0.86rem;
-            line-height: 1.65;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 16px;
-            font-weight: 300;
-        }
-
-        .footer-trust-badges {
-            display: flex;
-            gap: 8px;
-        }
-
-        .trust-badge {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(197, 160, 89, 0.25);
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.72rem;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 6px;
-        }
-
-        /* Social Links List with Logos Next to Names */
-        .social-sub-desc {
-            font-size: 0.82rem;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 14px;
-            line-height: 1.4;
-        }
-
-        .social-links-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .social-card-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 8px 12px;
-            text-decoration: none !important;
-            transition: all 0.25s ease;
-        }
-
-        .social-card-item:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(197, 160, 89, 0.5);
-            transform: translateX(4px);
-        }
-
-        .social-icon-box {
-            width: 34px;
-            height: 34px;
-            border-radius: 9px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: transform 0.25s ease;
-        }
-
-        .social-card-item:hover .social-icon-box {
-            transform: scale(1.1);
-        }
-
-        .ig-box {
-            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-            color: #FFFFFF;
-        }
-
-        .tiktok-box {
-            background: #000000;
-            color: #FFFFFF;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .fb-box {
-            background: #1877F2;
-            color: #FFFFFF;
-        }
-
-        .wa-box {
-            background: #25D366;
-            color: #FFFFFF;
-        }
-
-        .social-meta-info {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .social-platform-name {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            line-height: 1.2;
-        }
-
-        .social-handle-text {
-            font-size: 0.74rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 400;
-        }
-
-        .social-arrow {
-            font-size: 0.9rem;
-            color: rgba(197, 160, 89, 0.6);
-            transition: transform 0.25s ease, color 0.25s ease;
-        }
-
-        .social-card-item:hover .social-arrow {
-            color: var(--primary-gold);
-            transform: translate(2px, -2px);
-        }
-
-        /* Location Details */
-        .location-details-box {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .location-address {
-            font-size: 0.86rem;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.85);
-            margin: 0;
-        }
-
-        .location-address strong {
-            color: #FFFFFF;
-        }
-
-        .location-note {
-            font-size: 0.78rem;
-            color: rgba(255, 255, 255, 0.55);
-            font-style: italic;
-            margin: 0;
-        }
-
-        .btn-footer-maps {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--primary-gold) !important;
-            font-size: 0.82rem;
-            font-weight: 600;
-            text-decoration: none !important;
-            margin-top: 4px;
-            transition: gap 0.2s ease, color 0.2s ease;
-        }
-
-        .btn-footer-maps:hover {
-            color: #FFFFFF !important;
-            gap: 10px;
-        }
-
-        /* Hours List */
-        .hours-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 14px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .hours-list li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.82rem;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
-            padding-bottom: 6px;
-        }
-
-        .day-label {
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 400;
-        }
-
-        .time-label {
-            color: #FFFFFF;
-            font-weight: 600;
-        }
-
-        .closed-tag {
-            color: #EBC6CD;
-            font-size: 0.76rem;
-        }
-
-        .spa-live-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(39, 174, 96, 0.12);
-            border: 1px solid rgba(39, 174, 96, 0.35);
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            color: #2ECC71;
-            font-weight: 600;
-        }
-
-        .pulse-dot {
+        .holo-live-dot {
             width: 7px;
             height: 7px;
-            background-color: #2ECC71;
+            background: #2ECC71;
             border-radius: 50%;
-            box-shadow: 0 0 8px #2ECC71;
-            animation: pulseGlow 2s infinite;
+            box-shadow: 0 0 10px #2ECC71;
+            animation: pulseDot 1.5s infinite;
         }
 
-        @keyframes pulseGlow {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.3); }
-            100% { opacity: 1; transform: scale(1); }
+        .btn-holo-close {
+            background: rgba(18, 14, 17, 0.88);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(235, 198, 205, 0.45);
+            color: #FFFFFF;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
 
-        /* Footer Bottom Bar */
-        footer.luxury-spa-footer .footer-bottom {
-            max-width: 1240px !important;
-            margin: 0 auto !important;
-            padding: 22px 25px 0 !important;
-            position: relative !important;
-            z-index: 2 !important;
+        .btn-holo-close:hover {
+            background: #D4AF37;
+            color: #121212;
+            border-color: #D4AF37;
+            transform: scale(1.1) rotate(90deg);
         }
 
-        .footer-bottom-inner {
+        /* Custom Bottom Audio & Replay Bar */
+        .holo-bottom-controls {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            right: 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.5);
+            z-index: 15;
+            pointer-events: auto;
         }
 
-        .copyright-text strong {
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .legal-links {
+        .btn-holo-audio-toggle {
+            background: rgba(18, 14, 17, 0.88);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            color: #E2C799;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 999px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 7px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
-        .legal-links a {
-            color: rgba(255, 255, 255, 0.5) !important;
-            text-decoration: none !important;
-            transition: color 0.2s ease;
+        .btn-holo-audio-toggle:hover {
+            background: rgba(212, 175, 55, 0.35);
+            color: #FFFFFF;
+            border-color: #D4AF37;
+            transform: translateY(-2px);
         }
 
-        .legal-links a:hover {
-            color: var(--primary-gold) !important;
+        .holo-playback-indicator {
+            font-size: 0.74rem;
+            color: rgba(255, 255, 255, 0.85);
+            background: rgba(18, 14, 17, 0.88);
+            padding: 5px 12px;
+            border-radius: 999px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .dev-tag strong {
-            color: var(--primary-gold);
-        }
-
-        .sep {
-            color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 992px) {
-            .spa-vip-banner {
-                flex-direction: column;
-                text-align: center;
-                padding: 30px 25px;
-            }
-            .spa-amenities-pills {
-                justify-content: center;
-            }
-            .spa-vip-action {
-                width: 100%;
-            }
-            footer.luxury-spa-footer .footer-container {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 30px !important;
-            }
-        }
-
-        @media (max-width: 600px) {
-            footer.luxury-spa-footer .footer-container {
-                grid-template-columns: 1fr !important;
-                gap: 28px !important;
-            }
-            .footer-bottom-inner {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-            .legal-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+        /* Smooth Hide of Photo and Play Button when active */
+        .founder-media-frame.holo-active #founderPortraitImg,
+        .founder-media-frame.holo-active .media-video-trigger,
+        .founder-media-frame.holo-active .frame-floating-badges {
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
 
 </style>
@@ -9884,22 +9610,51 @@
                             </div>
                         </div>
 
-                        <!-- Columna Derecha: Marco de Lujo Cuadrado / Video YouTube -->
+                        <!-- Columna Derecha: Marco de Lujo con Expansión Holográfica de Video desde el Centro -->
                         <div class="founder-media-frame" id="founderMediaFrame">
-                            <div class="founder-media-inner">
+                            <div class="founder-media-inner" id="founderMediaInner">
+                                
+                                <!-- Retrato Oficial Camila Marín -->
                                 <img src="images/camila_marin.jpg" alt="Camila Marín - Fundadora & Master Lash Trainer" id="founderPortraitImg">
                                 
-                                <!-- Video Overlay Trigger -->
-                                <div class="media-video-trigger" id="founderVideoTrigger" onclick="playFounderVideo()" title="Reproducir Video de Presentación">
+                                <!-- Holographic Laser Pulse Emitter -->
+                                <div class="holo-pulse-emitter" id="holoPulseEmitter"></div>
+
+                                <!-- Botón de Play Dorado con Ondas de Luz -->
+                                <div class="media-video-trigger" id="founderVideoTrigger" onclick="expandFounderHologramVideo()" title="Ver Video de Presentación de Camila Marín">
                                     <svg viewBox="0 0 24 24" width="28" height="28" fill="#121212"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                                 </div>
 
-                                <!-- YouTube Embed Iframe (Activates on Play Click) -->
-                                <video class="founder-youtube-player" id="founderVideoPlayer" controls playsinline preload="metadata">
-                                    <source src="videos/camila_story_video.mp4" type="video/mp4">
-                                </video>
+                                <!-- PORTAL HOLOGRÁFICO DE VIDEO (Se expande desde el centro hacia afuera) -->
+                                <div class="founder-holo-portal" id="founderHoloPortal">
+                                    
+                                    <!-- Top Control Bar -->
+                                    <div class="holo-top-bar">
+                                        <div class="holo-live-tag">
+                                            <span class="holo-live-dot"></span>
+                                            <span>Camila Marín • Master Video HD</span>
+                                        </div>
+                                        <button type="button" class="btn-holo-close" onclick="collapseFounderHologramVideo()" title="Cerrar Video">✕</button>
+                                    </div>
 
-                                <!-- Floating Authority Badges inside Frame (Cosmina Esanu Style) -->
+                                    <!-- Video Element HD Sin Marca de Agua -->
+                                    <video class="founder-holo-video" id="founderHoloVideo" playsinline preload="auto">
+                                        <source src="videos/Camila_video_no_watermark_hd.mp4" type="video/mp4">
+                                        <source src="Camila_video_no_watermark_hd.mp4" type="video/mp4">
+                                        Tu navegador no soporta reproducción de video.
+                                    </video>
+
+                                    <!-- Bottom Control Bar -->
+                                    <div class="holo-bottom-controls">
+                                        <button type="button" class="btn-holo-audio-toggle" id="holoAudioToggle" onclick="toggleHoloAudio()">
+                                            <span id="holoAudioIcon">🔊</span>
+                                            <span id="holoAudioText">Audio Activado</span>
+                                        </button>
+                                        <span class="holo-playback-indicator" id="holoTimeIndicator">0:00 / 0:00</span>
+                                    </div>
+                                </div>
+
+                                <!-- Floating Authority Badges inside Frame -->
                                 <div class="frame-floating-badges">
                                     <div class="frame-badge-pill">
                                         <span class="frame-badge-icon">🏆</span>
@@ -9916,6 +9671,9 @@
                                         </div>
                                     </div>
                                 </div>
+
+                            </div>
+                        </div>
                             </div>
                         </div>
 
@@ -13487,6 +13245,98 @@
         <!-- Elemento de Audio HTML5 Oculto -->
         <audio id="spaAudioElement" src="bg-music.mp3" preload="metadata" loop></audio>
     </div>
+
+
+    <!-- HOLOGRAPHIC CENTER-OUTWARD VIDEO EXPANSION SCRIPT -->
+    <script>
+        function expandFounderHologramVideo() {
+            const frame = document.getElementById('founderMediaFrame');
+            const portal = document.getElementById('founderHoloPortal');
+            const video = document.getElementById('founderHoloVideo');
+            const pulse = document.getElementById('holoPulseEmitter');
+
+            if (!frame || !portal || !video) return;
+
+            // 1. Trigger Holographic Pulse Emitter
+            frame.classList.add('holo-pulsing');
+            setTimeout(() => {
+                frame.classList.remove('holo-pulsing');
+            }, 850);
+
+            // 2. Expand Hologram from Center Outward
+            frame.classList.add('holo-active');
+
+            // 3. Play Video HD with Audio
+            video.currentTime = 0;
+            video.muted = false;
+            
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    updateHoloAudioUI(video.muted);
+                }).catch(err => {
+                    console.log('Autoplay muted fallback:', err);
+                    video.muted = true;
+                    video.play();
+                    updateHoloAudioUI(true);
+                });
+            }
+        }
+
+        function collapseFounderHologramVideo() {
+            const frame = document.getElementById('founderMediaFrame');
+            const video = document.getElementById('founderHoloVideo');
+
+            if (!frame || !video) return;
+
+            // Pause video and collapse
+            video.pause();
+            frame.classList.remove('holo-active');
+        }
+
+        function toggleHoloAudio() {
+            const video = document.getElementById('founderHoloVideo');
+            if (!video) return;
+
+            video.muted = !video.muted;
+            updateHoloAudioUI(video.muted);
+        }
+
+        function updateHoloAudioUI(isMuted) {
+            const icon = document.getElementById('holoAudioIcon');
+            const text = document.getElementById('holoAudioText');
+            if (icon && text) {
+                if (isMuted) {
+                    icon.innerText = '🔇';
+                    text.innerText = 'Activar Sonido';
+                } else {
+                    icon.innerText = '🔊';
+                    text.innerText = 'Audio Activado';
+                }
+            }
+        }
+
+        // Setup time updates & completion
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('founderHoloVideo');
+            const timeInd = document.getElementById('holoTimeIndicator');
+
+            if (video && timeInd) {
+                video.addEventListener('timeupdate', () => {
+                    const curM = Math.floor(video.currentTime / 60);
+                    const curS = Math.floor(video.currentTime % 60).toString().padStart(2, '0');
+                    const durM = Math.floor((video.duration || 0) / 60);
+                    const durS = Math.floor((video.duration || 0) % 60).toString().padStart(2, '0');
+                    timeInd.innerText = `${curM}:${curS} / ${durM}:${durS}`;
+                });
+
+                video.addEventListener('ended', () => {
+                    const text = document.getElementById('holoAudioText');
+                    if (text) text.innerText = 'Reiniciar Video';
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
