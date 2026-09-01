@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propuesta Comercial Actualizada - Cami's Lashes</title>
+    <title>Propuesta Comercial Unificada - Cami's Lashes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,17 +20,12 @@
             --text-muted: #66525C;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-page);
             color: var(--text-dark);
-            font-size: 13.5px;
+            font-size: 13.2px;
             line-height: 1.5;
             padding: 30px 15px;
             display: flex;
@@ -38,7 +33,6 @@
             align-items: center;
         }
 
-        /* Floating Top Bar for Easy Printing */
         .print-bar {
             position: fixed;
             top: 15px;
@@ -69,12 +63,8 @@
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .btn-print:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(226, 199, 153, 0.5);
-        }
+        .btn-print:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(226, 199, 153, 0.5); }
 
-        /* Sheet / Page Structure (Exact Letter Size Simulation) */
         .sheet {
             background: var(--bg-card);
             width: 100%;
@@ -87,11 +77,10 @@
             position: relative;
         }
 
-        /* Header Elements */
         .doc-header {
             border-bottom: 2px solid var(--border-color);
-            padding-bottom: 14px;
-            margin-bottom: 18px;
+            padding-bottom: 12px;
+            margin-bottom: 16px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -108,7 +97,7 @@
 
         .doc-title {
             font-family: 'Cinzel', serif;
-            font-size: 22px;
+            font-size: 21px;
             font-weight: 800;
             color: var(--primary-dark);
             line-height: 1.2;
@@ -125,7 +114,6 @@
             text-align: right;
         }
 
-        /* Metadata Summary Box */
         .meta-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -134,24 +122,19 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 12px 16px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             font-size: 12px;
         }
 
-        .meta-item strong {
-            color: var(--primary-dark);
-            display: block;
-            margin-bottom: 2px;
-        }
+        .meta-item strong { color: var(--primary-dark); display: block; margin-bottom: 2px; }
 
-        /* Section Headings */
         h2.section-heading {
             font-family: 'Cinzel', serif;
-            font-size: 15px;
+            font-size: 14.5px;
             color: var(--primary-dark);
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
-            margin: 18px 0 10px;
+            padding-bottom: 4px;
+            margin: 16px 0 8px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -161,19 +144,13 @@
             content: '';
             display: inline-block;
             width: 4px;
-            height: 15px;
+            height: 14px;
             background: var(--primary-rose);
             border-radius: 2px;
         }
 
-        p {
-            color: var(--text-dark);
-            margin-bottom: 10px;
-            font-size: 12.8px;
-            line-height: 1.55;
-        }
+        p { color: var(--text-dark); margin-bottom: 8px; font-size: 12.6px; line-height: 1.55; }
 
-        /* Scope Cards Grid */
         .scope-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -193,20 +170,13 @@
             color: var(--primary-gold);
             font-weight: 700;
             margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
-        .scope-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
+        .scope-card ul { list-style: none; padding-left: 0; }
         .scope-card li {
             position: relative;
             padding-left: 14px;
-            font-size: 11.8px;
+            font-size: 11.6px;
             color: var(--text-dark);
             margin-bottom: 4px;
             line-height: 1.4;
@@ -220,30 +190,21 @@
             font-weight: bold;
         }
 
-        /* Financial Tables */
         .table-custom {
             width: 100%;
             border-collapse: collapse;
             margin: 12px 0 16px;
-            font-size: 12.2px;
+            font-size: 12px;
         }
 
         .table-custom th, .table-custom td {
-            padding: 9px 12px;
+            padding: 8px 12px;
             border: 1px solid var(--border-color);
             text-align: left;
         }
 
-        .table-custom th {
-            background: var(--bg-alt);
-            color: var(--primary-dark);
-            font-weight: 700;
-        }
-
-        .table-custom tr.highlight-row {
-            background: #EEF8F0;
-            font-weight: 700;
-        }
+        .table-custom th { background: var(--bg-alt); color: var(--primary-dark); font-weight: 700; }
+        .table-custom tr.highlight-row { background: #EEF8F0; font-weight: 700; }
 
         .badge-success {
             background: #27AE60;
@@ -255,19 +216,18 @@
             display: inline-block;
         }
 
-        /* Settlement Options Comparison */
         .options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 14px;
-            margin: 14px 0;
+            margin: 12px 0;
         }
 
         .option-card {
             background: #FFFCFD;
             border: 1.5px solid var(--border-color);
             border-radius: 10px;
-            padding: 16px;
+            padding: 14px;
             position: relative;
         }
 
@@ -287,35 +247,29 @@
             padding: 3px 10px;
             border-radius: 999px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .option-card h3 {
             font-family: 'Cinzel', serif;
-            font-size: 13.5px;
+            font-size: 12.8px;
             color: var(--primary-dark);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .option-price-highlight {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 800;
             color: var(--primary-rose);
-            margin: 8px 0;
+            margin: 6px 0;
         }
 
-        .option-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0;
-        }
-
+        .option-card ul { list-style: none; padding: 0; margin: 8px 0; }
         .option-card li {
             position: relative;
             padding-left: 14px;
-            font-size: 11.5px;
+            font-size: 11.4px;
             color: var(--text-dark);
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .option-card li::before {
@@ -326,87 +280,53 @@
             font-weight: bold;
         }
 
-        /* Signatures Area */
         .signatures-area {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            margin-top: 30px;
-            padding-top: 15px;
+            margin-top: 25px;
+            padding-top: 10px;
         }
 
         .sig-box {
             text-align: center;
             border-top: 1px solid var(--primary-dark);
-            padding-top: 8px;
+            padding-top: 6px;
             font-size: 11.5px;
-        }
-
-        .sig-box strong {
-            display: block;
-            color: var(--primary-dark);
-            font-size: 12px;
         }
 
         .page-footer-note {
             text-align: center;
-            font-size: 10.5px;
+            font-size: 10px;
             color: var(--text-muted);
-            margin-top: 25px;
+            margin-top: 20px;
             border-top: 1px solid var(--border-color);
-            padding-top: 8px;
+            padding-top: 6px;
         }
 
-        /* ══════════════════════════════════════════════
-           PRINT MEDIA QUERIES (PERFECT LETTER PAGES)
-           ══════════════════════════════════════════════ */
         @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-
-            .print-bar {
-                display: none !important;
-            }
-
-            .sheet {
-                box-shadow: none;
-                border: none;
-                margin: 0;
-                padding: 0;
-                max-width: 100%;
-                page-break-after: always;
-            }
-
-            .sheet:last-child {
-                page-break-after: auto;
-            }
-
-            @page {
-                size: letter;
-                margin: 14mm 16mm;
-            }
+            body { background: white; padding: 0; }
+            .print-bar { display: none !important; }
+            .sheet { box-shadow: none; border: none; margin: 0; padding: 0; max-width: 100%; page-break-after: always; }
+            .sheet:last-child { page-break-after: auto; }
+            @page { size: letter; margin: 14mm 16mm; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Floating Print Action Bar -->
     <div class="print-bar">
         <button class="btn-print" onclick="window.print()">
             <span>🖨️ Imprimir / Guardar como PDF</span>
         </button>
     </div>
 
-    <!-- ══════════════════════════════════════════════
-         PÁGINA 1: ALCANCE INTEGRAL & PROPUESTA DE VALOR
-         ══════════════════════════════════════════════ -->
+    <!-- PÁGINA 1 -->
     <div class="sheet">
         <div class="doc-header">
             <div>
-                <div class="doc-brand-tag">CAMI'S LASHES • ACADEMIA & SPA SANTUARIO</div>
-                <h1 class="doc-title">Propuesta Comercial & Plan Web</h1>
+                <div class="doc-brand-tag">CAMI'S LASHES • ACUERDO COMERCIAL ESTRATÉGICO</div>
+                <h1 class="doc-title">Propuesta Comercial Unificada</h1>
             </div>
             <div class="doc-badge">
                 Modalidad: 100% Propiedad<br>
@@ -429,59 +349,58 @@
             </div>
         </div>
 
-        <h2 class="section-heading">1. Resumen Ejecutivo & Propuesta de Valor</h2>
+        <h2 class="section-heading">1. Resumen Ejecutivo & Transición a la Propuesta Unificada</h2>
         <p>
-            La presente propuesta formaliza el desarrollo integral del activo digital oficial para <strong>Cami's Lashes</strong>. 
-            El proyecto consolida los dos grandes universos de tu negocio en una sola infraestructura de alta gama: 
-            la <strong>Academia Formativa para Lash Artists</strong> y el <strong>Santuario Boutique & Spa</strong> en Puerto Vallarta.
+            En el contrato original se contempló el desarrollo integral por un valor de <strong>$60,000 MXN</strong> (Alternativa A) 
+            o una modalidad con comisiones porcentuales de por vida (Alternativa B: Sociedad de Crecimiento). 
+            Con el objetivo de brindarte certidumbre financiera total y proteger tu patrimonio, <strong>se descarta por completo el cobro de comisiones</strong> 
+            y se unifican las mejores ventajas en una <strong>Propuesta Cerrada Preferencial</strong>:
         </p>
         <p>
-            Diseñada bajo un estilo editorial de lujo en tonos rosa pastel, champán dorado y mármol blanco, con micro-animaciones fluidas, 
-            diseño responsivo para móviles y optimización SEO local, la web está creada para proyectar tu autoridad internacional como 
-            Master Trainer y automatizar la captación y venta de servicios y capacitaciones.
+            • <strong>Valor Original del Sistema Completo:</strong> $60,000 MXN.<br>
+            • <strong>Descuento Especial de Alianza Estratégica:</strong> <strong style="color: #27AE60;">-$20,000 MXN</strong>.<br>
+            • <strong>Inversión Total Unificada:</strong> <strong style="color: var(--primary-rose);">$40,000 MXN</strong> (con facilidades de pagos mensuales cómodos de $2,000 a $3,000 MXN).
         </p>
 
-        <h2 class="section-heading">2. Módulos y Alcance Integral Incluido</h2>
+        <h2 class="section-heading">2. Módulos y Ecosistema Digital Incluido</h2>
         <div class="scope-grid">
-            
             <div class="scope-card">
                 <h3>🎓 Módulo 1: Academia de Formación</h3>
                 <ul>
                     <li>Programa formativo de 13 semanas (1:1, Híbridas, Volumen Tecnológico y Mega Volumen).</li>
                     <li>Módulos de beneficios, temarios interactivos y graduación con toga y birrete.</li>
-                    <li>Pasarela de pago Stripe / WhatsApp para apartado directo de cupos en MasterClass.</li>
-                    <li>Portal de Alumnas con acceso protegido por contraseña para entrega de guías y certificados.</li>
+                    <li>Pasarela Stripe / WhatsApp para cobro de cupos a MasterClasses.</li>
+                    <li>Portal de Alumnas con acceso protegido por contraseña para guías y certificados.</li>
                 </ul>
             </div>
 
             <div class="scope-card">
                 <h3>🌿 Módulo 2: Santuario Boutique & Spa</h3>
                 <ul>
-                    <li>Menú gourmet categorizado: 15 sets de pestañas, Cejas HD, Masajes y Pedicura Spa.</li>
-                    <li>Showcase interactivo con fotografías reales de cabina firmadas por Camila Marín.</li>
+                    <li>Menú gourmet: 15 sets de pestañas, Cejas HD, Masajes Holísticos y Pedicura Spa.</li>
+                    <li>Showcase interactivo con fotos reales de cabina firmadas por Camila Marín.</li>
                     <li>Galería modal HD multiángulo y botón directo para agendar citas por WhatsApp.</li>
-                    <li>Ubicación en Puerto Vallarta (calle Francia 140, Versalles), horarios y amenidades.</li>
+                    <li>Ubicación en Puerto Vallarta (calle Francia 140, Versalles), horarios y mapa.</li>
                 </ul>
             </div>
 
             <div class="scope-card">
                 <h3>🤖 Módulo 3: Automatización WhatsApp & n8n</h3>
                 <ul>
-                    <li>Múltiples flujos n8n para confirmación de citas de spa y recordatorios automáticos por WhatsApp.</li>
+                    <li>Múltiples flujos n8n para confirmación automática de citas y recordatorios por WhatsApp.</li>
                     <li>Captura y seguimiento automatizado de prospectos para cursos de la academia.</li>
-                    <li>Integración de Reels virales de Instagram y reproductor de música ambiental Glassmorphism.</li>
+                    <li>Integración de Reels virales de Instagram y reproductor de música Glassmorphism.</li>
                 </ul>
             </div>
 
             <div class="scope-card">
                 <h3>⚙️ Módulo 4: Editor CMS & Autonomía Total</h3>
                 <ul>
-                    <li>Panel autoadministrable a medida para editar precios, fechas de cursos y fotos sin programador.</li>
-                    <li>Optimización SEO Local en Puerto Vallarta y velocidad de carga ultrarrápida en móviles.</li>
-                    <li>100% propiedad exclusiva de código fuente, base de datos y dominio sin comisiones.</li>
+                    <li>Panel autoadministrable para editar precios, fechas de cursos y fotos sin programador.</li>
+                    <li>Optimización SEO Local en Puerto Vallarta y velocidad de carga ultrarrápida.</li>
+                    <li>100% propiedad exclusiva de código, base de datos y hosting sin comisiones.</li>
                 </ul>
             </div>
-
         </div>
 
         <div class="page-footer-note">
@@ -489,12 +408,10 @@
         </div>
     </div>
 
-    <!-- ══════════════════════════════════════════════
-         PÁGINA 2: ESTADO DE CUENTA, LIQUIDACIÓN Y FIRMAS
-         ══════════════════════════════════════════════ -->
+    <!-- PÁGINA 2 -->
     <div class="sheet">
-        <h2 class="section-heading">3. Estado de Cuenta & Registro de Anticipos Recibidos</h2>
-        <p>Registro formal de los anticipos abonados a la fecha para el inicio, maquetación e integración del proyecto:</p>
+        <h2 class="section-heading">3. Estado de Cuenta & Liquidación del Enganche Inicial</h2>
+        <p>Registro formal de los abonos realizados y acreditación para la cobertura total del <strong>Enganche de Entrada ($10,000 MXN)</strong>:</p>
 
         <table class="table-custom">
             <thead>
@@ -506,66 +423,64 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>1er Anticipo:</strong> Apertura de proyecto, arquitectura digital y diseño base</td>
+                    <td><strong>1er Anticipo:</strong> Apertura de proyecto y maquetación de arquitectura base</td>
                     <td><span class="badge-success">Recibido y Acreditado</span></td>
                     <td style="text-align: right;"><strong>$2,000 MXN</strong></td>
                 </tr>
                 <tr>
-                    <td><strong>2do Anticipo:</strong> Desarrollo de catálogo Boutique Spa, Showcase y fotos de cabina</td>
+                    <td><strong>2do Anticipo:</strong> Catálogo Boutique Spa, Showcase y fotos reales de cabina</td>
                     <td><span class="badge-success">Recibido y Acreditado</span></td>
                     <td style="text-align: right;"><strong>$4,000 MXN</strong></td>
                 </tr>
+                <tr>
+                    <td><strong>3er Abono Programado:</strong> Cierre de integración y cobertura total de Enganche</td>
+                    <td><span style="background: #9C7728; color: white; padding: 2px 8px; border-radius: 4px; font-size: 10.5px; font-weight: 700;">Abono de Confirmación</span></td>
+                    <td style="text-align: right;"><strong>$4,000 MXN</strong></td>
+                </tr>
                 <tr class="highlight-row">
-                    <td>TOTAL DE ANTICIPOS ABONADOS A LA FECHA</td>
-                    <td><span class="badge-success">ACREDITADO AL PROYECTO</span></td>
-                    <td style="text-align: right; color: #27AE60; font-size: 14px;">$6,000 MXN</td>
+                    <td>TOTAL ENGANCHE DE ENTRADA LIQUIDADO</td>
+                    <td><span class="badge-success">100% CUBIERTO</span></td>
+                    <td style="text-align: right; color: #27AE60; font-size: 13.5px;">$10,000 MXN</td>
                 </tr>
             </tbody>
         </table>
 
-        <h2 class="section-heading">4. Esquema de Liquidación de Saldo (Sin Comisiones • 100% Propiedad)</h2>
+        <h2 class="section-heading">4. Esquema de Liquidación de Saldo Restante ($30,000 MXN)</h2>
         <p>
-            <strong>Proyecto Cerrado de Propiedad Absoluta:</strong> Toda la plataforma, dominio, código fuente y panel administrativo 
-            serán de propiedad exclusiva de Camila Marín Ruiz, libre de comisiones por venta, success fee o cobros porcentuales. 
-            Se ofrecen dos alternativas transparentes para liquidar el saldo restante:
+            Con el enganche de $10,000 MXN cubierto, el saldo restante de <strong>$30,000 MXN</strong> se puede liquidar bajo cualquiera de las siguientes 2 opciones:
         </p>
 
         <div class="options-grid">
-            
             <div class="option-card option-recommended">
-                <span class="option-badge">Ahorro Directo</span>
-                <h3>OPCIÓN A: LIQUIDACIÓN CONTRA ENTREGA</h3>
-                <div class="option-price-highlight">$20,000 MXN <span style="font-size: 12px; color: var(--text-muted); font-weight: 400;">(Saldo con Descuento)</span></div>
+                <span class="option-badge">Plan Cómodo</span>
+                <h3>OPCIÓN A: PLAN FINANCIADO EN MENSUALIDADES</h3>
+                <div class="option-price-highlight">10 x $3,000 MXN <span style="font-size: 12px; color: var(--text-muted); font-weight: 400;">/ mes</span></div>
                 <ul>
-                    <li><strong>Valor Total del Proyecto:</strong> $30,000 MXN</li>
-                    <li><strong>Descuento Pago Directo:</strong> -$4,000 MXN</li>
-                    <li><strong>Menos Anticipos Abonados:</strong> -$6,000 MXN</li>
-                    <li><strong>Saldo Final a Liquidar:</strong> $20,000 MXN contra entrega.</li>
-                    <li><strong>Beneficio:</strong> Ahorro directo de $4,000 MXN y entrega de accesos maestros sin cuotas.</li>
+                    <li><strong>Saldo Restante:</strong> $30,000 MXN</li>
+                    <li><strong>Esquema:</strong> <strong>10 mensualidades de $3,000 MXN</strong> <em>(o 15 de $2,000 MXN)</em>.</li>
+                    <li><strong>Beneficio:</strong> Pagas una mensualidad mínima mientras la web ya está activa en temporada alta, captando alumnas y clientas de spa (el sistema se paga solo con 1 alumna al mes).</li>
                 </ul>
             </div>
 
             <div class="option-card">
-                <span class="option-badge">Plan Cómodo</span>
-                <h3>OPCIÓN B: PLAN FINANCIADO EN MENSUALIDADES</h3>
-                <div class="option-price-highlight">12 x $2,000 MXN <span style="font-size: 12px; color: var(--text-muted); font-weight: 400;">/ mes</span></div>
+                <span class="option-badge">Ahorro Directo</span>
+                <h3>OPCIÓN B: PAGO ÚNICO CONTRA ENTREGA</h3>
+                <div class="option-price-highlight">$25,000 MXN <span style="font-size: 12px; color: var(--text-muted); font-weight: 400;">(Saldo de Contado)</span></div>
                 <ul>
-                    <li><strong>Valor Total Financiado:</strong> $30,000 MXN</li>
-                    <li><strong>Menos Anticipos Abonados:</strong> -$6,000 MXN</li>
-                    <li><strong>Saldo Restante Diferido:</strong> $24,000 MXN</li>
-                    <li><strong>Esquema de Pago:</strong> <strong>12 mensualidades fijas de $2,000 MXN</strong> <em>(o 6 de $4,000 MXN)</em>.</li>
-                    <li><strong>Beneficio:</strong> Pagas cómodamente $2,000/mes mientras la plataforma ya opera y genera ventas.</li>
+                    <li><strong>Saldo Restante:</strong> $30,000 MXN</li>
+                    <li><strong>Descuento Adicional Contado:</strong> -$5,000 MXN</li>
+                    <li><strong>Saldo Final:</strong> $25,000 MXN contra entrega final de la web.</li>
+                    <li><strong>Beneficio:</strong> Cierras el proyecto total en <strong>$35,000 MXN</strong> (ahorrando $25,000 vs los $60,000 originales) sin pagos mensuales posteriores.</li>
                 </ul>
             </div>
-
         </div>
 
-        <h2 class="section-heading">5. Entregables Garantizados & Soporte Post-Lanzamiento</h2>
-        <p style="font-size: 12px; line-height: 1.45;">
-            ✓ <strong>Plataforma Web Completa:</strong> Academia, Santuario Boutique & Spa, Módulo de Reels y Reproductor Glass.<br>
-            ✓ <strong>Infraestructura:</strong> Dominio, certificado SSL seguro (HTTPS) y optimización de velocidad de carga.<br>
-            ✓ <strong>Capacitación & Soporte:</strong> Video-tutorial para el uso del panel CMS y 30 días de garantía técnica post-publicación.<br>
-            ✓ <strong>Propiedad 100%:</strong> Cero comisiones futuras, cero regalías por alumnas inscritas.
+        <h2 class="section-heading">5. Entregables Garantizados & Soporte Técnico</h2>
+        <p style="font-size: 11.8px; line-height: 1.45;">
+            ✓ <strong>Ecosistema Digital Completo:</strong> Academia Integral, Santuario Boutique & Spa, Automatización n8n por WhatsApp y Reproductor Glass.<br>
+            ✓ <strong>Infraestructura:</strong> Dominio, certificado SSL seguro (HTTPS), servidor VPS y optimización móvil.<br>
+            ✓ <strong>Capacitación & Garantía:</strong> Video-tutorial para el uso del panel CMS y 30 días de garantía técnica post-lanzamiento.<br>
+            ✓ <strong>Propiedad 100%:</strong> Cero comisiones por venta, cero cargos ocultos.
         </p>
 
         <div class="signatures-area">
