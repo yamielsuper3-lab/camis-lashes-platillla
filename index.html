@@ -7722,95 +7722,182 @@
             color: #0E0A0C;
         }
 
+        
         /* ══════════════════════════════════════════════════════════════
-           SHOWCASE PURE IMAGES STRIP (SOLO FOTOS)
+           SPA SERVICE GALLERY: CUADROS GRANDES DE FOTOS REALES
            ══════════════════════════════════════════════════════════════ */
-        .spa-vertical-works-gallery {
-            margin-top: 16px;
-            padding-top: 14px;
-            border-top: 1px solid rgba(235, 198, 205, 0.2);
+        .spa-showcase-frame {
+            position: sticky;
+            top: 100px;
+        }
+
+        .spa-large-square-gallery {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(235, 198, 205, 0.25);
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 14px;
             width: 100%;
         }
 
-        .vertical-gallery-header {
+        .gallery-header-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2px;
+            padding: 0 4px;
         }
 
-        .gallery-header-title {
+        .gallery-title-box {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #FFF4F6;
         }
 
-        .btn-open-full-gallery {
-            background: rgba(235, 198, 205, 0.12);
-            border: 1px solid rgba(235, 198, 205, 0.35);
-            color: #E2C799;
-            font-size: 0.68rem;
+        .gallery-icon {
+            font-size: 1.1rem;
+        }
+
+        .gallery-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 0.92rem;
             font-weight: 700;
-            padding: 4px 10px;
+            color: #FFF6F8;
+            letter-spacing: 0.6px;
+            margin: 0;
+        }
+
+        .btn-gallery-zoom {
+            background: linear-gradient(135deg, rgba(235, 198, 205, 0.15) 0%, rgba(226, 199, 153, 0.2) 100%);
+            border: 1px solid rgba(226, 199, 153, 0.45);
+            color: #FFF4F6;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 5px 12px;
             border-radius: 999px;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            letter-spacing: 0.3px;
         }
 
-        .btn-open-full-gallery:hover {
-            background: rgba(235, 198, 205, 0.25);
-            color: #FFF6F8;
+        .btn-gallery-zoom:hover {
+            background: linear-gradient(135deg, rgba(235, 198, 205, 0.3) 0%, rgba(226, 199, 153, 0.4) 100%);
             border-color: #E2C799;
-            transform: scale(1.05);
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 4px 15px rgba(226, 199, 153, 0.3);
         }
 
-        .pure-images-strip {
+        /* Cuadros Grandes: 1 columna o 2 columnas cuadradas grandes con aspecto perfecto */
+        .large-square-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 14px;
             width: 100%;
         }
 
-        .pure-img-thumb {
-            height: 80px;
-            border-radius: 10px;
+        .large-square-card {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            min-height: 140px;
+            border-radius: 14px;
             overflow: hidden;
-            border: 2px solid rgba(235, 198, 205, 0.22);
+            border: 2px solid rgba(235, 198, 205, 0.25);
             cursor: pointer;
             background: #0E0A0C;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .pure-img-thumb img {
+        .large-square-card:hover {
+            border-color: #E2C799;
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(226, 199, 153, 0.35);
+        }
+
+        .large-square-card.active {
+            border-color: #E2C799;
+            box-shadow: 0 0 25px rgba(226, 199, 153, 0.5), 0 8px 25px rgba(0, 0, 0, 0.8);
+            transform: scale(1.02);
+        }
+
+        .square-card-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
+            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .large-square-card:hover .square-card-img {
+            transform: scale(1.15);
+        }
+
+        .square-card-tag {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
+            background: rgba(14, 10, 12, 0.88);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(235, 198, 205, 0.4);
+            color: #FFF6F8;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 6px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .large-square-card:hover .square-card-tag {
+            background: rgba(30, 18, 26, 0.95);
+            border-color: #E2C799;
+            color: #FFF;
+        }
+
+        /* Modal Thumbnails as Squares */
+        .spa-modal-thumbs-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 12px;
+            width: 100%;
+        }
+
+        .spa-modal-thumb-item {
+            aspect-ratio: 1 / 1;
+            height: auto;
+            min-height: 100px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid rgba(235, 198, 205, 0.3);
+            cursor: pointer;
+            background: #0E0A0C;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .spa-modal-thumb-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             transition: transform 0.5s ease;
         }
 
-        .pure-img-thumb:hover {
-            border-color: #E2C799;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5), 0 0 15px rgba(226, 199, 153, 0.3);
+        .spa-modal-thumb-item:hover img {
+            transform: scale(1.15);
         }
 
-        .pure-img-thumb:hover img {
-            transform: scale(1.18);
+        .spa-modal-thumb-item.active {
+            border-color: #E2C799;
+            box-shadow: 0 0 20px rgba(226, 199, 153, 0.5);
+            transform: scale(1.04);
         }
 
-        .pure-img-thumb.active {
-            border-color: #E2C799;
-            box-shadow: 0 0 16px rgba(226, 199, 153, 0.4);
-            transform: scale(1.02);
-        }
 
 
 
@@ -8835,30 +8922,38 @@
                             <!-- Galería Vertical de Tomas y Trabajos Reales del Servicio Activo -->
                             
                             <!-- Galería Inferior: SOLO IMÁGENES de Trabajos Reales -->
-                            <div class="spa-vertical-works-gallery" id="spaVerticalWorksGallery">
-                                <div class="vertical-gallery-header">
-                                    <div class="gallery-header-title">
-                                        <span class="gallery-camera-icon">📸</span>
-                                        <span class="gallery-title-text" id="spaGalleryHeaderTitle">Trabajos Reales</span>
+                            
+                            <!-- Galería de Trabajos: CUADROS GRANDES DE FOTOS REALES -->
+                            <div class="spa-large-square-gallery" id="spaVerticalWorksGallery">
+                                <div class="gallery-header-row">
+                                    <div class="gallery-title-box">
+                                        <span class="gallery-icon">📸</span>
+                                        <h5 class="gallery-heading" id="spaGalleryHeaderTitle">Tomas & Trabajos Reales</h5>
                                     </div>
-                                    <button type="button" class="btn-open-full-gallery" onclick="openSpaGalleryModal(currentActiveServiceId)">
+                                    <button type="button" class="btn-gallery-zoom" onclick="openSpaGalleryModal(currentActiveServiceId)">
                                         <span>Pantalla Completa ↗</span>
                                     </button>
                                 </div>
                                 
-                                <!-- SOLO IMÁGENES: Tira de Miniaturas Limpias y Brillantes -->
-                                <div class="pure-images-strip" id="spaVerticalGalleryCardsList">
-                                    <div class="pure-img-thumb active" onclick="selectWorkGalleryPhoto('images/spa/service-clasicas.jpg?v=sopapo2', '👁️ Aislamiento 1:1', this)">
-                                        <img src="images/spa/service-clasicas.jpg?v=sopapo2" alt="Clásicas" loading="lazy">
+                                <!-- Cuadros Grandes de Fotos Reales -->
+                                <div class="large-square-grid" id="spaVerticalGalleryCardsList">
+                                    <div class="large-square-card active" onclick="selectWorkGalleryPhoto('images/spa/service-clasicas.jpg?v=sopapo2', '👁️ Aislamiento 1:1', this)">
+                                        <img src="images/spa/service-clasicas.jpg?v=sopapo2" alt="Clásicas 1:1" class="square-card-img" loading="lazy">
+                                        <span class="square-card-tag">👁️ Aislamiento 1:1</span>
                                     </div>
-                                    <div class="pure-img-thumb" onclick="selectWorkGalleryPhoto('images/spa/service-hibridas.jpg?v=sopapo2', '✨ Ángulo 45°', this)">
-                                        <img src="images/spa/service-hibridas.jpg?v=sopapo2" alt="Híbridas" loading="lazy">
+                                    <div class="large-square-card" onclick="selectWorkGalleryPhoto('images/spa/service-hibridas.jpg?v=sopapo2', '✨ Ángulo 45°', this)">
+                                        <img src="images/spa/service-hibridas.jpg?v=sopapo2" alt="Híbridas" class="square-card-img" loading="lazy">
+                                        <span class="square-card-tag">✨ Ángulo 45°</span>
                                     </div>
-                                    <div class="pure-img-thumb" onclick="selectWorkGalleryPhoto('images/spa/service-sweet.jpg?v=sopapo2', '💎 Vista Completa', this)">
-                                        <img src="images/spa/service-sweet.jpg?v=sopapo2" alt="Sweet Lashes" loading="lazy">
+                                    <div class="large-square-card" onclick="selectWorkGalleryPhoto('images/spa/service-sweet.jpg?v=sopapo2', '💎 Vista Completa', this)">
+                                        <img src="images/spa/service-sweet.jpg?v=sopapo2" alt="Sweet Lashes" class="square-card-img" loading="lazy">
+                                        <span class="square-card-tag">💎 Vista Completa</span>
                                     </div>
                                 </div>
                             </div>
+
+                        </div>
+                    </div>
 
                         </div>
                     </div>
@@ -11810,25 +11905,26 @@
 
             window.renderSpaVerticalGallery = (serviceId) => {
                 currentActiveServiceId = serviceId;
-                const stripEl = document.getElementById('spaVerticalGalleryCardsList');
-                if (!stripEl) return;
+                const gridEl = document.getElementById('spaVerticalGalleryCardsList');
+                if (!gridEl) return;
 
                 const works = spaServiceWorksGalleryDB[serviceId] || spaServiceWorksGalleryDB['clasicas'];
                 
-                // Build pure image thumbnails (SOLO IMÁGENES)
+                // Build large square cards (CUADROS GRANDES)
                 let html = '';
                 works.forEach((item, index) => {
                     html += `
-                        <div class="pure-img-thumb ${index === 0 ? 'active' : ''}" onclick="selectWorkGalleryPhoto('${item.img}', '${item.tag.replace(/'/g, "\\'")}', this)">
-                            <img src="${item.img}" alt="${item.tag}" loading="lazy">
+                        <div class="large-square-card ${index === 0 ? 'active' : ''}" onclick="selectWorkGalleryPhoto('${item.img}', '${item.tag.replace(/'/g, "\'")}', this)">
+                            <img src="${item.img}" alt="${item.tag}" class="square-card-img" loading="lazy">
+                            <span class="square-card-tag">${item.tag}</span>
                         </div>
                     `;
                 });
 
-                stripEl.innerHTML = html;
+                gridEl.innerHTML = html;
             };
 
-            window.selectWorkGalleryPhoto = (imgSrc, tagText, thumbEl) => {
+            window.selectWorkGalleryPhoto = (imgSrc, tagText, cardEl) => {
                 const mainImg = document.getElementById('spaShowcaseMainImg');
                 const tagEl = document.getElementById('spaShowcaseTagText');
                 
@@ -11846,8 +11942,8 @@
                     tagEl.textContent = tagText;
                 }
 
-                document.querySelectorAll('.pure-img-thumb').forEach(t => t.classList.remove('active'));
-                if (thumbEl) thumbEl.classList.add('active');
+                document.querySelectorAll('.large-square-card').forEach(t => t.classList.remove('active'));
+                if (cardEl) cardEl.classList.add('active');
             };
 
             // ══════════════════════════════════════════════
