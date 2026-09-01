@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Comercial Original (Histórica) - Cami's Lashes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1A1217;
+            --primary-rose: #B85A74;
+            --primary-gold: #9C7728;
+            --bg-page: #FAF5F7;
+            --bg-card: #FFFFFF;
+            --bg-alt: #F9EEF2;
+            --border-color: #E8C7D0;
+            --text-dark: #241A20;
+            --text-muted: #66525C;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            font-size: 13px;
+            line-height: 1.5;
+            padding: 30px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .print-bar {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: rgba(26, 18, 23, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 10px 16px;
+            border-radius: 999px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid rgba(232, 199, 208, 0.4);
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #EBC6CD 0%, #E2C799 100%);
+            color: #1A1217;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-print:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(226, 199, 153, 0.5); }
+
+        .sheet {
+            background: var(--bg-card);
+            width: 100%;
+            max-width: 820px;
+            padding: 38px 46px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(26, 18, 23, 0.08);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .doc-header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .doc-brand-tag {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--primary-rose);
+            margin-bottom: 4px;
+        }
+
+        .doc-title {
+            font-family: 'Cinzel', serif;
+            font-size: 21px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.2;
+        }
+
+        .doc-badge {
+            background: var(--bg-alt);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-align: right;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            background: var(--bg-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-bottom: 16px;
+            font-size: 11.8px;
+        }
+
+        .meta-item strong { color: var(--primary-dark); display: block; margin-bottom: 2px; }
+
+        h2.section-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--primary-dark);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4px;
+            margin: 16px 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h2.section-heading::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 14px;
+            background: var(--primary-rose);
+            border-radius: 2px;
+        }
+
+        p { color: var(--text-dark); margin-bottom: 8px; font-size: 12.2px; line-height: 1.5; }
+
+        .scope-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .scope-card {
+            background: #FFFCFD;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 12px;
+        }
+
+        .scope-card h3 {
+            font-size: 12px;
+            color: var(--primary-gold);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .scope-card p { font-size: 11.5px; margin-bottom: 0; color: var(--text-dark); }
+
+        .options-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin: 12px 0;
+        }
+
+        .option-card {
+            background: #FFFCFD;
+            border: 1.5px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 11.2px;
+        }
+
+        .option-card.option-highlight {
+            border-color: var(--primary-rose);
+            background: #FFF9FA;
+        }
+
+        .option-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4px;
+        }
+
+        .option-card strong { color: var(--primary-rose); }
+
+        .option-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 6px 0;
+        }
+
+        .option-card li {
+            position: relative;
+            padding-left: 12px;
+            margin-bottom: 4px;
+            line-height: 1.35;
+        }
+
+        .option-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-gold);
+            font-weight: bold;
+        }
+
+        .page-footer-note {
+            text-align: center;
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 20px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 6px;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .print-bar { display: none !important; }
+            .sheet {
+                box-shadow: none; border: none; margin: 0; padding: 0; max-width: 100%; page-break-after: always;
+            }
+            .sheet:last-child { page-break-after: auto; }
+            @page { size: letter; margin: 14mm 16mm; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-bar">
+        <button class="btn-print" onclick="window.print()">
+            <span>🖨️ Imprimir / Guardar como PDF</span>
+        </button>
+    </div>
+
+    <!-- PÁGINA 1 -->
+    <div class="sheet">
+        <div class="doc-header">
+            <div>
+                <div class="doc-brand-tag">DOCUMENTO HISTÓRICO ORIGINAL</div>
+                <h1 class="doc-title">Propuesta Comercial: Cami's Lashes</h1>
+            </div>
+            <div class="doc-badge">
+                Esquema Inicial (3 Planes)<br>
+                Anticipo Base: $2,000 MXN
+            </div>
+        </div>
+
+        <div class="meta-grid">
+            <div class="meta-item">
+                <strong>Cliente:</strong>
+                Camila Marín Ruiz
+            </div>
+            <div class="meta-item">
+                <strong>Sede:</strong>
+                Puerto Vallarta / Colombia
+            </div>
+            <div class="meta-item">
+                <strong>Valor Mercado Referencia:</strong>
+                $35,000 MXN
+            </div>
+        </div>
+
+        <h2 class="section-heading">1. Resumen Ejecutivo y Propuesta de Valor</h2>
+        <p>
+            La presente propuesta detalla el desarrollo de una experiencia digital a medida para la academia y spa Cami's Lashes. 
+            El objetivo es estructurar una plataforma web elegante, fresca y tranquila que proyecte tu estatus internacional, 
+            impulse tus eventos presenciales en México y Colombia, y automatice tus inscripciones.
+        </p>
+        <p>
+            Desarrollada en tonos blanco y rosa pastel con detalles suaves en mármol y oro que se alinean perfectamente con tu logotipo corporativo, 
+            empleando tipografías modernas de alta gama (Outfit y Montserrat) para comunicar tu estatus de Master Trainer.
+        </p>
+
+        <h2 class="section-heading">2. Módulos de Valor y Autonomía del Activo</h2>
+        <div class="scope-grid">
+            <div class="scope-card">
+                <h3>💎 Diseño Premium & SEO Local</h3>
+                <p>Interfaz rápida y fluida para móviles, optimizada para capturar alumnas locales e internacionales.</p>
+            </div>
+            <div class="scope-card">
+                <h3>⚙️ Panel de Administración (CMS a Medida)</h3>
+                <p>Control total para subir fotos de graduadas, cambiar fechas de cursos o modificar servicios de spa al instante.</p>
+            </div>
+            <div class="scope-card">
+                <h3>💳 Pasarela de Pago Stripe & Reservas</h3>
+                <p>Sistema integrado para que tus alumnas reserven cupos en MasterClass presenciales u online con seguridad.</p>
+            </div>
+            <div class="scope-card">
+                <h3>🎥 Widget Dinámico de Reels</h3>
+                <p>Módulo que integra tus videos Reels más virales en la web para maximizar el alcance de tus redes sociales.</p>
+            </div>
+        </div>
+
+        <h2 class="section-heading">3. Auditoría de Ventas y Notificaciones Automáticas</h2>
+        <p>
+            • <strong>Notificaciones en Tiempo Real:</strong> Alerta inmediata por correo y WhatsApp ante cada compra o registro.<br>
+            • <strong>Separación de Ventas Offline:</strong> Código Único de Transacción (ej. LASHWEB-2026) para auditar ventas web vs ventas externas.<br>
+            • <strong>Corte Mensual Transparente:</strong> Acumulado de ventas visible en panel para liquidación clara a mes vencido.
+        </p>
+
+        <div class="page-footer-note">
+            Página 1 de 2 • Versión Histórica de Propuesta Comercial con Sociedad de Crecimiento
+        </div>
+    </div>
+
+    <!-- PÁGINA 2 -->
+    <div class="sheet">
+        <h2 class="section-heading">4. Alternativas de Inversión Originales (Elige tu Camino)</h2>
+        <p><em>* Nota: Se acredita el anticipo inicial recibido de $2,000 MXN a los pagos iniciales de cada plan.</em></p>
+
+        <div class="options-grid-3">
+            
+            <!-- Plan A -->
+            <div class="option-card">
+                <h3>ALTERNATIVA A: PAGO ÚNICO</h3>
+                <ul>
+                    <li><strong>Monto Total:</strong> $30,000 MXN</li>
+                    <li><strong>Esquema:</strong> $15,000 de anticipo y $15,000 contra entrega.</li>
+                    <li><strong>Ajuste Anticipo:</strong> Restando los $2,000 MXN entregados, se liquidaban $13,000 MXN para iniciar.</li>
+                    <li><strong>Beneficio:</strong> Propiedad total del sitio desde el primer día, libre de comisiones futuras.</li>
+                </ul>
+            </div>
+
+            <!-- Plan B -->
+            <div class="option-card option-highlight">
+                <h3>ALTERNATIVA B: SOCIEDAD CRECIMIENTO</h3>
+                <ul>
+                    <li><strong>Setup de Activación:</strong> $5,000 MXN ($2,000 entregados + $3,000 contra entrega de maqueta).</li>
+                    <li><strong>Success Fee:</strong> $15,000 MXN al registrar los primeros $60,000 MXN en ventas.</li>
+                    <li><strong>Comisión por Venta:</strong> 10% por cada inscripción cobrada tras el Success Fee.</li>
+                    <li><strong>Extras:</strong> Sección Spa + 3 meses gratis de Optimización de Reels con IA.</li>
+                </ul>
+            </div>
+
+            <!-- Plan C -->
+            <div class="option-card">
+                <h3>ALTERNATIVA C: PLAN FINANCIADO</h3>
+                <ul>
+                    <li><strong>Enganche de Entrada:</strong> $10,000 MXN (Restando los $2,000 MXN, liquidabas $8,000 MXN al firmar).</li>
+                    <li><strong>Opción C1 (Solo Academia - $30k):</strong> 10 cuotas de $2,000 MXN/mes.</li>
+                    <li><strong>Opción C2 (Academia + Spa + Reels - $35k):</strong> 10 cuotas de $2,500 MXN/mes.</li>
+                    <li><strong>Beneficio:</strong> Protección de flujo de caja.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <h2 class="section-heading">5. Proceso de Desarrollo y Fases</h2>
+        <p>
+            • <strong>Fase 1 (Diseño y Aprobación Visual):</strong> Aprobación final del esquema en rosa, blanco y oro antes de programar.<br>
+            • <strong>Fase 2 (Código e Integración de Sistemas):</strong> Base de datos, panel CMS, pasarela Stripe y alertas.<br>
+            • <strong>Fase 3 (Pruebas y Lanzamiento):</strong> Optimización de velocidad, migración a servidor y capacitación de uso.
+        </p>
+
+        <div style="margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: center; font-size: 11px;">
+            <div style="border-top: 1px solid var(--primary-dark); padding-top: 6px;">
+                <strong>Por el Desarrollador</strong><br>Consultoría Digital
+            </div>
+            <div style="border-top: 1px solid var(--primary-dark); padding-top: 6px;">
+                <strong>Camila Marín Ruiz</strong><br>Fundadora Cami's Lashes
+            </div>
+        </div>
+
+        <div class="page-footer-note">
+            Página 2 de 2 • Versión Histórica de Propuesta Comercial con Sociedad de Crecimiento
+        </div>
+    </div>
+
+</body>
+</html>

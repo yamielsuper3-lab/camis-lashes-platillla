@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Comercial Actualizada - Cami's Lashes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1A1217;
+            --primary-rose: #B85A74;
+            --primary-gold: #9C7728;
+            --bg-page: #FAF5F7;
+            --bg-card: #FFFFFF;
+            --bg-alt: #F9EEF2;
+            --border-color: #E8C7D0;
+            --text-dark: #241A20;
+            --text-muted: #66525C;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            font-size: 13.5px;
+            line-height: 1.5;
+            padding: 30px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Floating Top Bar for Easy Printing */
+        .print-bar {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: rgba(26, 18, 23, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 10px 16px;
+            border-radius: 999px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid rgba(232, 199, 208, 0.4);
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #EBC6CD 0%, #E2C799 100%);
+            color: #1A1217;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-print:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(226, 199, 153, 0.5);
+        }
+
+        /* Sheet / Page Structure (Exact Letter Size Simulation) */
+        .sheet {
+            background: var(--bg-card);
+            width: 100%;
+            max-width: 820px;
+            padding: 40px 48px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(26, 18, 23, 0.08);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        /* Header Elements */
+        .doc-header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 14px;
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .doc-brand-tag {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--primary-rose);
+            margin-bottom: 4px;
+        }
+
+        .doc-title {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.2;
+        }
+
+        .doc-badge {
+            background: var(--bg-alt);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-align: right;
+        }
+
+        /* Metadata Summary Box */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            background: var(--bg-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+
+        .meta-item strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* Section Headings */
+        h2.section-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 15px;
+            color: var(--primary-dark);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin: 18px 0 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h2.section-heading::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 15px;
+            background: var(--primary-rose);
+            border-radius: 2px;
+        }
+
+        p {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 12.8px;
+            line-height: 1.55;
+        }
+
+        /* Scope Cards Grid */
+        .scope-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .scope-card {
+            background: #FFFCFD;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 14px;
+        }
+
+        .scope-card h3 {
+            font-size: 12.5px;
+            color: var(--primary-gold);
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .scope-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .scope-card li {
+            position: relative;
+            padding-left: 14px;
+            font-size: 11.8px;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .scope-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-rose);
+            font-weight: bold;
+        }
+
+        /* Financial Tables */
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 16px;
+            font-size: 12.2px;
+        }
+
+        .table-custom th, .table-custom td {
+            padding: 9px 12px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .table-custom th {
+            background: var(--bg-alt);
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .table-custom tr.highlight-row {
+            background: #EEF8F0;
+            font-weight: 700;
+        }
+
+        .badge-success {
+            background: #27AE60;
+            color: #FFFFFF;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10.5px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        /* Settlement Options Comparison */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 14px 0;
+        }
+
+        .option-card {
+            background: #FFFCFD;
+            border: 1.5px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px;
+            position: relative;
+        }
+
+        .option-card.option-recommended {
+            border-color: var(--primary-gold);
+            box-shadow: 0 4px 15px rgba(156, 119, 40, 0.12);
+        }
+
+        .option-badge {
+            position: absolute;
+            top: -10px;
+            right: 14px;
+            background: linear-gradient(135deg, #B85A74, #9C7728);
+            color: white;
+            font-size: 9.5px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .option-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 13.5px;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .option-price-highlight {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary-rose);
+            margin: 8px 0;
+        }
+
+        .option-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .option-card li {
+            position: relative;
+            padding-left: 14px;
+            font-size: 11.5px;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .option-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27AE60;
+            font-weight: bold;
+        }
+
+        /* Signatures Area */
+        .signatures-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+            padding-top: 15px;
+        }
+
+        .sig-box {
+            text-align: center;
+            border-top: 1px solid var(--primary-dark);
+            padding-top: 8px;
+            font-size: 11.5px;
+        }
+
+        .sig-box strong {
+            display: block;
+            color: var(--primary-dark);
+            font-size: 12px;
+        }
+
+        .page-footer-note {
+            text-align: center;
+            font-size: 10.5px;
+            color: var(--text-muted);
+            margin-top: 25px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 8px;
+        }
+
+        /* ══════════════════════════════════════════════
+           PRINT MEDIA QUERIES (PERFECT LETTER PAGES)
+           ══════════════════════════════════════════════ */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-bar {
+                display: none !important;
+            }
+
+            .sheet {
+                box-shadow: none;
+                border: none;
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+                page-break-after: always;
+            }
+
+            .sheet:last-child {
+                page-break-after: auto;
+            }
+
+            @page {
+                size: letter;
+                margin: 14mm 16mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Print Action Bar -->
+    <div class="print-bar">
+        <button class="btn-print" onclick="window.print()">
+            <span>🖨️ Imprimir / Guardar como PDF</span>
+        </button>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         PÁGINA 1: ALCANCE INTEGRAL & PROPUESTA DE VALOR
+         ══════════════════════════════════════════════ -->
+    <div class="sheet">
+        <div class="doc-header">
+            <div>
+                <div class="doc-brand-tag">CAMI'S LASHES • ACADEMIA & SPA SANTUARIO</div>
+                <h1 class="doc-title">Propuesta Comercial & Plan Web</h1>
+            </div>
+            <div class="doc-badge">
+                Modalidad: 100% Propiedad<br>
+                Fecha: Septiembre 2026
+            </div>
+        </div>
+
+        <div class="meta-grid">
+            <div class="meta-item">
+                <strong>Cliente:</strong>
+                Camila Marín Ruiz (Master Trainer)
+            </div>
+            <div class="meta-item">
+                <strong>Sede Oficial:</strong>
+                Puerto Vallarta, Jal. / Colombia
+            </div>
+            <div class="meta-item">
+                <strong>Alcance Integral:</strong>
+                Academia + Boutique Spa + Reels + CMS
+            </div>
+        </div>
+
+        <h2 class="section-heading">1. Resumen Ejecutivo & Propuesta de Valor</h2>
+        <p>
+            La presente propuesta formaliza el desarrollo integral del activo digital oficial para <strong>Cami's Lashes</strong>. 
+            El proyecto consolida los dos grandes universos de tu negocio en una sola infraestructura de alta gama: 
+            la <strong>Academia Formativa para Lash Artists</strong> y el <strong>Santuario Boutique & Spa</strong> en Puerto Vallarta.
+        </p>
+        <p>
+            Diseñada bajo un estilo editorial de lujo en tonos rosa pastel, champán dorado y mármol blanco, con micro-animaciones fluidas, 
+            diseño responsivo para móviles y optimización SEO local, la web está creada para proyectar tu autoridad internacional como 
+            Master Trainer y automatizar la captación y venta de servicios y capacitaciones.
+        </p>
+
+        <h2 class="section-heading">2. Módulos y Alcance Integral Incluido</h2>
+        <div class="scope-grid">
+            
+            <div class="scope-card">
+                <h3>🎓 Módulo 1: Academia de Formación</h3>
+                <ul>
+                    <li>Programa formativo de 13 semanas (1:1, Híbridas, Volumen Tecnológico y Mega Volumen).</li>
+                    <li>Módulos de beneficios, temarios interactivos y graduación con toga y birrete.</li>
+                    <li>Pasarela de pago Stripe / WhatsApp para apartado directo de cupos en MasterClass.</li>
+                    <li>Portal de Alumnas con acceso protegido por contraseña para entrega de guías y certificados.</li>
+                </ul>
+            </div>
+
+            <div class="scope-card">
+                <h3>🌿 Módulo 2: Santuario Boutique & Spa</h3>
+                <ul>
+                    <li>Menú gourmet categorizado: 15 sets de pestañas, Cejas HD, Masajes y Pedicura Spa.</li>
+                    <li>Showcase interactivo con fotografías reales de cabina firmadas por Camila Marín.</li>
+                    <li>Galería modal HD multiángulo y botón directo para agendar citas por WhatsApp.</li>
+                    <li>Ubicación en Puerto Vallarta (calle Francia 140, Versalles), horarios y amenidades.</li>
+                </ul>
+            </div>
+
+            <div class="scope-card">
+                <h3>📸 Módulo 3: Instagram Reels & Social Proof</h3>
+                <ul>
+                    <li>Integración dinámica del feed y videos Reels más virales para potenciar el alcance.</li>
+                    <li>Showcase de alumnas certificadas, historias de éxito y testimonios de clientas.</li>
+                    <li>Reproductor de música relajante en cristal líquido (Glassmorphism) integrado.</li>
+                </ul>
+            </div>
+
+            <div class="scope-card">
+                <h3>⚙️ Módulo 4: Autonomía Total (Panel CMS)</h3>
+                <ul>
+                    <li>Panel administrativo para actualizar fechas, graduadas y precios sin programador.</li>
+                    <li>Velocidad de carga ultrarrápida en smartphones y optimización SEO Local en Vallarta.</li>
+                    <li>Propiedad 100% exclusiva libre de comisiones recurrentes o cobros por alumna.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="page-footer-note">
+            Página 1 de 2 • Cami's Lashes — Documento Oficial de Propuesta Comercial y Desarrollo Digital
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         PÁGINA 2: ESTADO DE CUENTA, LIQUIDACIÓN Y FIRMAS
+         ══════════════════════════════════════════════ -->
+    <div class="sheet">
+        <h2 class="section-heading">3. Estado de Cuenta & Registro de Anticipos Recibidos</h2>
+        <p>Registro formal de los anticipos abonados a la fecha para el inicio, maquetación e integración del proyecto:</p>
+
+        <table class="table-custom">
+            <thead>
+                <tr>
+                    <th>Concepto de Abono</th>
+                    <th>Estado de Pago</th>
+                    <th style="text-align: right;">Monto Acreditado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1er Anticipo:</strong> Apertura de proyecto, arquitectura digital y diseño base</td>
+                    <td><span class="badge-success">Recibido y Acreditado</span></td>
+                    <td style="text-align: right;"><strong>$2,000 MXN</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>2do Anticipo:</strong> Desarrollo de catálogo Boutique Spa, Showcase y fotos de cabina</td>
+                    <td><span class="badge-success">Recibido y Acreditado</span></td>
+                    <td style="text-align: right;"><strong>$4,000 MXN</strong></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>TOTAL DE ANTICIPOS ABONADOS A LA FECHA</td>
+                    <td><span class="badge-success">ACREDITADO AL PROYECTO</span></td>
+                    <td style="text-align: right; color: #27AE60; font-size: 14px;">$6,000 MXN</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="section-heading">4. Esquema de Liquidación de Saldo (Sin Comisiones • 100% Propiedad)</h2>
+        <p>
+            <strong>Proyecto Cerrado de Propiedad Absoluta:</strong> Toda la plataforma, dominio, código fuente y panel administrativo 
+            serán de propiedad exclusiva de Camila Marín Ruiz, libre de comisiones por venta, success fee o cobros porcentuales. 
+            Se ofrecen dos alternativas transparentes para liquidar el saldo restante:
+        </p>
+
+        <div class="options-grid">
+            
+            <div class="option-card option-recommended">
+                <span class="option-badge">Ahorro Directo</span>
+                <h3>OPCIÓN A: PAGO ÚNICO CONTRA ENTREGA</h3>
+                <div class="option-price-highlight">$9,000 MXN <span style="font-size: 12px; color: var(--text-muted); font-weight: 400;">(Saldo Final)</span></div>
+                <ul>
+                    <li><strong>Valor Total con Descuento:</strong> $15,000 MXN</li>
+                    <li><strong>Menos Anticipos Abonados:</strong> -$6,000 MXN</li>
+                    <li><strong>Saldo Final:</strong> $9,000 MXN a liquidar contra entrega.</li>
+                    <li><strong>Momento de Pago:</strong> Contra entrega de la web completa y migración al dominio.</li>
+                    <li><strong>Beneficio:</strong> Ahorras $3,000 MXN y adquieres tu web de inmediato sin deudas.</li>
+                </ul>
+            </div>
+
+            <div class="option-card">
+                <span class="option-badge">Protección de Flujo</span>
+                <h3>OPCIÓN B: PLAN FINANCIADO EN CUOTAS</h3>
+                <div class="option-price-highlight">6 x $2,000 MXN <span style="font-size: 12px; color: var(--text-muted); font-weight: 400;">/ mes</span></div>
+                <ul>
+                    <li><strong>Valor Total Financiado:</strong> $18,000 MXN</li>
+                    <li><strong>Menos Anticipos Abonados:</strong> -$6,000 MXN</li>
+                    <li><strong>Saldo Diferido:</strong> $12,000 MXN en mensualidades fijas.</li>
+                    <li><strong>Esquema:</strong> 6 pagos mensuales de $2,000 MXN (o 4 de $3,000 MXN).</li>
+                    <li><strong>Beneficio:</strong> Cuida tu flujo de caja mientras la web ya está operando y vendiendo.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <h2 class="section-heading">5. Entregables Garantizados & Soporte Post-Lanzamiento</h2>
+        <p style="font-size: 12px; line-height: 1.45;">
+            ✓ <strong>Plataforma Web Completa:</strong> Academia, Santuario Boutique & Spa, Módulo de Reels y Reproductor Glass.<br>
+            ✓ <strong>Infraestructura:</strong> Dominio, certificado SSL seguro (HTTPS) y optimización de velocidad de carga.<br>
+            ✓ <strong>Capacitación & Soporte:</strong> Video-tutorial para el uso del panel CMS y 30 días de garantía técnica post-publicación.<br>
+            ✓ <strong>Propiedad 100%:</strong> Cero comisiones futuras, cero regalías por alumnas inscritas.
+        </p>
+
+        <div class="signatures-area">
+            <div class="sig-box">
+                <br><br>
+                _______________________________________<br>
+                <strong>Desarrollo & Estrategia Digital</strong><br>
+                Consultoría Web & Automatización
+            </div>
+            <div class="sig-box">
+                <br><br>
+                _______________________________________<br>
+                <strong>Camila Marín Ruiz</strong><br>
+                Fundadora & Master Lash Trainer
+            </div>
+        </div>
+
+        <div class="page-footer-note">
+            Página 2 de 2 • Cami's Lashes — Documento Oficial de Propuesta Comercial y Desarrollo Digital
+        </div>
+    </div>
+
+</body>
+</html>
