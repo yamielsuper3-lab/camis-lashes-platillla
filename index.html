@@ -7441,7 +7441,80 @@
         body.night-mode .cal-custom-note p {
             color: rgba(248, 245, 239, 0.8);
         }
-    </style>
+    
+
+        /* ══════════════════════════════════════════════════════════════
+           STRICT ISOLATION: BOUTIQUE & SPA vs ACADEMY MODES
+           ══════════════════════════════════════════════════════════════ */
+        
+        /* When in Boutique & Spa Mode: HIDE ALL ACADEMY SECTIONS COMPLETELY */
+        body.active-spa #founderShowcase,
+        body.active-spa .founder-showcase-section,
+        body.active-spa #maestria,
+        body.active-spa .academy-section,
+        body.active-spa #temario,
+        body.active-spa #beneficios,
+        body.active-spa #inversion,
+        body.active-spa #inscripcion,
+        body.active-spa #congreso,
+        body.active-spa #portalAlumnas,
+        body.active-spa #curriculumTimeline,
+        body.active-spa #faq,
+        body.active-spa #academy,
+        body.active-spa .custom-chat-widget {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            height: 0 !important;
+            overflow: hidden !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* When in Academy Mode: HIDE ALL BOUTIQUE & SPA SECTIONS COMPLETELY */
+        body.active-academy .spa-expanded-content,
+        body.active-academy .spa-main-wrapper,
+        body.active-academy #spaMenu,
+        body.active-academy #spaUbicacion,
+        body.active-academy .spa-gourmet-menu-section,
+        body.active-academy .spa-location-booking-section,
+        body.active-academy #boutique {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            height: 0 !important;
+            overflow: hidden !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* When in Academy Mode: SHOW ACADEMY SECTIONS */
+        body.active-academy #founderShowcase,
+        body.active-academy .founder-showcase-section,
+        body.active-academy #maestria,
+        body.active-academy .academy-section {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            pointer-events: auto !important;
+            height: auto !important;
+        }
+
+        /* When in Split Hero Mode (Initial State): HIDE ALL SUB-SECTIONS */
+        body:not(.active-spa):not(.active-academy) #founderShowcase,
+        body:not(.active-spa):not(.active-academy) .founder-showcase-section,
+        body:not(.active-spa):not(.active-academy) #maestria,
+        body:not(.active-spa):not(.active-academy) .academy-section,
+        body:not(.active-spa):not(.active-academy) .spa-expanded-content,
+        body:not(.active-spa):not(.active-academy) .spa-main-wrapper,
+        body:not(.active-spa):not(.active-academy) #spaMenu,
+        body:not(.active-spa):not(.active-academy) #spaUbicacion {
+            display: none !important;
+        }
+
+</style>
     <!-- GSAP Libraries for Diamond Portal Transition -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
