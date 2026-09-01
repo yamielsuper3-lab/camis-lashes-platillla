@@ -7517,20 +7517,221 @@
 
 
         
+        
         /* ══════════════════════════════════════════════════════════════
-           SPA VERTICAL WORKS GALLERY (High-Visibility Luxury Cards)
+           SPA SERVICE GALLERY MODAL (HD LIGHTBOX - SOLO IMÁGENES)
            ══════════════════════════════════════════════════════════════ */
-        .showcase-auto-timer-bar {
-            display: none !important;
+        .spa-service-modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(10, 8, 10, 0.88);
+            backdrop-filter: blur(16px) saturate(130%);
+            -webkit-backdrop-filter: blur(16px) saturate(130%);
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .spa-vertical-works-gallery {
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(235, 198, 205, 0.25);
+        .spa-service-modal-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .spa-modal-dialog {
+            background: linear-gradient(135deg, #1A1217 0%, #241620 50%, #170F14 100%);
+            border: 1px solid rgba(235, 198, 205, 0.35);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(235, 198, 205, 0.15);
+            max-width: 580px;
+            width: 100%;
+            padding: 24px;
+            position: relative;
+            transform: scale(0.92) translateY(15px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
+        }
+
+        .spa-service-modal-backdrop.active .spa-modal-dialog {
+            transform: scale(1) translateY(0);
+        }
+
+        .spa-modal-close-btn {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: rgba(255, 246, 248, 0.1);
+            border: 1px solid rgba(235, 198, 205, 0.3);
+            color: #FFF4F6;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            z-index: 10;
+        }
+
+        .spa-modal-close-btn:hover {
+            background: rgba(235, 198, 205, 0.3);
+            color: #E2C799;
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .spa-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-right: 40px;
+        }
+
+        .spa-modal-cat-tag {
+            font-size: 0.72rem;
+            color: #EBC6CD;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .spa-modal-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: #FFF6F8;
+            margin: 4px 0 0;
+            font-weight: 700;
+        }
+
+        .spa-modal-price {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFF4F6 0%, #EBC6CD 40%, #E2C799 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 8px rgba(226, 199, 153, 0.3));
+        }
+
+        .spa-modal-viewer-wrap {
+            position: relative;
+            width: 100%;
+            height: 340px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #0E0A0C;
+            border: 1px solid rgba(235, 198, 205, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .spa-modal-main-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .spa-modal-shot-tag {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(14, 10, 12, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(235, 198, 205, 0.4);
+            color: #FFF4F6;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Tira de Miniaturas del Modal */
+        .spa-modal-thumbs-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+            gap: 10px;
+            width: 100%;
+        }
+
+        .spa-modal-thumb-item {
+            height: 75px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(235, 198, 205, 0.25);
+            cursor: pointer;
+            background: #0E0A0C;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .spa-modal-thumb-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .spa-modal-thumb-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .spa-modal-thumb-item.active {
+            border-color: #E2C799;
+            box-shadow: 0 0 16px rgba(226, 199, 153, 0.45);
+            transform: scale(1.04);
+        }
+
+        .spa-modal-footer {
+            margin-top: 4px;
+        }
+
+        .spa-modal-book-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 13px 20px;
+            background: linear-gradient(135deg, #EBC6CD 0%, #E2C799 100%);
+            color: #1A1215;
+            font-weight: 700;
+            font-size: 0.88rem;
+            border-radius: 999px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(235, 198, 205, 0.25);
+            transition: all 0.35s ease;
+        }
+
+        .spa-modal-book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 28px rgba(226, 199, 153, 0.45);
+            color: #0E0A0C;
+        }
+
+        /* ══════════════════════════════════════════════════════════════
+           SHOWCASE PURE IMAGES STRIP (SOLO FOTOS)
+           ══════════════════════════════════════════════════════════════ */
+        .spa-vertical-works-gallery {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(235, 198, 205, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             width: 100%;
         }
 
@@ -7546,145 +7747,71 @@
             align-items: center;
             gap: 8px;
             font-family: 'Cinzel', serif;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: #FFF4F6;
-            letter-spacing: 0.5px;
         }
 
-        .gallery-camera-icon {
-            font-size: 1rem;
-        }
-
-        .gallery-count-badge {
-            font-size: 0.7rem;
+        .btn-open-full-gallery {
+            background: rgba(235, 198, 205, 0.12);
+            border: 1px solid rgba(235, 198, 205, 0.35);
+            color: #E2C799;
+            font-size: 0.68rem;
             font-weight: 700;
-            background: rgba(235, 198, 205, 0.18);
-            border: 1px solid rgba(235, 198, 205, 0.4);
-            color: #FFF4F6;
-            padding: 3px 10px;
+            padding: 4px 10px;
             border-radius: 999px;
-            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.25s ease;
         }
 
-        .vertical-gallery-cards-list {
-            display: flex;
-            flex-direction: column;
+        .btn-open-full-gallery:hover {
+            background: rgba(235, 198, 205, 0.25);
+            color: #FFF6F8;
+            border-color: #E2C799;
+            transform: scale(1.05);
+        }
+
+        .pure-images-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             width: 100%;
         }
 
-        .vertical-work-card {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            background: rgba(26, 18, 22, 0.85);
-            border: 1px solid rgba(235, 198, 205, 0.22);
-            border-radius: 12px;
-            padding: 10px;
+        .pure-img-thumb {
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(235, 198, 205, 0.22);
             cursor: pointer;
+            background: #0E0A0C;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
-            overflow: hidden;
-            opacity: 1 !important;
-            visibility: visible !important;
         }
 
-        .vertical-work-card:hover {
-            background: rgba(42, 26, 36, 0.95);
-            border-color: #E2C799;
-            transform: translateY(-2px) translateX(4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(226, 199, 153, 0.2);
-        }
-
-        .vertical-work-card.active {
-            background: linear-gradient(135deg, rgba(46, 28, 38, 0.98) 0%, rgba(58, 34, 48, 0.98) 100%);
-            border-color: #E2C799;
-            box-shadow: 0 0 18px rgba(226, 199, 153, 0.3);
-        }
-
-        .vertical-work-card.active::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, #EBC6CD, #E2C799);
-        }
-
-        .work-card-thumb-wrap {
-            position: relative;
-            width: 80px;
-            height: 65px;
-            border-radius: 8px;
-            overflow: hidden;
-            flex-shrink: 0;
-            background: #0E0A0C;
-            border: 1px solid rgba(235, 198, 205, 0.3);
-        }
-
-        .work-card-thumb {
+        .pure-img-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
         }
 
-        .vertical-work-card:hover .work-card-thumb {
-            transform: scale(1.15);
+        .pure-img-thumb:hover {
+            border-color: #E2C799;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5), 0 0 15px rgba(226, 199, 153, 0.3);
         }
 
-        .work-card-tag {
-            position: absolute;
-            bottom: 3px;
-            left: 3px;
-            right: 3px;
-            background: rgba(14, 10, 12, 0.9);
-            backdrop-filter: blur(4px);
-            color: #FFF4F6;
-            font-size: 0.58rem;
-            font-weight: 700;
-            padding: 2px 4px;
-            border-radius: 4px;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            border: 1px solid rgba(235, 198, 205, 0.4);
+        .pure-img-thumb:hover img {
+            transform: scale(1.18);
         }
 
-        .work-card-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 4px;
-            flex-grow: 1;
-            min-width: 0;
+        .pure-img-thumb.active {
+            border-color: #E2C799;
+            box-shadow: 0 0 16px rgba(226, 199, 153, 0.4);
+            transform: scale(1.02);
         }
 
-        .work-card-caption {
-            font-size: 0.8rem;
-            color: rgba(255, 246, 248, 0.95);
-            line-height: 1.35;
-            font-weight: 500;
-        }
-
-        .work-card-view-btn {
-            font-size: 0.72rem;
-            color: #E2C799;
-            font-weight: 700;
-            letter-spacing: 0.4px;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            transition: all 0.25s ease;
-        }
-
-        .vertical-work-card:hover .work-card-view-btn {
-            color: #FFF6F8;
-            transform: translateX(3px);
-        }
 
 
 </style>
@@ -8706,49 +8833,35 @@
                             <!-- Galería Vertical de Tomas y Trabajos Reales del Servicio Activo -->
                             
                             <!-- Galería Vertical de Tomas y Trabajos Reales del Servicio Activo -->
+                            
+                            <!-- Galería Inferior: SOLO IMÁGENES de Trabajos Reales -->
                             <div class="spa-vertical-works-gallery" id="spaVerticalWorksGallery">
                                 <div class="vertical-gallery-header">
                                     <div class="gallery-header-title">
                                         <span class="gallery-camera-icon">📸</span>
-                                        <span class="gallery-title-text" id="spaGalleryHeaderTitle">Galería de Trabajos: Clásicas (1:1)</span>
+                                        <span class="gallery-title-text" id="spaGalleryHeaderTitle">Trabajos Reales</span>
                                     </div>
-                                    <span class="gallery-count-badge" id="spaGalleryCountBadge">3 Tomas HD</span>
+                                    <button type="button" class="btn-open-full-gallery" onclick="openSpaGalleryModal(currentActiveServiceId)">
+                                        <span>Pantalla Completa ↗</span>
+                                    </button>
                                 </div>
                                 
-                                <div class="vertical-gallery-cards-list" id="spaVerticalGalleryCardsList">
-                                    <div class="vertical-work-card active" onclick="selectWorkGalleryPhoto('images/spa/service-clasicas.jpg?v=sopapo2', '👁️ Aislamiento 1:1', this)">
-                                        <div class="work-card-thumb-wrap">
-                                            <img src="images/spa/service-clasicas.jpg?v=sopapo2" alt="Aislamiento 1:1" class="work-card-thumb">
-                                            <span class="work-card-tag">👁️ Aislamiento 1:1</span>
-                                        </div>
-                                        <div class="work-card-info">
-                                            <span class="work-card-caption">Definición sutil milimétrica en pestaña natural</span>
-                                            <span class="work-card-view-btn">Ver en Grande 🔍</span>
-                                        </div>
+                                <!-- SOLO IMÁGENES: Tira de Miniaturas Limpias y Brillantes -->
+                                <div class="pure-images-strip" id="spaVerticalGalleryCardsList">
+                                    <div class="pure-img-thumb active" onclick="selectWorkGalleryPhoto('images/spa/service-clasicas.jpg?v=sopapo2', '👁️ Aislamiento 1:1', this)">
+                                        <img src="images/spa/service-clasicas.jpg?v=sopapo2" alt="Clásicas" loading="lazy">
                                     </div>
-
-                                    <div class="vertical-work-card" onclick="selectWorkGalleryPhoto('images/spa/service-hibridas.jpg?v=sopapo2', '✨ Ángulo 45°', this)">
-                                        <div class="work-card-thumb-wrap">
-                                            <img src="images/spa/service-hibridas.jpg?v=sopapo2" alt="Ángulo 45°" class="work-card-thumb">
-                                            <span class="work-card-tag">✨ Ángulo 45°</span>
-                                        </div>
-                                        <div class="work-card-info">
-                                            <span class="work-card-caption">Acabado limpio y ligero para uso diario</span>
-                                            <span class="work-card-view-btn">Ver en Grande 🔍</span>
-                                        </div>
+                                    <div class="pure-img-thumb" onclick="selectWorkGalleryPhoto('images/spa/service-hibridas.jpg?v=sopapo2', '✨ Ángulo 45°', this)">
+                                        <img src="images/spa/service-hibridas.jpg?v=sopapo2" alt="Híbridas" loading="lazy">
                                     </div>
-
-                                    <div class="vertical-work-card" onclick="selectWorkGalleryPhoto('images/spa/service-sweet.jpg?v=sopapo2', '💎 Vista Completa', this)">
-                                        <div class="work-card-thumb-wrap">
-                                            <img src="images/spa/service-sweet.jpg?v=sopapo2" alt="Vista Completa" class="work-card-thumb">
-                                            <span class="work-card-tag">💎 Vista Completa</span>
-                                        </div>
-                                        <div class="work-card-info">
-                                            <span class="work-card-caption">Mirada descansada y curvatura suave</span>
-                                            <span class="work-card-view-btn">Ver en Grande 🔍</span>
-                                        </div>
+                                    <div class="pure-img-thumb" onclick="selectWorkGalleryPhoto('images/spa/service-sweet.jpg?v=sopapo2', '💎 Vista Completa', this)">
+                                        <img src="images/spa/service-sweet.jpg?v=sopapo2" alt="Sweet Lashes" loading="lazy">
                                     </div>
                                 </div>
+                            </div>
+
+                        </div>
+                    </div>
                             </div>
 
                         </div>
@@ -11692,45 +11805,30 @@
             };
 
 
+            
+            let currentActiveServiceId = 'clasicas';
+
             window.renderSpaVerticalGallery = (serviceId) => {
-                const galleryListEl = document.getElementById('spaVerticalGalleryCardsList');
-                const titleEl = document.getElementById('spaGalleryHeaderTitle');
-                const countBadge = document.getElementById('spaGalleryCountBadge');
-                if (!galleryListEl) return;
+                currentActiveServiceId = serviceId;
+                const stripEl = document.getElementById('spaVerticalGalleryCardsList');
+                if (!stripEl) return;
 
                 const works = spaServiceWorksGalleryDB[serviceId] || spaServiceWorksGalleryDB['clasicas'];
-                if (countBadge) countBadge.textContent = `${works.length} Tomas HD`;
                 
-                // Build cards
+                // Build pure image thumbnails (SOLO IMÁGENES)
                 let html = '';
                 works.forEach((item, index) => {
                     html += `
-                        <div class="vertical-work-card ${index === 0 ? 'active' : ''}" onclick="selectWorkGalleryPhoto('${item.img}', '${item.tag.replace(/'/g, "\\'")}', this)">
-                            <div class="work-card-thumb-wrap">
-                                <img src="${item.img}" alt="${item.tag}" class="work-card-thumb" loading="lazy">
-                                <span class="work-card-tag">${item.tag}</span>
-                            </div>
-                            <div class="work-card-info">
-                                <span class="work-card-caption">${item.caption}</span>
-                                <span class="work-card-view-btn">Ver en Grande 🔍</span>
-                            </div>
+                        <div class="pure-img-thumb ${index === 0 ? 'active' : ''}" onclick="selectWorkGalleryPhoto('${item.img}', '${item.tag.replace(/'/g, "\\'")}', this)">
+                            <img src="${item.img}" alt="${item.tag}" loading="lazy">
                         </div>
                     `;
                 });
 
-                galleryListEl.innerHTML = html;
-                
-                // Trigger smooth staggered entry animation
-                const cards = galleryListEl.querySelectorAll('.vertical-work-card');
-                if (typeof gsap !== 'undefined') {
-                    gsap.fromTo(cards, 
-                        { opacity: 0, y: 16 },
-                        { opacity: 1, y: 0, duration: 0.45, stagger: 0.08, ease: 'power2.out' }
-                    );
-                }
+                stripEl.innerHTML = html;
             };
 
-            window.selectWorkGalleryPhoto = (imgSrc, tagText, cardEl) => {
+            window.selectWorkGalleryPhoto = (imgSrc, tagText, thumbEl) => {
                 const mainImg = document.getElementById('spaShowcaseMainImg');
                 const tagEl = document.getElementById('spaShowcaseTagText');
                 
@@ -11748,9 +11846,92 @@
                     tagEl.textContent = tagText;
                 }
 
-                document.querySelectorAll('.vertical-work-card').forEach(c => c.classList.remove('active'));
-                if (cardEl) cardEl.classList.add('active');
+                document.querySelectorAll('.pure-img-thumb').forEach(t => t.classList.remove('active'));
+                if (thumbEl) thumbEl.classList.add('active');
             };
+
+            // ══════════════════════════════════════════════
+            // MODAL DE GALERÍA HD (AL DAR CLIC EN EXPLORAR)
+            // ══════════════════════════════════════════════
+            window.openSpaGalleryModal = (serviceId) => {
+                const sid = serviceId || currentActiveServiceId || 'clasicas';
+                const works = spaServiceWorksGalleryDB[sid] || spaServiceWorksGalleryDB['clasicas'];
+                
+                const matchedItem = Array.from(document.querySelectorAll('.chef-menu-item')).find(el => el.getAttribute('data-service-id') === sid);
+                const title = matchedItem ? matchedItem.getAttribute('data-title') : 'Servicio de Spa';
+                const cat = matchedItem ? matchedItem.getAttribute('data-category') : 'Pestañas de Autor';
+                const price = matchedItem ? matchedItem.getAttribute('data-price') : '$850 MXN';
+
+                const modal = document.getElementById('spaServiceGalleryModal');
+                const titleEl = document.getElementById('spaModalTitle');
+                const catEl = document.getElementById('spaModalCategory');
+                const priceEl = document.getElementById('spaModalPrice');
+                const mainImg = document.getElementById('spaModalMainImg');
+                const tagEl = document.getElementById('spaModalShotTag');
+                const thumbsStrip = document.getElementById('spaModalThumbsStrip');
+                const bookBtn = document.getElementById('spaModalBookBtn');
+
+                if (titleEl) titleEl.textContent = title;
+                if (catEl) catEl.textContent = cat;
+                if (priceEl) priceEl.textContent = price;
+
+                if (works.length > 0 && mainImg) {
+                    mainImg.src = works[0].img;
+                    if (tagEl) tagEl.textContent = works[0].tag;
+                }
+
+                if (thumbsStrip) {
+                    thumbsStrip.innerHTML = works.map((w, idx) => `
+                        <div class="spa-modal-thumb-item ${idx === 0 ? 'active' : ''}" onclick="selectModalThumb('${w.img}', '${w.tag.replace(/'/g, "\\'")}', this)">
+                            <img src="${w.img}" alt="${w.tag}">
+                        </div>
+                    `).join('');
+                }
+
+                if (bookBtn) {
+                    const cleanTitle = encodeURIComponent(`${title} (${price})`);
+                    bookBtn.href = `https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20para%20el%20servicio:%20${cleanTitle}`;
+                }
+
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.classList.add('modal-open');
+                }
+            };
+
+            window.selectModalThumb = (imgSrc, tagText, thumbEl) => {
+                const mainImg = document.getElementById('spaModalMainImg');
+                const tagEl = document.getElementById('spaModalShotTag');
+                if (mainImg) {
+                    mainImg.style.opacity = '0.3';
+                    mainImg.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        mainImg.src = imgSrc;
+                        mainImg.style.opacity = '1';
+                        mainImg.style.transform = 'scale(1)';
+                    }, 140);
+                }
+                if (tagEl && tagText) tagEl.textContent = tagText;
+
+                document.querySelectorAll('.spa-modal-thumb-item').forEach(t => t.classList.remove('active'));
+                if (thumbEl) thumbEl.classList.add('active');
+            };
+
+            window.closeSpaGalleryModal = (e) => {
+                if (e && e.target && e.target.id !== 'spaServiceGalleryModal' && !e.target.classList.contains('spa-modal-close-btn')) return;
+                const modal = document.getElementById('spaServiceGalleryModal');
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.classList.remove('modal-open');
+                }
+            };
+
+            // Close on Escape key
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    window.closeSpaGalleryModal();
+                }
+            });
 
             window.initSpaServicesList = () => {
                 const visibleBoard = Array.from(document.querySelectorAll('.chef-menu-board')).find(b => b.style.display !== 'none' && b.offsetParent !== null) || document.querySelector('.board-category-lashes');
@@ -11770,15 +11951,19 @@
                 window.updateSpaShowcase(itemEl);
             };
 
-            window.selectSpaService = (itemEl) => {
+            // Clicking on a service item or clicking EXPLORAR -> updates showcase AND opens gallery modal!
+            window.selectSpaService = (itemEl, openModal = true) => {
                 if (!itemEl) return;
                 window.updateSpaShowcase(itemEl);
+                const serviceId = itemEl.getAttribute('data-service-id');
+                if (openModal && serviceId) {
+                    window.openSpaGalleryModal(serviceId);
+                }
             };
 
-            window.jumpToSpaService = (serviceId, pillBtn) => {
+            window.jumpToSpaService = (serviceId) => {
                 const matchedItem = Array.from(document.querySelectorAll('.chef-menu-item')).find(el => el.getAttribute('data-service-id') === serviceId);
                 if (matchedItem) {
-                    // Make sure parent board is visible
                     const parentBoard = matchedItem.closest('.chef-menu-board');
                     if (parentBoard && parentBoard.style.display === 'none') {
                         document.querySelectorAll('.chef-menu-board').forEach(b => b.style.display = 'none');
@@ -11789,11 +11974,11 @@
                         if (mixedGrid) mixedGrid.style.display = 'none';
                     }
                     window.updateSpaShowcase(matchedItem);
+                    window.openSpaGalleryModal(serviceId);
                     matchedItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
             };
 
-            // Enhanced Showcase update: Static & Calm (NO auto-rotate countdown), loads vertical works gallery!
             window.updateSpaShowcase = (itemEl) => {
                 if (!itemEl) return;
 
@@ -11804,6 +11989,7 @@
                 const desc = itemEl.getAttribute('data-desc') || '';
                 const tag = itemEl.getAttribute('data-tag') || '✨ Experiencia de Autor';
                 const serviceId = itemEl.getAttribute('data-service-id') || 'clasicas';
+                currentActiveServiceId = serviceId;
 
                 const mainImg = document.getElementById('spaShowcaseMainImg');
                 const catEl = document.getElementById('spaShowcaseCat');
@@ -11812,7 +11998,6 @@
                 const tagEl = document.getElementById('spaShowcaseTagText');
                 const priceEl = document.getElementById('spaShowcasePrice');
                 const bookBtn = document.getElementById('spaShowcaseBookBtn');
-                const galleryTitleEl = document.getElementById('spaGalleryHeaderTitle');
 
                 if (mainImg) {
                     mainImg.style.opacity = '0.3';
@@ -11829,20 +12014,19 @@
                 if (descEl) descEl.textContent = desc;
                 if (tagEl) tagEl.textContent = tag;
                 if (priceEl) priceEl.textContent = price;
-                if (galleryTitleEl) galleryTitleEl.textContent = `Galería de Trabajos: ${title}`;
 
                 if (bookBtn) {
                     const cleanTitle = encodeURIComponent(`${title} (${price})`);
                     bookBtn.href = `https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20para%20el%20servicio:%20${cleanTitle}`;
                 }
 
-                // Update active state in menu
                 document.querySelectorAll('.chef-menu-item').forEach(i => i.classList.remove('active'));
                 itemEl.classList.add('active');
 
-                // Render dynamic vertical gallery of real client works
+                // Render dynamic pure image thumbnails
                 window.renderSpaVerticalGallery(serviceId);
             };
+
 
 
             window.filterSpaCategory = (cat, tabBtn) => {
@@ -12091,6 +12275,42 @@
                         Apartar Mi Lugar ($1,500 MXN) ✨
                     </a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         MODAL DE GALERÍA HD DE SERVICIOS SPA & PESTAÑAS
+         ══════════════════════════════════════════════════════════════ -->
+    <div class="spa-service-modal-backdrop" id="spaServiceGalleryModal" onclick="closeSpaGalleryModal(event)">
+        <div class="spa-modal-dialog" onclick="event.stopPropagation();">
+            <button type="button" class="spa-modal-close-btn" onclick="closeSpaGalleryModal()">&times;</button>
+            
+            <div class="spa-modal-header">
+                <div>
+                    <span class="spa-modal-cat-tag" id="spaModalCategory">Pestañas de Autor</span>
+                    <h3 class="spa-modal-title" id="spaModalTitle">Efecto Foxy Eyes</h3>
+                </div>
+                <div class="spa-modal-price" id="spaModalPrice">$850 MXN</div>
+            </div>
+
+            <!-- Visor Principal en Alta Resolución -->
+            <div class="spa-modal-viewer-wrap">
+                <img src="images/spa/service-foxy.jpg?v=sopapo2" alt="Trabajo Real" class="spa-modal-main-img" id="spaModalMainImg">
+                <span class="spa-modal-shot-tag" id="spaModalShotTag">👁️ Vista Frontal</span>
+            </div>
+
+            <!-- Tira Inferior de SOLO IMÁGENES Miniaturas -->
+            <div class="spa-modal-thumbs-strip" id="spaModalThumbsStrip">
+                <!-- Rendered dynamically by JS -->
+            </div>
+
+            <div class="spa-modal-footer">
+                <a href="https://wa.me/5214731002030" target="_blank" class="spa-modal-book-btn" id="spaModalBookBtn">
+                    <span>🌿 Agendar Cita para Este Servicio</span>
+                    <span class="btn-arrow">→</span>
+                </a>
             </div>
         </div>
     </div>
