@@ -7901,6 +7901,255 @@
 
 
 
+
+
+        /* ══════════════════════════════════════════════════════════════
+           REPRODUCTOR DE MÚSICA GLASS TRANSPARENTE (LIQUID GLASS CAPSULE)
+           ══════════════════════════════════════════════════════════════ */
+        .glass-music-player {
+            position: fixed;
+            bottom: 26px;
+            left: 26px;
+            z-index: 99998;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 16px 8px 12px;
+            background: rgba(18, 14, 18, 0.65);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 999px;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.55),
+                0 0 25px rgba(235, 198, 205, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.25),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+        }
+
+        .glass-music-player:hover {
+            background: rgba(26, 18, 24, 0.8);
+            border-color: rgba(235, 198, 205, 0.4);
+            box-shadow: 
+                0 20px 45px rgba(0, 0, 0, 0.65),
+                0 0 35px rgba(226, 199, 153, 0.25),
+                inset 0 1px 2px rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+        }
+
+        /* Grupo de Controles */
+        .player-controls-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 246, 248, 0.9);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            outline: none;
+        }
+
+        .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #E2C799;
+            border-color: rgba(235, 198, 205, 0.5);
+            transform: scale(1.1);
+        }
+
+        .glass-btn:active {
+            transform: scale(0.95);
+        }
+
+        .btn-play-main {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, rgba(235, 198, 205, 0.35) 0%, rgba(226, 199, 153, 0.4) 100%);
+            border: 1px solid rgba(226, 199, 153, 0.6);
+            color: #FFF6F8;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35), 0 0 12px rgba(226, 199, 153, 0.25);
+        }
+
+        .btn-play-main:hover {
+            background: linear-gradient(135deg, rgba(235, 198, 205, 0.55) 0%, rgba(226, 199, 153, 0.65) 100%);
+            color: #0E0A0C;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), 0 0 20px rgba(226, 199, 153, 0.5);
+            transform: scale(1.12);
+        }
+
+        /* Pill de Información de la Pista */
+        .player-track-pill {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(10, 8, 10, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            padding: 4px 14px 4px 6px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            max-width: 280px;
+        }
+
+        .player-track-pill:hover {
+            background: rgba(20, 14, 18, 0.6);
+            border-color: rgba(235, 198, 205, 0.3);
+        }
+
+        .track-cover-wrap {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 1px solid rgba(235, 198, 205, 0.4);
+            background: #0E0A0C;
+        }
+
+        .track-cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 10s linear;
+        }
+
+        .glass-music-player.playing .track-cover-img {
+            animation: spinCover 12s linear infinite;
+        }
+
+        @keyframes spinCover {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .track-meta-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .track-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+        }
+
+        .track-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #FFF6F8;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            letter-spacing: 0.4px;
+        }
+
+        .track-artist {
+            font-size: 0.64rem;
+            color: rgba(235, 198, 205, 0.8);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 500;
+        }
+
+        /* Ecualizador Animado */
+        .equalizer-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 10px;
+            flex-shrink: 0;
+        }
+
+        .eq-bar {
+            width: 2px;
+            height: 3px;
+            background: #E2C799;
+            border-radius: 1px;
+            transition: height 0.2s ease;
+        }
+
+        .glass-music-player.playing .eq-bar.bar-1 { animation: eqBounce1 0.65s ease-in-out infinite alternate; }
+        .glass-music-player.playing .eq-bar.bar-2 { animation: eqBounce2 0.8s ease-in-out infinite alternate 0.15s; }
+        .glass-music-player.playing .eq-bar.bar-3 { animation: eqBounce3 0.5s ease-in-out infinite alternate 0.3s; }
+        .glass-music-player.playing .eq-bar.bar-4 { animation: eqBounce4 0.7s ease-in-out infinite alternate 0.1s; }
+
+        @keyframes eqBounce1 { 0% { height: 3px; } 100% { height: 10px; } }
+        @keyframes eqBounce2 { 0% { height: 4px; } 100% { height: 12px; } }
+        @keyframes eqBounce3 { 0% { height: 2px; } 100% { height: 9px; } }
+        @keyframes eqBounce4 { 0% { height: 3px; } 100% { height: 11px; } }
+
+        /* Barra de Progreso */
+        .track-progress-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .track-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #EBC6CD, #E2C799);
+            box-shadow: 0 0 6px rgba(226, 199, 153, 0.8);
+            transition: width 0.3s linear;
+        }
+
+        /* Botón de Volumen */
+        .player-actions-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-volume {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Responsive Mobile Docking */
+        @media (max-width: 768px) {
+            .glass-music-player {
+                bottom: 85px;
+                left: 14px;
+                padding: 6px 12px 6px 10px;
+                gap: 8px;
+                max-width: calc(100vw - 28px);
+            }
+
+            .player-track-pill {
+                min-width: 130px;
+                max-width: 160px;
+                padding: 3px 10px 3px 4px;
+            }
+
+            .track-artist {
+                display: none;
+            }
+        }
+
 </style>
     <!-- GSAP Libraries for Diamond Portal Transition -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -12339,7 +12588,124 @@
 
 
         });
-    </script>
+    
+
+            // ══════════════════════════════════════════════
+            // MOTOR DE MÚSICA GLASS TRANSPARENTE
+            // ══════════════════════════════════════════════
+            const spaPlaylist = [
+                {
+                    title: "Santuario de Calma",
+                    artist: "Cami's Lashes • Relaxing Spa Lounge",
+                    cover: "logo.jpg",
+                    src: "bg-music.mp3"
+                },
+                {
+                    title: "Brisa de Versalles",
+                    artist: "Acoustic Chill • Puerto Vallarta",
+                    cover: "images/spa/service-sweet.jpg?v=sopapo2",
+                    src: "bg-music.mp3"
+                },
+                {
+                    title: "Ritual de Seda & Eucalipto",
+                    artist: "Aromatherapy Ambient Waves",
+                    cover: "images/spa/service-masaje-piedras-zen.jpg?v=sopapo2",
+                    src: "bg-music.mp3"
+                },
+                {
+                    title: "Golden Hour en Cabina",
+                    artist: "Soft Piano & Sunset Chimes",
+                    cover: "images/spa/service-foxy.jpg?v=sopapo2",
+                    src: "bg-music.mp3"
+                }
+            ];
+
+            let currentTrackIndex = 0;
+            let isMusicPlaying = false;
+            const audioEl = document.getElementById('spaAudioElement');
+            const playerWrap = document.getElementById('spaGlassMusicPlayer');
+            const playIcon = document.getElementById('spaPlayIcon');
+            const pauseIcon = document.getElementById('spaPauseIcon');
+            const volHighIcon = document.getElementById('spaVolHighIcon');
+            const volMuteIcon = document.getElementById('spaVolMuteIcon');
+            const trackTitleEl = document.getElementById('spaPlayerTrackTitle');
+            const trackArtistEl = document.getElementById('spaPlayerArtist');
+            const trackCoverEl = document.getElementById('spaPlayerCover');
+            const progressFillEl = document.getElementById('spaPlayerProgressFill');
+
+            window.updatePlayerTrackUI = () => {
+                const track = spaPlaylist[currentTrackIndex];
+                if (trackTitleEl) trackTitleEl.textContent = track.title;
+                if (trackArtistEl) trackArtistEl.textContent = track.artist;
+                if (trackCoverEl) trackCoverEl.src = track.cover;
+            };
+
+            window.toggleSpaMusic = () => {
+                if (!audioEl) return;
+
+                if (audioEl.paused) {
+                    audioEl.play().then(() => {
+                        isMusicPlaying = true;
+                        if (playerWrap) playerWrap.classList.add('playing');
+                        if (playIcon) playIcon.style.display = 'none';
+                        if (pauseIcon) pauseIcon.style.display = 'block';
+                    }).catch(err => {
+                        console.log('Audio autoplay prevented:', err);
+                    });
+                } else {
+                    audioEl.pause();
+                    isMusicPlaying = false;
+                    if (playerWrap) playerWrap.classList.remove('playing');
+                    if (playIcon) playIcon.style.display = 'block';
+                    if (pauseIcon) pauseIcon.style.display = 'none';
+                }
+            };
+
+            window.nextSpaTrack = () => {
+                currentTrackIndex = (currentTrackIndex + 1) % spaPlaylist.length;
+                window.updatePlayerTrackUI();
+                if (audioEl) {
+                    audioEl.currentTime = 0;
+                    if (isMusicPlaying) audioEl.play().catch(() => {});
+                }
+            };
+
+            window.prevSpaTrack = () => {
+                currentTrackIndex = (currentTrackIndex - 1 + spaPlaylist.length) % spaPlaylist.length;
+                window.updatePlayerTrackUI();
+                if (audioEl) {
+                    audioEl.currentTime = 0;
+                    if (isMusicPlaying) audioEl.play().catch(() => {});
+                }
+            };
+
+            window.toggleSpaMute = () => {
+                if (!audioEl) return;
+                audioEl.muted = !audioEl.muted;
+                if (audioEl.muted) {
+                    if (volHighIcon) volHighIcon.style.display = 'none';
+                    if (volMuteIcon) volMuteIcon.style.display = 'block';
+                } else {
+                    if (volHighIcon) volHighIcon.style.display = 'block';
+                    if (volMuteIcon) volMuteIcon.style.display = 'none';
+                }
+            };
+
+            // Time update handler for progress bar
+            if (audioEl) {
+                audioEl.addEventListener('timeupdate', () => {
+                    if (audioEl.duration && progressFillEl) {
+                        const percent = (audioEl.currentTime / audioEl.duration) * 100;
+                        progressFillEl.style.width = `${percent}%`;
+                    }
+                });
+
+                audioEl.addEventListener('ended', () => {
+                    window.nextSpaTrack();
+                });
+            }
+
+</script>
 
     <!-- Modal Protegido de Contraseña para Recursos de Alumnas (VIP Gate) -->
     <div class="vip-modal-overlay" id="vipResourceModal" onclick="if(event.target === this) closeVipModal()">
@@ -12409,6 +12775,81 @@
                 </a>
             </div>
         </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         REPRODUCTOR DE MÚSICA GLASS TRANSPARENTE (ESTILO APPLE / LIQUID GLASS)
+         ══════════════════════════════════════════════════════════════ -->
+    <div class="glass-music-player" id="spaGlassMusicPlayer">
+        <!-- Controles de Reproducción -->
+        <div class="player-controls-group">
+            <!-- Botón Anterior -->
+            <button type="button" class="glass-btn btn-prev" onclick="prevSpaTrack()" title="Canción Anterior">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                    <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                </svg>
+            </button>
+
+            <!-- Botón Play / Pause Central -->
+            <button type="button" class="glass-btn btn-play-main" id="spaPlayerPlayBtn" onclick="toggleSpaMusic()" title="Reproducir / Pausar">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" id="spaPlayIcon">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" id="spaPauseIcon" style="display: none;">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                </svg>
+            </button>
+
+            <!-- Botón Siguiente -->
+            <button type="button" class="glass-btn btn-next" onclick="nextSpaTrack()" title="Siguiente Canción">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                    <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Info de la Canción con Carátula y Ecualizador Dinámico -->
+        <div class="player-track-pill" id="spaPlayerTrackPill" onclick="toggleSpaMusic()">
+            <div class="track-cover-wrap">
+                <img src="logo.jpg" alt="Cami's Lashes Music" class="track-cover-img" id="spaPlayerCover">
+                <div class="track-cover-glow"></div>
+            </div>
+
+            <div class="track-meta-info">
+                <div class="track-title-row">
+                    <span class="track-name" id="spaPlayerTrackTitle">Santuario de Calma</span>
+                    <!-- Ecualizador Animado -->
+                    <div class="equalizer-bars" id="spaEqualizerBars">
+                        <span class="eq-bar bar-1"></span>
+                        <span class="eq-bar bar-2"></span>
+                        <span class="eq-bar bar-3"></span>
+                        <span class="eq-bar bar-4"></span>
+                    </div>
+                </div>
+                <span class="track-artist" id="spaPlayerArtist">Cami's Lashes • Relaxing Spa Lounge</span>
+            </div>
+
+            <!-- Barra de Progreso Luminosa Inferior -->
+            <div class="track-progress-container">
+                <div class="track-progress-fill" id="spaPlayerProgressFill"></div>
+            </div>
+        </div>
+
+        <!-- Control de Volumen / Mute -->
+        <div class="player-actions-group">
+            <button type="button" class="glass-btn btn-volume" id="spaPlayerVolBtn" onclick="toggleSpaMute()" title="Silenciar / Activar Sonido">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" id="spaVolHighIcon">
+                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                </svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" id="spaVolMuteIcon" style="display: none;">
+                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Elemento de Audio HTML5 Oculto -->
+        <audio id="spaAudioElement" src="bg-music.mp3" preload="metadata" loop></audio>
     </div>
 
 </body>
