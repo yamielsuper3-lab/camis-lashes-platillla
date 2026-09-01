@@ -7514,6 +7514,185 @@
             display: none !important;
         }
 
+
+
+        /* ══════════════════════════════════════════════════════════════
+           SPA VERTICAL WORKS GALLERY (Professional Staggered Feed)
+           ══════════════════════════════════════════════════════════════ */
+        .showcase-auto-timer-bar {
+            display: none !important;
+        }
+
+        .spa-vertical-works-gallery {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(235, 198, 205, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .vertical-gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4px;
+        }
+
+        .gallery-header-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: #FFF4F6;
+            letter-spacing: 0.5px;
+        }
+
+        .gallery-camera-icon {
+            font-size: 0.95rem;
+        }
+
+        .gallery-count-badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: rgba(235, 198, 205, 0.15);
+            border: 1px solid rgba(235, 198, 205, 0.35);
+            color: #EBC6CD;
+            padding: 3px 9px;
+            border-radius: 999px;
+            letter-spacing: 0.4px;
+        }
+
+        .vertical-gallery-cards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .vertical-gallery-cards-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .vertical-gallery-cards-list::-webkit-scrollbar-thumb {
+            background: rgba(235, 198, 205, 0.3);
+            border-radius: 4px;
+        }
+
+        .vertical-work-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(22, 16, 20, 0.7);
+            border: 1px solid rgba(235, 198, 205, 0.18);
+            border-radius: 12px;
+            padding: 8px;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vertical-work-card:hover {
+            background: rgba(34, 22, 30, 0.9);
+            border-color: rgba(235, 198, 205, 0.55);
+            transform: translateY(-2px) translateX(4px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 15px rgba(235, 198, 205, 0.12);
+        }
+
+        .vertical-work-card.active {
+            background: linear-gradient(135deg, rgba(38, 24, 32, 0.95) 0%, rgba(46, 28, 38, 0.95) 100%);
+            border-color: #E2C799;
+            box-shadow: 0 0 15px rgba(226, 199, 153, 0.25);
+        }
+
+        .vertical-work-card.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #EBC6CD, #E2C799);
+        }
+
+        .work-card-thumb-wrap {
+            position: relative;
+            width: 72px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #0E0A0C;
+        }
+
+        .work-card-thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .vertical-work-card:hover .work-card-thumb {
+            transform: scale(1.12);
+        }
+
+        .work-card-tag {
+            position: absolute;
+            bottom: 3px;
+            left: 3px;
+            right: 3px;
+            background: rgba(14, 10, 12, 0.85);
+            backdrop-filter: blur(4px);
+            color: #FFF4F6;
+            font-size: 0.55rem;
+            font-weight: 700;
+            padding: 1px 4px;
+            border-radius: 4px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid rgba(235, 198, 205, 0.3);
+        }
+
+        .work-card-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .work-card-caption {
+            font-size: 0.76rem;
+            color: rgba(255, 246, 248, 0.9);
+            line-height: 1.35;
+            font-weight: 500;
+            white-space: normal;
+        }
+
+        .work-card-view-btn {
+            font-size: 0.68rem;
+            color: #E2C799;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s ease;
+        }
+
+        .vertical-work-card:hover .work-card-view-btn {
+            color: #FFF6F8;
+            text-decoration: underline;
+        }
+
 </style>
     <!-- GSAP Libraries for Diamond Portal Transition -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -8529,14 +8708,22 @@
                                 </div>
                             </div>
 
-                            <!-- Controles de Navegación Rápida de Fotos -->
-                            <div class="showcase-gallery-pills" id="spaGalleryPills">
-                                <button type="button" class="gallery-pill active" onclick="jumpToSpaService('clasicas', this)">Clásicas ($700)</button>
-                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('foxy', this)">Foxy ($850)</button>
-                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('eyeliner', this)">Eyeliner ($1100)</button>
-                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('cejas', this)">Cejas HD ($450)</button>
-                                <button type="button" class="gallery-pill" onclick="jumpToSpaService('combo-masaje-pedi', this)">Combo Relax ($799)</button>
+
+                            <!-- Galería Vertical de Tomas y Trabajos Reales del Servicio Activo -->
+                            <div class="spa-vertical-works-gallery" id="spaVerticalWorksGallery">
+                                <div class="vertical-gallery-header">
+                                    <div class="gallery-header-title">
+                                        <span class="gallery-camera-icon">📸</span>
+                                        <span class="gallery-title-text" id="spaGalleryHeaderTitle">Galería de Trabajos Reales</span>
+                                    </div>
+                                    <span class="gallery-count-badge" id="spaGalleryCountBadge">3 Tomas HD</span>
+                                </div>
+                                
+                                <div class="vertical-gallery-cards-list" id="spaVerticalGalleryCardsList">
+                                    <!-- Rendered dynamically by JS on service select -->
+                                </div>
                             </div>
+
 
                         </div>
                     </div>
@@ -11347,9 +11534,196 @@
                         // ══════════════════════════════════════════════
             // SPA BOUTIQUE & MENÚ CHEF JS ENGINE
             // ══════════════════════════════════════════════
-            let spaServicesList = [];
-            let currentSpaServiceIndex = 0;
-            let spaRotatorInterval = null;
+            
+            // Database of real photography works per service for vertical gallery
+            const spaServiceWorksGalleryDB = {
+                'clasicas': [
+                    { img: 'images/spa/service-clasicas.jpg?v=sopapo2', tag: '👁️ Aislamiento 1:1', caption: 'Definición sutil milimétrica en pestaña natural' },
+                    { img: 'images/spa/service-hibridas.jpg?v=sopapo2', tag: '✨ Ángulo 45°', caption: 'Acabado limpio y ligero para uso diario' },
+                    { img: 'images/spa/service-sweet.jpg?v=sopapo2', tag: '💎 Vista Completa', caption: 'Mirada descansada y curvatura suave' }
+                ],
+                'hibridas': [
+                    { img: 'images/spa/service-hibridas.jpg?v=sopapo2', tag: '✨ Textura Mixta', caption: 'Fusión de fibras clásicas y abanicos ligeros' },
+                    { img: 'images/spa/service-clasicas.jpg?v=sopapo2', tag: '👁️ Detalle Macro', caption: 'Volumen natural con dimensión' },
+                    { img: 'images/spa/service-rimel.jpg?v=sopapo2', tag: '💎 Resultado Final', caption: 'Efecto máscara de pestañas perfecto' }
+                ],
+                'rimel': [
+                    { img: 'images/spa/service-rimel.jpg?v=sopapo2', tag: '✨ Acabado Glossy', caption: 'Efecto rímel recién aplicado sin grumos' },
+                    { img: 'images/spa/service-hibridas.jpg?v=sopapo2', tag: '👁️ Densidad Sutil', caption: 'Textura brillante y orden milimétrico' },
+                    { img: 'images/spa/service-clasicas.jpg?v=sopapo2', tag: '💎 Vista Superior', caption: 'Definición limpia de raíz a punta' }
+                ],
+                'sweet': [
+                    { img: 'images/spa/service-sweet.jpg?v=sopapo2', tag: '🌸 Apertura Central', caption: 'Mayor longitud al centro para agrandar la mirada' },
+                    { img: 'images/spa/service-mojado.jpg?v=sopapo2', tag: '✨ Reflejo Púrpura', caption: 'Visagismo suave con visos de color' },
+                    { img: 'images/spa/service-divas.jpg?v=sopapo2', tag: '💎 Vista Frontal', caption: 'Mirada dulce, fresca y rejuvenecida' }
+                ],
+                'divas': [
+                    { img: 'images/spa/service-divas.jpg?v=sopapo2', tag: '👑 Curvatura Élite', caption: 'Curvatura pronunciada y mirada de impacto' },
+                    { img: 'images/spa/service-megavolumen.jpg?v=sopapo2', tag: '✨ Densidad Escénica', caption: 'Presencia glamurosa para eventos especiales' },
+                    { img: 'images/spa/service-foxy.jpg?v=sopapo2', tag: '💎 Alargamiento', caption: 'Visagismo de pasarela de alta costura' }
+                ],
+                'mojado': [
+                    { img: 'images/spa/service-mojado.jpg?v=sopapo2', tag: '💧 Tendencia Wet Look', caption: 'Puntas cerradas texturizadas con brillo glossy' },
+                    { img: 'images/spa/service-kimk.jpg?v=sopapo2', tag: '✨ Spikes Texturizados', caption: 'Contraste de puntas húmedas y volumen base' },
+                    { img: 'images/spa/service-sweet.jpg?v=sopapo2', tag: '💎 Detalle Púrpura', caption: 'Acabado de máxima tendencia editorial' }
+                ],
+                'foxy': [
+                    { img: 'images/spa/service-foxy.jpg?v=sopapo2', tag: '🦊 Mirada Felina L-Curl', caption: 'Alargamiento lateral extremo firmado por Camila' },
+                    { img: 'images/spa/service-eyeliner.jpg?v=sopapo2', tag: '✨ Delineado Óptico', caption: 'Efecto lifting visual en el rabillo del ojo' },
+                    { img: 'images/spa/service-divas.jpg?v=sopapo2', tag: '💎 Ángulo Rasgado', caption: 'Ojos rasgados con volumen degradado' }
+                ],
+                'kimk': [
+                    { img: 'images/spa/service-kimk.jpg?v=sopapo2', tag: '✨ Espigas Kim K', caption: 'Espigas puntiagudas simétricas sobresalientes' },
+                    { img: 'images/spa/service-wispy.jpg?v=sopapo2', tag: '🪶 Capas Escalonadas', caption: 'Textura wispy desigual de alta sofisticación' },
+                    { img: 'images/spa/service-mojado.jpg?v=sopapo2', tag: '💎 Base de Volumen', caption: 'Oscuridad en raíz con puntas despuntadas' }
+                ],
+                'wispy': [
+                    { img: 'images/spa/service-wispy.jpg?v=sopapo2', tag: '🪶 Textura Plumosa', caption: 'Capas alternadas para un look ligero y etéreo' },
+                    { img: 'images/spa/service-kimk.jpg?v=sopapo2', tag: '✨ Vista Cenital', caption: 'Graduación milimétrica de longitudes' },
+                    { img: 'images/spa/service-megavolumen.jpg?v=sopapo2', tag: '💎 Suavidad Total', caption: 'Volumen esponjoso sin sobrepeso' }
+                ],
+                'volumen': [
+                    { img: 'images/spa/service-volumen.jpg?v=sopapo2', tag: '💎 Abanicos Artesanales', caption: 'Abanicos 3D a 5D armados a mano por Camila' },
+                    { img: 'images/spa/service-megavolumen.jpg?v=sopapo2', tag: '✨ Densidad Terciopelo', caption: 'Oscuridad tupida sin daño a la pestaña natural' },
+                    { img: 'images/spa/service-eyeliner.jpg?v=sopapo2', tag: '👁️ Vista Frontal', caption: 'Línea de base perfecta y esponjosa' }
+                ],
+                'longstyle': [
+                    { img: 'images/spa/service-longstyle.jpg?v=sopapo2', tag: '✨ Longitud Máxima', caption: 'Fibras extra largas con curvatura sostenida' },
+                    { img: 'images/spa/service-foxy.jpg?v=sopapo2', tag: '🦊 Estilización Lateral', caption: 'Proyección alargada hacia el extremo exterior' },
+                    { img: 'images/spa/service-divas.jpg?v=sopapo2', tag: '💎 Impacto Visual', caption: 'Presencia dramática con equilibrio de peso' }
+                ],
+                'bitchlashes': [
+                    { img: 'images/spa/service-bitchlashes.jpg?v=sopapo2', tag: '🔥 Alas Tropicales', caption: 'Alas de color naranja, azul y violeta firmadas' },
+                    { img: 'images/spa/service-mojado.jpg?v=sopapo2', tag: '✨ Acento Púrpura', caption: 'Destellos cromáticos audaces de pasarela' },
+                    { img: 'images/spa/service-sweet.jpg?v=sopapo2', tag: '💎 Fantasía de Autor', caption: 'Diseño creativo exclusivo de alta costura' }
+                ],
+                'eyeliner': [
+                    { img: 'images/spa/service-eyeliner.jpg?v=sopapo2', tag: '🖋️ Delineado Óptico', caption: 'Efecto eyeliner continuo con base compacta y oscura' },
+                    { img: 'images/spa/service-foxy.jpg?v=sopapo2', tag: '🦊 Rabillo Rasgado', caption: 'Definición felina sin necesidad de maquillaje' },
+                    { img: 'images/spa/service-volumen.jpg?v=sopapo2', tag: '💎 Densidad 0.03mm', caption: 'Línea negra intensa que enmarca la mirada' }
+                ],
+                'megavolumen': [
+                    { img: 'images/spa/service-megavolumen.jpg?v=sopapo2', tag: '💎 Densidad Extrema', caption: 'Abanicos 6D a 10D ultrafinos de 0.03mm de terciopelo' },
+                    { img: 'images/spa/service-volumen.jpg?v=sopapo2', tag: '✨ Oscuridad Absoluta', caption: 'Máxima tupidez y suavidad como la seda' },
+                    { img: 'images/spa/service-eyeliner.jpg?v=sopapo2', tag: '👁️ Detalle Cerrado', caption: 'Firma y calidad de autora de Camila Marin' }
+                ],
+                'express': [
+                    { img: 'images/spa/service-express.jpg?v=sopapo2', tag: '⚡ Rápida Aplicación', caption: 'Aplicación acelerada para eventos de última hora' },
+                    { img: 'images/spa/service-clasicas.jpg?v=sopapo2', tag: '✨ Definición Práctica', caption: 'Mirada realzada en tiempo récord' },
+                    { img: 'images/spa/service-hibridas.jpg?v=sopapo2', tag: '💎 Look Fresco', caption: 'Duración y estética sin largas esperas' }
+                ],
+                'lifting': [
+                    { img: 'images/spa/service-lifting.jpg?v=sopapo2', tag: '🪄 Curvatura Natural', caption: 'Elevación de pestañas naturales desde la raíz con queratina' },
+                    { img: 'images/spa/service-cejas.jpg?v=sopapo2', tag: '✨ Laminado & Tinte', caption: 'Nutrición celular y efecto máscara permanente' },
+                    { img: 'images/spa/service-facial.jpg?v=sopapo2', tag: '💎 Mirada Abierta', caption: 'Duración de 6 a 8 semanas sin extensiones' }
+                ],
+                'cejas': [
+                    { img: 'images/spa/service-cejas.jpg?v=sopapo2', tag: '✨ Tratamiento 4 en 1', caption: 'Diseño de Visagismo, Depilación, Laminado & Henna' },
+                    { img: 'images/spa/service-lifting.jpg?v=sopapo2', tag: '🪄 Definición HD', caption: 'Marco perfecto del rostro adaptado a tus facciones' },
+                    { img: 'images/spa/service-facial.jpg?v=sopapo2', tag: '💎 Pigmento Orgánico', caption: 'Coloración y grosor natural de larga duración' }
+                ],
+                'masaje-relajante': [
+                    { img: 'images/spa/service-masaje.jpg?v=sopapo2', tag: '💆 Masaje Craneofacial', caption: 'Manos expertas en descompresión facial y cuello' },
+                    { img: 'images/spa/service-masaje-piedras-zen.jpg?v=sopapo2', tag: '🕯️ Cabina Privada', caption: 'Aromaterapia botánica y aceites esenciales tibios' },
+                    { img: 'images/spa/service-masaje-piedras-velas.jpg?v=sopapo2', tag: '🌿 Calma Absoluta', caption: 'Desconexión y sedación antiestrés total' }
+                ],
+                'masaje-terapeutico': [
+                    { img: 'images/spa/service-masaje.jpg?v=sopapo2', tag: '💪 Alivio Muscular', caption: 'Maniobras específicas para contracturas y tensión acumulada' },
+                    { img: 'images/spa/service-masaje-piedras.jpg?v=sopapo2', tag: '🪨 Descontracturante', caption: 'Terapia focalizada en espalda, cuello y hombros' },
+                    { img: 'images/spa/service-masaje-piedras-zen.jpg?v=sopapo2', tag: '✨ Bienestar Físico', caption: 'Restauración de la movilidad sin dolor' }
+                ],
+                'masaje-tejido': [
+                    { img: 'images/spa/service-masaje.jpg?v=sopapo2', tag: '💪 Presión Firme', caption: 'Liberación miofascial y desarticulación de nudos crónicos' },
+                    { img: 'images/spa/service-masaje-piedras.jpg?v=sopapo2', tag: '🪨 Tejido Profundo', caption: 'Manipulación de planos musculares profundos' },
+                    { img: 'images/spa/service-masaje-piedras-velas.jpg?v=sopapo2', tag: '🌿 Renovación', caption: 'Ideal para personas activas o fatiga postural' }
+                ],
+                'masaje-piedras': [
+                    { img: 'images/spa/service-masaje-piedras.jpg?v=sopapo2', tag: '🪨 Piedras Volcánicas', caption: 'Termoterapia con piedras basálticas calientes en camilla' },
+                    { img: 'images/spa/service-masaje-piedras-zen.jpg?v=sopapo2', tag: '🕯️ Armonización', caption: 'Puntos energéticos y aceites botánicos tibios' },
+                    { img: 'images/spa/service-masaje-piedras-velas.jpg?v=sopapo2', tag: '✨ Relajación Termal', caption: 'Sedación muscular profunda y alivio del estrés' }
+                ],
+                'masaje-ventosas': [
+                    { img: 'images/spa/service-masaje-piedras-velas.jpg?v=sopapo2', tag: '🩸 Cupping Therapy', caption: 'Succión controlada para reactivar la microcirculación' },
+                    { img: 'images/spa/service-masaje.jpg?v=sopapo2', tag: '💆 Drenaje Muscular', caption: 'Desinflamación y eliminación de toxinas profundas' },
+                    { img: 'images/spa/service-masaje-piedras.jpg?v=sopapo2', tag: '🌿 Descompresión', caption: 'Alivio rápido de rigidez en espalda y lumbares' }
+                ],
+                'combo-masaje-pedi': [
+                    { img: 'images/spa/service-combo.jpg?v=sopapo2', tag: '👑 Experiencia VIP 2 en 1', caption: 'Tina con pétalos de flores y masaje podal en cabina' },
+                    { img: 'images/spa/service-pedicura.jpg?v=sopapo2', tag: '🌸 Pedicura Spa', caption: 'Pies de seda, exfoliación y tratamiento de cutículas' },
+                    { img: 'images/spa/service-masaje.jpg?v=sopapo2', tag: '🕯️ Masaje en Cabina', caption: 'Masaje Relajante antiestrés + Pedicura Completa' }
+                ],
+                'pedicura-spa': [
+                    { img: 'images/spa/service-combo.jpg?v=sopapo2', tag: '🌸 Tina de Pétalos', caption: 'Baño de sales aromáticas y exfoliación botánica' },
+                    { img: 'images/spa/service-pedicura.jpg?v=sopapo2', tag: '✨ Pies de Seda', caption: 'Retiro de asperezas, corte, limado y masaje podal' },
+                    { img: 'images/spa/service-pedicura-reflex.jpg?v=sopapo2', tag: '☕ Té de Cortesía', caption: 'Atención personalizada y confort absoluto' }
+                ],
+                'pedicura-parafina': [
+                    { img: 'images/spa/service-pedicura.jpg?v=sopapo2', tag: '✨ Baño de Parafina', caption: 'Parafina tibia que sella la humedad y repara talones' },
+                    { img: 'images/spa/service-combo.jpg?v=sopapo2', tag: '🌸 Hidratación Profunda', caption: 'Suavidad extrema para resequedad y pies cansados' },
+                    { img: 'images/spa/service-pedicura-reflex.jpg?v=sopapo2', tag: '💎 Cuidado Élite', caption: 'Piel nutrida, sedosa y renovada por semanas' }
+                ]
+            };
+
+
+            window.renderSpaVerticalGallery = (serviceId) => {
+                const galleryListEl = document.getElementById('spaVerticalGalleryCardsList');
+                const titleEl = document.getElementById('spaGalleryHeaderTitle');
+                const countBadge = document.getElementById('spaGalleryCountBadge');
+                if (!galleryListEl) return;
+
+                const works = spaServiceWorksGalleryDB[serviceId] || spaServiceWorksGalleryDB['clasicas'];
+                if (countBadge) countBadge.textContent = `${works.length} Tomas HD`;
+                
+                // Build cards
+                let html = '';
+                works.forEach((item, index) => {
+                    html += `
+                        <div class="vertical-work-card ${index === 0 ? 'active' : ''}" onclick="selectWorkGalleryPhoto('${item.img}', '${item.tag.replace(/'/g, "\\'")}', this)">
+                            <div class="work-card-thumb-wrap">
+                                <img src="${item.img}" alt="${item.tag}" class="work-card-thumb" loading="lazy">
+                                <span class="work-card-tag">${item.tag}</span>
+                            </div>
+                            <div class="work-card-info">
+                                <span class="work-card-caption">${item.caption}</span>
+                                <span class="work-card-view-btn">Ver en Grande 🔍</span>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                galleryListEl.innerHTML = html;
+                
+                // Trigger smooth staggered entry animation
+                const cards = galleryListEl.querySelectorAll('.vertical-work-card');
+                if (typeof gsap !== 'undefined') {
+                    gsap.fromTo(cards, 
+                        { opacity: 0, y: 16 },
+                        { opacity: 1, y: 0, duration: 0.45, stagger: 0.08, ease: 'power2.out' }
+                    );
+                }
+            };
+
+            window.selectWorkGalleryPhoto = (imgSrc, tagText, cardEl) => {
+                const mainImg = document.getElementById('spaShowcaseMainImg');
+                const tagEl = document.getElementById('spaShowcaseTagText');
+                
+                if (mainImg) {
+                    mainImg.style.opacity = '0.3';
+                    mainImg.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        mainImg.src = imgSrc;
+                        mainImg.style.opacity = '1';
+                        mainImg.style.transform = 'scale(1.02)';
+                    }, 150);
+                }
+
+                if (tagEl && tagText) {
+                    tagEl.textContent = tagText;
+                }
+
+                document.querySelectorAll('.vertical-work-card').forEach(c => c.classList.remove('active'));
+                if (cardEl) cardEl.classList.add('active');
+            };
 
             window.initSpaServicesList = () => {
                 const visibleBoard = Array.from(document.querySelectorAll('.chef-menu-board')).find(b => b.style.display !== 'none' && b.offsetParent !== null) || document.querySelector('.board-category-lashes');
@@ -11361,7 +11735,6 @@
                 currentSpaServiceIndex = 0;
                 if (spaServicesList.length > 0) {
                     window.updateSpaShowcase(spaServicesList[0]);
-                    window.startSpaAutoRotator();
                 }
             };
 
@@ -11373,10 +11746,6 @@
             window.selectSpaService = (itemEl) => {
                 if (!itemEl) return;
                 window.updateSpaShowcase(itemEl);
-                if (spaRotatorInterval) {
-                    clearInterval(spaRotatorInterval);
-                    window.startSpaAutoRotator();
-                }
             };
 
             window.jumpToSpaService = (serviceId, pillBtn) => {
@@ -11395,44 +11764,60 @@
                     window.updateSpaShowcase(matchedItem);
                     matchedItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
-                if (pillBtn) {
-                    document.querySelectorAll('.gallery-pill').forEach(p => p.classList.remove('active'));
-                    pillBtn.classList.add('active');
-                }
             };
 
-            // Auto-rotate showcase works smoothly when idle
-            window.startSpaAutoRotator = () => {
-                if (spaRotatorInterval) clearInterval(spaRotatorInterval);
-                const progressFill = document.getElementById('spaTimerProgress');
-                
-                if (progressFill) {
-                    progressFill.style.transition = 'none';
-                    progressFill.style.width = '0%';
+            // Enhanced Showcase update: Static & Calm (NO auto-rotate countdown), loads vertical works gallery!
+            window.updateSpaShowcase = (itemEl) => {
+                if (!itemEl) return;
+
+                const img = itemEl.getAttribute('data-img') || 'images/spa/service-clasicas.jpg?v=sopapo2';
+                const cat = itemEl.getAttribute('data-category') || 'Pestañas de Autor';
+                const title = itemEl.getAttribute('data-title') || 'Servicio de Spa';
+                const price = itemEl.getAttribute('data-price') || '$850 MXN';
+                const desc = itemEl.getAttribute('data-desc') || '';
+                const tag = itemEl.getAttribute('data-tag') || '✨ Experiencia de Autor';
+                const serviceId = itemEl.getAttribute('data-service-id') || 'clasicas';
+
+                const mainImg = document.getElementById('spaShowcaseMainImg');
+                const catEl = document.getElementById('spaShowcaseCat');
+                const titleEl = document.getElementById('spaShowcaseTitle');
+                const descEl = document.getElementById('spaShowcaseDesc');
+                const tagEl = document.getElementById('spaShowcaseTagText');
+                const priceEl = document.getElementById('spaShowcasePrice');
+                const bookBtn = document.getElementById('spaShowcaseBookBtn');
+                const galleryTitleEl = document.getElementById('spaGalleryHeaderTitle');
+
+                if (mainImg) {
+                    mainImg.style.opacity = '0.3';
+                    mainImg.style.transform = 'scale(1.05)';
                     setTimeout(() => {
-                        progressFill.style.transition = 'width 4s linear';
-                        progressFill.style.width = '100%';
-                    }, 50);
+                        mainImg.src = img;
+                        mainImg.style.opacity = '1';
+                        mainImg.style.transform = 'scale(1.02)';
+                    }, 180);
                 }
 
-                spaRotatorInterval = setInterval(() => {
-                    if (spaServicesList.length === 0) return;
-                    currentSpaServiceIndex = (currentSpaServiceIndex + 1) % spaServicesList.length;
-                    const nextItem = spaServicesList[currentSpaServiceIndex];
-                    window.updateSpaShowcase(nextItem);
+                if (catEl) catEl.textContent = cat;
+                if (titleEl) titleEl.textContent = title;
+                if (descEl) descEl.textContent = desc;
+                if (tagEl) tagEl.textContent = tag;
+                if (priceEl) priceEl.textContent = price;
+                if (galleryTitleEl) galleryTitleEl.textContent = `Galería de Trabajos: ${title}`;
 
-                    if (progressFill) {
-                        progressFill.style.transition = 'none';
-                        progressFill.style.width = '0%';
-                        setTimeout(() => {
-                            progressFill.style.transition = 'width 4s linear';
-                            progressFill.style.width = '100%';
-                        }, 50);
-                    }
-                }, 4000);
+                if (bookBtn) {
+                    const cleanTitle = encodeURIComponent(`${title} (${price})`);
+                    bookBtn.href = `https://wa.me/5214731002030?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20para%20el%20servicio:%20${cleanTitle}`;
+                }
+
+                // Update active state in menu
+                document.querySelectorAll('.chef-menu-item').forEach(i => i.classList.remove('active'));
+                itemEl.classList.add('active');
+
+                // Render dynamic vertical gallery of real client works
+                window.renderSpaVerticalGallery(serviceId);
             };
 
-            // Spa Category Filtering Function (Mixed Grid for "All", Clean Lists for Specific Categories)
+
             window.filterSpaCategory = (cat, tabBtn) => {
                 document.querySelectorAll('.spa-cat-tab').forEach(t => t.classList.remove('active'));
                 if (tabBtn) tabBtn.classList.add('active');
