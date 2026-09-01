@@ -7971,6 +7971,271 @@
     <!-- GSAP Libraries for Diamond Portal Transition -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     
+<style id="founder-fullscreen-holo-css">
+/* ==========================================================================
+   FULLSCREEN HOLOGRAPHIC CINEMA MODAL (CENTER-OUTWARD EXPANSION)
+   ========================================================================== */
+
+/* Fullscreen Overlay Backdrop */
+.founder-fullscreen-holo-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(10, 7, 10, 0.96) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    z-index: 9999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    overflow: hidden !important;
+}
+
+.founder-fullscreen-holo-modal.active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Holographic Fullscreen Laser Pulse Wave */
+.holo-fullscreen-pulse {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 120px !important;
+    height: 120px !important;
+    transform: translate(-50%, -50%) scale(0) !important;
+    border-radius: 50% !important;
+    border: 3px solid #E2C799 !important;
+    box-shadow: 0 0 50px #D4AF37, inset 0 0 30px #EBC6CD !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    opacity: 0 !important;
+}
+
+.founder-fullscreen-holo-modal.active .holo-fullscreen-pulse {
+    animation: holoPulseFullscreen 0.85s cubic-bezier(0.1, 0.8, 0.2, 1) forwards !important;
+}
+
+@keyframes holoPulseFullscreen {
+    0% { transform: translate(-50%, -50%) scale(0.1); opacity: 1; }
+    50% { opacity: 0.9; }
+    100% { transform: translate(-50%, -50%) scale(15); opacity: 0; }
+}
+
+/* Center-Outward Expanding Cinema Stage */
+.holo-cinema-stage {
+    position: relative !important;
+    width: auto !important;
+    max-width: 92vw !important;
+    height: auto !important;
+    max-height: 88vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: scale(0) !important;
+    transform-origin: center center !important;
+    transition: transform 0.65s cubic-bezier(0.16, 1.25, 0.3, 1) !important;
+    z-index: 10 !important;
+}
+
+.founder-fullscreen-holo-modal.active .holo-cinema-stage {
+    transform: scale(1) !important;
+}
+
+/* Cinema Video Box with Luxury Champagne Glow */
+.holo-cinema-box {
+    position: relative !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    background: #000000 !important;
+    border: 2px solid rgba(212, 175, 55, 0.65) !important;
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.35), 0 30px 80px rgba(0, 0, 0, 0.95) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    max-height: 72vh !important;
+    aspect-ratio: 9 / 16 !important; /* Short/Reel Video Format */
+}
+
+@media (min-aspect-ratio: 1/1) {
+    .holo-cinema-box {
+        max-height: 75vh !important;
+    }
+}
+
+.holo-cinema-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 22px !important;
+    background: #000000 !important;
+}
+
+/* Holographic Scanline & Light Ray */
+.holo-cinema-box::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(212, 175, 55, 0.15) 49%,
+        rgba(235, 198, 205, 0.28) 50%,
+        rgba(212, 175, 55, 0.15) 51%,
+        transparent 100%
+    ) !important;
+    background-size: 100% 250% !important;
+    pointer-events: none !important;
+    z-index: 4 !important;
+    opacity: 0.35 !important;
+    animation: scanlineCinema 4s linear infinite !important;
+}
+
+@keyframes scanlineCinema {
+    0% { background-position: 0 -250%; }
+    100% { background-position: 0 250%; }
+}
+
+/* Top Cinema Header */
+.holo-cinema-top {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 12px !important;
+    padding: 0 6px !important;
+}
+
+.holo-cinema-brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    background: rgba(26, 18, 23, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(212, 175, 55, 0.5) !important;
+    padding: 6px 16px !important;
+    border-radius: 999px !important;
+    color: #E2C799 !important;
+    font-size: 0.84rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+.holo-cinema-brand .live-dot {
+    width: 8px !important;
+    height: 8px !important;
+    background: #2ECC71 !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 10px #2ECC71 !important;
+    animation: pulseCinemaDot 1.5s infinite !important;
+}
+
+@keyframes pulseCinemaDot {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.btn-holo-cinema-close {
+    background: rgba(26, 18, 23, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(235, 198, 205, 0.5) !important;
+    color: #FFFFFF !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+    cursor: pointer !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.btn-holo-cinema-close:hover {
+    background: #D4AF37 !important;
+    color: #121212 !important;
+    border-color: #D4AF37 !important;
+    transform: scale(1.12) rotate(90deg) !important;
+}
+
+/* Bottom Cinema Controls */
+.holo-cinema-bottom {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 14px !important;
+    padding: 0 6px !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+}
+
+.holo-btn-audio {
+    background: rgba(26, 18, 23, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(212, 175, 55, 0.45) !important;
+    color: #E2C799 !important;
+    font-size: 0.84rem !important;
+    font-weight: 600 !important;
+    padding: 8px 18px !important;
+    border-radius: 999px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.holo-btn-audio:hover {
+    background: rgba(212, 175, 55, 0.35) !important;
+    color: #FFFFFF !important;
+    border-color: #D4AF37 !important;
+    transform: translateY(-2px) !important;
+}
+
+.holo-cinema-time {
+    font-size: 0.8rem !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    background: rgba(26, 18, 23, 0.9) !important;
+    padding: 7px 16px !important;
+    border-radius: 999px !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.holo-btn-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+    color: #FFFFFF !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    padding: 8px 18px !important;
+    border-radius: 999px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3) !important;
+    transition: all 0.25s ease !important;
+}
+
+.holo-btn-whatsapp:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5) !important;
+    color: #FFFFFF !important;
+}
+</style>
 </head>
 <body class="scroll-locked">
     <!-- Background Audio Element -->
@@ -9465,7 +9730,7 @@
                                 <div class="holo-pulse-emitter" id="holoPulseEmitter"></div>
 
                                 <!-- Botón de Play Dorado con Ondas de Luz -->
-                                <div class="media-video-trigger" id="founderVideoTrigger" onclick="expandFounderHologramVideo()" title="Ver Video de Presentación de Camila Marín">
+                                <div class="media-video-trigger" id="founderVideoTrigger" onclick="openFounderHologramFullscreen()" title="Ver Video de Presentación de Camila Marín">
                                     <svg viewBox="0 0 24 24" width="28" height="28" fill="#121212"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                                 </div>
 
@@ -13061,6 +13326,152 @@
                 });
             }
         });
+    </script>
+
+
+    <!-- FULLSCREEN HOLOGRAPHIC CINEMA MODAL -->
+    <div class="founder-fullscreen-holo-modal" id="founderHoloFullscreenModal" onclick="handleHoloModalBackdropClick(event)">
+        
+        <!-- Laser Pulse Expanding Ring -->
+        <div class="holo-fullscreen-pulse" id="holoFullscreenPulse"></div>
+
+        <!-- Cinema Stage (Expands from Center to Fullscreen) -->
+        <div class="holo-cinema-stage" id="holoCinemaStage" onclick="event.stopPropagation()">
+            
+            <!-- Top Controls -->
+            <div class="holo-cinema-top">
+                <div class="holo-cinema-brand">
+                    <span class="live-dot"></span>
+                    <span>Camila Marín • Master Trainer HD</span>
+                </div>
+                <button type="button" class="btn-holo-cinema-close" onclick="closeFounderHologramFullscreen()" title="Cerrar Video (Esc)">✕</button>
+            </div>
+
+            <!-- Video Frame Container -->
+            <div class="holo-cinema-box">
+                <video class="holo-cinema-video" id="holoFullscreenVideo" playsinline preload="auto">
+                    <source src="videos/Camila_video_no_watermark_hd.mp4" type="video/mp4">
+                    <source src="Camila_video_no_watermark_hd.mp4" type="video/mp4">
+                    Tu navegador no soporta reproducción de video.
+                </video>
+            </div>
+
+            <!-- Bottom Floating Controls -->
+            <div class="holo-cinema-bottom">
+                <button type="button" class="holo-btn-audio" id="holoFullscreenAudioBtn" onclick="toggleFullscreenAudio()">
+                    <span id="holoFsAudioIcon">🔊</span>
+                    <span id="holoFsAudioText">Audio Activado</span>
+                </button>
+                
+                <span class="holo-cinema-time" id="holoFullscreenTime">0:00 / 0:00</span>
+
+                <a href="https://api.whatsapp.com/send?phone=5214731002030&text=%C2%A1Hola%20Camila!%20Acabo%20de%20ver%20tu%20video%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="holo-btn-whatsapp">
+                    <span>💬 Contactar a Camila</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- FULLSCREEN HOLOGRAPHIC VIDEO JS CONTROLLER -->
+    <script>
+        function openFounderHologramFullscreen() {
+            const modal = document.getElementById('founderHoloFullscreenModal');
+            const video = document.getElementById('holoFullscreenVideo');
+
+            if (!modal || !video) return;
+
+            // 1. Activate Fullscreen Modal (Center Expansion)
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // 2. Play Video with Audio
+            video.currentTime = 0;
+            video.muted = false;
+
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    updateFullscreenAudioUI(video.muted);
+                }).catch(err => {
+                    console.log('Autoplay muted fallback:', err);
+                    video.muted = true;
+                    video.play();
+                    updateFullscreenAudioUI(true);
+                });
+            }
+        }
+
+        function closeFounderHologramFullscreen() {
+            const modal = document.getElementById('founderHoloFullscreenModal');
+            const video = document.getElementById('holoFullscreenVideo');
+
+            if (!modal || !video) return;
+
+            // Pause and Collapse
+            video.pause();
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function handleHoloModalBackdropClick(e) {
+            if (e.target.id === 'founderHoloFullscreenModal') {
+                closeFounderHologramFullscreen();
+            }
+        }
+
+        function toggleFullscreenAudio() {
+            const video = document.getElementById('holoFullscreenVideo');
+            if (!video) return;
+
+            video.muted = !video.muted;
+            updateFullscreenAudioUI(video.muted);
+        }
+
+        function updateFullscreenAudioUI(isMuted) {
+            const icon = document.getElementById('holoFsAudioIcon');
+            const text = document.getElementById('holoFsAudioText');
+            if (icon && text) {
+                if (isMuted) {
+                    icon.innerText = '🔇';
+                    text.innerText = 'Activar Sonido';
+                } else {
+                    icon.innerText = '🔊';
+                    text.innerText = 'Audio Activado';
+                }
+            }
+        }
+
+        // Keyboard ESC & Time Updates
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeFounderHologramFullscreen();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('holoFullscreenVideo');
+            const timeEl = document.getElementById('holoFullscreenTime');
+
+            if (video && timeEl) {
+                video.addEventListener('timeupdate', () => {
+                    const curM = Math.floor(video.currentTime / 60);
+                    const curS = Math.floor(video.currentTime % 60).toString().padStart(2, '0');
+                    const durM = Math.floor((video.duration || 0) / 60);
+                    const durS = Math.floor((video.duration || 0) % 60).toString().padStart(2, '0');
+                    timeEl.innerText = `${curM}:${curS} / ${durM}:${durS}`;
+                });
+            }
+        });
+
+        // Set trigger on portrait play button
+        function expandFounderHologramVideo() {
+            openFounderHologramFullscreen();
+        }
+        function playFounderVideo() {
+            openFounderHologramFullscreen();
+        }
     </script>
 
 </body>
