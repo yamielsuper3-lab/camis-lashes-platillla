@@ -23,7 +23,7 @@ La página integra:
 * **Tipografía:** Combinación editorial de alta gama (*Playfair Display / Didot* para titulares elegantes y *Outfit / Montserrat* para textos y métricas).
 * **Componentes Interactivos:**
   * **Hero Section con Interruptor Dinámico:** Permite alternar la narrativa entre Boutique y Academia en tiempo real.
-  * **Mural de Testimonios y Estudiantes:** Mosaico de testimonios verificados con modales de pantalla completa, visualización de diplomas oficiales S.E.P., fotos de aislamiento quirúrgico y abanicos 6D.
+  * **Mural de Testimonios y Estudiantes:** Mosaico de testimonios verificados con modales de pantalla completa, visualización de diplomas oficiales S.E.P., fotos de aislamiento milimétrico y abanicos 6D.
   * **Sección de la Mentora:** Formato de entrevista narrativa que destaca la visión, filosofía y liderazgo de Camila Marín Ruiz.
   * **Automatización de Chat:** Conexión hacia WhatsApp vía webhooks de **n8n**.
 
@@ -33,7 +33,7 @@ La página integra:
 En los últimos pasos de la conversación 4ff9ce89-2efb-46b0-b38a-9abcf9ffeb0c:
 1. Se desacopló la galería estética tradicional para crear una **cuadrícula compacta y cuadrada** idéntica a la vista oficial de la app de Instagram.
 2. Se generaron e integraron 6 fotografías de alta resolución en images/instagram_feed/:
-   * ig_1_wispy_macro.jpg: Aislamiento quirúrgico & Efecto Wispy (2,184 likes, 142 comentarios).
+   * ig_1_wispy_macro.jpg: Aislamiento milimétrico & Efecto Wispy (2,184 likes, 142 comentarios).
    * ig_2_graduacion.jpg / ig_2_kit_herramientas.jpg: Generación Élite con Certificación Oficial S.E.P. (1,845 likes).
    * ig_3_masterclass_work.jpg / ig_3_volumen_ruso.jpg: Abanicos Perfectos 6D en Base Ultrafina (2,430 likes).
    * ig_4_cabina_vip.jpg / ig_4_spa_cabin.jpg: Práctica en Modelos Reales con Camila (1,690 likes).
