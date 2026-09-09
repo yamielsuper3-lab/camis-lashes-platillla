@@ -2386,13 +2386,20 @@
         }
 
         .spa-mixed-highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
-            gap: 18px;
-            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 20px;
+            margin: 0 auto 25px auto;
+            width: 100%;
+            max-width: 1280px;
         }
 
         .mixed-highlight-card {
+            flex: 0 1 275px;
+            width: 275px;
+            max-width: 100%;
             background: linear-gradient(135deg, rgba(26, 18, 22, 0.92) 0%, rgba(16, 12, 14, 0.96) 100%);
             border: 1px solid rgba(235, 198, 205, 0.22);
             border-radius: 16px;
@@ -2430,8 +2437,11 @@
                 height: 165px;
             }
             .spa-mixed-highlights-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
                 gap: 14px;
+            }
+            .mixed-highlight-card {
+                flex: 0 1 100%;
+                max-width: 320px;
             }
         }
 
@@ -9418,24 +9428,29 @@
 
         .track-cover-wrap {
             position: relative;
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             overflow: hidden;
             flex-shrink: 0;
-            border: 1px solid rgba(235, 198, 205, 0.4);
+            border: 1.5px solid rgba(212, 175, 55, 0.45);
             background: #0E0A0C;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
         .track-cover-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 10s linear;
+            border-radius: 50%;
+            display: block;
+            animation: spinCover 10s linear infinite;
+            animation-play-state: paused;
+            will-change: transform;
         }
 
         .glass-music-player.playing .track-cover-img {
-            animation: spinCover 12s linear infinite;
+            animation-play-state: running;
         }
 
         @keyframes spinCover {
@@ -11977,8 +11992,8 @@
             <div class="split-panel spa-panel" id="spaPanel" onclick="selectSpa()">
                 <div class="split-bg-container">
                     <video class="split-video-bg" autoplay muted loop playsinline>
-                        <source src="videos/spa_bg_video.mp4" type="video/mp4">
-                        <source src="hero-bg.mp4" type="video/mp4">
+                        <source src="videos/spa_bg_video.mp4?v=spa2026" type="video/mp4">
+                        <source src="hero-bg.mp4?v=spa2026" type="video/mp4">
                     </video>
                 </div>
                 <div class="split-overlay spa-video-overlay"></div>
@@ -12183,16 +12198,11 @@
 
                     <!-- Filtros Rápidos por Categoría -->
                     <div class="spa-category-filter-bar">
-                        <button type="button" class="spa-cat-tab active" onclick="filterSpaCategory('all', this)">✨ Los
-                            Más Pedidos</button>
-                        <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('lashes', this)">👁️
-                            Pestañas de Autor (15)</button>
-                        <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('brows', this)">🖌️ Cejas &
-                            Lifting</button>
-                        <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('massage', this)">🌿
-                            Masajes Holísticos (5)</button>
-                        <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('pedi', this)">🌸 Pedicura
-                            & Combos</button>
+                        <button type="button" class="spa-cat-tab active" onclick="filterSpaCategory('all', this)">✨ Los Más Pedidos</button>
+                        <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('lashes', this)">👁️ Pestañas de Autor</button>
+                        <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('brows', this)">🖌️ Cejas & Lifting</button>
+                        <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('massage', this)">🌿 Masajes Holísticos</button>
+                        <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('pedi', this)">🌸 Pedicura & Combos</button>
                     </div>
 
                     <!-- VISTA UNIFICADA: GALERÃA VISUAL DE SERVICIOS PARA TODAS LAS CATEGORÃAS -->
@@ -14673,110 +14683,101 @@
             const fillEl = document.getElementById('progressFill');
             const maskHole = document.getElementById('mask-hole');
 
-            // If already hidden by the immediate session check, skip running timeline
-            if (!loader || loader.style.display === 'none') {
-                return;
-            }
-
-            // Fail-safe timeout: Hide loader after max 3.2s no matter what
-            const forceHideLoader = () => {
-                if (loader && loader.style.display !== 'none') {
-                    loader.style.transition = 'opacity 0.4s ease';
-                    loader.style.opacity = '0';
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                        try { sessionStorage.setItem('camis_intro_seen', 'true'); } catch (e) { }
-                    }, 400);
-                }
-            };
-            const failSafeTimer = setTimeout(forceHideLoader, 3200);
-
-            try {
-                if (typeof gsap !== 'undefined') {
-                    const counter = { val: 0 };
-                    const tl = gsap.timeline({
-                        onComplete: () => {
-                            clearTimeout(failSafeTimer);
-                            if (loader) loader.style.display = 'none';
+            // Solamente ejecutamos la animación del loader si aún está visible y no se ocultó previamente
+            if (loader && loader.style.display !== 'none') {
+                // Fail-safe timeout: Hide loader after max 3.2s no matter what
+                const forceHideLoader = () => {
+                    if (loader && loader.style.display !== 'none') {
+                        loader.style.transition = 'opacity 0.4s ease';
+                        loader.style.opacity = '0';
+                        setTimeout(() => {
+                            loader.style.display = 'none';
                             try { sessionStorage.setItem('camis_intro_seen', 'true'); } catch (e) { }
-                        }
-                    });
+                        }, 400);
+                    }
+                };
+                const failSafeTimer = setTimeout(forceHideLoader, 3200);
 
-                    // 1. Rotación del rombo central
-                    if (diamond) {
-                        gsap.to(diamond, {
-                            rotation: 360,
-                            duration: 2.2,
-                            repeat: -1,
-                            ease: 'none'
+                try {
+                    if (typeof gsap !== 'undefined') {
+                        const counter = { val: 0 };
+                        const tl = gsap.timeline({
+                            onComplete: () => {
+                                clearTimeout(failSafeTimer);
+                                if (loader) loader.style.display = 'none';
+                                try { sessionStorage.setItem('camis_intro_seen', 'true'); } catch (e) { }
+                            }
                         });
-                    }
 
-                    // 2. Progreso del porcentaje 0% -> 100%
-                    tl.to(counter, {
-                        val: 100,
-                        duration: 1.8,
-                        ease: 'power1.inOut',
-                        onUpdate() {
-                            const v = Math.round(counter.val);
-                            if (pctEl) pctEl.textContent = v + '%';
-                            if (fillEl) fillEl.style.width = v + '%';
+                        // 1. Rotación del rombo central
+                        if (diamond) {
+                            gsap.to(diamond, {
+                                rotation: 360,
+                                duration: 2.2,
+                                repeat: -1,
+                                ease: 'none'
+                            });
                         }
-                    });
 
-                    // 3. Pausa milimétrica al completarse
-                    tl.to({}, { duration: 0.15 });
-
-                    // 4. Encoger y desvanecer textos/logo del loader en el centro
-                    if (loaderContent) {
-                        tl.to(loaderContent, {
-                            opacity: 0,
-                            scale: 0.9,
-                            duration: 0.35,
-                            ease: 'power2.in'
+                        // 2. Progreso del porcentaje 0% -> 100%
+                        tl.to(counter, {
+                            val: 100,
+                            duration: 1.8,
+                            ease: 'power1.inOut',
+                            onUpdate() {
+                                const v = Math.round(counter.val);
+                                if (pctEl) pctEl.textContent = v + '%';
+                                if (fillEl) fillEl.style.width = v + '%';
+                            }
                         });
-                    }
 
-                    // 5. ¡Transición del Portal Rombo!
-                    if (maskHole) {
-                        tl.to(maskHole, {
-                            attr: { points: '50,-50 150,50 50,150 -50,50' },
-                            duration: 1.0,
-                            ease: 'expo.inOut'
-                        }, '-=0.1');
-                    }
+                        // 3. Pausa milimétrica al completarse
+                        tl.to({}, { duration: 0.15 });
 
-                    // 6. Ocultar el loader completo y guardar estado en sesión
-                    tl.set(loader, { display: 'none' });
-                    tl.call(() => {
-                        try { sessionStorage.setItem('camis_intro_seen', 'true'); } catch (e) { }
-                    });
-                } else {
-                    // Fallback if GSAP fails to load
+                        // 4. Encoger y desvanecer textos/logo del loader en el centro
+                        if (loaderContent) {
+                            tl.to(loaderContent, {
+                                opacity: 0,
+                                scale: 0.9,
+                                duration: 0.35,
+                                ease: 'power2.in'
+                            });
+                        }
+
+                        // 5. ¡Transición del Portal Rombo!
+                        if (maskHole) {
+                            tl.to(maskHole, {
+                                attr: { points: '50,-50 150,50 50,150 -50,50' },
+                                duration: 1.0,
+                                ease: 'expo.inOut'
+                            }, '-=0.1');
+                        }
+
+                        // 6. Ocultar el loader completo y guardar estado en sesión
+                        tl.set(loader, { display: 'none' });
+                        tl.call(() => {
+                            try { sessionStorage.setItem('camis_intro_seen', 'true'); } catch (e) { }
+                        });
+                    } else {
+                        // Fallback if GSAP fails to load
+                        forceHideLoader();
+                    }
+                } catch (err) {
+                    console.error('Loader error fallback:', err);
                     forceHideLoader();
                 }
-            } catch (err) {
-                console.error('Loader error fallback:', err);
-                forceHideLoader();
             }
 
-            // Background Music Logic
-            const bgMusic = document.getElementById('bgMusic');
+            // Background Music Logic (Sincronizado con Glass Player)
             const musicToggleBtn = document.getElementById('musicToggleBtn');
-
-            // Toggle button action
-            musicToggleBtn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Avoid triggering page interaction play
-                if (bgMusic.paused) {
-                    bgMusic.play();
-                    musicToggleBtn.classList.add('playing');
-                    musicToggleBtn.classList.remove('muted');
-                } else {
-                    bgMusic.pause();
-                    musicToggleBtn.classList.remove('playing');
-                    musicToggleBtn.classList.add('muted');
-                }
-            });
+            if (musicToggleBtn) {
+                musicToggleBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (window.toggleSpaMusic) {
+                        window.toggleSpaMusic();
+                    }
+                });
+            }
 
             // Fullscreen Split Hero Interactivity
             const splitHero = document.getElementById('splitHero');
@@ -16746,13 +16747,13 @@
         // ══════════════════════════════════════════════
         const spaPlaylist = [
             {
-                title: "Santuario de Calma",
+                title: "CAMI SPA MOMENT",
                 artist: "Cami's Lashes • Relaxing Spa Lounge",
                 cover: "logo.jpg",
-                src: "bg-music.mp3"
+                src: "prettyjohn1-spa-537659.mp3"
             },
             {
-                title: "Brisa de Versalles",
+                title: "Santuario de Calma",
                 artist: "Acoustic Chill • Puerto Vallarta",
                 cover: "images/spa/service-sweet.jpg?v=sopapo2",
                 src: "bg-music.mp3"
@@ -16761,7 +16762,7 @@
                 title: "Ritual de Seda & Eucalipto",
                 artist: "Aromatherapy Ambient Waves",
                 cover: "images/spa/service-masaje-piedras-zen.jpg?v=sopapo2",
-                src: "bg-music.mp3"
+                src: "prettyjohn1-spa-537659.mp3"
             },
             {
                 title: "Golden Hour en Cabina",
@@ -16773,64 +16774,150 @@
 
         let currentTrackIndex = 0;
         let isMusicPlaying = false;
-        const audioEl = document.getElementById('spaAudioElement');
-        const playerWrap = document.getElementById('spaGlassMusicPlayer');
-        const playIcon = document.getElementById('spaPlayIcon');
-        const pauseIcon = document.getElementById('spaPauseIcon');
-        const volHighIcon = document.getElementById('spaVolHighIcon');
-        const volMuteIcon = document.getElementById('spaVolMuteIcon');
-        const trackTitleEl = document.getElementById('spaPlayerTrackTitle');
-        const trackArtistEl = document.getElementById('spaPlayerArtist');
-        const trackCoverEl = document.getElementById('spaPlayerCover');
-        const progressFillEl = document.getElementById('spaPlayerProgressFill');
+
+        function getSpaAudio() {
+            return document.getElementById('spaAudioElement');
+        }
+        function getSpaPlayer() {
+            return document.getElementById('spaGlassMusicPlayer');
+        }
+        function getSpaPlayIcon() {
+            return document.getElementById('spaPlayIcon');
+        }
+        function getSpaPauseIcon() {
+            return document.getElementById('spaPauseIcon');
+        }
+        function getSpaVolHighIcon() {
+            return document.getElementById('spaVolHighIcon');
+        }
+        function getSpaVolMuteIcon() {
+            return document.getElementById('spaVolMuteIcon');
+        }
+        function getSpaTrackTitle() {
+            return document.getElementById('spaPlayerTrackTitle');
+        }
+        function getSpaTrackArtist() {
+            return document.getElementById('spaPlayerArtist');
+        }
+        function getSpaTrackCover() {
+            return document.getElementById('spaPlayerCover');
+        }
+        function getSpaProgressFill() {
+            return document.getElementById('spaPlayerProgressFill');
+        }
 
         window.updatePlayerTrackUI = () => {
             const track = spaPlaylist[currentTrackIndex];
-            if (trackTitleEl) trackTitleEl.textContent = track.title;
-            if (trackArtistEl) trackArtistEl.textContent = track.artist;
-            if (trackCoverEl) trackCoverEl.src = track.cover;
+            const titleEl = getSpaTrackTitle();
+            const artistEl = getSpaTrackArtist();
+            const coverEl = getSpaTrackCover();
+            if (titleEl) titleEl.textContent = track.title;
+            if (artistEl) artistEl.textContent = track.artist;
+            if (coverEl) coverEl.src = track.cover;
         };
 
-        window.toggleSpaMusic = () => {
+        window.syncNavbarMusicToggle = (playing) => {
+            const musicToggleBtn = document.getElementById('musicToggleBtn');
+            if (musicToggleBtn) {
+                if (playing) {
+                    musicToggleBtn.classList.add('playing');
+                    musicToggleBtn.classList.remove('muted');
+                } else {
+                    musicToggleBtn.classList.remove('playing');
+                    musicToggleBtn.classList.add('muted');
+                }
+            }
+        };
+
+        window.playSpaTrack = (index) => {
+            const audioEl = getSpaAudio();
+            const playerWrap = getSpaPlayer();
+            const playIcon = getSpaPlayIcon();
+            const pauseIcon = getSpaPauseIcon();
             if (!audioEl) return;
 
-            if (audioEl.paused) {
-                audioEl.play().then(() => {
+            window.initSpaMusicListeners();
+
+            currentTrackIndex = (index + spaPlaylist.length) % spaPlaylist.length;
+            const track = spaPlaylist[currentTrackIndex];
+            window.updatePlayerTrackUI();
+
+            const currentSrc = audioEl.getAttribute('src');
+            if (!currentSrc || !currentSrc.includes(track.src)) {
+                audioEl.src = track.src;
+                audioEl.load();
+            }
+            audioEl.currentTime = 0;
+
+            const playPromise = audioEl.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
                     isMusicPlaying = true;
                     if (playerWrap) playerWrap.classList.add('playing');
                     if (playIcon) playIcon.style.display = 'none';
                     if (pauseIcon) pauseIcon.style.display = 'block';
+                    window.syncNavbarMusicToggle(true);
                 }).catch(err => {
-                    console.log('Audio autoplay prevented:', err);
+                    console.error('Audio play error:', err);
                 });
+            }
+        };
+
+        window.toggleSpaMusic = () => {
+            const audioEl = getSpaAudio();
+            const playerWrap = getSpaPlayer();
+            const playIcon = getSpaPlayIcon();
+            const pauseIcon = getSpaPauseIcon();
+            if (!audioEl) return;
+
+            window.initSpaMusicListeners();
+
+            const track = spaPlaylist[currentTrackIndex];
+            const currentSrc = audioEl.getAttribute('src');
+            if (!currentSrc || !currentSrc.includes(track.src)) {
+                audioEl.src = track.src;
+            }
+
+            if (audioEl.paused) {
+                const playPromise = audioEl.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        isMusicPlaying = true;
+                        if (playerWrap) playerWrap.classList.add('playing');
+                        if (playIcon) playIcon.style.display = 'none';
+                        if (pauseIcon) pauseIcon.style.display = 'block';
+                        window.syncNavbarMusicToggle(true);
+                    }).catch(err => {
+                        console.error('Audio play error:', err);
+                    });
+                }
             } else {
                 audioEl.pause();
                 isMusicPlaying = false;
                 if (playerWrap) playerWrap.classList.remove('playing');
                 if (playIcon) playIcon.style.display = 'block';
                 if (pauseIcon) pauseIcon.style.display = 'none';
+                window.syncNavbarMusicToggle(false);
             }
         };
 
         window.nextSpaTrack = () => {
-            currentTrackIndex = (currentTrackIndex + 1) % spaPlaylist.length;
-            window.updatePlayerTrackUI();
-            if (audioEl) {
-                audioEl.currentTime = 0;
-                if (isMusicPlaying) audioEl.play().catch(() => { });
-            }
+            window.playSpaTrack(currentTrackIndex + 1);
         };
 
         window.prevSpaTrack = () => {
-            currentTrackIndex = (currentTrackIndex - 1 + spaPlaylist.length) % spaPlaylist.length;
-            window.updatePlayerTrackUI();
-            if (audioEl) {
+            const audioEl = getSpaAudio();
+            if (audioEl && audioEl.currentTime > 2.5) {
                 audioEl.currentTime = 0;
-                if (isMusicPlaying) audioEl.play().catch(() => { });
+            } else {
+                window.playSpaTrack(currentTrackIndex - 1);
             }
         };
 
         window.toggleSpaMute = () => {
+            const audioEl = getSpaAudio();
+            const volHighIcon = getSpaVolHighIcon();
+            const volMuteIcon = getSpaVolMuteIcon();
             if (!audioEl) return;
             audioEl.muted = !audioEl.muted;
             if (audioEl.muted) {
@@ -16842,19 +16929,50 @@
             }
         };
 
-        // Time update handler for progress bar
-        if (audioEl) {
-            audioEl.addEventListener('timeupdate', () => {
-                if (audioEl.duration && progressFillEl) {
-                    const percent = (audioEl.currentTime / audioEl.duration) * 100;
-                    progressFillEl.style.width = `${percent}%`;
-                }
-            });
+        window.initSpaMusicListeners = () => {
+            const audioEl = getSpaAudio();
+            const progressFillEl = getSpaProgressFill();
+            if (!audioEl) return;
 
-            audioEl.addEventListener('ended', () => {
-                window.nextSpaTrack();
-            });
+            if (!audioEl._hasSpaListeners) {
+                audioEl._hasSpaListeners = true;
+                audioEl.addEventListener('timeupdate', () => {
+                    if (audioEl.duration && progressFillEl) {
+                        const percent = (audioEl.currentTime / audioEl.duration) * 100;
+                        progressFillEl.style.width = `${percent}%`;
+                    }
+                });
+
+                audioEl.addEventListener('ended', () => {
+                    window.nextSpaTrack();
+                });
+            }
+
+            const spaProgressContainer = document.querySelector('.track-progress-container');
+            if (spaProgressContainer && !spaProgressContainer._hasClickListener) {
+                spaProgressContainer._hasClickListener = true;
+                spaProgressContainer.style.cursor = 'pointer';
+                spaProgressContainer.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (audioEl.duration) {
+                        const rect = spaProgressContainer.getBoundingClientRect();
+                        const clickX = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+                        const newTime = (clickX / rect.width) * audioEl.duration;
+                        audioEl.currentTime = newTime;
+                        if (audioEl.paused) {
+                            window.toggleSpaMusic();
+                        }
+                    }
+                });
+            }
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', window.initSpaMusicListeners);
+        } else {
+            window.initSpaMusicListeners();
         }
+        window.addEventListener('load', window.initSpaMusicListeners);
 
     </script>
 
@@ -17008,7 +17126,7 @@
 
             <div class="track-meta-info">
                 <div class="track-title-row">
-                    <span class="track-name" id="spaPlayerTrackTitle">Santuario de Calma</span>
+                    <span class="track-name" id="spaPlayerTrackTitle">CAMI SPA MOMENT</span>
                     <!-- Ecualizador Animado -->
                     <div class="equalizer-bars" id="spaEqualizerBars">
                         <span class="eq-bar bar-1"></span>
@@ -17043,8 +17161,16 @@
         </div>
 
         <!-- Elemento de Audio HTML5 Oculto -->
-        <audio id="spaAudioElement" src="bg-music.mp3" preload="metadata" loop></audio>
+        <audio id="spaAudioElement" src="prettyjohn1-spa-537659.mp3" preload="auto"></audio>
     </div>
+
+    <!-- Inicialización Inmediata del Reproductor Glass -->
+    <script>
+        if (typeof window.initSpaMusicListeners === 'function') {
+            window.initSpaMusicListeners();
+            window.updatePlayerTrackUI();
+        }
+    </script>
 
 
     <!-- HOLOGRAPHIC CENTER-OUTWARD VIDEO EXPANSION SCRIPT -->
