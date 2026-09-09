@@ -12225,10 +12225,7 @@
                         <!-- tecnica-clasica (lashes) -->
                         <div class="mixed-highlight-card" data-service-id="tecnica-clasica" data-category="lashes" data-featured="false" style="display: none;" onclick="openSpaDetailModal('tecnica-clasica')">
                             <div class="m-card-img-wrap">
-                                <div class="m-card-img-empty" style="width: 100%; height: 210px; background: radial-gradient(circle at center, #241c16 0%, #0d0a08 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border-bottom: 1px solid rgba(212, 175, 55, 0.25);">
-                                    <span style="font-size: 2.2rem; opacity: 0.7;">👁️</span>
-                                    <span style="font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary-gold); font-weight: 600; opacity: 0.85;">Foto Pendiente</span>
-                                </div>
+                                <img src="images/spa/service-tecnica-clasica.jpg?v=sopapo4" alt="Técnica clásica" class="m-card-img" loading="lazy">
                                 <div class="m-card-gradient-overlay"></div>
                                 <span class="m-card-badge">✨ 1 a 1 Natural</span>
                                 <span class="m-card-price">$700</span>
@@ -15880,7 +15877,7 @@
     "duration": "90 minutos",
     "technique": "Aislamiento 1:1 con fibras de seda y adhesivo de grado médico",
     "retention": "Hasta 4-5 semanas",
-    "img": ""
+    "img": "images/spa/service-tecnica-clasica.jpg"
   },
   {
     "id": "mojado",
@@ -16081,7 +16078,10 @@
 ];
 
             window.spaServiceWorksGalleryDB = {
-                'tecnica-clasica': [],
+                'tecnica-clasica': [
+                    { img: 'images/spa/service-tecnica-clasica.jpg?v=sopapo4', tag: 'Aislamiento 1:1', caption: 'Definición sutil milimétrica en pestaña natural' },
+                    { img: 'images/spa/service-tecnica-clasica-alt.jpg?v=sopapo4', tag: 'Doble Mirada', caption: 'Acabado limpio y ligero para mirada natural' }
+                ],
                 'mojado': [],
                 'volumen-americano': [],
                 'volumen-tecnologico': [],
