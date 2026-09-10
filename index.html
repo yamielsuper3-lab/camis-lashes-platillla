@@ -137,10 +137,12 @@
             margin: 0 auto;
         }
 
-        body.active-academy .desktop-nav {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0);
+        @media (min-width: 1025px) {
+            body.active-academy .desktop-nav {
+                display: flex;
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         nav a {
@@ -966,12 +968,6 @@
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
-        body.active-spa .desktop-nav.spa-nav {
-            display: flex !important;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         body.active-spa .desktop-nav.academy-nav {
             display: none !important;
         }
@@ -980,10 +976,18 @@
             display: none !important;
         }
 
-        body.active-academy .desktop-nav.academy-nav {
-            display: flex !important;
-            opacity: 1;
-            transform: translateY(0);
+        @media (min-width: 1025px) {
+            body.active-spa .desktop-nav.spa-nav {
+                display: flex !important;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            body.active-academy .desktop-nav.academy-nav {
+                display: flex !important;
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Spa Navigation Links (Pastel Rose & Porcelain Hover) */
@@ -7602,7 +7606,24 @@
             color: var(--primary-gold);
         }
 
-        body.active-spa .mobile-nav-academy {
+        .mobile-nav-academy,
+        .mobile-nav-spa,
+        .mobile-nav-landing {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        body:not(.active-academy):not(.active-spa) .mobile-nav-landing {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        body.active-spa .mobile-nav-academy,
+        body.active-spa .mobile-nav-landing {
             display: none !important;
         }
 
@@ -7624,7 +7645,8 @@
             width: 100%;
         }
 
-        body.active-academy .mobile-nav-spa {
+        body.active-academy .mobile-nav-spa,
+        body.active-academy .mobile-nav-landing {
             display: none !important;
         }
 
@@ -7667,14 +7689,28 @@
             }
         }
 
-        @media (max-width: 1260px) {
+        @media (max-width: 1024px) {
 
-            .desktop-nav,
-            body.active-academy .desktop-nav,
-            body.active-spa .desktop-nav,
+            header .desktop-nav,
+            #academyDesktopNav,
+            #spaDesktopNav,
+            body.active-academy header .desktop-nav,
+            body.active-spa header .desktop-nav,
+            body.active-academy #academyDesktopNav,
+            body.active-spa #spaDesktopNav,
             body.active-academy .desktop-nav.academy-nav,
-            body.active-spa .desktop-nav.spa-nav {
+            body.active-spa .desktop-nav.spa-nav,
+            .desktop-nav.academy-nav,
+            .desktop-nav.spa-nav,
+            .desktop-nav {
                 display: none !important;
+                visibility: hidden !important;
+                width: 0 !important;
+                height: 0 !important;
+                overflow: hidden !important;
+                pointer-events: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
 
             .menu-toggle {
@@ -7682,8 +7718,8 @@
             }
 
             header {
-                padding: 10px 18px !important;
-                height: 58px !important;
+                padding: 8px 16px !important;
+                height: 56px !important;
             }
         }
 
@@ -7941,12 +7977,139 @@
         }
 
         @media (max-width: 768px) {
-            .desktop-nav {
-                display: none;
+            header {
+                height: 54px !important;
+                padding: 0 12px !important;
+                max-width: 100vw !important;
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+            }
+
+            .logo {
+                font-size: 0.98rem !important;
+                letter-spacing: 0.4px !important;
+                flex-shrink: 0 !important;
+                margin-right: auto !important;
+            }
+
+            .header-controls {
+                display: flex !important;
+                align-items: center !important;
+                gap: 6px !important;
+                flex-shrink: 0 !important;
+                margin-left: auto !important;
+            }
+
+            /* Ocultar el botón redundante de '☰ Menú' en el header móvil */
+            #splitBackBtn,
+            .split-back-btn,
+            header .split-back-btn,
+            .header-controls .split-back-btn,
+            body.active-academy .split-back-btn,
+            body.active-spa .split-back-btn,
+            body.active-academy #splitBackBtn,
+            body.active-spa #splitBackBtn {
+                display: none !important;
+                visibility: hidden !important;
+                width: 0 !important;
+                height: 0 !important;
+                overflow: hidden !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            /* Botones de acción compactos */
+            .header-controls .btn-academy-cta,
+            .header-controls .btn-nav-inscribirme,
+            .header-controls .btn-nav-spa-cta {
+                padding: 5px 10px !important;
+                font-size: 0.65rem !important;
+                border-radius: 999px !important;
+                white-space: nowrap !important;
+                flex-shrink: 0 !important;
+            }
+
+            .spa-cta-desktop-word {
+                display: none !important;
+            }
+
+            .header-controls .music-toggle {
+                width: 30px !important;
+                height: 30px !important;
+                min-width: 30px !important;
+                flex-shrink: 0 !important;
+                margin: 0 !important;
             }
 
             .menu-toggle {
-                display: flex;
+                display: flex !important;
+                flex-shrink: 0 !important;
+                width: 24px !important;
+                height: 16px !important;
+                cursor: pointer !important;
+                z-index: 1200 !important;
+                margin-left: 2px !important;
+            }
+
+            /* Separación anti-colisión: Chat flotante vs Reproductor de música */
+            .custom-chat-widget {
+                bottom: 84px !important;
+                right: 16px !important;
+                z-index: 9999 !important;
+            }
+
+            .chat-trigger-btn {
+                width: 52px !important;
+                height: 52px !important;
+            }
+
+            .chat-box {
+                bottom: 146px !important;
+                right: 12px !important;
+                width: calc(100vw - 24px) !important;
+                max-width: 360px !important;
+            }
+
+            .glass-music-player {
+                bottom: 12px !important;
+                left: 12px !important;
+                padding: 6px 12px 6px 8px !important;
+                gap: 8px !important;
+                transform: scale(0.82) !important;
+                transform-origin: bottom left !important;
+                z-index: 950 !important;
+                max-width: calc(100vw - 24px) !important;
+            }
+
+            /* Separación en Split Screen para que el player no cubra el botón */
+            .split-hero-section .split-panel .split-panel-btn {
+                margin-bottom: 72px !important;
+            }
+
+            /* Tarjeta VIP de Egresada sin solapamiento (Screenshot 3) */
+            .bonus-spec-card {
+                padding: 24px 18px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 14px !important;
+            }
+
+            .bonus-badge-ribbon {
+                position: static !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                margin-bottom: 6px !important;
+                font-size: 0.70rem !important;
+                padding: 5px 12px !important;
+                width: fit-content !important;
+                align-self: flex-start !important;
+            }
+
+            .bonus-spec-card h3 {
+                font-size: 1.35rem !important;
+                line-height: 1.25 !important;
+                margin: 6px 0 10px !important;
             }
 
             .testimonials-section {
@@ -8620,13 +8783,14 @@
         /* Responsive Mobile adjustment */
         @media (max-width: 480px) {
             .custom-chat-widget {
-                bottom: 20px;
-                right: 20px;
+                bottom: 84px !important;
+                right: 14px !important;
             }
 
             .chat-box {
-                width: calc(100vw - 40px);
-                bottom: 75px;
+                width: calc(100vw - 28px) !important;
+                bottom: 144px !important;
+                right: 14px !important;
             }
         }
 
@@ -10138,21 +10302,23 @@
         /* Responsive Mobile Docking */
         @media (max-width: 768px) {
             .glass-music-player {
-                bottom: 85px;
-                left: 14px;
-                padding: 6px 12px 6px 10px;
-                gap: 8px;
-                max-width: calc(100vw - 28px);
+                bottom: 12px !important;
+                left: 12px !important;
+                padding: 6px 12px 6px 8px !important;
+                gap: 8px !important;
+                transform: scale(0.82) !important;
+                transform-origin: bottom left !important;
+                max-width: calc(100vw - 24px) !important;
             }
 
             .player-track-pill {
-                min-width: 130px;
-                max-width: 160px;
-                padding: 3px 10px 3px 4px;
+                min-width: 100px !important;
+                max-width: 140px !important;
+                padding: 2px 8px 2px 4px !important;
             }
 
             .track-artist {
-                display: none;
+                display: none !important;
             }
         }
 
@@ -11508,7 +11674,7 @@
                 <a href="https://wa.me/5213223814346?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20de%20relajación%20y%20belleza%20en%20el%20Boutique%20%26%20Spa"
                     target="_blank" class="btn-nav-spa-cta" id="btnSpaCta">
                     <span class="spa-btn-sparkle">🌿</span>
-                    <span>Agendar Experiencia</span>
+                    <span>Agendar<span class="spa-cta-desktop-word"> Experiencia</span></span>
                 </a>
 
                 <button class="split-back-btn" id="splitBackBtn" title="Volver a la selección principal">☰ Menú</button>
@@ -11529,6 +11695,12 @@
         </header>
 
         <nav class="mobile-nav" id="mobileNav">
+            <!-- Menú móvil Pantalla Dividida (Inicio) -->
+            <div class="mobile-nav-landing" id="mobileNavLanding">
+                <a href="#" id="mobileLandingAcademy" style="color: var(--primary-gold); font-size: 1.25rem;">🎓 Academia de Pestañas</a>
+                <a href="#" id="mobileLandingSpa" style="color: #EBC6CD; font-size: 1.25rem;">🌿 Boutique & Spa</a>
+            </div>
+
             <!-- Menú móvil Academia -->
             <div class="mobile-nav-academy" id="mobileNavAcademy">
                 <a href="#">Inicio</a>
@@ -11539,7 +11711,10 @@
                 <a href="#portalAlumnas">Portal Alumnas</a>
                 <a href="#faq">Preguntas Frecuentes</a>
                 <a href="#inversion" style="color: var(--primary-gold); font-weight: 700;">Inscribirme ($1,500)</a>
+                <a href="javascript:void(0)" id="mobileSwitchToSpaBtn" style="color: #EBC6CD; font-size: 0.95rem; border-top: 1px solid rgba(235, 198, 205, 0.2); padding-top: 14px; margin-top: 12px;">🌿 Ir a Boutique & Spa &rarr;</a>
+                <a href="javascript:void(0)" id="mobileReturnToSplitBtn1" style="color: rgba(255,255,255,0.55); font-size: 0.82rem; margin-top: 6px;">☰ Volver al Inicio</a>
             </div>
+
             <!-- Menú móvil Spa -->
             <div class="mobile-nav-spa" id="mobileNavSpa">
                 <a href="#">Inicio</a>
@@ -11550,6 +11725,8 @@
                 <a href="#spaPedicura">Pedicura & Combos</a>
                 <a href="#spaUbicacion">Ubicación & Citas</a>
                 <a href="https://wa.me/5213223814346" target="_blank" style="color: #EBC6CD; font-weight: 700;">🌿 Agendar Experiencia</a>
+                <a href="javascript:void(0)" id="mobileSwitchToAcademyBtn" style="color: var(--primary-gold); font-size: 0.95rem; border-top: 1px solid rgba(212, 175, 55, 0.2); padding-top: 14px; margin-top: 12px;">🎓 Ir a Academia de Pestañas &rarr;</a>
+                <a href="javascript:void(0)" id="mobileReturnToSplitBtn2" style="color: rgba(255,255,255,0.55); font-size: 0.82rem; margin-top: 6px;">☰ Volver al Inicio</a>
             </div>
         </nav>
 
@@ -14496,18 +14673,95 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileNav = document.getElementById('mobileNav');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-        });
+        const closeMobileMenu = () => {
+            if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+            if (mobileNav) mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        };
 
-        // Close menu when clicking on any mobile nav link
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuBtn.classList.remove('active');
-                mobileNav.classList.remove('active');
+        if (mobileMenuBtn && mobileNav) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isActive = mobileMenuBtn.classList.toggle('active');
+                mobileNav.classList.toggle('active', isActive);
+                document.body.style.overflow = isActive ? 'hidden' : '';
             });
-        });
+
+            // Close menu when clicking on any mobile nav link
+            document.querySelectorAll('.mobile-nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    closeMobileMenu();
+                });
+            });
+
+            // Branch switching handlers from mobile drawer
+            const switchSpaBtn = document.getElementById('mobileSwitchToSpaBtn');
+            if (switchSpaBtn) {
+                switchSpaBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    closeMobileMenu();
+                    if (typeof selectSpa === 'function') selectSpa(false);
+                    else if (typeof window.selectSpa === 'function') window.selectSpa(false);
+                    else {
+                        const panel = document.getElementById('spaPanel');
+                        if (panel) panel.click();
+                    }
+                });
+            }
+
+            const switchAcademyBtn = document.getElementById('mobileSwitchToAcademyBtn');
+            if (switchAcademyBtn) {
+                switchAcademyBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    closeMobileMenu();
+                    if (typeof selectAcademy === 'function') selectAcademy(false);
+                    else if (typeof window.selectAcademy === 'function') window.selectAcademy(false);
+                    else {
+                        const panel = document.getElementById('academyPanel');
+                        if (panel) panel.click();
+                    }
+                });
+            }
+
+            const returnSplit1 = document.getElementById('mobileReturnToSplitBtn1');
+            const returnSplit2 = document.getElementById('mobileReturnToSplitBtn2');
+            const handleReturnToSplit = (e) => {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                closeMobileMenu();
+                const splitBackBtn = document.getElementById('splitBackBtn');
+                if (splitBackBtn) splitBackBtn.click();
+            };
+            if (returnSplit1) returnSplit1.addEventListener('click', handleReturnToSplit);
+            if (returnSplit2) returnSplit2.addEventListener('click', handleReturnToSplit);
+
+            const landingAcad = document.getElementById('mobileLandingAcademy');
+            if (landingAcad) {
+                landingAcad.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    closeMobileMenu();
+                    if (typeof window.selectAcademy === 'function') window.selectAcademy(false);
+                    else {
+                        const panel = document.getElementById('academyPanel');
+                        if (panel) panel.click();
+                    }
+                });
+            }
+
+            const landingSpa = document.getElementById('mobileLandingSpa');
+            if (landingSpa) {
+                landingSpa.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    closeMobileMenu();
+                    if (typeof window.selectSpa === 'function') window.selectSpa(false);
+                    else {
+                        const panel = document.getElementById('spaPanel');
+                        if (panel) panel.click();
+                    }
+                });
+            }
+        }
 
         // Modal Syllabus Data
         const syllabusData = {
@@ -15206,7 +15460,7 @@
 
             // Function to handle Academy selection
             const selectAcademy = (isInitial = false) => {
-                if (!isInitial && (splitHero.classList.contains('active-academy') || splitHero.classList.contains('active-spa'))) return;
+                if (!isInitial && splitHero.classList.contains('active-academy')) return;
 
                 try { sessionStorage.setItem('cami_active_branch', 'academy'); } catch (e) { }
 
@@ -15220,6 +15474,8 @@
                 document.body.classList.remove('active-spa');
                 splitHero.classList.add('active-academy');
                 document.body.classList.add('active-academy');
+
+                window.scrollTo({ top: 0, behavior: isInitial ? 'instant' : 'smooth' });
 
                 // 2 seconds after expansion begins, crossfade to 10-column mosaic
                 mosaicTimer = setTimeout(() => {
@@ -15239,7 +15495,7 @@
 
             // Function to handle Spa selection
             const selectSpa = (isInitial = false) => {
-                if (!isInitial && (splitHero.classList.contains('active-academy') || splitHero.classList.contains('active-spa'))) return;
+                if (!isInitial && splitHero.classList.contains('active-spa')) return;
 
                 try { sessionStorage.setItem('cami_active_branch', 'spa'); } catch (e) { }
 
@@ -15250,6 +15506,9 @@
                 document.body.classList.remove('active-academy');
                 splitHero.classList.add('active-spa');
                 document.body.classList.add('active-spa');
+
+                window.scrollTo({ top: 0, behavior: isInitial ? 'instant' : 'smooth' });
+
                 if (typeof window.stopChatTimer === 'function') {
                     window.stopChatTimer();
                 }
@@ -15258,6 +15517,9 @@
                     splitBackBtn.classList.add('visible');
                 }, isInitial ? 100 : 900);
             };
+
+            window.selectAcademy = selectAcademy;
+            window.selectSpa = selectSpa;
 
             // Header scroll effect
             const siteHeader = document.querySelector('header');
@@ -15320,6 +15582,10 @@
             document.querySelectorAll('header nav a, .mobile-nav a').forEach(link => {
                 link.addEventListener('click', (e) => {
                     const targetId = link.getAttribute('href');
+
+                    if (targetId && (targetId.startsWith('javascript:') || link.id.includes('mobileSwitch') || link.id.includes('mobileReturn'))) {
+                        return; // Handled by dedicated listeners
+                    }
 
                     if (targetId === '#') {
                         e.preventDefault();
