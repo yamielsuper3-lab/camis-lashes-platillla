@@ -9008,25 +9008,98 @@
         .spa-modal-viewer-wrap {
             position: relative;
             width: 100%;
-            height: 300px;
-            border-radius: 14px;
+            height: 380px;
+            max-height: 52vh;
+            border-radius: 16px;
             overflow: hidden;
-            background: #0E0A0C;
-            border: 1px solid rgba(235, 198, 205, 0.25);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            background: #0d090b;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spa-modal-ambient-blur {
+            position: absolute;
+            inset: -25px;
+            background-size: cover;
+            background-position: center;
+            filter: blur(30px) brightness(0.4);
+            opacity: 0.8;
+            transform: scale(1.15);
+            pointer-events: none;
+            z-index: 0;
+            transition: background-image 0.4s ease;
         }
 
         .spa-modal-main-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.85));
+        }
+
+        .spa-modal-gallery-strip {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 4px 2px 8px;
+            scrollbar-width: thin;
+        }
+
+        .spa-modal-gallery-strip::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .spa-modal-gallery-strip::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.4);
+            border-radius: 4px;
+        }
+
+        .spa-modal-thumb-btn {
+            position: relative;
+            width: 64px;
+            height: 64px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            cursor: pointer;
+            padding: 0;
+            background: #1a1215;
+            transition: all 0.2s ease;
+        }
+
+        .spa-modal-thumb-btn img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all 0.4s ease;
+            display: block;
+        }
+
+        .spa-modal-thumb-btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(212, 175, 55, 0.7);
+        }
+
+        .spa-modal-thumb-btn.active {
+            border-color: var(--primary-gold, #d4af37);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+            transform: scale(1.05);
         }
 
         .spa-modal-shot-tag {
             position: absolute;
             bottom: 12px;
             left: 12px;
+            z-index: 3;
             background: rgba(14, 10, 12, 0.85);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(235, 198, 205, 0.4);
@@ -12355,7 +12428,7 @@
                         <!-- cejas (brows) -->
                         <div class="mixed-highlight-card highlight-card-featured" data-service-id="cejas" data-category="brows" data-featured="true"  onclick="openSpaDetailModal('cejas')">
                             <div class="m-card-img-wrap">
-                                <img src="images/spa/service-cejas.jpg?v=sopapo3" alt="Laminado HD y Tintes" class="m-card-img" loading="lazy">
+                                <img src="images/spa/service-cejas.jpg?v=sopapo4" alt="Laminado HD y Tintes" class="m-card-img" loading="lazy">
                                 <div class="m-card-gradient-overlay"></div>
                                 <span class="m-card-badge">✨ Tratamiento Completo</span>
                                 <span class="m-card-price">$450</span>
@@ -16255,36 +16328,73 @@
                 if (descEl) descEl.textContent = s.fullDesc || s.shortDesc;
 
                 const viewerWrap = document.querySelector('.spa-modal-viewer-wrap');
+                const ambientBlur = document.getElementById('spaModalAmbientBlur');
+                const galleryStrip = document.getElementById('spaModalGalleryStrip');
                 let emptyNotice = document.getElementById('spaModalEmptyNotice');
 
-                if (s.img && s.img.trim() !== '') {
-                    if (emptyNotice) emptyNotice.style.display = 'none';
-                    if (mainImg) {
-                        mainImg.style.display = 'block';
-                        const imgSrc = s.img + (s.img.includes('?') ? '&' : '?') + 'v=sopapo3';
-                        mainImg.style.opacity = '0.3';
-                        mainImg.style.transform = 'scale(1.02)';
-                        setTimeout(() => {
-                            mainImg.src = imgSrc;
-                            mainImg.style.opacity = '1';
-                            mainImg.style.transform = 'scale(1)';
-                        }, 100);
+                const showModalImage = (imgUrl, tagText) => {
+                    if (imgUrl && imgUrl.trim() !== '') {
+                        if (emptyNotice) emptyNotice.style.display = 'none';
+                        const fullUrl = imgUrl + (imgUrl.includes('?') ? '&' : '?') + 'v=hd2026';
+                        if (ambientBlur) {
+                            ambientBlur.style.backgroundImage = 'url("' + fullUrl + '")';
+                            ambientBlur.style.display = 'block';
+                        }
+                        if (mainImg) {
+                            mainImg.style.display = 'block';
+                            mainImg.style.opacity = '0.3';
+                            mainImg.style.transform = 'scale(0.97)';
+                            setTimeout(() => {
+                                mainImg.src = fullUrl;
+                                mainImg.style.opacity = '1';
+                                mainImg.style.transform = 'scale(1)';
+                            }, 80);
+                        }
+                        if (tagEl) {
+                            tagEl.style.display = 'inline-block';
+                            tagEl.textContent = tagText || s.tag || 'Trabajo Real en Cabina';
+                        }
+                    } else {
+                        if (ambientBlur) ambientBlur.style.display = 'none';
+                        if (mainImg) mainImg.style.display = 'none';
+                        if (!emptyNotice && viewerWrap) {
+                            emptyNotice = document.createElement('div');
+                            emptyNotice.id = 'spaModalEmptyNotice';
+                            emptyNotice.style.cssText = 'width: 100%; height: 260px; background: radial-gradient(circle at center, #241c16 0%, #0d0a08 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; border-radius: 12px; border: 1px dashed rgba(212, 175, 55, 0.4); text-align: center; padding: 20px; position: relative; z-index: 2;';
+                            emptyNotice.innerHTML = '<span style="font-size: 2.8rem; opacity: 0.7;">👁️</span><span style="font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: var(--primary-gold); font-weight: 600;">Foto Pendiente</span><span style="font-size: 0.75rem; color: #a0958d;">Fotografía real en cabina próximamente</span>';
+                            viewerWrap.appendChild(emptyNotice);
+                        }
+                        if (emptyNotice) emptyNotice.style.display = 'flex';
+                        if (tagEl) tagEl.style.display = 'none';
                     }
-                    if (tagEl) {
-                        tagEl.style.display = 'inline-block';
-                        tagEl.textContent = s.tag || 'Trabajo Real en Cabina';
+                };
+
+                showModalImage(s.img, s.tag);
+
+                // Galería de miniaturas
+                const galleryItems = (window.spaServiceWorksGalleryDB && window.spaServiceWorksGalleryDB[serviceId]) || [];
+                if (galleryStrip) {
+                    if (galleryItems.length > 1) {
+                        galleryStrip.innerHTML = '';
+                        galleryStrip.style.display = 'flex';
+                        galleryItems.forEach((item, idx) => {
+                            const btn = document.createElement('button');
+                            btn.type = 'button';
+                            btn.className = 'spa-modal-thumb-btn' + (idx === 0 ? ' active' : '');
+                            btn.title = item.tag || item.caption || ('Foto ' + (idx + 1));
+                            const thumbUrl = item.img + (item.img.includes('?') ? '&' : '?') + 'v=hd2026';
+                            btn.innerHTML = '<img src="' + thumbUrl + '" alt="' + (item.tag || 'Miniatura') + '" loading="lazy">';
+                            btn.onclick = () => {
+                                galleryStrip.querySelectorAll('.spa-modal-thumb-btn').forEach(b => b.classList.remove('active'));
+                                btn.classList.add('active');
+                                showModalImage(item.img, item.tag);
+                            };
+                            galleryStrip.appendChild(btn);
+                        });
+                    } else {
+                        galleryStrip.innerHTML = '';
+                        galleryStrip.style.display = 'none';
                     }
-                } else {
-                    if (mainImg) mainImg.style.display = 'none';
-                    if (!emptyNotice && viewerWrap) {
-                        emptyNotice = document.createElement('div');
-                        emptyNotice.id = 'spaModalEmptyNotice';
-                        emptyNotice.style.cssText = 'width: 100%; height: 260px; background: radial-gradient(circle at center, #241c16 0%, #0d0a08 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; border-radius: 12px; border: 1px dashed rgba(212, 175, 55, 0.4); text-align: center; padding: 20px;';
-                        emptyNotice.innerHTML = '<span style="font-size: 2.8rem; opacity: 0.7;">👁️</span><span style="font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: var(--primary-gold); font-weight: 600;">Foto Pendiente</span><span style="font-size: 0.75rem; color: #a0958d;">Fotografía real en cabina próximamente</span>';
-                        viewerWrap.appendChild(emptyNotice);
-                    }
-                    if (emptyNotice) emptyNotice.style.display = 'flex';
-                    if (tagEl) tagEl.style.display = 'none';
                 }
 
                 if (bookBtn) {
@@ -16751,11 +16861,14 @@
             </div>
 
             <!-- Visor Principal en Alta Resolución -->
-            <div class="spa-modal-viewer-wrap">
-                <img src="images/spa/service-foxy.jpg?v=sopapo3" alt="Trabajo Real" class="spa-modal-main-img"
-                    id="spaModalMainImg">
+            <div class="spa-modal-viewer-wrap" id="spaModalViewerWrap">
+                <div class="spa-modal-ambient-blur" id="spaModalAmbientBlur"></div>
+                <img src="" alt="Trabajo Real" class="spa-modal-main-img" id="spaModalMainImg">
                 <span class="spa-modal-shot-tag" id="spaModalShotTag">👁️ Trabajo Real en Cabina</span>
             </div>
+
+            <!-- Tira de Miniaturas cuando hay múltiples fotos -->
+            <div class="spa-modal-gallery-strip" id="spaModalGalleryStrip" style="display: none;"></div>
 
             <!-- Fila de Fichas Técnicas / Beneficios -->
             <div class="spa-modal-specs-grid">
