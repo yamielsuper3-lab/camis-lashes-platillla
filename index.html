@@ -13502,7 +13502,7 @@
                         <span class="gala-pill">📸 Sesión Fotográfica de Estudio</span>
                     </div>
 
-                    <button type="button" class="btn-gala-gallery-trigger" id="openGalaGalleryBtn" title="Ver galería fotográfica completa">
+                    <button type="button" class="btn-gala-gallery-trigger" id="openGalaGalleryBtn" onclick="window.openGalaGallery ? window.openGalaGallery('all') : null" title="Ver galería fotográfica completa">
                         ✨ Ver Álbum de Graduación (50+ Recuerdos)
                     </button>
                 </div>
@@ -13511,7 +13511,7 @@
                 <div class="gala-mosaic-wrapper">
                     <div class="gala-mosaic-deck" id="galaMosaicDeck">
                         <!-- Tarjeta 1: Graduada Certificada (Frontal Principal) -->
-                        <div class="gala-photo-card card-primary" data-card="1" data-gallery-category="estudio" title="Entrega de Diplomas Oficiales - Clic para ver álbum">
+                        <div class="gala-photo-card card-primary" data-card="1" data-gallery-category="all" title="Álbum Completo de Graduación - Clic para ver galería" onclick="window.openGalaGallery ? window.openGalaGallery('all') : null">
                             <div class="gala-photo-inner">
                                 <img src="images/gala/gala_1_retrato.jpg" alt="Graduada Maestría Lash Artist - Certificación Oficial" loading="lazy" style="object-position: center 18%;">
                                 <div class="gala-card-overlay"></div>
@@ -13524,7 +13524,7 @@
                         </div>
 
                         <!-- Tarjeta 2: Ceremonia con Toga & Birrete (Escalonada Izquierda/Atrás) -->
-                        <div class="gala-photo-card card-left" data-card="2" data-gallery-category="ceremonia" title="Ceremonia con Toga y Birrete - Clic para ver álbum">
+                        <div class="gala-photo-card card-left" data-card="2" data-gallery-category="ceremonia" title="Ceremonia con Toga y Birrete - Clic para ver álbum" onclick="window.openGalaGallery ? window.openGalaGallery('ceremonia') : null">
                             <div class="gala-photo-inner">
                                 <img src="images/gala/gala_2_ceremonia.jpg" alt="Ceremonia de Graduación con Toga y Birrete" loading="lazy" style="object-position: center 18%;">
                                 <div class="gala-card-overlay"></div>
@@ -13536,7 +13536,7 @@
                         </div>
 
                         <!-- Tarjeta 3: Festejo & Celebración (Escalonada Derecha/Atrás) -->
-                        <div class="gala-photo-card card-right" data-card="3" data-gallery-category="celebracion" title="Celebración en Casa de Egresadas - Clic para ver álbum">
+                        <div class="gala-photo-card card-right" data-card="3" data-gallery-category="celebracion" title="Celebración en Casa de Egresadas - Clic para ver álbum" onclick="window.openGalaGallery ? window.openGalaGallery('celebracion') : null">
                             <div class="gala-photo-inner">
                                 <img src="images/gala/gala_3_cena.jpg" alt="Celebración de Graduación en Casa" loading="lazy" style="object-position: center 18%;">
                                 <div class="gala-card-overlay"></div>
@@ -17171,10 +17171,11 @@
         }
     </script>
 
-        // ══════════════════════════════════════════════════════════════
-        // GALA GRADUATION INTERACTIVE DECK & IMMERSIVE LOOKBOOK MODAL
-        // ══════════════════════════════════════════════════════════════
-        document.addEventListener('DOMContentLoaded', () => {
+    <!-- ══════════════════════════════════════════════════════════════
+         GALA GRADUATION INTERACTIVE DECK & IMMERSIVE LOOKBOOK MODAL
+         ══════════════════════════════════════════════════════════════ -->
+    <script>
+        (() => {
             const deck = document.getElementById('galaMosaicDeck');
             const openGalleryBtn = document.getElementById('openGalaGalleryBtn');
             const galleryModal = document.getElementById('galaGalleryModal');
@@ -17201,58 +17202,102 @@
             const BATCH_SIZE = 12;
             let filteredPhotos = [];
             let activeLightboxIndex = 0;
+            let loadPromise = null;
 
             // Load photos from JSON or embedded catalog
-            const loadGalleryData = async () => {
-                try {
-                    const res = await fetch('images/gala/gala_gallery.json?v=' + Date.now());
-                    if (res.ok) {
-                        allPhotos = await res.json();
-                    } else {
-                        throw new Error('Fetch failed');
-                    }
-                } catch (err) {
-                    console.warn('Fallback gallery data used:', err);
-                    allPhotos = [];
-                    for (let i = 1; i <= 48; i++) {
-                        const num = i < 10 ? '0' + i : '' + i;
-                        let cat = 'ceremonia';
-                        let tit = 'Certificación Oficial Cami\'s Lashes';
-                        let cap = 'Entrega solemne de diploma oficial de grado Master Lash Artist.';
-                        if ([13, 15, 27].includes(i)) {
-                            cat = 'grupo';
-                            tit = 'Generación Egresada de Honor';
-                            cap = 'Toda la generación de alumnas reunidas luciendo sus togas y birretes.';
-                        } else if ([2, 5, 9, 14, 18, 22, 28, 32, 38, 44].includes(i)) {
-                            cat = 'celebracion';
-                            tit = 'Abrazo de Honor y Celebración';
-                            cap = 'La alegría y el orgullo compartido junto a Camila Marín tras 13 semanas.';
+            const loadGalleryData = () => {
+                if (loadPromise) return loadPromise;
+                loadPromise = (async () => {
+                    try {
+                        const res = await fetch('images/gala/gala_gallery.json?v=' + Date.now());
+                        if (res.ok) {
+                            allPhotos = await res.json();
+                        } else {
+                            throw new Error('Fetch failed');
                         }
-                        allPhotos.push({
-                            id: i,
-                            filename: `graduada_${num}.jpg`,
-                            path: `images/gala/galeria/graduada_${num}.jpg`,
-                            title: tit,
-                            category: cat,
-                            caption: cap,
-                            aspect: [13, 15, 27].includes(i) ? 'landscape' : 'portrait',
-                            width: 960,
-                            height: 1280
-                        });
+                    } catch (err) {
+                        console.warn('Fallback gallery data used:', err);
+                        allPhotos = [];
+                        for (let i = 1; i <= 48; i++) {
+                            const num = i < 10 ? '0' + i : '' + i;
+                            let cat = 'ceremonia';
+                            let tit = 'Certificación Oficial Cami\'s Lashes';
+                            let cap = 'Entrega solemne de diploma oficial de grado Master Lash Artist.';
+                            if ([13, 15, 27].includes(i)) {
+                                cat = 'grupo';
+                                tit = 'Generación Egresada de Honor';
+                                cap = 'Toda la generación de alumnas reunidas luciendo sus togas y birretes.';
+                            } else if ([2, 5, 9, 14, 18, 22, 28, 32, 38, 44].includes(i)) {
+                                cat = 'celebracion';
+                                tit = 'Abrazo de Honor y Celebración';
+                                cap = 'La alegría y el orgullo compartido junto a Camila Marín tras 13 semanas.';
+                            }
+                            allPhotos.push({
+                                id: i,
+                                filename: `graduada_${num}.jpg`,
+                                path: `images/gala/galeria/graduada_${num}.jpg`,
+                                title: tit,
+                                category: cat,
+                                caption: cap,
+                                aspect: [13, 15, 27].includes(i) ? 'landscape' : 'portrait',
+                                width: 960,
+                                height: 1280
+                            });
+                        }
+                        allPhotos.push(
+                            {
+                                id: 49,
+                                filename: 'gala_1_retrato.jpg',
+                                path: 'images/gala/gala_1_retrato.jpg',
+                                title: 'Retrato Editorial de Egresada',
+                                category: 'estudio',
+                                caption: 'Sesión fotográfica profesional en estudio para lanzamiento de marca personal.',
+                                aspect: 'portrait',
+                                width: 768,
+                                height: 1024
+                            },
+                            {
+                                id: 50,
+                                filename: 'estudio_extra_1.jpg',
+                                path: 'images/gala/galeria/estudio_extra_1.jpg',
+                                title: 'Portafolio de Iluminación de Estudio',
+                                category: 'estudio',
+                                caption: 'Fotografía con iluminación profesional para catálogo y branding personal.',
+                                aspect: 'portrait',
+                                width: 768,
+                                height: 1024
+                            },
+                            {
+                                id: 51,
+                                filename: 'estudio_extra_2.jpg',
+                                path: 'images/gala/galeria/estudio_extra_2.jpg',
+                                title: 'Retrato de Graduada con Acreditación',
+                                category: 'estudio',
+                                caption: 'Proyección de imagen ejecutiva para tu estudio de pestañas.',
+                                aspect: 'portrait',
+                                width: 768,
+                                height: 1024
+                            },
+                            {
+                                id: 52,
+                                filename: 'estudio_extra_3.jpg',
+                                path: 'images/gala/galeria/estudio_extra_3.jpg',
+                                title: 'Sesión Editorial en Set Fotográfico',
+                                category: 'estudio',
+                                caption: 'Retrato de alta resolución para campañas publicitarias y portafolio.',
+                                aspect: 'portrait',
+                                width: 768,
+                                height: 1024
+                            }
+                        );
                     }
-                    allPhotos.push({
-                        id: 49,
-                        filename: 'gala_1_retrato.jpg',
-                        path: 'images/gala/gala_1_retrato.jpg',
-                        title: 'Retrato Editorial de Egresada',
-                        category: 'estudio',
-                        caption: 'Sesión fotográfica profesional en estudio para lanzamiento de marca personal.',
-                        aspect: 'portrait',
-                        width: 768,
-                        height: 1024
-                    });
-                }
-                updateFilterCounts();
+                    updateFilterCounts();
+                    if (galleryModal && galleryModal.classList.contains('active')) {
+                        renderFilteredGallery(true);
+                    }
+                    return allPhotos;
+                })();
+                return loadPromise;
             };
 
             const updateFilterCounts = () => {
@@ -17276,7 +17321,7 @@
                 if (counterBadge) counterBadge.textContent = `${countAll} Recuerdos`;
             };
 
-            const openGallery = (category = 'all') => {
+            const openGallery = async (category = 'all') => {
                 currentFilter = category;
                 if (!galleryModal) return;
 
@@ -17291,6 +17336,9 @@
                 galleryModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
 
+                if (allPhotos.length === 0) {
+                    await loadGalleryData();
+                }
                 renderFilteredGallery(true);
             };
 
@@ -17391,11 +17439,15 @@
                 activeLightboxIndex = index;
                 updateLightboxContent();
                 lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
             };
 
             const closeLightbox = () => {
                 if (!lightbox) return;
                 lightbox.classList.remove('active');
+                if (!galleryModal || !galleryModal.classList.contains('active')) {
+                    document.body.style.overflow = '';
+                }
             };
 
             const updateLightboxContent = () => {
@@ -17468,9 +17520,14 @@
                 }, { passive: true });
             }
 
+            // Expose globally so inline onclick or other triggers can call it anytime
+            window.openGalaGallery = openGallery;
+            window.closeGalaGallery = closeGallery;
+
             // Connect Trigger Button
             if (openGalleryBtn) {
-                openGalleryBtn.addEventListener('click', () => {
+                openGalleryBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
                     openGallery('all');
                 });
             }
@@ -17480,32 +17537,29 @@
                 const cards = deck.querySelectorAll('.gala-photo-card');
                 cards.forEach(card => {
                     card.addEventListener('click', function (e) {
+                        e.preventDefault();
                         const targetCat = this.dataset.galleryCategory || 'all';
 
-                        // If it's already primary, open gallery filtered to that category!
-                        if (this.classList.contains('card-primary')) {
-                            openGallery(targetCat);
-                            return;
-                        }
-
-                        // Otherwise bring to front
+                        // Shuffle deck card visually so clicked card comes to front
                         const currentPrimary = deck.querySelector('.gala-photo-card.card-primary');
                         const clickedWasLeft = this.classList.contains('card-left');
 
-                        if (currentPrimary) {
+                        if (currentPrimary && currentPrimary !== this) {
                             currentPrimary.classList.remove('card-primary');
                             currentPrimary.classList.add(clickedWasLeft ? 'card-left' : 'card-right');
+                            this.classList.remove('card-left', 'card-right');
+                            this.classList.add('card-primary');
                         }
 
-                        this.classList.remove('card-left', 'card-right');
-                        this.classList.add('card-primary');
+                        // Open gallery modal immediately for a responsive user experience
+                        openGallery(targetCat);
                     });
                 });
             }
 
-            // Init gallery data
+            // Preload gallery data immediately
             loadGalleryData();
-        });
+        })();
     </script>
 
 </body>
