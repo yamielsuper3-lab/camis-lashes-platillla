@@ -12926,7 +12926,7 @@
                     <div class="spa-category-filter-bar">
                         <button type="button" class="spa-cat-tab active" onclick="filterSpaCategory('all', this)">✨ Los Más Pedidos</button>
                         <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('lashes', this)">👁️ Pestañas de Autor</button>
-                        <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('brows', this)">🖌️ Cejas & Lifting</button>
+                        <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('brows', this)">🖌️ Cejas, Lifting & Facial</button>
                         <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('massage', this)">🌿 Masajes Holísticos</button>
                         <button type="button" class="spa-cat-tab" onclick="filterSpaCategory('pedi', this)">🌸 Pedicura & Combos</button>
                     </div>
@@ -12979,7 +12979,7 @@
                         </div>
 
                         <!-- volumen-americano (lashes) -->
-                        <div class="mixed-highlight-card" data-service-id="volumen-americano" data-category="lashes" data-featured="false" style="display: none;" onclick="openSpaDetailModal('volumen-americano')">
+                        <div class="mixed-highlight-card highlight-card-featured" data-service-id="volumen-americano" data-category="lashes" data-featured="true" onclick="openSpaDetailModal('volumen-americano')">
                             <div class="m-card-img-wrap">
                                 <img src="images/spa/service-volumen-americano.jpg?v=sopapo4" alt="Volumen americano" class="m-card-img" loading="lazy">
                                 <div class="m-card-gradient-overlay"></div>
@@ -13043,6 +13043,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <!-- lifting (brows) -->
                         <div class="mixed-highlight-card" data-service-id="lifting" data-category="brows" data-featured="false" style="display: none;" onclick="openSpaDetailModal('lifting')">
                             <div class="m-card-img-wrap">
@@ -13064,7 +13065,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- lifting-coreano-laminado (brows) -->
                         <div class="mixed-highlight-card highlight-card-featured" data-service-id="lifting-coreano-laminado" data-category="brows" data-featured="true" onclick="openSpaDetailModal('lifting-coreano-laminado')">
                             <div class="m-card-img-wrap">
@@ -13086,6 +13087,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <!-- lifting-efecto-laminado (brows) -->
                         <div class="mixed-highlight-card highlight-card-featured" data-service-id="lifting-efecto-laminado" data-category="brows" data-featured="true" onclick="openSpaDetailModal('lifting-efecto-laminado')">
                             <div class="m-card-img-wrap">
@@ -13107,71 +13109,31 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- masaje-relajante (massage) -->
-                        <div class="mixed-highlight-card highlight-card-featured" data-service-id="masaje-relajante" data-category="massage" data-featured="true"  onclick="openSpaDetailModal('masaje-relajante')">
+
+                        <!-- facial-relajante (brows / facial) -->
+                        <div class="mixed-highlight-card highlight-card-featured" data-service-id="facial-relajante" data-category="brows" data-featured="true" onclick="openSpaDetailModal('facial-relajante')">
                             <div class="m-card-img-wrap">
-                                <img src="images/spa/service-masaje.jpg?v=sopapo3" alt="Masaje Relajante" class="m-card-img" loading="lazy">
+                                <img src="images/spa/service-facial.jpg?v=sopapo4" alt="Facial Relajante" class="m-card-img" loading="lazy">
                                 <div class="m-card-gradient-overlay"></div>
-                                <span class="m-card-badge">🕯️ Descompresión Antiestrés</span>
+                                <span class="m-card-badge">🌸 Frescura & Bienestar</span>
                                 <span class="m-card-price">$500</span>
                             </div>
                             <div class="m-card-content">
-                                <span class="m-card-cat">Masajes Holísticos</span>
-                                <h4>Masaje Relajante</h4>
+                                <span class="m-card-cat">Cuidado Facial</span>
+                                <h4>Facial Relajante</h4>
                                 <div class="m-card-specs-row">
                                     <span class="m-spec-pill">⏱️ 60 minutos</span>
-                                    <span class="m-spec-pill">🔒 Sensación de bienestar inmediata</span>
+                                    <span class="m-spec-pill">🔒 Rostro luminoso y descanso total</span>
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Masaje%20Relajante%20(%24500%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Facial%20Relajante%20(%24500%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- masaje-terapeutico (massage) -->
-                        <div class="mixed-highlight-card" data-service-id="masaje-terapeutico" data-category="massage" data-featured="false" style="display: none;" onclick="openSpaDetailModal('masaje-terapeutico')">
-                            <div class="m-card-img-wrap">
-                                <img src="images/spa/service-masaje.jpg?v=sopapo3" alt="Masaje Terapéutico" class="m-card-img" loading="lazy">
-                                <div class="m-card-gradient-overlay"></div>
-                                <span class="m-card-badge">🩺 Alivio de Contracturas</span>
-                                <span class="m-card-price">$650</span>
-                            </div>
-                            <div class="m-card-content">
-                                <span class="m-card-cat">Masajes Holísticos</span>
-                                <h4>Masaje Terapéutico</h4>
-                                <div class="m-card-specs-row">
-                                    <span class="m-spec-pill">⏱️ 60 minutos</span>
-                                    <span class="m-spec-pill">🔒 Alivio muscular progresivo</span>
-                                </div>
-                                <div class="m-card-actions">
-                                    <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Masaje%20Terap%C3%A9utico%20(%24650%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- masaje-tejido (massage) -->
-                        <div class="mixed-highlight-card" data-service-id="masaje-tejido" data-category="massage" data-featured="false" style="display: none;" onclick="openSpaDetailModal('masaje-tejido')">
-                            <div class="m-card-img-wrap">
-                                <img src="images/spa/service-masaje.jpg?v=sopapo3" alt="Masaje Tejido Profundo" class="m-card-img" loading="lazy">
-                                <div class="m-card-gradient-overlay"></div>
-                                <span class="m-card-badge">💪 Presión Profunda</span>
-                                <span class="m-card-price">$750</span>
-                            </div>
-                            <div class="m-card-content">
-                                <span class="m-card-cat">Masajes Holísticos</span>
-                                <h4>Masaje Tejido Profundo</h4>
-                                <div class="m-card-specs-row">
-                                    <span class="m-spec-pill">⏱️ 60 minutos</span>
-                                    <span class="m-spec-pill">🔒 Descontracturación profunda duradera</span>
-                                </div>
-                                <div class="m-card-actions">
-                                    <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Masaje%20Tejido%20Profundo%20(%24750%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
-                                </div>
-                            </div>
-                        </div>
+
                         <!-- masaje-piedras (massage) -->
-                        <div class="mixed-highlight-card highlight-card-featured" data-service-id="masaje-piedras" data-category="massage" data-featured="true"  onclick="openSpaDetailModal('masaje-piedras')">
+                        <div class="mixed-highlight-card highlight-card-featured" data-service-id="masaje-piedras" data-category="massage" data-featured="true" onclick="openSpaDetailModal('masaje-piedras')">
                             <div class="m-card-img-wrap">
                                 <img src="images/spa/service-masaje-piedras.jpg?v=sopapo3" alt="Masaje Piedras Calientes" class="m-card-img" loading="lazy">
                                 <div class="m-card-gradient-overlay"></div>
@@ -13191,28 +13153,73 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- combo-masaje-pedi (pedi) -->
-                        <div class="mixed-highlight-card highlight-card-featured" data-service-id="combo-masaje-pedi" data-category="pedi" data-featured="true"  onclick="openSpaDetailModal('combo-masaje-pedi')">
+
+                        <!-- masaje-tejido (massage) -->
+                        <div class="mixed-highlight-card highlight-card-featured" data-service-id="masaje-tejido" data-category="massage" data-featured="true" onclick="openSpaDetailModal('masaje-tejido')">
                             <div class="m-card-img-wrap">
-                                <img src="images/spa/service-combo.jpg?v=sopapo3" alt="Combo: Masaje Relajante + Pedicura Spa" class="m-card-img" loading="lazy">
+                                <img src="images/spa/service-masaje-tejido.jpg?v=sopapo3" alt="Masaje Tejido Profundo" class="m-card-img" loading="lazy">
+                                <div class="m-card-gradient-overlay"></div>
+                                <span class="m-card-badge">💪 Presión Profunda</span>
+                                <span class="m-card-price">$750</span>
+                            </div>
+                            <div class="m-card-content">
+                                <span class="m-card-cat">Masajes Holísticos</span>
+                                <h4>Masaje Tejido Profundo</h4>
+                                <div class="m-card-specs-row">
+                                    <span class="m-spec-pill">⏱️ 60 minutos</span>
+                                    <span class="m-spec-pill">🔒 Descontracturación profunda duradera</span>
+                                </div>
+                                <div class="m-card-actions">
+                                    <span class="m-btn-explore">Ver Detalle 👁️</span>
+                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Masaje%20Tejido%20Profundo%20(%24750%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- masaje-ventosas (massage) -->
+                        <div class="mixed-highlight-card highlight-card-featured" data-service-id="masaje-ventosas" data-category="massage" data-featured="true" onclick="openSpaDetailModal('masaje-ventosas')">
+                            <div class="m-card-img-wrap">
+                                <img src="images/spa/service-masaje-ventosas.jpg?v=sopapo3" alt="Masaje con Ventosas (Cupping)" class="m-card-img" loading="lazy">
+                                <div class="m-card-gradient-overlay"></div>
+                                <span class="m-card-badge">🩸 Cupping & Drenaje</span>
+                                <span class="m-card-price">$850</span>
+                            </div>
+                            <div class="m-card-content">
+                                <span class="m-card-cat">Masajes Holísticos</span>
+                                <h4>Masaje con Ventosas (Cupping)</h4>
+                                <div class="m-card-specs-row">
+                                    <span class="m-spec-pill">⏱️ 60 minutos</span>
+                                    <span class="m-spec-pill">🔒 Desinflamación y reactivación circulatoria</span>
+                                </div>
+                                <div class="m-card-actions">
+                                    <span class="m-btn-explore">Ver Detalle 👁️</span>
+                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Masaje%20con%20Ventosas%20(Cupping)%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- combo-masaje-pedi (pedi) -->
+                        <div class="mixed-highlight-card highlight-card-featured" data-service-id="combo-masaje-pedi" data-category="pedi" data-featured="true" onclick="openSpaDetailModal('combo-masaje-pedi')">
+                            <div class="m-card-img-wrap">
+                                <img src="images/spa/service-combo.jpg?v=sopapo3" alt="Combo: Masaje & Pedicura Spa" class="m-card-img" loading="lazy">
                                 <div class="m-card-gradient-overlay"></div>
                                 <span class="m-card-badge">👑 Experiencia VIP 2 en 1</span>
                                 <span class="m-card-price">$799</span>
                             </div>
                             <div class="m-card-content">
                                 <span class="m-card-cat">Combos VIP</span>
-                                <h4>Combo: Masaje Relajante + Pedicura Spa</h4>
+                                <h4>Combo: Masaje & Pedicura Spa</h4>
                                 <div class="m-card-specs-row">
                                     <span class="m-spec-pill">⏱️ 100 minutos</span>
                                     <span class="m-spec-pill">🔒 Renovación total de pies a cabeza</span>
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Combo%3A%20Masaje%20Relajante%20%2B%20Pedicura%20Spa%20(%24799%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Combo%3A%20Masaje%20%26%20Pedicura%20Spa%20(%24799%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
+
                         <!-- pedicura-spa (pedi) -->
                         <div class="mixed-highlight-card highlight-card-featured" data-service-id="pedicura-spa" data-category="pedi" data-featured="true" onclick="openSpaDetailModal('pedicura-spa')">
                             <div class="m-card-img-wrap">
@@ -13234,7 +13241,6 @@
                                 </div>
                             </div>
                         </div>
-                        
 
                     </div>
                 </div>
@@ -16811,46 +16817,18 @@
     "img": "images/spa/service-lifting-efecto.jpg"
   },
   {
-    "id": "masaje-relajante",
-    "category": "massage",
-    "categoryLabel": "Masajes Holísticos",
-    "title": "Masaje Relajante",
+    "id": "facial-relajante",
+    "category": "brows",
+    "categoryLabel": "Cuidado Facial",
+    "title": "Facial Relajante",
     "price": "$500 MXN",
-    "tag": "🕯️ Descompresión Antiestrés",
-    "shortDesc": "Masaje corporal completo con aceites esenciales botánicos de lavanda.",
-    "fullDesc": "Sesión antiestrés con maniobras suaves, armónicas y envolventes que relajan el sistema nervioso, alivian tensiones superficiales y restauran la paz mental en cabina climatizada.",
+    "tag": "🌸 Frescura & Bienestar",
+    "shortDesc": "Limpieza suave, hidratación botánica y masaje descongestivo para un rostro descansado.",
+    "fullDesc": "Experiencia facial reconfortante que combina limpieza profunda suave, hidratación con extractos botánicos y maniobras descongestivas con aromaterapia para devolver luminosidad, descanso y frescura a tu piel.",
     "duration": "60 minutos",
-    "technique": "Maniobras suecas relajantes con aromaterapia botánica",
-    "retention": "Sensación de bienestar inmediata",
-    "img": "images/spa/service-masaje.jpg"
-  },
-  {
-    "id": "masaje-terapeutico",
-    "category": "massage",
-    "categoryLabel": "Masajes Holísticos",
-    "title": "Masaje Terapéutico",
-    "price": "$650 MXN",
-    "tag": "🩺 Alivio de Contracturas",
-    "shortDesc": "Alivio focalizado de contracturas y rigidez en espalda y cuello.",
-    "fullDesc": "Masaje enfocado en aliviar sobrecargas musculares y nudos ocasionados por posturas, estrés o actividad física. Restaura la elasticidad y movilidad de la espalda.",
-    "duration": "60 minutos",
-    "technique": "Técnica descontracturante con presión moderada",
-    "retention": "Alivio muscular progresivo",
-    "img": "images/spa/service-masaje.jpg"
-  },
-  {
-    "id": "masaje-tejido",
-    "category": "massage",
-    "categoryLabel": "Masajes Holísticos",
-    "title": "Masaje Tejido Profundo",
-    "price": "$750 MXN",
-    "tag": "💪 Presión Profunda",
-    "shortDesc": "Presión firme para descontracturar capas musculares profundas.",
-    "fullDesc": "Manipulación profunda de tejidos y fascias musculares para desarmar nudos crónicos, liberar rigidez y recuperar la vitalidad física en personas activas.",
-    "duration": "60 minutos",
-    "technique": "Presión profunda y liberación miofascial",
-    "retention": "Descontracturación profunda duradera",
-    "img": "images/spa/service-masaje.jpg"
+    "technique": "Higiene facial botánica + Masaje facial descongestivo y aromaterapia",
+    "retention": "Luminosidad y descanso facial inmediato",
+    "img": "images/spa/service-facial.jpg"
   },
   {
     "id": "masaje-piedras",
@@ -16867,10 +16845,38 @@
     "img": "images/spa/service-masaje-piedras.jpg"
   },
   {
+    "id": "masaje-tejido",
+    "category": "massage",
+    "categoryLabel": "Masajes Holísticos",
+    "title": "Masaje Tejido Profundo",
+    "price": "$750 MXN",
+    "tag": "💪 Presión Profunda",
+    "shortDesc": "Presión firme para descontracturar capas musculares profundas.",
+    "fullDesc": "Manipulación profunda de tejidos y fascias musculares para desarmar nudos crónicos, liberar rigidez y recuperar la vitalidad física en personas activas.",
+    "duration": "60 minutos",
+    "technique": "Presión profunda y liberación miofascial",
+    "retention": "Descontracturación profunda duradera",
+    "img": "images/spa/service-masaje-tejido.jpg"
+  },
+  {
+    "id": "masaje-ventosas",
+    "category": "massage",
+    "categoryLabel": "Masajes Holísticos",
+    "title": "Masaje con Ventosas (Cupping)",
+    "price": "$850 MXN",
+    "tag": "🩸 Cupping & Drenaje",
+    "shortDesc": "Terapia de succión para desinflamar, reactivar circulación y toxinas.",
+    "fullDesc": "Técnica tradicional de succión con copas especializadas que estimula el flujo sanguíneo, oxigena los tejidos musculares y acelera el drenaje de toxinas acumuladas.",
+    "duration": "60 minutos",
+    "technique": "Cupping estático y dinámico con aceite emoliente",
+    "retention": "Desinflamación y reactivación circulatoria",
+    "img": "images/spa/service-masaje-ventosas.jpg"
+  },
+  {
     "id": "combo-masaje-pedi",
     "category": "pedi",
     "categoryLabel": "Combos VIP",
-    "title": "Combo: Masaje Relajante + Pedicura Spa",
+    "title": "Combo: Masaje & Pedicura Spa",
     "price": "$799 MXN",
     "tag": "👑 Experiencia VIP 2 en 1",
     "shortDesc": "Paquete consentido: Masaje en cabina + Pedicura Spa completa.",
@@ -16927,23 +16933,23 @@
                 'lifting-efecto-laminado': [
                     { img: 'images/spa/service-lifting-efecto.jpg?v=sopapo4', tag: 'Efecto Rímel & Laminado', caption: 'Mirada panorámica con pestañas arqueadas y cejas perfectas' }
                 ],
-                'masaje-relajante': [
-                    { img: 'images/spa/service-masaje.jpg?v=sopapo4', tag: 'Cabina Zen', caption: 'Aromaterapia y aceites esenciales tibios' }
-                ],
-                'masaje-terapeutico': [
-                    { img: 'images/spa/service-masaje-terapeutico.jpg?v=sopapo4', tag: 'Alivio Muscular', caption: 'Descontracturante en espalda y cuello' }
-                ],
-                'masaje-tejido': [
-                    { img: 'images/spa/service-masaje-tejido.jpg?v=sopapo4', tag: 'Presion Firme', caption: 'Liberacion miofascial de nudos profundos' }
+                'facial-relajante': [
+                    { img: 'images/spa/service-facial.jpg?v=sopapo4', tag: 'Facial Botánico', caption: 'Higiene facial profunda, hidratación y frescura' }
                 ],
                 'masaje-piedras': [
-                    { img: 'images/spa/service-masaje-piedras.jpg?v=sopapo4', tag: 'Termoterapia', caption: 'Piedras volcanicas a 50 grados' }
+                    { img: 'images/spa/service-masaje-piedras.jpg?v=sopapo4', tag: 'Termoterapia', caption: 'Piedras volcánicas a 50 grados' }
+                ],
+                'masaje-tejido': [
+                    { img: 'images/spa/service-masaje-tejido.jpg?v=sopapo4', tag: 'Presión Firme', caption: 'Liberación miofascial de nudos profundos' }
+                ],
+                'masaje-ventosas': [
+                    { img: 'images/spa/service-masaje-ventosas.jpg?v=sopapo4', tag: 'Cupping Detox', caption: 'Estimulación circulatoria y oxigenación' }
                 ],
                 'combo-masaje-pedi': [
-                    { img: 'images/spa/service-combo.jpg?v=sopapo4', tag: 'Ritual Total VIP', caption: '90 min de bienestar holistico y pies de seda' }
+                    { img: 'images/spa/service-combo.jpg?v=sopapo4', tag: 'Ritual Total VIP', caption: '90 min de bienestar holístico y pies de seda' }
                 ],
                 'pedicura-spa': [
-                    { img: 'images/spa/service-pedicura.jpg?v=sopapo4', tag: 'Pedicura Spa', caption: 'Sales minerales, exfoliacion y esmaltado' }
+                    { img: 'images/spa/service-pedicura.jpg?v=sopapo4', tag: 'Pedicura Spa', caption: 'Sales minerales, exfoliación y esmaltado' }
                 ]
             };
 
