@@ -14,7 +14,7 @@
     // 👉 Cuando tengas tus IDs reales, SOLO reemplaza estas 3 variables:
     window.CAMI_TRACKING_CONFIG = {
         ADS_ID: 'AW-18439040516',             // Tu ID oficial de Google Ads
-        ADS_CONVERSION_LABEL: 'XXXXXXXXXXXX', // Tu Etiqueta de Conversión (Ejemplo: 'AbC_xYz12345')
+        ADS_CONVERSION_LABEL: '0FMbCLKlgf4cEITctdhE', // Etiqueta oficial: Reserva Cita WhatsApp
         GA4_ID: 'G-XXXXXXXXXX',              // Tu ID de GA4 (Ejemplo: 'G-A1B2C3D4E5')
         DEBUG_MODE: true                     // true para ver en consola (F12) cada evento disparado
     };
