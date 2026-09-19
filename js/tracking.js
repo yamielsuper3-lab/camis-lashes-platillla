@@ -107,6 +107,20 @@
         }
     };
 
+    // 4.1 FUNCIÓN OFICIAL DE REPORTE DE CONVERSIÓN DE GOOGLE ADS (Reconocimiento automático de Google)
+    window.gtag_report_conversion = function (url) {
+        var callback = function () {
+            if (typeof (url) !== 'undefined' && url) {
+                window.location = url;
+            }
+        };
+        gtag('event', 'conversion', {
+            'send_to': `${cfg.ADS_ID}/${cfg.ADS_CONVERSION_LABEL}`,
+            'event_callback': callback
+        });
+        return false;
+    };
+
     // 5. EVENT DELEGATION GLOBAL: RASTREO AUTOMÁTICO DE WHATSAPP Y CTAS
     document.addEventListener('DOMContentLoaded', function () {
         // Listener global de clics
