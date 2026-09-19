@@ -15442,7 +15442,7 @@
                 setTimeout(() => {
                     document.body.classList.remove('scroll-locked');
                     splitBackBtn.classList.add('visible');
-                }, isInitial ? 100 : 900);
+                }, isInitial ? 0 : 900);
             };
 
             // Function to handle Spa selection
@@ -15467,7 +15467,7 @@
                 setTimeout(() => {
                     document.body.classList.remove('scroll-locked');
                     splitBackBtn.classList.add('visible');
-                }, isInitial ? 100 : 900);
+                }, isInitial ? 0 : 900);
             };
 
             window.selectAcademy = selectAcademy;
@@ -15511,16 +15511,35 @@
 
             // Initial State Restoration on Page Load (Always starts clean and in the right branch)
             const initBranchOnLoad = () => {
-                const hash = window.location.hash;
+                const search = (window.location.search || '').toLowerCase();
+                const hash = (window.location.hash || '').toLowerCase();
                 let savedBranch = null;
                 try { savedBranch = sessionStorage.getItem('cami_active_branch'); } catch (e) { }
 
-                if (hash && (hash.includes('maestria') || hash.includes('temario') || hash.includes('inversion') || hash.includes('congreso') || hash.includes('faq') || hash.includes('portal') || hash.includes('founder') || hash.includes('curriculum'))) {
+                const isSpaParam = search.includes('spa') || search.includes('boutique') || search.includes('citas') || search.includes('menu') || search.includes('pestanas') || search.includes('masajes') || hash.includes('spa') || hash.includes('boutique');
+                const isAcademyParam = search.includes('academia') || search.includes('academy') || search.includes('curso') || search.includes('maestria') || hash.includes('maestria') || hash.includes('temario') || hash.includes('inversion') || hash.includes('congreso') || hash.includes('faq') || hash.includes('portal') || hash.includes('founder') || hash.includes('curriculum') || hash.includes('academia');
+
+                if (isSpaParam) {
+                    selectSpa(true);
+                    // Si el link trae un ancla interna del menú o ubicación, desplazamos suavemente
+                    if (hash && hash !== '#spa' && hash !== '#boutique') {
+                        setTimeout(() => {
+                            const targetEl = document.querySelector(hash);
+                            if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+                        }, 250);
+                    }
+                } else if (isAcademyParam) {
                     selectAcademy(true);
+                    if (hash && hash !== '#academia' && hash !== '#academy') {
+                        setTimeout(() => {
+                            const targetEl = document.querySelector(hash);
+                            if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+                        }, 250);
+                    }
+                } else if (savedBranch === 'spa') {
+                    selectSpa(true);
                 } else if (savedBranch === 'academy') {
                     selectAcademy(true);
-                } else if (savedBranch === 'spa' || hash.includes('spa') || hash.includes('boutique')) {
-                    selectSpa(true);
                 } else {
                     // Fresh start: locked at top on Split Hero
                     window.scrollTo(0, 0);
