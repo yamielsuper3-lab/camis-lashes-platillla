@@ -84,20 +84,6 @@
     "img": "images/spa/service-lifting.jpg"
   },
   {
-    "id": "cejas",
-    "category": "brows",
-    "categoryLabel": "Cejas & Lifting",
-    "title": "Laminado HD y Tintes",
-    "price": "$450 MXN",
-    "tag": "✨ Tratamiento Completo",
-    "shortDesc": "Incluye: Laminado HD y Tintes, depilación y diseño.",
-    "fullDesc": "Transformación total de cejas: Laminado HD y Tintes semipermanentes con depilación de precisión para definir y ordenar la mirada.",
-    "duration": "75 minutos",
-    "technique": "Protocolo de Laminado HD & Tintes + Depilación",
-    "retention": "Hasta 3-4 semanas en vello y piel",
-    "img": "images/spa/service-cejas.jpg"
-  },
-  {
     "id": "lifting-coreano-laminado",
     "category": "brows",
     "categoryLabel": "Cejas & Lifting",
@@ -107,7 +93,7 @@
     "shortDesc": "Tratamiento dúo de elevación coreana de pestañas y laminado orgánico de cejas.",
     "fullDesc": "Protocolo integral de vanguardia coreana: elevación milimétrica y curvatura natural de la pestaña combinada con botox capilar y tinte gloss, sumado a un laminado y visagismo arquitectónico de cejas para una mirada radiante y juvenil.",
     "duration": "90 minutos",
-    "technique": "Lifting Coreano con Botox de queratina + Laminado HD",
+    "technique": "Lifting Coreano con Botox de queratina + Laminado Orgánico",
     "retention": "Hasta 6-8 semanas",
     "img": "images/spa/service-lifting-coreano.jpg"
   },
@@ -182,20 +168,6 @@
     "img": "images/spa/service-masaje-piedras.jpg"
   },
   {
-    "id": "masaje-ventosas",
-    "category": "massage",
-    "categoryLabel": "Masajes Holísticos",
-    "title": "Masaje con Ventosas (Cupping)",
-    "price": "$850 MXN",
-    "tag": "🩸 Cupping & Drenaje",
-    "shortDesc": "Terapia de succión para desinflamar, reactivar circulación y toxinas.",
-    "fullDesc": "Técnica tradicional de succión con copas especializadas que estimula el flujo sanguíneo, oxigena los tejidos musculares y acelera el drenaje de toxinas acumuladas.",
-    "duration": "60 minutos",
-    "technique": "Cupping estático y dinámico con aceite emoliente",
-    "retention": "Desinflamación y reactivación circulatoria",
-    "img": "images/spa/service-masaje-ventosas.jpg"
-  },
-  {
     "id": "combo-masaje-pedi",
     "category": "pedi",
     "categoryLabel": "Combos VIP",
@@ -221,20 +193,6 @@
     "duration": "45 minutos",
     "technique": "Exfoliación botánica + Hidratación con aceites",
     "retention": "Pies suaves y limpios por semanas",
-    "img": "images/spa/service-pedicura.jpg"
-  },
-  {
-    "id": "pedicura-parafina",
-    "category": "pedi",
-    "categoryLabel": "Pedicura Spa",
-    "title": "Pedicura con Parafina",
-    "price": "$450 MXN",
-    "tag": "✨ Hidratación Extrema",
-    "shortDesc": "Baño tibio de parafina para hidratación profunda y talones sedosos.",
-    "fullDesc": "Pedicura completa enriquecida con envoltura de parafina cosmética tibia que sella la humedad celular, alivia grietas y deja los talones ultra sedosos y suaves.",
-    "duration": "60 minutos",
-    "technique": "Pedicura Spa + Baño de Parafina caliente",
-    "retention": "Máxima suavidad y nutrición profunda",
     "img": "images/spa/service-pedicura.jpg"
   }
 ]
