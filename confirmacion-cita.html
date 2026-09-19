@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pase Digital VIP • Cami's Lashes Boutique & Spa</title>
+    <meta name="description" content="Pase de Confirmación de Cita VIP en Cami's Lashes Boutique & Spa. Ubicación en Puerto Vallarta, recomendaciones de preparación y detalles de tu experiencia.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Tipografías de Lujo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,400;1,600&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <style>
+        :root {
+            --bg-obsidian: #0c0a09;
+            --bg-card: rgba(22, 19, 17, 0.88);
+            --gold-primary: #dfba73;
+            --gold-metallic: linear-gradient(135deg, #f6e2b3 0%, #dfba73 50%, #9e7d3b 100%);
+            --gold-glow: rgba(223, 186, 115, 0.35);
+            --cream: #f8f5ef;
+            --cream-muted: rgba(248, 245, 239, 0.72);
+            --border-gold: rgba(223, 186, 115, 0.28);
+            --emerald: #10b981;
+            --font-serif: 'Cinzel', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --font-italic: 'Playfair Display', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-obsidian);
+            color: var(--cream);
+            font-family: var(--font-sans);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 24px 16px 40px;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(223, 186, 115, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 10% 80%, rgba(176, 141, 70, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 90% 40%, rgba(223, 186, 115, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Contenedor Principal */
+        .pass-container {
+            width: 100%;
+            max-width: 520px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Header de Marca */
+        .brand-header {
+            text-align: center;
+            padding: 10px 0 6px;
+        }
+
+        .brand-logo {
+            font-family: var(--font-serif);
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--cream);
+            text-transform: uppercase;
+        }
+
+        .brand-logo span {
+            background: var(--gold-metallic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-sub {
+            font-size: 0.72rem;
+            letter-spacing: 2.5px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* Status Badge */
+        .status-badge-wrap {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 4px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.76rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            color: #34d399;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--emerald);
+            animation: pulseEmerald 2s infinite;
+        }
+
+        @keyframes pulseEmerald {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.3); }
+        }
+
+        /* ─── EL TICKET VIP (BOARDING PASS LUXURY) ─── */
+        .vip-ticket {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(223, 186, 115, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        /* Cabecera del Ticket */
+        .ticket-header {
+            background: linear-gradient(180deg, rgba(223, 186, 115, 0.14) 0%, rgba(22, 19, 17, 0.4) 100%);
+            padding: 24px 22px 20px;
+            border-bottom: 1px dashed rgba(223, 186, 115, 0.25);
+            text-align: center;
+            position: relative;
+        }
+
+        .ticket-icon {
+            font-size: 2rem;
+            margin-bottom: 6px;
+            display: inline-block;
+            filter: drop-shadow(0 0 12px var(--gold-glow));
+        }
+
+        .ticket-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--cream);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .ticket-client-greeting {
+            font-family: var(--font-italic);
+            font-size: 1.05rem;
+            color: var(--gold-primary);
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        /* Detalles de la Reserva */
+        .ticket-body {
+            padding: 24px 22px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .detail-item {
+            flex: 1;
+        }
+
+        .detail-label {
+            font-size: 0.68rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-size: 0.96rem;
+            color: var(--cream);
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        .detail-value small {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--cream-muted);
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        /* Línea de Perforación de Ticket */
+        .ticket-perforation {
+            position: relative;
+            height: 20px;
+            margin: 4px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticket-perforation::before,
+        .ticket-perforation::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background-color: var(--bg-obsidian);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--border-gold);
+            z-index: 2;
+        }
+
+        .ticket-perforation::before { left: -11px; }
+        .ticket-perforation::after { right: -11px; }
+
+        .perforation-line {
+            width: 100%;
+            border-top: 1.5px dashed rgba(223, 186, 115, 0.35);
+        }
+
+        /* Ubicación Destacada */
+        .ticket-location-block {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(223, 186, 115, 0.18);
+            border-radius: 16px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .location-pin-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, rgba(223, 186, 115, 0.2), rgba(158, 125, 59, 0.05));
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .location-info h5 {
+            font-size: 0.88rem;
+            color: var(--cream);
+            font-weight: 600;
+        }
+
+        .location-info p {
+            font-size: 0.78rem;
+            color: var(--cream-muted);
+            margin-top: 3px;
+            line-height: 1.3;
+        }
+
+        /* Botones Principales */
+        .actions-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 6px;
+        }
+
+        .btn-maps-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--gold-metallic);
+            color: #12100e;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 16px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px var(--gold-glow);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            border: none;
+        }
+
+        .btn-maps-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(223, 186, 115, 0.5);
+            color: #000;
+        }
+
+        .btn-wa-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--cream);
+            border: 1px solid var(--border-gold);
+            font-size: 0.84rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 13px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-wa-action:hover {
+            background: rgba(223, 186, 115, 0.12);
+            border-color: var(--gold-primary);
+        }
+
+        /* ─── PROTOCOLO DE PREPARACIÓN (GUÍA VIP) ─── */
+        .protocol-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 22px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .protocol-header {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .protocol-header h4 {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+        }
+
+        .protocol-header p {
+            font-size: 0.76rem;
+            color: var(--cream-muted);
+            margin-top: 4px;
+        }
+
+        .tips-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .tip-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(223, 186, 115, 0.12);
+            border: 1px solid rgba(223, 186, 115, 0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .tip-text h6 {
+            font-size: 0.84rem;
+            color: var(--cream);
+            font-weight: 600;
+        }
+
+        .tip-text p {
+            font-size: 0.75rem;
+            color: var(--cream-muted);
+            margin-top: 2px;
+            line-height: 1.35;
+        }
+
+        /* Footer de Cortesía */
+        .pass-footer {
+            text-align: center;
+            padding-top: 8px;
+        }
+
+        .pass-footer p {
+            font-family: var(--font-italic);
+            font-size: 0.86rem;
+            color: var(--gold-primary);
+            font-style: italic;
+        }
+
+        .pass-footer small {
+            display: block;
+            font-size: 0.68rem;
+            color: rgba(248, 245, 239, 0.4);
+            margin-top: 6px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    </style>
+
+    <!-- Google Tag (gtag.js) y Módulo Central de Tracking -->
+    <script src="js/tracking.js?v=ads2026"></script>
+    <script>
+        // Registrar Conversión de "Cita Confirmada / Pagada" al cargar la ficha
+        window.addEventListener('DOMContentLoaded', function() {
+            if (typeof gtag === 'function') {
+                // Evento oficial de conversión de Google Ads
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-18439040516/0FMbCLKlgf4cEITctdhE',
+                    'value': 850.0,
+                    'currency': 'MXN',
+                    'transaction_id': 'CITA-' + Date.now()
+                });
+                // Evento de Google Analytics 4
+                gtag('event', 'purchase', {
+                    'transaction_id': 'CITA-' + Date.now(),
+                    'value': 850.0,
+                    'currency': 'MXN',
+                    'items': [{
+                        'item_name': 'Experiencia Spa & Pestañas',
+                        'item_category': 'Servicio Cami Lashes',
+                        'price': 850.0,
+                        'quantity': 1
+                    }]
+                });
+                console.log('💎 [Tracking] Conversión de Cita Confirmada disparada exitosamente en Google Ads');
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="pass-container">
+
+        <!-- Header -->
+        <header class="brand-header">
+            <div class="brand-logo">CAMI’S <span>LASHES</span></div>
+            <div class="brand-sub">Boutique & Spa Exclusivo • Puerto Vallarta</div>
+        </header>
+
+        <!-- Status -->
+        <div class="status-badge-wrap">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>Cita Confirmada & En Agenda</span>
+            </div>
+        </div>
+
+        <!-- El Ticket VIP -->
+        <div class="vip-ticket">
+
+            <!-- Encabezado del Ticket -->
+            <div class="ticket-header">
+                <div class="ticket-icon">🌸</div>
+                <h1 class="ticket-title">Pase de Consentimiento VIP</h1>
+                <div class="ticket-client-greeting" id="clientGreeting">¡Te esperamos con mucho cariño!</div>
+            </div>
+
+            <!-- Detalles -->
+            <div class="ticket-body">
+                <div class="detail-row">
+                    <div class="detail-item">
+                        <div class="detail-label">Servicio Agendado</div>
+                        <div class="detail-value" id="serviceName">Pestañas de Autor & Bienestar<small>Aplicación personalizada a tu visagismo</small></div>
+                    </div>
+                    <div class="detail-item" style="text-align: right;">
+                        <div class="detail-label">Experiencia</div>
+                        <div class="detail-value" style="color: var(--gold-primary);">Cabina Privada<small>Aromaterapia & Relax</small></div>
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-item">
+                        <div class="detail-label">Fecha y Horario</div>
+                        <div class="detail-value" id="appointmentTime">Horario Reservado<small>Confirmado con Cami en WhatsApp</small></div>
+                    </div>
+                    <div class="detail-item" style="text-align: right;">
+                        <div class="detail-label">Duración</div>
+                        <div class="detail-value">80 - 110 min<small>Cuidado ocular cero daño</small></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Perforación Visual -->
+            <div class="ticket-perforation">
+                <div class="perforation-line"></div>
+            </div>
+
+            <!-- Bloque de Ubicación y Botones -->
+            <div class="ticket-body" style="padding-top: 10px;">
+                <div class="ticket-location-block">
+                    <div class="location-pin-icon">📍</div>
+                    <div class="location-info">
+                        <h5>Santuario Cami's Lashes</h5>
+                        <p>Francia 140, Versalles, 48310 Puerto Vallarta, Jal.<br><em>(A 2 cuadras de Av. Francisco Villa)</em></p>
+                    </div>
+                </div>
+
+                <div class="actions-group">
+                    <a href="https://maps.google.com/?q=Francia+140,+Versalles,+48310+Puerto+Vallarta,+Jal." target="_blank" rel="noopener noreferrer" class="btn-maps-action">
+                        <span>🗺️ Abrir en Google Maps / Waze</span>
+                    </a>
+                    <a href="https://wa.me/5213223814346?text=Hola%20Cami%2C%20ya%20tengo%20mi%20Pase%20Digital%20abierto%20y%20nos%20vemos%20en%20mi%20cita%20%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="btn-wa-action">
+                        <span>💬 Notificar a Cami por WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Protocolo de Preparación (Qué hacer antes de llegar) -->
+        <div class="protocol-card">
+            <div class="protocol-header">
+                <h4>Recomendaciones de Preparación</h4>
+                <p>Para que tus pestañas logren la máxima retención y disfrutes al 100%:</p>
+            </div>
+
+            <div class="tips-list">
+                <div class="tip-item">
+                    <div class="tip-icon">✨</div>
+                    <div class="tip-text">
+                        <h6>Ojos limpios y sin rímel</h6>
+                        <p>Por favor asiste sin máscara de pestañas, delineador ni aceites para que el adhesivo selle de forma impecable.</p>
+                    </div>
+                </div>
+
+                <div class="tip-item">
+                    <div class="tip-icon">☕</div>
+                    <div class="tip-text">
+                        <h6>Evita café antes de tu cita</h6>
+                        <p>Te sugerimos no consumir cafeína 2 horas antes para mantener tus párpados relajados y sin movimientos involuntarios.</p>
+                    </div>
+                </div>
+
+                <div class="tip-item">
+                    <div class="tip-icon">⏱️</div>
+                    <div class="tip-text">
+                        <h6>Llega 5 minutos antes</h6>
+                        <p>Así te recibimos con calma, te ofrecemos nuestra bebida relajante de cortesía y comienzas tu descanso sin prisas.</p>
+                    </div>
+                </div>
+
+                <div class="tip-item">
+                    <div class="tip-icon">💧</div>
+                    <div class="tip-text">
+                        <h6>Primeras 24 horas clave</h6>
+                        <p>Evita vapor directo, sauna o frotar tus ojos el primer día para sellar la polimerización profunda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="pass-footer">
+            <p>“Un espacio privado donde el tiempo se detiene para consentirte.”</p>
+            <small>© 2026 Cami's Lashes Boutique & Spa • Todos los derechos reservados</small>
+        </footer>
+
+    </div>
+
+    <!-- Script de Personalización Dinámica vía URL -->
+    <script>
+        (function() {
+            // Permite a Cami enviar links personalizados como:
+            // ?cliente=Sofia&servicio=Efecto+Mojado&hora=Jueves+4:00+PM
+            const params = new URLSearchParams(window.location.search);
+            const cliente = params.get('cliente') || params.get('nombre');
+            const servicio = params.get('servicio');
+            const hora = params.get('hora') || params.get('fecha');
+
+            if (cliente) {
+                document.getElementById('clientGreeting').textContent = '¡Bienvenida, ' + decodeURIComponent(cliente) + '! Nos vemos pronto.';
+            }
+            if (servicio) {
+                document.getElementById('serviceName').innerHTML = decodeURIComponent(servicio) + '<small>Diseño de autor & salud ocular garantizada</small>';
+            }
+            if (hora) {
+                document.getElementById('appointmentTime').innerHTML = decodeURIComponent(hora) + '<small>Reserva confirmada en agenda</small>';
+            }
+        })();
+    </script>
+
+</body>
+
+</html>
