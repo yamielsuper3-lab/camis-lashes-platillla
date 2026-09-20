@@ -125,8 +125,8 @@
     document.addEventListener('DOMContentLoaded', function () {
         // Listener global de clics
         document.body.addEventListener('click', function (e) {
-            // Buscar si el elemento clickeado o alguno de sus ancestros es un enlace o botón CTA
-            const targetLink = e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"], .m-btn-wa, #spaModalBookBtn, .btn-spa-hero-primary, .btn-academic-hero-primary, [data-track-conversion]');
+            // Buscar si el elemento clickeado o alguno de sus ancestros es un enlace o botón CTA calificado
+            const targetLink = e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"], .m-btn-wa, #spaModalBookBtn, .btn-academic-hero-primary, [data-track-conversion]');
             
             if (!targetLink) return;
 

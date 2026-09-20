@@ -1218,14 +1218,105 @@
         }
 
         /* ══════════════════════════════════════════════
-           BOTÓN FLOTANTE VIP DE WHATSAPP (SOLO SPA)
+           BOTÓN FLOTANTE VIP DE WHATSAPP + BURBUJA ÉPICA
            ══════════════════════════════════════════════ */
-        .spa-floating-wa-btn {
+        .spa-floating-wa-container {
             position: fixed;
             bottom: 26px;
             right: 26px;
             z-index: 99990;
             display: none;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+            pointer-events: none;
+        }
+
+        body.active-spa .spa-floating-wa-container {
+            display: flex;
+            animation: floatWaEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            pointer-events: auto;
+        }
+
+        body:not(.active-spa) .spa-floating-wa-container {
+            display: none !important;
+        }
+
+        /* BURBUJA ÉPICA TOOLTIP */
+        .spa-wa-speech-bubble {
+            background: linear-gradient(135deg, rgba(24, 16, 22, 0.96) 0%, rgba(34, 20, 29, 0.98) 100%);
+            backdrop-filter: blur(20px) saturate(160%);
+            -webkit-backdrop-filter: blur(20px) saturate(160%);
+            border: 1px solid rgba(223, 186, 115, 0.45);
+            border-radius: 14px;
+            padding: 10px 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(223, 186, 115, 0.18);
+            position: relative;
+            max-width: 265px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: bubbleFloatGlow 3s ease-in-out infinite alternate;
+        }
+
+        .spa-wa-speech-bubble:hover {
+            transform: translateY(-2px);
+            border-color: #dfba73;
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(223, 186, 115, 0.3);
+        }
+
+        .spa-wa-bubble-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            color: #EBC6CD;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .spa-wa-bubble-text {
+            font-size: 0.82rem;
+            color: #f5f0eb;
+            margin: 0;
+            line-height: 1.35;
+        }
+
+        .spa-wa-bubble-text strong {
+            color: #dfba73;
+            font-weight: 700;
+        }
+
+        .spa-wa-bubble-close {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            line-height: 1;
+            cursor: pointer;
+            padding: 2px 4px;
+        }
+
+        .spa-wa-bubble-close:hover {
+            color: #fff;
+        }
+
+        .spa-wa-bubble-arrow {
+            position: absolute;
+            bottom: -6px;
+            right: 28px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid rgba(223, 186, 115, 0.6);
+        }
+
+        /* BOTÓN CÁPSULA */
+        .spa-floating-wa-btn {
+            display: flex;
             align-items: center;
             gap: 10px;
             padding: 9px 18px 9px 12px;
@@ -1242,15 +1333,7 @@
             color: #f8f5ef;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
-        }
-
-        body.active-spa .spa-floating-wa-btn {
-            display: flex;
-            animation: floatWaEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        body:not(.active-spa) .spa-floating-wa-btn {
-            display: none !important;
+            outline: none;
         }
 
         .spa-floating-wa-btn:hover {
@@ -1310,22 +1393,222 @@
             font-weight: 700;
         }
 
+        @keyframes bubbleFloatGlow {
+            0% { transform: translateY(0); box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 15px rgba(223, 186, 115, 0.15); }
+            100% { transform: translateY(-4px); box-shadow: 0 14px 35px rgba(0,0,0,0.75), 0 0 25px rgba(223, 186, 115, 0.28); }
+        }
+
+        /* ══════════════════════════════════════════════
+           MODAL CONCIERGE / FILTRO VIP DE AGENDAMIENTO
+           ══════════════════════════════════════════════ */
+        .spa-concierge-modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(10, 8, 12, 0.88);
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .spa-concierge-modal-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .spa-concierge-modal-card {
+            background: linear-gradient(145deg, rgba(26, 18, 24, 0.98) 0%, rgba(18, 12, 16, 0.99) 100%);
+            border: 1px solid rgba(223, 186, 115, 0.45);
+            border-radius: 24px;
+            max-width: 480px;
+            width: 100%;
+            padding: 32px 28px;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(223, 186, 115, 0.15);
+            text-align: center;
+            transform: translateY(20px) scale(0.96);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .spa-concierge-modal-backdrop.active .spa-concierge-modal-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .spa-concierge-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #eee;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .spa-concierge-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .spa-concierge-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: #EBC6CD;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .spa-concierge-header h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.45rem;
+            color: #f8f5ef;
+            margin: 0 0 8px 0;
+            line-height: 1.25;
+        }
+
+        .spa-concierge-header p {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.65);
+            margin: 0 0 24px 0;
+        }
+
+        .spa-concierge-options {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .spa-concierge-opt-btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 18px;
+            border-radius: 16px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.04);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: left;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .spa-concierge-opt-btn:hover {
+            transform: translateY(-2px);
+            border-color: #dfba73;
+            background: rgba(223, 186, 115, 0.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .spa-concierge-opt-btn.opt-wa {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.12) 0%, rgba(18, 140, 126, 0.15) 100%);
+            border-color: rgba(37, 211, 102, 0.35);
+        }
+
+        .spa-concierge-opt-btn.opt-wa:hover {
+            border-color: #25d366;
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.2) 0%, rgba(18, 140, 126, 0.25) 100%);
+            box-shadow: 0 8px 22px rgba(37, 211, 102, 0.25);
+        }
+
+        .spa-concierge-opt-btn .opt-icon {
+            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .spa-concierge-opt-btn.opt-wa .opt-icon {
+            background: rgba(37, 211, 102, 0.2);
+        }
+
+        .spa-concierge-opt-btn .opt-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .spa-concierge-opt-btn .opt-text strong {
+            font-size: 0.95rem;
+            color: #f8f5ef;
+            font-weight: 700;
+        }
+
+        .spa-concierge-opt-btn .opt-text span {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.3;
+        }
+
+        .spa-concierge-opt-btn .opt-arrow {
+            font-size: 1.2rem;
+            color: #dfba73;
+            transition: transform 0.2s ease;
+        }
+
+        .spa-concierge-opt-btn:hover .opt-arrow {
+            transform: translateX(4px);
+        }
+
+        .spa-concierge-footer {
+            margin-top: 20px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.74rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.5px;
+        }
+
         @keyframes floatWaEntrance {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 640px) {
-            .spa-floating-wa-btn {
+            .spa-floating-wa-container {
                 bottom: 20px;
                 right: 16px;
-                padding: 8px 14px 8px 10px;
             }
-            .spa-wa-label small {
-                font-size: 0.62rem;
+            .spa-wa-speech-bubble {
+                max-width: 230px;
+                padding: 8px 12px;
             }
-            .spa-wa-label strong {
-                font-size: 0.78rem;
+            .spa-wa-bubble-text {
+                font-size: 0.76rem;
+            }
+            .spa-concierge-modal-card {
+                padding: 24px 20px;
+            }
+            .spa-concierge-header h3 {
+                font-size: 1.25rem;
             }
         }
 
@@ -11790,8 +12073,7 @@
                     ($1,500)</a>
 
                 <!-- Botón Boutique & Spa (Calma, Rosa Pastel & Champán Orgánico) -->
-                <a href="https://wa.me/5213223814346?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20de%20relajación%20y%20belleza%20en%20el%20Boutique%20%26%20Spa"
-                    target="_blank" class="btn-nav-spa-cta" id="btnSpaCta">
+                <a href="javascript:void(0)" class="btn-nav-spa-cta spa-concierge-open-trigger" id="btnSpaCta" title="Agendar o consultar">
                     <span class="spa-btn-sparkle">🌿</span>
                     <span>Agendar<span class="spa-cta-desktop-word"> Experiencia</span></span>
                 </a>
@@ -11843,7 +12125,7 @@
                 <a href="#spaMasajes">Masajes</a>
                 <a href="#spaPedicura">Pedicura & Combos</a>
                 <a href="#spaUbicacion">Ubicación & Citas</a>
-                <a href="https://wa.me/5213223814346" target="_blank" style="color: #EBC6CD; font-weight: 700;">🌿 Agendar Experiencia</a>
+                <a href="javascript:void(0)" class="spa-concierge-open-trigger" style="color: #EBC6CD; font-weight: 700;">🌿 Agendar Experiencia</a>
                 <a href="javascript:void(0)" id="mobileSwitchToAcademyBtn" style="color: var(--primary-gold); font-size: 0.95rem; border-top: 1px solid rgba(212, 175, 55, 0.2); padding-top: 14px; margin-top: 12px;">🎓 Ir a Academia de Pestañas &rarr;</a>
                 <a href="javascript:void(0)" id="mobileReturnToSplitBtn2" style="color: rgba(255,255,255,0.55); font-size: 0.82rem; margin-top: 6px;">☰ Volver al Inicio</a>
             </div>
@@ -12880,8 +13162,7 @@
 
                     <!-- Botones Principales del Banner -->
                     <div class="spa-hero-cta-group">
-                        <a href="https://wa.me/5213223814346?text=¡Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20de%20relajación%20y%20pestañas%20en%20el%20Boutique%20%26%20Spa"
-                            target="_blank" class="btn-spa-hero-primary">
+                        <a href="javascript:void(0)" class="btn-spa-hero-primary spa-concierge-open-trigger" id="heroSpaOpenConciergeBtn">
                             <span class="btn-spa-icon">🌿</span>
                             <span>Agendar Mi Cita de Consentimiento</span>
                         </a>
@@ -15404,24 +15685,162 @@
         </button>
     </div>
 
-    <!-- BOTÓN FLOTANTE VIP DE WHATSAPP PARA BOUTIQUE & SPA -->
-    <a href="https://wa.me/5213223814346?text=%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20de%20consentimiento%20y%20relajaci%C3%B3n%20en%20el%20Boutique%20%26%20Spa." 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       class="spa-floating-wa-btn" 
-       id="spaFloatingWaBtn" 
-       title="Agendar Cita en WhatsApp">
-        <span class="spa-wa-pulse-dot"></span>
-        <span class="spa-wa-icon-wrap">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.07-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.17 1.73 2.65 4.2 3.71.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.32z"/>
-            </svg>
-        </span>
-        <span class="spa-wa-label">
-            <small>Cami en línea</small>
-            <strong>Agendar Cita</strong>
-        </span>
-    </a>
+    <!-- BOTÓN FLOTANTE VIP DE WHATSAPP PARA BOUTIQUE & SPA CON BURBUJA ÉPICA -->
+    <div class="spa-floating-wa-container" id="spaFloatingWaContainer">
+        <!-- Burbuja Épica Tooltip -->
+        <div class="spa-wa-speech-bubble" id="spaWaSpeechBubble" title="Clic para consultar">
+            <div class="spa-wa-bubble-content">
+                <span class="spa-wa-bubble-badge">✨ Asesoría Directa</span>
+                <p class="spa-wa-bubble-text">¿Dudas con tu servicio o técnica? <strong>Agenda por WhatsApp</strong></p>
+            </div>
+            <button class="spa-wa-bubble-close" id="spaWaBubbleCloseBtn" title="Cerrar aviso" type="button">&times;</button>
+            <div class="spa-wa-bubble-arrow"></div>
+        </div>
+
+        <!-- Botón Cápsula Flotante -->
+        <button type="button" 
+                class="spa-floating-wa-btn" 
+                id="spaFloatingWaBtn" 
+                title="Agendar Cita o Consultar">
+            <span class="spa-wa-pulse-dot"></span>
+            <span class="spa-wa-icon-wrap">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.07-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.17 1.73 2.65 4.2 3.71.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.32z"/>
+                </svg>
+            </span>
+            <span class="spa-wa-label">
+                <small>Cami en línea</small>
+                <strong>Agendar Cita</strong>
+            </span>
+        </button>
+    </div>
+
+    <!-- MODAL CONCIERGE / FILTRO VIP DE AGENDAMIENTO -->
+    <div class="spa-concierge-modal-backdrop" id="spaConciergeModal">
+        <div class="spa-concierge-modal-card">
+            <button class="spa-concierge-close" id="spaConciergeCloseBtn" aria-label="Cerrar">&times;</button>
+            <div class="spa-concierge-header">
+                <div class="spa-concierge-badge">✨ Cami's Lashes Boutique & Spa</div>
+                <h3>¿Cómo deseas comenzar tu cita?</h3>
+                <p>Te atendemos con gusto en cabina privada en Versalles, Puerto Vallarta</p>
+            </div>
+            <div class="spa-concierge-options">
+                <!-- Opción 1: Filtrar mirones / ver precios antes -->
+                <button type="button" class="spa-concierge-opt-btn opt-menu" id="spaConciergeViewMenuBtn">
+                    <div class="opt-icon">📋</div>
+                    <div class="opt-text">
+                        <strong>Ver Menú Completo & Precios</strong>
+                        <span>Revisa duración, visagismo y tarifas transparentes ($400 - $950 MXN)</span>
+                    </div>
+                    <div class="opt-arrow">&rarr;</div>
+                </button>
+                <!-- Opción 2: WhatsApp directo (Cliente calificado con intención) -->
+                <a href="https://wa.me/5213223814346?text=%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20de%20consentimiento%20y%20relajaci%C3%B3n%20en%20el%20Boutique%20%26%20Spa." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="spa-concierge-opt-btn opt-wa" 
+                   id="spaConciergeDirectWaBtn">
+                    <div class="opt-icon wa-icon">💬</div>
+                    <div class="opt-text">
+                        <strong>Agendar Directo con Cami por WhatsApp</strong>
+                        <span>Aparta tu fecha y horario en cabina privada de relajación</span>
+                    </div>
+                    <div class="opt-arrow">&rarr;</div>
+                </a>
+            </div>
+            <div class="spa-concierge-footer">
+                <span>🔒 Cero Daño Ocular • Fibras Hipoalergénicas • Cabina Privada</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Concierge VIP & Filtro Anti-Mirones (Boutique & Spa) -->
+    <script>
+        (function initSpaConcierge() {
+            function setupConcierge() {
+                const modal = document.getElementById('spaConciergeModal');
+                const closeBtn = document.getElementById('spaConciergeCloseBtn');
+                const viewMenuBtn = document.getElementById('spaConciergeViewMenuBtn');
+                const speechBubble = document.getElementById('spaWaSpeechBubble');
+                const bubbleCloseBtn = document.getElementById('spaWaBubbleCloseBtn');
+                const floatingBtn = document.getElementById('spaFloatingWaBtn');
+                const triggers = document.querySelectorAll('.spa-concierge-open-trigger, #btnSpaCta, .btn-spa-hero-primary, #spaFloatingWaBtn');
+
+                if (!modal) return;
+
+                function openModal(e) {
+                    if (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeModal() {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+
+                triggers.forEach(el => {
+                    el.addEventListener('click', openModal);
+                });
+
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', closeModal);
+                }
+
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && modal.classList.contains('active')) {
+                        closeModal();
+                    }
+                });
+
+                if (viewMenuBtn) {
+                    viewMenuBtn.addEventListener('click', () => {
+                        closeModal();
+                        setTimeout(() => {
+                            const target = document.getElementById('spaMenu') || document.getElementById('spaLashes');
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }, 250);
+                    });
+                }
+
+                if (bubbleCloseBtn) {
+                    bubbleCloseBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (speechBubble) {
+                            speechBubble.style.display = 'none';
+                        }
+                    });
+                }
+
+                if (speechBubble) {
+                    speechBubble.addEventListener('click', (e) => {
+                        if (bubbleCloseBtn && (e.target === bubbleCloseBtn || bubbleCloseBtn.contains(e.target))) {
+                            return;
+                        }
+                        openModal(e);
+                    });
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupConcierge);
+            } else {
+                setupConcierge();
+            }
+        })();
+    </script>
 
     <!-- Script de Inicialización y Animación del Loader (GSAP) -->
     <script>
