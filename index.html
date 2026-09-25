@@ -15850,6 +15850,24 @@
                         openModal(e);
                     });
                 }
+
+                window.openSpaConciergeModal = openModal;
+                window.closeSpaConciergeModal = closeModal;
+
+                // Apertura automática de Concierge Modal por URL (Google Ads / Sitelinks: ?agendar=whatsapp, #agendar, etc.)
+                const checkConciergeUrl = () => {
+                    const search = (window.location.search || '').toLowerCase();
+                    const hash = (window.location.hash || '').toLowerCase();
+                    if (search.includes('agendar') || search.includes('whatsapp') || search.includes('concierge') || search.includes('cita') ||
+                        hash.includes('agendar') || hash.includes('whatsapp') || hash.includes('concierge') || hash.includes('cita')) {
+                        if (typeof window.selectSpa === 'function') {
+                            window.selectSpa(true);
+                        }
+                        setTimeout(openModal, 450);
+                    }
+                };
+                checkConciergeUrl();
+                window.addEventListener('hashchange', checkConciergeUrl);
             }
 
             if (document.readyState === 'loading') {
@@ -16084,7 +16102,7 @@
                 let savedBranch = null;
                 try { savedBranch = sessionStorage.getItem('cami_active_branch'); } catch (e) { }
 
-                const isSpaParam = search.includes('spa') || search.includes('boutique') || search.includes('citas') || search.includes('menu') || search.includes('pestanas') || search.includes('masajes') || search.includes('servicio') || search.includes('service') || search.includes('item') || search.includes('lifting') || search.includes('laminado') || hash.includes('spa') || hash.includes('boutique') || hash.includes('lifting');
+                const isSpaParam = search.includes('spa') || search.includes('boutique') || search.includes('citas') || search.includes('cita') || search.includes('menu') || search.includes('pestanas') || search.includes('masajes') || search.includes('servicio') || search.includes('service') || search.includes('item') || search.includes('lifting') || search.includes('laminado') || search.includes('agendar') || search.includes('whatsapp') || search.includes('concierge') || hash.includes('spa') || hash.includes('boutique') || hash.includes('lifting') || hash.includes('agendar') || hash.includes('whatsapp') || hash.includes('concierge');
                 const isAcademyParam = search.includes('academia') || search.includes('academy') || search.includes('curso') || search.includes('maestria') || hash.includes('maestria') || hash.includes('temario') || hash.includes('inversion') || hash.includes('congreso') || hash.includes('faq') || hash.includes('portal') || hash.includes('founder') || hash.includes('curriculum') || hash.includes('academia');
 
                 if (isSpaParam) {
