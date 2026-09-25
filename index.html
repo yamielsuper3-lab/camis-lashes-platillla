@@ -16084,7 +16084,7 @@
                 let savedBranch = null;
                 try { savedBranch = sessionStorage.getItem('cami_active_branch'); } catch (e) { }
 
-                const isSpaParam = search.includes('spa') || search.includes('boutique') || search.includes('citas') || search.includes('menu') || search.includes('pestanas') || search.includes('masajes') || hash.includes('spa') || hash.includes('boutique');
+                const isSpaParam = search.includes('spa') || search.includes('boutique') || search.includes('citas') || search.includes('menu') || search.includes('pestanas') || search.includes('masajes') || search.includes('servicio') || search.includes('service') || search.includes('item') || search.includes('lifting') || search.includes('laminado') || hash.includes('spa') || hash.includes('boutique') || hash.includes('lifting');
                 const isAcademyParam = search.includes('academia') || search.includes('academy') || search.includes('curso') || search.includes('maestria') || hash.includes('maestria') || hash.includes('temario') || hash.includes('inversion') || hash.includes('congreso') || hash.includes('faq') || hash.includes('portal') || hash.includes('founder') || hash.includes('curriculum') || hash.includes('academia');
 
                 if (isSpaParam) {
@@ -17732,6 +17732,65 @@
 
             // Iniciar por defecto en Los Mas Pedidos
             window.filterSpaCategory('all');
+
+            // ══════════════════════════════════════════════════════════════════════════════
+            // DEEP LINKING UNIVERSAL: APERTURA AUTOMÁTICA DE MODAL POR URL (GOOGLE ADS & SITELINKS)
+            // Soporta: ?servicio=lifting-laminado, ?service=lifting-efecto-laminado, #lifting-efecto-laminado, etc.
+            // ══════════════════════════════════════════════════════════════════════════════
+            const checkUrlForSpaService = () => {
+                const params = new URLSearchParams(window.location.search);
+                let serviceKey = params.get('servicio') || params.get('service') || params.get('item') || params.get('producto');
+                const hash = (window.location.hash || '').toLowerCase();
+
+                if (!serviceKey) {
+                    if (hash.includes('lifting-laminado') || hash.includes('lifting-efecto') || hash.includes('laminado')) serviceKey = 'lifting-efecto-laminado';
+                    else if (hash.includes('lifting-coreano')) serviceKey = 'lifting-coreano-laminado';
+                    else if (hash.includes('mojado')) serviceKey = 'mojado';
+                    else if (hash.includes('americano')) serviceKey = 'volumen-americano';
+                    else if (hash.includes('tecnologico')) serviceKey = 'volumen-tecnologico';
+                    else if (hash.includes('facial')) serviceKey = 'facial-relajante';
+                }
+
+                if (serviceKey) {
+                    serviceKey = serviceKey.toLowerCase().trim();
+                    const serviceAliases = {
+                        'lifting': 'lifting-efecto-laminado',
+                        'laminado': 'lifting-efecto-laminado',
+                        'lifting-laminado': 'lifting-efecto-laminado',
+                        'lifting-efecto': 'lifting-efecto-laminado',
+                        'lifting-efecto-laminado': 'lifting-efecto-laminado',
+                        'cejas-lifting': 'lifting-efecto-laminado',
+                        'lifting-coreano': 'lifting-coreano-laminado',
+                        'coreano': 'lifting-coreano-laminado',
+                        'mojado': 'mojado',
+                        'wet': 'mojado',
+                        'americano': 'volumen-americano',
+                        'volumen-americano': 'volumen-americano',
+                        'tecnologico': 'volumen-tecnologico',
+                        'volumen-tecnologico': 'volumen-tecnologico',
+                        'facial': 'facial-relajante',
+                        'facial-relajante': 'facial-relajante',
+                        'clasica': 'clasica'
+                    };
+
+                    const targetId = serviceAliases[serviceKey] || serviceKey;
+
+                    // Asegurar que la rama de Spa esté activa
+                    if (typeof window.selectSpa === 'function') {
+                        window.selectSpa(true);
+                    }
+
+                    setTimeout(() => {
+                        if (typeof window.jumpToSpaService === 'function') {
+                            window.jumpToSpaService(targetId);
+                        } else if (typeof window.openSpaDetailModal === 'function') {
+                            window.openSpaDetailModal(targetId);
+                        }
+                    }, 450);
+                }
+            };
+            checkUrlForSpaService();
+            window.addEventListener('hashchange', checkUrlForSpaService);
 
             // Smooth scrolling to section targets with category filter triggering
             document.querySelectorAll('#spaDesktopNav a, .spa-expanded-content a[href^="#"]').forEach(link => {
