@@ -1612,7 +1612,7 @@
 
         @media (max-width: 640px) {
             .spa-floating-wa-container {
-                bottom: 20px;
+                bottom: 82px;
                 right: 16px;
             }
             .spa-wa-speech-bubble {
@@ -10256,6 +10256,38 @@
             color: #0E0A0C;
         }
 
+        /* Optimizacion Mobile CRO: Boton Sticky de WhatsApp para conversion inmediata sin scroll */
+        @media (max-width: 768px) {
+            .spa-modal-dialog {
+                max-height: 90vh !important;
+                padding-bottom: 0px !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            .spa-modal-footer {
+                position: sticky !important;
+                bottom: 0 !important;
+                z-index: 50 !important;
+                background: linear-gradient(180deg, rgba(26, 18, 23, 0) 0%, rgba(26, 18, 23, 0.94) 22%, #1A1217 100%) !important;
+                padding-top: 14px !important;
+                padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+                margin-left: -16px !important;
+                margin-right: -16px !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+                margin-top: auto !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+            }
+
+            .spa-modal-book-btn {
+                box-shadow: 0 6px 22px rgba(0, 0, 0, 0.7), 0 0 25px rgba(226, 199, 153, 0.45) !important;
+                font-size: 0.88rem !important;
+                padding: 13px 18px !important;
+            }
+        }
+
 
         /* ══════════════════════════════════════════════════════════════
            SPA SERVICE GALLERY: CUADROS GRANDES DE FOTOS REALES
@@ -13369,7 +13401,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20T%C3%A9cnica%20cl%C3%A1sica%20(%24700%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24700%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20T%C3%A9cnica%20cl%C3%A1sica%20(%24700%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13391,7 +13423,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Efecto%20Mojado%20(%24899%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24899%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Efecto%20Mojado%20(%24899%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13413,7 +13445,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Volumen%20americano%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24850%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Volumen%20americano%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13435,7 +13467,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Volumen%20tecnol%C3%B3gico%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24850%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Volumen%20tecnol%C3%B3gico%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13457,7 +13489,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Efectos%20de%20autor%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24850%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Efectos%20de%20autor%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13479,7 +13511,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Lifting%20de%20Pesta%C3%B1as%20(%24400%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24400%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Lifting%20de%20Pesta%C3%B1as%20(%24400%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13501,7 +13533,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Lifting%20Coreano%20y%20Laminado%20de%20cejas%20(%24950%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24950%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Lifting%20Coreano%20y%20Laminado%20de%20cejas%20(%24950%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13523,7 +13555,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Lifting%20con%20Efecto%20y%20Laminado%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24850%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Lifting%20con%20Efecto%20y%20Laminado%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13545,7 +13577,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Facial%20Relajante%20(%24500%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24500%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Facial%20Relajante%20(%24500%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13567,7 +13599,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Masaje%20Piedras%20Calientes%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24850%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Masaje%20Piedras%20Calientes%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13589,7 +13621,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Masaje%20Tejido%20Profundo%20(%24750%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24750%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Masaje%20Tejido%20Profundo%20(%24750%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13611,7 +13643,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Masaje%20con%20Ventosas%20(Cupping)%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24850%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Masaje%20con%20Ventosas%20(Cupping)%20(%24850%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13633,7 +13665,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Combo%3A%20Masaje%20%26%20Pedicura%20Spa%20(%24799%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24799%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Combo%3A%20Masaje%20%26%20Pedicura%20Spa%20(%24799%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13655,7 +13687,7 @@
                                 </div>
                                 <div class="m-card-actions">
                                     <span class="m-btn-explore">Ver Detalle 👁️</span>
-                                    <a href="https://wa.me/5213223814346?text=Hola%20Cami's%20Lashes%2C%20deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Pedicura%20Spa%20(%24350%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
+                                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BGoogle%20Web%20-%20%24350%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20para%20el%20servicio%3A%20Pedicura%20Spa%20(%24350%20MXN)" target="_blank" rel="noopener noreferrer" class="m-btn-wa" onclick="event.stopPropagation();">🌿 Agendar</a>
                                 </div>
                             </div>
                         </div>
@@ -13742,7 +13774,7 @@
                         </div>
                     </div>
 
-                    <a href="https://wa.me/5213223814346?text=Hola%20Cami%27s%20Lashes,%20deseo%20agendar%20una%20cita%20en%20el%20Boutique%20%26%20Spa"
+                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BVisto%20en%20Google%20Web%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20en%20el%20Boutique%20%26%20Spa"
                         target="_blank" class="btn-concierge-wa">
                         <span class="wa-icon">🌿</span>
                         <span>Agendar Mi Cita por WhatsApp</span>
@@ -15243,7 +15275,7 @@
                 </div>
 
                 <div class="spa-vip-action">
-                    <a href="https://wa.me/5213223814346?text=%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20de%20consentimiento%20y%20relajaci%C3%B3n%20en%20el%20Boutique%20%26%20Spa."
+                    <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BVisto%20en%20Google%20Web%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20de%20consentimiento%20y%20relajaci%C3%B3n%20en%20el%20Boutique%20%26%20Spa."
                         target="_blank" rel="noopener noreferrer" class="btn-spa-vip-book">
                         <span class="btn-spa-icon">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -15753,7 +15785,7 @@
                     <div class="opt-arrow">&rarr;</div>
                 </button>
                 <!-- Opción 2: WhatsApp directo (Cliente calificado con intención) -->
-                <a href="https://wa.me/5213223814346?text=%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20de%20consentimiento%20y%20relajaci%C3%B3n%20en%20el%20Boutique%20%26%20Spa." 
+                <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BVisto%20en%20Google%20Web%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20de%20consentimiento%20y%20relajaci%C3%B3n%20en%20el%20Boutique%20%26%20Spa." 
                    target="_blank" 
                    rel="noopener noreferrer" 
                    class="spa-concierge-opt-btn opt-wa" 
@@ -17695,7 +17727,7 @@
                 }
 
                 if (bookBtn) {
-                    const msg = "Hola Cami's Lashes! Deseo agendar una cita para el servicio: " + s.title + " (" + s.price + ")";
+                    const msg = "✨ [Google Web - " + s.price + "] ¡Hola Cami's Lashes! Deseo agendar una cita para el servicio: " + s.title + " (" + s.price + ")";
                     bookBtn.href = 'https://wa.me/5213223814346?text=' + encodeURIComponent(msg);
                 }
 
@@ -18263,7 +18295,7 @@
             </div>
 
             <div class="spa-modal-footer">
-                <a href="https://wa.me/5213223814346" target="_blank" rel="noopener noreferrer" class="spa-modal-book-btn" id="spaModalBookBtn">
+                <a href="https://wa.me/5213223814346?text=%E2%9C%A8%20%5BVisto%20en%20Google%20Web%5D%20%C2%A1Hola%20Cami%27s%20Lashes!%20Deseo%20agendar%20una%20cita%20en%20el%20Boutique%20%26%20Spa." target="_blank" rel="noopener noreferrer" class="spa-modal-book-btn" id="spaModalBookBtn">
                     <span>🌿 Agendar Cita para Este Servicio por WhatsApp</span>
                     <span class="btn-arrow">→</span>
                 </a>
