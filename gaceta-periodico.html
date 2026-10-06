@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaceta Oficial — Cami's Lashes Academy | Edición Conmemorativa</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+    
+    <!-- Tipografías Editoriales Clásicas de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400;1,700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           RESET & SISTEMA DE DISEÑO EDITORIAL A4
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --paper-bg: #FCFBF8;
+            --ink-black: #111111;
+            --ink-soft: #222222;
+            --ink-muted: #555555;
+            --rule-thick: 2.5px solid #111111;
+            --rule-medium: 1.5px solid #111111;
+            --rule-hairline: 0.75px solid #222222;
+            --rule-subtle: 0.5px solid #cfcac0;
+            --accent-gold: #9B783E;
+            
+            --font-masthead: 'UnifrakturMaguntia', 'Playfair Display', serif;
+            --font-headline: 'Playfair Display', 'Cinzel', serif;
+            --font-display: 'Cinzel', serif;
+            --font-body: 'EB Garamond', 'Georgia', serif;
+        }
+
+        body {
+            background-color: #232323;
+            color: var(--ink-black);
+            font-family: var(--font-body);
+            line-height: 1.25;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            padding: 40px 10px;
+        }
+
+        /* Barra de Control y Asistente de Impresión (Solo en pantalla) */
+        .print-toolbar {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(18, 18, 18, 0.96);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: #ffffff;
+            padding: 9px 24px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65);
+            z-index: 99999;
+            font-family: var(--font-display);
+            font-size: 12.5px;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+            color: #000;
+            border: none;
+            padding: 7px 18px;
+            font-weight: 800;
+            border-radius: 20px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-size: 12px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-print:hover {
+            transform: scale(1.04);
+            box-shadow: 0 6px 18px rgba(212, 175, 55, 0.6);
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            color: #ccc;
+        }
+
+        .view-btn {
+            background: #333;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 11px;
+            font-family: var(--font-display);
+        }
+        .view-btn.active {
+            background: #d4af37;
+            color: #000;
+            border-color: #d4af37;
+            font-weight: 700;
+        }
+
+        .newspaper-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 35px;
+            margin: 50px auto 40px auto;
+            max-width: 1200px;
+        }
+
+        /* Vista en pliego (2 páginas por fila en monitores anchos) */
+        body.diptych-mode .newspaper-container {
+            display: grid;
+            grid-template-columns: repeat(2, 210mm);
+            justify-content: center;
+            gap: 24px;
+            max-width: none;
+        }
+
+        /* ==========================================================================
+           ESPECIFICACIÓN ESTRICTA DE HOJA A4 (210mm x 297mm)
+           ========================================================================== */
+        .newspaper-page {
+            width: 210mm;
+            height: 297mm;
+            max-height: 297mm;
+            background-color: var(--paper-bg);
+            padding: 9.5mm 11.5mm 9.5mm 11.5mm;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(0,0,0,0.15);
+        }
+
+        /* Sangrías y guiones editoriales */
+        p {
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+            -webkit-hyphens: auto;
+            font-size: 8.5pt;
+            line-height: 1.23;
+            color: var(--ink-soft);
+            margin-bottom: 4px;
+        }
+
+        p + p {
+            text-indent: 1.1em;
+            margin-top: 0;
+        }
+
+        /* Letra Capital / Drop Cap Clásica */
+        .drop-cap::first-letter {
+            float: left;
+            font-family: var(--font-headline);
+            font-size: 34pt;
+            line-height: 0.8;
+            padding-top: 3px;
+            padding-right: 6px;
+            padding-bottom: 0;
+            color: var(--ink-black);
+            font-weight: 700;
+        }
+
+        /* ==========================================================================
+           ELEMENTOS COMUNES EDITORIALES (CINTILLOS, FILETES Y FOLIOS)
+           ========================================================================== */
+        .double-rule-top {
+            border-top: var(--rule-thick);
+            border-bottom: var(--rule-hairline);
+            padding: 2px 0;
+            margin-bottom: 4px;
+        }
+
+        .double-rule-bottom {
+            border-top: var(--rule-hairline);
+            border-bottom: var(--rule-thick);
+            padding: 2px 0;
+            margin-top: 4px;
+        }
+
+        .single-rule {
+            border-top: var(--rule-hairline);
+            margin: 4px 0;
+        }
+
+        .running-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-display);
+            font-size: 6.6pt;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            padding-bottom: 2.5px;
+            border-bottom: var(--rule-medium);
+            margin-bottom: 6px;
+        }
+
+        .page-footer-folio {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-display);
+            font-size: 6.6pt;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            border-top: var(--rule-hairline);
+            padding-top: 3.5px;
+            margin-top: auto;
+        }
+
+        /* Fotografía estilo grabado/prensa */
+        .news-photo-box {
+            position: relative;
+            background: #eee;
+            border: 1px solid #111;
+            padding: 2px;
+            margin-bottom: 3px;
+        }
+
+        .news-photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(100%) contrast(110%);
+            transition: filter 0.3s ease;
+        }
+
+        /* Opción de color/blanco y negro en pantalla */
+        body.color-photos .news-photo-box img {
+            filter: grayscale(0%) contrast(102%);
+        }
+
+        .photo-caption {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 7pt;
+            line-height: 1.15;
+            color: #333;
+            padding: 2px 2px 1px 2px;
+            text-align: left;
+            border-top: 0.5px solid #222;
+        }
+
+        .photo-caption strong {
+            font-family: var(--font-display);
+            font-style: normal;
+            font-size: 6.6pt;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Recuadros editoriales complementarios */
+        .sidebar-feature-box {
+            border: 1px solid #111;
+            padding: 6px 8px;
+            background: #fdfcf9;
+            margin-top: 5px;
+        }
+
+        .sidebar-feature-box h4 {
+            font-family: var(--font-display);
+            font-size: 7.4pt;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-bottom: 0.5px solid #111;
+            padding-bottom: 2px;
+            margin-bottom: 3px;
+            color: #000;
+        }
+
+        .sidebar-feature-box p {
+            font-size: 7.6pt;
+            line-height: 1.18;
+            margin-bottom: 2px;
+            text-indent: 0;
+        }
+
+        /* ==========================================================================
+           PÁGINA 1: PORTADA PRINCIPAL (MASTHEAD & NUESTRA HISTORIA)
+           ========================================================================== */
+        .masthead-ear-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-display);
+            font-size: 6.4pt;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 2px 0;
+        }
+
+        .masthead-center {
+            text-align: center;
+            margin: 1px 0 3px 0;
+        }
+
+        .masthead-title {
+            font-family: var(--font-masthead);
+            font-size: 47pt;
+            line-height: 0.95;
+            letter-spacing: -0.01em;
+            color: var(--ink-black);
+            font-weight: 400;
+            text-shadow: 0.5px 0 0 #000;
+            margin-bottom: 2px;
+        }
+
+        .masthead-subdeck {
+            font-family: var(--font-headline);
+            font-size: 7.8pt;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--ink-black);
+            padding: 2px 0;
+            border-top: var(--rule-hairline);
+            border-bottom: var(--rule-hairline);
+            margin: 2px 0;
+        }
+
+        .masthead-metadata-bar {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-display);
+            font-size: 6.2pt;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 2px 0;
+            border-bottom: var(--rule-thick);
+            margin-bottom: 6px;
+        }
+
+        /* Titular de Portada */
+        .front-headline-zone {
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .front-kicker {
+            font-family: var(--font-display);
+            font-size: 7.4pt;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-bottom: 1px;
+        }
+
+        .front-main-title {
+            font-family: var(--font-headline);
+            font-size: 25pt;
+            font-weight: 900;
+            line-height: 1.0;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .front-subtitle-deck {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 9.6pt;
+            line-height: 1.22;
+            color: #222;
+            max-width: 96%;
+            margin: 0 auto;
+            border-bottom: var(--rule-hairline);
+            padding-bottom: 5px;
+        }
+
+        /* Grilla Principal de Portada: Columna Izquierda + 2 Columnas de Texto */
+        .front-layout-grid {
+            display: grid;
+            grid-template-columns: 72mm 1fr;
+            gap: 12px;
+            margin-top: 5px;
+            flex: 1;
+        }
+
+        .front-left-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .founder-photo-frame {
+            height: 78mm;
+            border: 1px solid #000;
+            padding: 2px;
+            background: #fff;
+            margin-bottom: 3px;
+        }
+
+        .founder-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        .founder-mini-quote {
+            border: 1px solid #111;
+            padding: 5px 7px;
+            background: #fdfcf9;
+            margin-top: 3px;
+        }
+
+        .founder-mini-quote p {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 7.6pt;
+            line-height: 1.18;
+            text-align: center;
+            color: #111;
+            margin: 0;
+            text-indent: 0;
+        }
+
+        .front-story-text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .front-articles-2col {
+            columns: 2;
+            column-gap: 11px;
+            column-rule: var(--rule-hairline);
+            height: 100%;
+        }
+
+        .sub-article-heading {
+            font-family: var(--font-headline);
+            font-size: 10.5pt;
+            font-weight: 800;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin: 5px 0 2px 0;
+            border-bottom: 0.5px solid #333;
+            padding-bottom: 2px;
+        }
+
+        /* Pie de Portada: Logotipo + Sello Heráldico */
+        .front-footer-strip {
+            border-top: var(--rule-thick);
+            padding-top: 5px;
+            display: grid;
+            grid-template-columns: 46mm 1fr 38mm;
+            gap: 12px;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .front-footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .front-footer-logo img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 1px solid #111;
+        }
+
+        .front-footer-logo-text {
+            font-family: var(--font-display);
+            font-size: 6.8pt;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .front-footer-proclamation {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 7.8pt;
+            line-height: 1.18;
+            text-align: center;
+            border-left: var(--rule-hairline);
+            border-right: var(--rule-hairline);
+            padding: 0 10px;
+        }
+
+        .front-footer-seal {
+            text-align: right;
+            font-family: var(--font-display);
+            font-size: 5.8pt;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           PÁGINA 2: MANIFIESTO Y PRIMERAS GENERACIONES
+           ========================================================================== */
+        .page2-header-title {
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .page2-header-title h2 {
+            font-family: var(--font-headline);
+            font-size: 20pt;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            line-height: 1.05;
+        }
+
+        .page2-header-title .sub {
+            font-family: var(--font-display);
+            font-size: 7.2pt;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-top: 1px;
+        }
+
+        .page2-content-grid {
+            display: grid;
+            grid-template-columns: 88mm 1fr;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .page2-manifesto-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .manifesto-box {
+            background: #fff;
+            border: 1px solid #111;
+            padding: 7px 9px;
+            margin-bottom: 6px;
+        }
+
+        .manifesto-box h3 {
+            font-family: var(--font-headline);
+            font-size: 10.5pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-bottom: 1px solid #111;
+            padding-bottom: 2px;
+            margin-bottom: 4px;
+            letter-spacing: 0.05em;
+        }
+
+        .pillars-list {
+            list-style: none;
+            margin-top: 3px;
+        }
+
+        .pillars-list li {
+            font-size: 8pt;
+            line-height: 1.2;
+            margin-bottom: 5px;
+            padding-left: 13px;
+            position: relative;
+            text-align: justify;
+        }
+
+        .pillars-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 6.8pt;
+            color: var(--accent-gold);
+        }
+
+        .pillars-list strong {
+            font-family: var(--font-display);
+            font-size: 7.5pt;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: #000;
+        }
+
+        .page2-photos-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 6px;
+        }
+
+        .photo-history-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-history-img {
+            height: 56mm;
+            border: 1px solid #000;
+            padding: 2px;
+            background: #fff;
+        }
+
+        .photo-history-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .timeline-strip {
+            border: 1px solid #111;
+            padding: 5px 8px;
+            background: #fdfcf9;
+        }
+
+        .timeline-strip h4 {
+            font-family: var(--font-display);
+            font-size: 7.2pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-bottom: 0.5px solid #111;
+            padding-bottom: 2px;
+            margin-bottom: 3px;
+        }
+
+        .timeline-strip ul {
+            list-style: none;
+            font-size: 7.4pt;
+            line-height: 1.18;
+        }
+
+        .timeline-strip li {
+            margin-bottom: 3px;
+        }
+
+        .timeline-strip strong {
+            font-family: var(--font-display);
+            font-size: 6.8pt;
+            color: var(--accent-gold);
+        }
+
+        /* Banner de Cita de Página 2 */
+        .page2-banner-quote {
+            border-top: var(--rule-medium);
+            border-bottom: var(--rule-medium);
+            padding: 5px 12px;
+            margin-top: 5px;
+            background: #fdfcf9;
+            text-align: center;
+        }
+
+        .page2-banner-quote blockquote {
+            font-family: var(--font-headline);
+            font-style: italic;
+            font-size: 9.6pt;
+            line-height: 1.22;
+            color: #111;
+        }
+
+        /* ==========================================================================
+           PÁGINA 3: GALERÍA CENTRAL DE EGRESADAS (PLIEGO DERECHO)
+           ========================================================================== */
+        .page3-header-zone {
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .page3-header-zone h2 {
+            font-family: var(--font-headline);
+            font-size: 20pt;
+            font-weight: 900;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            line-height: 1.05;
+        }
+
+        .page3-header-zone .lead-deck {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 9.4pt;
+            line-height: 1.2;
+            color: #333;
+            max-width: 96%;
+            margin: 2px auto 0 auto;
+        }
+
+        /* Gran Fotografía Panorámica Central de Graduadas */
+        .panoramic-grad-frame {
+            height: 94mm;
+            border: 1.5px solid #000;
+            padding: 2.5px;
+            background: #fff;
+            margin-bottom: 2px;
+        }
+
+        .panoramic-grad-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+        }
+
+        /* Grilla Inferior de Página 3: Foto Gala + Cuadro de Honor y Testimonios */
+        .page3-bottom-grid {
+            display: grid;
+            grid-template-columns: 86mm 1fr;
+            gap: 12px;
+            margin-top: 6px;
+            flex: 1;
+        }
+
+        .practice-photo-frame {
+            height: 68mm;
+            border: 1px solid #000;
+            padding: 2px;
+            background: #fff;
+        }
+
+        .practice-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .graduates-roll-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card {
+            border-left: 2.5px solid var(--accent-gold);
+            padding-left: 8px;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-card p {
+            font-size: 8pt;
+            line-height: 1.2;
+            font-style: italic;
+            color: #222;
+            margin-bottom: 2px;
+        }
+
+        .testimonial-author {
+            font-family: var(--font-display);
+            font-size: 6.6pt;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #000;
+            display: block;
+        }
+
+        .alumni-honor-roll {
+            border: 1px solid #111;
+            padding: 5px 8px;
+            background: #fff;
+            margin-top: 3px;
+        }
+
+        .alumni-honor-roll h4 {
+            font-family: var(--font-display);
+            font-size: 7pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-bottom: 0.5px solid #111;
+            padding-bottom: 1.5px;
+            margin-bottom: 3px;
+        }
+
+        .alumni-tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 8px;
+            font-size: 6.8pt;
+            font-family: var(--font-display);
+            letter-spacing: 0.04em;
+        }
+
+        .certification-seal-bar {
+            border: 1px dashed #111;
+            padding: 4px 8px;
+            background: #fbf9f4;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 4px;
+        }
+
+        .seal-badge-text {
+            font-family: var(--font-display);
+            font-size: 6.6pt;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           PÁGINA 4: CONTRAPORTADA (MASTER TRAINER & CIERRE INSTITUCIONAL)
+           ========================================================================== */
+        .backpage-header-zone {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .backpage-header-zone .honor-tag {
+            font-family: var(--font-display);
+            font-size: 7.8pt;
+            font-weight: 900;
+            letter-spacing: 0.28em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 1px;
+        }
+
+        .backpage-header-zone h2 {
+            font-family: var(--font-headline);
+            font-size: 23pt;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .backpage-layout-grid {
+            display: grid;
+            grid-template-columns: 86mm 1fr;
+            gap: 12px;
+            flex: 1;
+            margin-top: 3px;
+        }
+
+        .backpage-portrait-frame {
+            height: 98mm;
+            border: 1.5px solid #000;
+            padding: 2.5px;
+            background: #fff;
+            position: relative;
+        }
+
+        .backpage-portrait-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 22%;
+        }
+
+        .backpage-story-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .monumental-quote-box {
+            border: 2px solid #111;
+            padding: 8px 12px;
+            background: #fdfcf9;
+            text-align: center;
+            margin: 6px 0;
+            position: relative;
+        }
+
+        .monumental-quote-box::before {
+            content: "“";
+            font-family: var(--font-headline);
+            font-size: 34pt;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            color: var(--accent-gold);
+            line-height: 1;
+        }
+
+        .monumental-quote-box blockquote {
+            font-family: var(--font-headline);
+            font-style: italic;
+            font-size: 10.5pt;
+            font-weight: 700;
+            line-height: 1.22;
+            color: #000;
+            margin-bottom: 3px;
+        }
+
+        .monumental-quote-box cite {
+            font-family: var(--font-display);
+            font-size: 7pt;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: #333;
+            display: block;
+        }
+
+        /* Directorio Institucional de Cierre */
+        .backpage-directory-box {
+            border: 1px solid #111;
+            padding: 7px 10px;
+            background: #fff;
+            margin-top: 5px;
+        }
+
+        .backpage-directory-title {
+            font-family: var(--font-display);
+            font-size: 7.5pt;
+            font-weight: 900;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: 1px solid #111;
+            padding-bottom: 2px;
+            margin-bottom: 5px;
+        }
+
+        .directory-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .directory-item {
+            font-size: 7.4pt;
+            line-height: 1.18;
+        }
+
+        .directory-item strong {
+            font-family: var(--font-display);
+            font-size: 6.8pt;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 1px;
+            color: #000;
+        }
+
+        .backpage-final-credits-strip {
+            border-top: var(--rule-thick);
+            padding-top: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-display);
+            font-size: 6.4pt;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* ==========================================================================
+           REGLAS DE IMPRESIÓN PROFESIONAL (@media print)
+           ========================================================================== */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            body {
+                background: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .print-toolbar {
+                display: none !important;
+            }
+
+            .newspaper-container {
+                display: block !important;
+                margin: 0 !important;
+                max-width: none !important;
+                gap: 0 !important;
+            }
+
+            .newspaper-page {
+                width: 210mm !important;
+                height: 297mm !important;
+                max-height: 297mm !important;
+                padding: 9.5mm 11.5mm 9.5mm 11.5mm !important;
+                box-shadow: none !important;
+                page-break-after: always !important;
+                break-after: page !important;
+                overflow: hidden !important;
+                margin: 0 !important;
+            }
+
+            /* Forzar filtros de imagen nítidos para tinta física */
+            .news-photo-box img,
+            .founder-photo-frame img,
+            .panoramic-grad-frame img,
+            .practice-photo-frame img,
+            .photo-history-img img,
+            .backpage-portrait-frame img {
+                filter: grayscale(100%) contrast(115%) brightness(98%) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA FLOTANTE DE CONTROL EDITORIAL (SE OCULTA AUTOMÁTICAMENTE AL IMPRIMIR) -->
+    <aside class="print-toolbar" id="printToolbar" aria-label="Controles de Impresión">
+        <span>📰 GACETA IMPRESA A4 (4 PÁGINAS)</span>
+        <button type="button" class="btn-print" onclick="window.print()">
+            <span>🖨️ IMPRIMIR / GUARDAR EN PDF</span>
+        </button>
+        <div class="view-toggle">
+            <span>Vista:</span>
+            <button type="button" class="view-btn active" id="btnSingle" onclick="toggleView('single')">1 Página</button>
+            <button type="button" class="view-btn" id="btnDiptych" onclick="toggleView('diptych')">Pliego Díptico (2 Páginas)</button>
+            <button type="button" class="view-btn" id="btnColor" onclick="togglePhotoColor()">Fotos Color / B&N</button>
+        </div>
+    </aside>
+
+    <main class="newspaper-container">
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+             PÁGINA 1: PORTADA PRINCIPAL (MASTHEAD, FUNDADORA & NUESTRA HISTORIA)
+             ═══════════════════════════════════════════════════════════════════ -->
+        <article class="newspaper-page" id="page-1">
+            
+            <!-- Cintillo Superior / Ears -->
+            <div class="double-rule-top">
+                <div class="masthead-ear-banner">
+                    <span>Puerto Vallarta, Jalisco, México</span>
+                    <span>★ INTERNACIONAL ACADEMIA LASH & BEAUTY ★</span>
+                    <span>Sábado, 2 de Mayo de 2026</span>
+                </div>
+            </div>
+
+            <!-- Gran Cabecera / Masthead -->
+            <header class="masthead-center">
+                <h1 class="masthead-title">Cami's Lashes Academy</h1>
+                <div class="masthead-subdeck">
+                    ÓRGANO OFICIAL DE DIVULGACIÓN TÉCNICA, ARTÍSTICA Y FORMACIÓN EMPRESARIAL DE LA MIRADA
+                </div>
+                <div class="masthead-metadata-bar">
+                    <span>AÑO V • NÚMERO 14 CONMEMORATIVO</span>
+                    <span>DEPÓSITO LEGAL Y MARCA REGISTRADA</span>
+                    <span>DISTRIBUCIÓN EXCLUSIVA • SEDE VERSALLES</span>
+                    <span>PRECIO: INVALUABLE</span>
+                </div>
+            </header>
+
+            <!-- Titular de Portada -->
+            <section class="front-headline-zone">
+                <span class="front-kicker">EDICIÓN ESPECIAL DE COLECCIÓN</span>
+                <h2 class="front-main-title">Nuestra Historia: El Renacimiento de la Mirada</h2>
+                <p class="front-subtitle-deck">
+                    Cómo una profunda vocación artesanal forjada en la disciplina, el visagismo y la bioseguridad transformó la estética de pestañas en Puerto Vallarta y construyó la academia de mayor rigor técnico en el Pacífico mexicano.
+                </p>
+            </section>
+
+            <!-- Cuerpo de Portada: Columna Izquierda (Foto Fundadora + Callout Técnico) + Columna Derecha (2 columnas texto fluido) -->
+            <div class="front-layout-grid">
+                
+                <!-- Columna Izquierda: Retrato Camila Marín Ruiz + Especialidad Técnica -->
+                <div class="front-left-col">
+                    <div class="founder-photo-frame news-photo-box">
+                        <img src="images/camila_marin.jpg" alt="Mtra. Camila Marín Ruiz con copa y reconocimiento" />
+                    </div>
+                    <div class="photo-caption">
+                        <strong>Mtra. Camila Marín Ruiz:</strong> Master Lash Artist, educadora visionaria y fundadora de Cami's Lashes Studio & Academy en Puerto Vallarta.
+                    </div>
+                    
+                    <div class="founder-mini-quote">
+                        <p>«El arte de la mirada no admite mediocridad: cada fibra colocada es un pacto sagrado de confianza, salud ocular y autoestima.»</p>
+                    </div>
+
+                    <!-- Ficha Técnica Editorial Izquierda -->
+                    <div class="sidebar-feature-box">
+                        <h4>Especialidad: Fibras Tecnológicas</h4>
+                        <p>
+                            Pionera regional en la implementación de fibras pre-ensambladas ultraligeras y Efecto Wet. Reducen el tiempo de aplicación en un 40% preservando la salud natural del folículo.
+                        </p>
+                        <p style="margin-top: 3px; font-weight: 600;">
+                            ✦ Retención garantizada de 4 a 5 semanas.
+                        </p>
+                    </div>
+
+                    <div class="sidebar-feature-box" style="margin-top: 4px;">
+                        <h4>Distintivo Versalles</h4>
+                        <p>
+                            Estudio Boutique & Spa en Calle Francia #142, combinando extensiones de autor con cabinas de masaje holístico y pedicura clínica.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Artículo Editorial a Dos Columnas -->
+                <div class="front-story-text-container">
+                    <div class="front-articles-2col">
+                        <p class="drop-cap">
+                            Permítenos presentarte la inspiradora trayectoria detrás de <em>Cami's Lashes Academy</em>, fundada por <strong>Camila Marín Ruiz</strong>, destacada Master Lash Artist y formadora profesional de la industria de la belleza de la mirada. La enseñanza nunca fue el plan original; fue la consecuencia inevitable de la excelencia. Camila inició su camino en el mundo de la extensión y diseño de pestañas con una visión clara: transformar la estética de la mirada en una profesión rentable, digna y altamente especializada.
+                        </p>
+                        <p>
+                            A través de años de capacitación continua, perfeccionamiento de técnicas internacionales en congresos de primer nivel y la experimentación rigurosa con formulaciones químicas y curvaturas, desarrolló una metodología pedagógica propia. Observó que el mercado local y nacional sufría de una grave saturación de aplicaciones deficientes, folículos maltratados y falsas promesas de capacitación exprés.
+                        </p>
+                        <h3 class="sub-article-heading">De lo Tecnológico a lo Artesanal</h3>
+                        <p>
+                            Ante dicha realidad, Camila erigió en el corazón de Versalles, Puerto Vallarta, un santuario de formación donde el lema <em>«De lo tecnológico a lo artesanal»</em> cobra vida. La técnica no se reduce a pegar fibras sintéticas; se trata de una intervención biométrica que armoniza la simetría del rostro, respeta la integridad anatómica de la pestaña natural y potencia la personalidad irrepetible de cada clienta.
+                        </p>
+                        <p>
+                            Cami's Lashes Academy se ha consolidado como un faro de mentoría integral. Aquí las alumnas no solo aprenden el balance exacto de abanicos, la polimerización del cianoacrilato y los secretos del lifting coreano; aprenden a valorarse como empresarias, a calcular sus costos milimétricos y a edificar negocios sostenibles y prósperos.
+                        </p>
+                        <h3 class="sub-article-heading">Expansión Nacional e Internacional</h3>
+                        <p>
+                            El impacto pedagógico de la academia trascendió rápidamente las fronteras de Jalisco. A través de Masterclasses especializadas en Guanajuato, León, Guadalajara y la próxima participación en la cumbre internacional de Medellín (Colombia), el método de Camila Marín Ruiz se consolida como referencia iberoamericana en la docencia de la belleza.
+                        </p>
+                        <p>
+                            Hoy, Cami's Lashes no es únicamente un estudio de renombre en el corredor gastronómico y cosmopolita de Versalles: es una comunidad viva de más de un centenar de graduadas que han encontrado en la mirada su camino hacia la independencia financiera y la autorrealización profesional.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Franja Inferior / Sello Heráldico de Portada -->
+            <footer class="front-footer-strip">
+                <div class="front-footer-logo">
+                    <img src="logo.jpg" alt="Logotipo Cami's Lashes" />
+                    <div class="front-footer-logo-text">
+                        Cami's Lashes<br>Boutique & Spa
+                    </div>
+                </div>
+                <div class="front-footer-proclamation">
+                    «No transmitimos una técnica pasajera de temporada; entregamos el código perdurable de la excelencia artesanal.»
+                </div>
+                <div class="front-footer-seal">
+                    <span>ACREDITACIÓN DE ÉLITE</span><br>
+                    <span>NORMA INTERNACIONAL</span><br>
+                    <span>SELLO DE ORIGEN PV</span>
+                </div>
+            </footer>
+
+            <div class="page-footer-folio">
+                <span>GACETA OFICIAL CAMI'S LASHES ACADEMY</span>
+                <span>★ PÁGINA 1 — PORTADA ★</span>
+                <span>EDICIÓN CONMEMORATIVA A4</span>
+            </div>
+
+        </article>
+
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+             PÁGINA 2: MANIFIESTO, ÉTICA & PRIMERAS GENERACIONES
+             ═══════════════════════════════════════════════════════════════════ -->
+        <article class="newspaper-page" id="page-2">
+            
+            <!-- Cintillo Superior Continuo -->
+            <header class="running-header">
+                <span>CAMI'S LASHES ACADEMY — GACETA CONMEMORATIVA</span>
+                <span>PLIEGO INTERIOR IZQUIERDO</span>
+                <span>FILOSOFÍA, RIGOR & PRIMERAS GENERACIONES</span>
+            </header>
+
+            <!-- Encabezado de Página 2 -->
+            <section class="page2-header-title">
+                <span class="sub">DECLARACIÓN DE PRINCIPIOS INSTITUCIONALES</span>
+                <h2>Nuestra Misión & Objetivo Formativo</h2>
+                <div class="single-rule"></div>
+            </section>
+
+            <!-- Contenido Principal: Manifiesto a la Izquierda + Cuadrícula Histórica a la Derecha -->
+            <div class="page2-content-grid">
+                
+                <!-- Columna Manifiesto -->
+                <div class="page2-manifesto-col">
+                    <div class="manifesto-box">
+                        <h3>Carta Abierta a la Nueva Alumna</h3>
+                        <p class="drop-cap">
+                            Querida futura Lash Artist: cuando cruzas el umbral de nuestra academia, dejas atrás la improvisación. Este oficio no es un pasatiempo temporal ni un atajo rápido; es una disciplina de altísima precisión donde cada milímetro cuenta la historia de tu compromiso y tu ética profesional.
+                        </p>
+                        <p>
+                            Nuestra misión fundamental es extirpar de raíz las malas prácticas de la industria, dotándote de un criterio clínico y estético tan sólido que ninguna moda pasajera pueda derribar tu prestigio. Buscamos que tu nombre sea sinónimo de salud folicular, pulcritud quirúrgica y diseño personalizado.
+                        </p>
+                    </div>
+
+                    <div class="manifesto-box">
+                        <h3>Los 5 Pilares del Método Cami's Lashes</h3>
+                        <ul class="pillars-list">
+                            <li>
+                                <strong>1. Salud Folicular Innegociable:</strong> Aislamiento puro de 1 a 1 sin residuos de adhesivo ni pestañas pegadas entre sí. Respeto sagrado al ciclo natural de crecimiento anágeno.
+                            </li>
+                            <li>
+                                <strong>2. Química y Termodinámica:</strong> Dominio de la humedad relativa y la temperatura en cabina para una unión micrométrica sin gases nocivos ni irritación ocular.
+                            </li>
+                            <li>
+                                <strong>3. Visagismo y Arquitectura Facial:</strong> Creación de mapas oculares personalizados según la cuenca, ángulo y profundidad de la mirada.
+                            </li>
+                            <li>
+                                <strong>4. Bioseguridad y Esterilización:</strong> Protocolos hospitalarios de desinfección en pinzas y campo de trabajo clínico.
+                            </li>
+                            <li>
+                                <strong>5. Inteligencia de Negocio & Cobro Digno:</strong> Formación en costos reales, servicio de guante blanco y marketing ético para garantizar tu independencia económica.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-feature-box" style="margin-top: 0;">
+                        <h4>Protocolo de Retención Extrema (5 Semanas)</h4>
+                        <p>
+                            Nuestras egresadas dominan la tríada de fijación: higiene con espuma neutra médica, cebado catiónico de la cutícula y polimerización por choque térmico controlado. Cero caídas tempranas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Columna Fotografías Históricas -->
+                <div class="page2-photos-col">
+                    
+                    <div class="photo-history-card">
+                        <div class="photo-history-img news-photo-box">
+                            <img src="images/gala/gala_2_ceremonia.jpg" alt="Ceremonia solemne primeras generaciones" />
+                        </div>
+                        <div class="photo-caption">
+                            <strong>Semillero Histórico:</strong> Alumnas fundadoras en el taller de perfeccionamiento técnico intensivo (Generación Lash Mastery 2021-2022).
+                        </div>
+                    </div>
+
+                    <div class="photo-history-card">
+                        <div class="photo-history-img news-photo-box">
+                            <img src="images/academia_hero_real.jpg" alt="Práctica en cabina con modelo real" />
+                        </div>
+                        <div class="photo-caption">
+                            <strong>Supervisión Clínica Uno a Uno:</strong> Camila Marín corrigiendo en tiempo real el ángulo de inserción y el balance de adhesivo sobre modelo viva.
+                        </div>
+                    </div>
+
+                    <div class="timeline-strip">
+                        <h4>Cronología de la Excelencia Académica</h4>
+                        <ul>
+                            <li><strong>2020:</strong> Apertura de la primera cabina técnica en Puerto Vallarta.</li>
+                            <li><strong>2022:</strong> Creación del Diplomado de Fibras Tecnológicas.</li>
+                            <li><strong>2024:</strong> Consolidación de la Sede Versalles y Certificación de más de 120 egresadas.</li>
+                            <li><strong>2026:</strong> Expansión nacional con fechas en Guanajuato y Medellín.</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Cita Destacada Inferior -->
+            <div class="page2-banner-quote">
+                <blockquote>
+                    «El éxito de una academia jamás se mide por la cantidad de diplomas entregados, sino por la prosperidad, la solvencia técnica y el brillo inquebrantable de sus alumnas en el mercado real.»
+                </blockquote>
+            </div>
+
+            <!-- Folio Inferior -->
+            <footer class="page-footer-folio">
+                <span>Cami's Lashes Academy • Puerto Vallarta</span>
+                <span>★ PÁGINA 2 ★</span>
+                <span>Rigor, Técnica y Conciencia Profesional</span>
+            </footer>
+
+        </article>
+
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+             PÁGINA 3: GALERÍA CENTRAL DE EGRESADAS (PLIEGO DERECHO)
+             ═══════════════════════════════════════════════════════════════════ -->
+        <article class="newspaper-page" id="page-3">
+            
+            <!-- Cintillo Superior Continuo -->
+            <header class="running-header">
+                <span>CAMI'S LASHES ACADEMY — GACETA CONMEMORATIVA</span>
+                <span>PLIEGO INTERIOR DERECHO</span>
+                <span>CEREMONIA DE CERTIFICACIÓN & CUADRO DE HONOR</span>
+            </header>
+
+            <!-- Encabezado de Página 3 -->
+            <section class="page3-header-zone">
+                <h2>El Diploma de la Excelencia: Egresadas de Élite</h2>
+                <p class="lead-deck">
+                    Testimonio visual de las generaciones acreditadas que hoy definen el más alto estándar de belleza y salud de la mirada en Jalisco, Nayarit, el Bajío y más allá de nuestras fronteras.
+                </p>
+                <div class="single-rule"></div>
+            </section>
+
+            <!-- Fotografía Panorámica Central Solemne -->
+            <section>
+                <div class="panoramic-grad-frame news-photo-box">
+                    <img src="images/gala/gala_grupo_diplomas.jpg" alt="Graduación Solemne de Cami's Lashes Academy" />
+                </div>
+                <div class="photo-caption" style="margin-bottom: 4px;">
+                    <strong>Ceremonia Magna de Graduación & Certificación Oficial:</strong> Egresadas de la Generación 2023 / 2024 con togas, birretes y diplomas avalados, flanqueando a la fundadora Camila Marín Ruiz tras completar con honores la rigurosa evaluación teórico-práctica.
+                </div>
+            </section>
+
+            <!-- Grilla Inferior de Página 3: Foto Gala + Cuadro de Honor y Testimonios -->
+            <div class="page3-bottom-grid">
+                
+                <!-- Columna Izquierda: Noche de Gala + Cuadro de Egresadas -->
+                <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="practice-photo-frame news-photo-box">
+                            <img src="images/gala/gala_3_cena.jpg" alt="Noche de Gala y cena de celebración de alumnas" />
+                        </div>
+                        <div class="photo-caption">
+                            <strong>Noche de Confraternidad & Hermandad Lash:</strong> La certificación concluye con una cena de gala para celebrar la transición de estudiantes a empresarias del sector de la belleza.
+                        </div>
+                    </div>
+
+                    <div class="alumni-honor-roll">
+                        <h4>Mención de Honor — Egresadas Destacadas</h4>
+                        <div class="alumni-tags-cloud">
+                            <span>✦ Aidé Molina</span>
+                            <span>✦ Andrea Rodríguez</span>
+                            <span>✦ Valeria García</span>
+                            <span>✦ Yesenia Cano</span>
+                            <span>✦ Erika Landeros</span>
+                            <span>✦ Alisson Rubio</span>
+                            <span>✦ Ana Rosa Soto</span>
+                            <span>✦ Lorena Solís</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Testimonios Reales y Sello de Certificación -->
+                <div class="graduates-roll-box">
+                    
+                    <div>
+                        <h3 class="sub-article-heading" style="margin-top: 0;">Voces de Nuestras Graduadas</h3>
+                        
+                        <div class="testimonial-card">
+                            <p>«Cami no solo me enseñó a crear abanicos perfectos; me quitó el miedo a cobrar lo que vale mi trabajo. En tres meses recuperé la inversión total de mi diplomado y hoy mi agenda tiene lista de espera.»</p>
+                            <span class="testimonial-author">— Andrea R. • Propietaria de Estudio en Bahía de Banderas</span>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <p>«El módulo de neuromarketing y la anatomía ocular me cambiaron la vida. Mis clientas notaron de inmediato la diferencia en retención y comodidad. Cami es una mentora de verdad.»</p>
+                            <span class="testimonial-author">— Valeria G. • Egresada Master Class 2024</span>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <p>«El acompañamiento no termina con la foto del diploma. Cada vez que tengo un caso complejo en cabina, Cami me orienta. Esa hermandad no se compra en ningún otro curso.»</p>
+                            <span class="testimonial-author">— Aidé M. • Lash Artist Certificada</span>
+                        </div>
+                    </div>
+
+                    <div class="certification-seal-bar">
+                        <div>
+                            <span class="seal-badge-text">✦ CERTIFICACIÓN OFICIAL AVALADA</span><br>
+                            <span style="font-size: 6.8pt; color: #444;">Validez técnica profesional • Registro de Folio Único</span>
+                        </div>
+                        <div style="font-family: var(--font-display); font-size: 9pt; font-weight: 900; letter-spacing: 0.1em;">
+                            PV-MEX
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Folio Inferior -->
+            <footer class="page-footer-folio">
+                <span>Cami's Lashes Academy • Generaciones de Triunfo</span>
+                <span>★ PÁGINA 3 ★</span>
+                <span>Alumnas Certificadas • Legado en Expansión</span>
+            </footer>
+
+        </article>
+
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+             PÁGINA 4: CONTRAPORTADA (MASTER TRAINER & CIERRE INSTITUCIONAL)
+             ═══════════════════════════════════════════════════════════════════ -->
+        <article class="newspaper-page" id="page-4">
+            
+            <!-- Cintillo Superior Continuo -->
+            <header class="running-header">
+                <span>EDICIÓN DE COLECCIÓN</span>
+                <span>PÁGINA 4 — CONTRAPORTADA</span>
+                <span>PUERTO VALLARTA, JALISCO, MÉXICO</span>
+            </header>
+
+            <!-- Titular Monumental de Contraportada -->
+            <section class="backpage-header-zone">
+                <span class="honor-tag">HONOR A QUIEN HONOR MERECE</span>
+                <h2>Mejor Entrenadora / Master Trainer</h2>
+                <div class="single-rule"></div>
+            </section>
+
+            <!-- Grilla Principal de Contraportada: Retrato de Gala + Artículo, Cita Monumental y Ficha Curricular -->
+            <div class="backpage-layout-grid">
+                
+                <!-- Columna Izquierda: Retrato Solemne de Camila Marín Ruiz + Perfil Profesional -->
+                <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="backpage-portrait-frame news-photo-box">
+                            <img src="images/gala/gala_1_retrato.jpg" alt="Retrato Editorial de Camila Marín Ruiz en gala" />
+                        </div>
+                        <div class="photo-caption">
+                            <strong>Camila Marín Ruiz:</strong> Directora y Master Trainer de Cami's Lashes Studio & Academy en sesión editorial conmemorativa.
+                        </div>
+                    </div>
+
+                    <div class="sidebar-feature-box">
+                        <h4>Perfil de la Master Trainer</h4>
+                        <p>
+                            • Más de 8 años de trayectoria perfeccionando la arquitectura de la mirada.<br>
+                            • Jurado en certámenes de extensiones de pestañas y conferencista de neuromarketing estético.<br>
+                            • Creadora del protocolo exclusivo de armonización de curvaturas mixtas y lifting coreano.
+                        </p>
+                    </div>
+
+                    <div class="sidebar-feature-box" style="margin-top: 3px;">
+                        <h4>Garantía de Acompañamiento VIP</h4>
+                        <p>
+                            Todas las alumnas matriculadas cuentan con auditoría técnica de casos en vivo durante los 6 meses posteriores a su graduación.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: El Legado de la Mentoría y Cita de Honor -->
+                <div class="backpage-story-col">
+                    
+                    <div>
+                        <h3 class="sub-article-heading" style="margin-top: 0;">La Mentoría que Trasciende</h3>
+                        <p class="drop-cap">
+                            Formar a las nuevas generaciones exige algo más que habilidad motriz en las manos: exige alma, generosidad didáctica y una disciplina a prueba de desánimos. Camila Marín Ruiz se ha ganado a pulso el título de Master Trainer de referencia en la región gracias a su negativa absoluta a guardarse secretos técnicos.
+                        </p>
+                        <p>
+                            En un gremio habitualmente marcado por el recelo o la competencia desleal, Cami's Lashes ha edificado una auténtica hermandad. Aquí el conocimiento se comparte con abundancia, con la convicción firme de que cuando una mujer se emancipa económicamente a través del arte de sus manos, eleva consigo a toda su comunidad.
+                        </p>
+                    </div>
+
+                    <!-- Monumental Quote Box -->
+                    <div class="monumental-quote-box">
+                        <blockquote>
+                            «De lo tecnológico a lo artesanal: transformando la pasión en maestría y cada mirada en un lienzo vivo de dignidad y confianza.»
+                        </blockquote>
+                        <cite>— Camila Marín Ruiz</cite>
+                    </div>
+
+                    <div>
+                        <h3 class="sub-article-heading">El Sello de Origen Versalles</h3>
+                        <p>
+                            Su metodología combina la precisión geométrica de las fibras tecnológicas de última generación con el calor del trato humano personalizado. Cada alumna egresada de esta casa de estudios porta un sello indeleble de profesionalismo que abre puertas en cualquier estudio de México y Norteamérica.
+                        </p>
+                        <p>
+                            La belleza de la mirada en Puerto Vallarta tiene un antes y un después de Cami's Lashes: una escuela donde el arte y el rigor caminan juntos.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Directorio Oficial y Contacto Institucional -->
+            <section class="backpage-directory-box">
+                <h4 class="backpage-directory-title">Directorio Oficial & Sede Académica Central</h4>
+                <div class="directory-columns">
+                    <div class="directory-item">
+                        <strong>📍 Sede Central de Capacitación & Spa:</strong>
+                        Calle Francia #142, Col. Versalles, C.P. 48310<br>
+                        Puerto Vallarta, Jalisco, México.
+                    </div>
+                    <div class="directory-item">
+                        <strong>📱 Línea Directa WhatsApp & Concierge:</strong>
+                        +52 (322) 381-4346<br>
+                        Atención personalizada para citas y admisiones a cursos.
+                    </div>
+                    <div class="directory-item">
+                        <strong>🌐 Portales Oficiales & Redes:</strong>
+                        Instagram: <code>@camis_lashes</code><br>
+                        Web: <code>www.camislashesstudio.com</code>
+                    </div>
+                    <div class="directory-item">
+                        <strong>🎓 Próximas Fechas & Convocatorias:</strong>
+                        • Especialidad en Fibras Tecnológicas & Efectos de Autor<br>
+                        • Certificación Lifting Coreano & Laminado de Cejas
+                    </div>
+                </div>
+            </section>
+
+            <!-- Franja Final de Créditos y Cierre -->
+            <footer class="backpage-final-credits-strip">
+                <span>© 2026 CAMI'S LASHES STUDIO & ACADEMY</span>
+                <span>TODOS LOS DERECHOS RESERVADOS</span>
+                <span>DISEÑO EDITORIAL PARA PRENSA & ARCHIVO HISTÓRICO</span>
+            </footer>
+
+            <div class="page-footer-folio" style="margin-top: 3px;">
+                <span>GACETA OFICIAL CAMI'S LASHES ACADEMY</span>
+                <span>★ PÁGINA 4 — CONTRAPORTADA ★</span>
+                <span>EJEMPLAR CONMEMORATIVO IMPRESO</span>
+            </div>
+
+        </article>
+
+    </main>
+
+    <!-- SCRIPT DE INTERACCIÓN Y CONTROLES DE PANTALLA -->
+    <script>
+        function toggleView(mode) {
+            const btnSingle = document.getElementById('btnSingle');
+            const btnDiptych = document.getElementById('btnDiptych');
+
+            if (mode === 'diptych') {
+                document.body.classList.add('diptych-mode');
+                btnDiptych.classList.add('active');
+                btnSingle.classList.remove('active');
+            } else {
+                document.body.classList.remove('diptych-mode');
+                btnSingle.classList.add('active');
+                btnDiptych.classList.remove('active');
+            }
+        }
+
+        function togglePhotoColor() {
+            const btnColor = document.getElementById('btnColor');
+            document.body.classList.toggle('color-photos');
+            if (document.body.classList.contains('color-photos')) {
+                btnColor.classList.add('active');
+                btnColor.textContent = 'Fotos: Color Original';
+            } else {
+                btnColor.classList.remove('active');
+                btnColor.textContent = 'Fotos: Blanco y Negro Prensa';
+            }
+        }
+    </script>
+</body>
+</html>

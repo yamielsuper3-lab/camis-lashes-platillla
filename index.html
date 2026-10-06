@@ -32,6 +32,10 @@
         window.gtag_report_conversion = gtag_report_conversion;
     </script>
     <script src="js/tracking.js" defer></script>
+    <!-- Favicon & Touch Icon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -17661,31 +17665,69 @@
                 const galleryStrip = document.getElementById('spaModalGalleryStrip');
                 let emptyNotice = document.getElementById('spaModalEmptyNotice');
 
+                let currentRequestedImgUrl = '';
                 const showModalImage = (imgUrl, tagText) => {
                     if (imgUrl && imgUrl.trim() !== '') {
                         if (emptyNotice) emptyNotice.style.display = 'none';
                         const fullUrl = imgUrl + (imgUrl.includes('?') ? '&' : '?') + 'v=hd2026';
-                        if (ambientBlur) {
-                            ambientBlur.style.backgroundImage = 'url("' + fullUrl + '")';
-                            ambientBlur.style.display = 'block';
+                        currentRequestedImgUrl = fullUrl;
+
+                        // Si la imagen que ya está cargada es la misma y está visible, solo actualizamos tag
+                        if (mainImg && mainImg.src === fullUrl && mainImg.style.opacity === '1') {
+                            if (tagEl) {
+                                tagEl.style.display = 'inline-block';
+                                tagEl.textContent = tagText || s.tag || 'Trabajo Real en Cabina';
+                            }
+                            return;
                         }
+
+                        // Eliminamos de inmediato la imagen anterior para evitar el molesto parpadeo/delay del servicio previo
                         if (mainImg) {
                             mainImg.style.display = 'block';
-                            mainImg.style.opacity = '0.3';
-                            mainImg.style.transform = 'scale(0.97)';
-                            setTimeout(() => {
+                            mainImg.style.opacity = '0';
+                            mainImg.style.transform = 'scale(0.96)';
+                        }
+                        if (ambientBlur) {
+                            ambientBlur.style.opacity = '0.3';
+                        }
+
+                        // Precarga fluida en memoria antes de inyectar en el DOM
+                        const preloader = new Image();
+                        preloader.onload = () => {
+                            if (currentRequestedImgUrl !== fullUrl) return; // Evita carreras si el usuario cambia rápido
+                            if (mainImg) {
+                                mainImg.src = fullUrl;
+                                requestAnimationFrame(() => {
+                                    mainImg.style.opacity = '1';
+                                    mainImg.style.transform = 'scale(1)';
+                                });
+                            }
+                            if (ambientBlur) {
+                                ambientBlur.style.backgroundImage = 'url("' + fullUrl + '")';
+                                ambientBlur.style.display = 'block';
+                                ambientBlur.style.opacity = '0.85';
+                            }
+                        };
+                        preloader.onerror = () => {
+                            if (currentRequestedImgUrl !== fullUrl) return;
+                            if (mainImg) {
                                 mainImg.src = fullUrl;
                                 mainImg.style.opacity = '1';
-                                mainImg.style.transform = 'scale(1)';
-                            }, 80);
-                        }
+                            }
+                        };
+                        preloader.src = fullUrl;
+
                         if (tagEl) {
                             tagEl.style.display = 'inline-block';
                             tagEl.textContent = tagText || s.tag || 'Trabajo Real en Cabina';
                         }
                     } else {
+                        currentRequestedImgUrl = '';
                         if (ambientBlur) ambientBlur.style.display = 'none';
-                        if (mainImg) mainImg.style.display = 'none';
+                        if (mainImg) {
+                            mainImg.style.display = 'none';
+                            mainImg.src = '';
+                        }
                         if (!emptyNotice && viewerWrap) {
                             emptyNotice = document.createElement('div');
                             emptyNotice.id = 'spaModalEmptyNotice';
@@ -17748,6 +17790,18 @@
                 if (modal) {
                     modal.classList.remove('active');
                     document.body.classList.remove('modal-open');
+                    // Limpieza inmediata para que al abrir el siguiente servicio no aparezca el anterior
+                    setTimeout(() => {
+                        const mainImg = document.getElementById('spaModalMainImg');
+                        const ambientBlur = document.getElementById('spaModalAmbientBlur');
+                        if (mainImg) {
+                            mainImg.style.opacity = '0';
+                            mainImg.src = '';
+                        }
+                        if (ambientBlur) {
+                            ambientBlur.style.backgroundImage = 'none';
+                        }
+                    }, 280);
                 }
             };
 
